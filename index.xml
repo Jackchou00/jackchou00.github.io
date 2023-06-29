@@ -6,14 +6,25 @@
     <description>Recent content on JacksBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2023 15:07:10 +0800</lastBuildDate><atom:link href="https://Jackchou00.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 15:43:59 +0800</lastBuildDate><atom:link href="https://Jackchou00.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Helloworld</title>
+      <title>解决换行符导致的hugo主题渲染问题</title>
+      <link>https://Jackchou00.github.io/posts/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 29 Jun 2023 15:43:59 +0800</pubDate>
+      
+      <guid>https://Jackchou00.github.io/posts/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/</guid>
+      <description>问题描述 由Hugo生成的静态网页在本地运行时正常，将Public目录push到Github后，Github Pages无法正确显示CSS样式。
+解决 这一问题是由于Windows和MacOS或linux系统的换行符不同导致的，而Git会自动将换行符转换为CRLF，因此在Windows上生成的静态网页在Github上无法正确显示。 解决办法是将git的换行符转换功能关闭，即:
+git config --global core.autocrlf false 再次push到Github上，即可正常显示。</description>
+    </item>
+    
+    <item>
+      <title>HelloWorld</title>
       <link>https://Jackchou00.github.io/posts/helloworld/</link>
       <pubDate>Thu, 29 Jun 2023 15:07:10 +0800</pubDate>
       
       <guid>https://Jackchou00.github.io/posts/helloworld/</guid>
-      <description>This is a test post. Say hello to the world!</description>
+      <description>Hello World! 这里是Jackchou00的个人博客，由Hugo搭建并部署在Github上。</description>
     </item>
     
   </channel>

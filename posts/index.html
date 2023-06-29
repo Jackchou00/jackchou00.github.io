@@ -133,14 +133,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Helloworld
+    <h2>解决换行符导致的hugo主题渲染问题
     </h2>
   </header>
   <div class="entry-content">
-    <p>This is a test post. Say hello to the world!</p>
+    <p>问题描述 由Hugo生成的静态网页在本地运行时正常，将Public目录push到Github后，Github Pages无法正确显示CSS样式。
+解决 这一问题是由于Windows和MacOS或linux系统的换行符不同导致的，而Git会自动将换行符转换为CRLF，因此在Windows上生成的静态网页在Github上无法正确显示。 解决办法是将git的换行符转换功能关闭，即:
+git config --global core.autocrlf false 再次push到Github上，即可正常显示。</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-06-29 15:43:59 +0800 CST'>June 29, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to 解决换行符导致的hugo主题渲染问题" href="https://Jackchou00.github.io/posts/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>HelloWorld
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Hello World! 这里是Jackchou00的个人博客，由Hugo搭建并部署在Github上。</p>
   </div>
   <footer class="entry-footer"><span title='2023-06-29 15:07:10 +0800 CST'>June 29, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Helloworld" href="https://Jackchou00.github.io/posts/helloworld/"></a>
+  <a class="entry-link" aria-label="post link to HelloWorld" href="https://Jackchou00.github.io/posts/helloworld/"></a>
 </article>
     </main>
     
