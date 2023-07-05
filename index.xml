@@ -43,7 +43,9 @@ git config --global core.autocrlf false 再次push到Github上，即可正常显
       <pubDate>Thu, 29 Jun 2023 15:07:10 +0800</pubDate>
       
       <guid>https://Jackchou00.github.io/posts/helloworld/</guid>
-      <description>Hello World! 这里是Jackchou00的个人博客，由Hugo搭建并部署在Github上。</description>
+      <description>Hello World!
+这里是Jackchou00的个人博客，由Hugo搭建并部署在Github上。
+我正在尝试在文章中添加图片，请期待！目前的尝试是使用Webp格式的图片，将图片放置于Hugo的Static文件夹中以备调用。之后将会转向Avif或JPEG-XL，因为他们具有更高的效率。</description>
     </item>
     
   </channel>
