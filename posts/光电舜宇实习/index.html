@@ -22,7 +22,7 @@
 今日照样是无人问津，干脆直接把显示器的HDMI接在自己电脑上，看看Python，看看数字图像处理，又看看博客上添加图片的方案。总之蜻蜓点水的每个都看点，主要还是打发时间。办公室其他同事（倒也不知道能不能叫“同事”）仿佛看不见我们一般，各做各的，互不打扰。只可惜这偌大的企业，竟不提供WiFi网络，四个舜宇开头的SSID，三个不可连接，剩下一个Guest还需登录使用。下午半场当然也是一切照常，不过他们办公室下午两三点开始，便有人陆续起身，热切的讨论些工作上或工作外的事情，工作气氛颇为欢快。
 中午食堂一顿炸酱面，竟然放汤，理解不能。晚上鸭腿饭，和沙县五五开的水平。今天稍作实验，原来饭补是一餐两次，一日两餐，若六点后打下班卡，则再加一次夜宵饭补。于是晚饭后在超市仔细选购，拿着10.5元商品把饭补刷了，收银小姐还附赠棒棒糖一根以补足11元。每天吃这鸟公司44块钱饭，倒也不错，如此看来，这公司应是“管饭的自习室”较为恰当。
 临下班前上台式机看看，仍是毫无权限，于是掐点下班，溜之大吉。">
-<meta name="author" content="">
+<meta name="author" content="Jack">
 <link rel="canonical" href="https://Jackchou00.github.io/posts/%E5%85%89%E7%94%B5%E8%88%9C%E5%AE%87%E5%AE%9E%E4%B9%A0/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
@@ -145,6 +145,10 @@
   "inLanguage": "en",
   "datePublished": "2023-07-03T22:29:09+08:00",
   "dateModified": "2023-07-03T22:29:09+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Jack"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://Jackchou00.github.io/posts/%E5%85%89%E7%94%B5%E8%88%9C%E5%AE%87%E5%AE%9E%E4%B9%A0/"
@@ -212,7 +216,7 @@
     <h1 class="post-title">
       光电舜宇实习
     </h1>
-    <div class="post-meta"><span title='2023-07-03 22:29:09 +0800 CST'>July 3, 2023</span>
+    <div class="post-meta"><span title='2023-07-03 22:29:09 +0800 CST'>July 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Jack
 
 </div>
   </header> 
@@ -330,6 +334,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
