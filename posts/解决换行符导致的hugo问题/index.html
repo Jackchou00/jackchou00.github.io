@@ -10,7 +10,7 @@
 <meta name="description" content="问题描述 由Hugo生成的静态网页在本地运行时正常，将Public目录push到Github后，Github Pages无法正确显示CSS样式。
 解决 这一问题是由于Windows和MacOS或linux系统的换行符不同导致的，而Git会自动将换行符转换为CRLF，因此在Windows上生成的静态网页在Github上无法正确显示。 解决办法是将git的换行符转换功能关闭，即:
 git config --global core.autocrlf false 再次push到Github上，即可正常显示。">
-<meta name="author" content="Jack">
+<meta name="author" content="">
 <link rel="canonical" href="https://Jackchou00.github.io/posts/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
@@ -109,10 +109,6 @@ git config --global core.autocrlf false 再次push到Github上，即可正常显
   "inLanguage": "en",
   "datePublished": "2023-06-29T15:43:59+08:00",
   "dateModified": "2023-06-29T15:43:59+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "Jack"
-  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://Jackchou00.github.io/posts/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/"
@@ -176,11 +172,11 @@ git config --global core.autocrlf false 再次push到Github上，即可正常显
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="https://Jackchou00.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Jackchou00.github.io/posts/">Posts</a></div>
     <h1 class="post-title">
       解决换行符导致的hugo主题渲染问题
     </h1>
-    <div class="post-meta"><span title='2023-06-29 15:43:59 +0800 CST'>June 29, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Jack
+    <div class="post-meta"><span title='2023-06-29 15:43:59 +0800 CST'>June 29, 2023</span>
 
 </div>
   </header> 
