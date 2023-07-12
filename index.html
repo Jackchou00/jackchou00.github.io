@@ -157,6 +157,27 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>ProcessingRawinMATLAB
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Process RAW Images in MATLAB 这是一篇由Rob Sumner写于2014年的文章，详细讲述了什么是RAW和在MATLAB中处理RAW文件。以下是对其的补充和若干翻译。
+RAW Data及其意义 对于图像处理和计算机视觉来说，研究者往往对于图像本身的含义不感兴趣，他们将图像（往往是8bit的灰度或三通道彩色）视作多变量的函数、随机数构成的矩阵或是一些连接的像素，在此基础上设计算法。
+RAW Data真正将场景中光照与图像连接起来，这对于HDR、天文摄影等与传感器行为有关的模型和方法是重要的。在这类问题下，知悉图像被捕获后的整个处理链是必要的。
+The best image to deal with is the sensor data straight from the camera, the raw data.
+现在（2023），很多设备都具备输出RAW文件的能力，比如中端和高端的单反相机与微单相机，甚至一些手机也可以输出RAW。但他们都将遵循以下几个原则。
+RAW特指未经压缩的，包含了传感器像素值和一系列元数据（EXIF）的文件，可以有多种不同的专有的格式（尼康的NEF，佳能的CR2等），也可以是开放的格式，例如DNG（Digital Negative，数字负片）。RAW文件被故意设计成不可解读的数据格式（原文应该指厂商的专有格式），但一些逆向工程已经成功，比如CR2格式。具体请见CR2逆向工程
+注：剩余文章中，RAW指代文件，例如CR2，raw指代未经处理的传感器原始数据
+Raw Sensor Data的本质 从根本上来说，raw data不是能够被人眼所理解的，它既不包含一个确定的值来定义黑色，也没有确定的白色。raw是一个单通道的强度图像，像素值存储在10-16位数据中（根据不同型号的相机而定），对同一型号的传感器而言，不会有像素值高于某一个特定的值，表示了CCD或CMOS物理上的饱和点。实际输出的像素值可能大于我们期望的相机应有的范围（介于0到未曝光的像素值、或大于有意义的曝光像素值）。
+注：最后一句稍微有些拗口，原文为：The output may also be larger than the expected pixel dimensions of the camera, including a border of unexposed pixels to the left and above the meaningfully exposed ones. 可能意指超出传感器预期的暗电流或饱和值（由于噪声或坏点）
+Color Filter Array 颜色滤镜 光子传感器（也就是CMOS或CCD）实际上只能给出一个标量，不能给出实际颜色，通过在传感器表面安装一个与像素位置相对应的滤色片，可得知单个像素感知到的单个颜色的值，通过与邻近的其他颜色的像素比对，可以估计出这一点的颜色。这个估计的过程被称作解马赛克（Demosaicing），产生m乘n乘3的RGB值阵列，即我们需要的彩色数码图像。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-12 14:47:06 +0800 CST'>July 12, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to ProcessingRawinMATLAB" href="https://Jackchou00.github.io/posts/processingrawinmatlab/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>光电舜宇实习
     </h2>
   </header>
