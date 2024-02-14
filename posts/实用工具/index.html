@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Windows软件和解决方案 | JacksBlog</title>
+<meta name="keywords" content="">
+<meta name="description" content="上网工具 Cloudflare WARP 可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。 Wireguard 前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。 V2RayN &#43; Cloudflare Worker 利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。 小工具 TwinkleTray Wiztree KeyViz HEU_KMS OfficeTool Mactype BCUninstaller ProcessExplorer TrafficMonitor 分流抢票Bypass（据说很厉害的工具，安全性未知） 图像相关 XnConvert 强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。 XnViewMP 能看到很多信息的图片查看器，EXIF信息显示很全。 darktable 开源的图像编辑器，类似Lightroom，功能很全面，但很卡。 AdobeDNGConverter 将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。 RawDigger 专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。 色彩相关 DisplayCal 老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。 NoVideosRGB 调用Nvidia显卡接口实现的精确色域限缩。 写盘工具 Ventoy Rufus balenaEtcher ">
+<meta name="author" content="">
+<link rel="canonical" href="https://Jackchou00.github.io/posts/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://Jackchou00.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Jackchou00.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Jackchou00.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Jackchou00.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Jackchou00.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Windows软件和解决方案" />
+<meta property="og:description" content="上网工具 Cloudflare WARP 可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。 Wireguard 前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。 V2RayN &#43; Cloudflare Worker 利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。 小工具 TwinkleTray Wiztree KeyViz HEU_KMS OfficeTool Mactype BCUninstaller ProcessExplorer TrafficMonitor 分流抢票Bypass（据说很厉害的工具，安全性未知） 图像相关 XnConvert 强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。 XnViewMP 能看到很多信息的图片查看器，EXIF信息显示很全。 darktable 开源的图像编辑器，类似Lightroom，功能很全面，但很卡。 AdobeDNGConverter 将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。 RawDigger 专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。 色彩相关 DisplayCal 老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。 NoVideosRGB 调用Nvidia显卡接口实现的精确色域限缩。 写盘工具 Ventoy Rufus balenaEtcher " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Jackchou00.github.io/posts/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-14T21:51:35+08:00" />
+<meta property="article:modified_time" content="2024-02-14T21:51:35+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows软件和解决方案"/>
+<meta name="twitter:description" content="上网工具 Cloudflare WARP 可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。 Wireguard 前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。 V2RayN &#43; Cloudflare Worker 利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。 小工具 TwinkleTray Wiztree KeyViz HEU_KMS OfficeTool Mactype BCUninstaller ProcessExplorer TrafficMonitor 分流抢票Bypass（据说很厉害的工具，安全性未知） 图像相关 XnConvert 强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。 XnViewMP 能看到很多信息的图片查看器，EXIF信息显示很全。 darktable 开源的图像编辑器，类似Lightroom，功能很全面，但很卡。 AdobeDNGConverter 将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。 RawDigger 专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。 色彩相关 DisplayCal 老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。 NoVideosRGB 调用Nvidia显卡接口实现的精确色域限缩。 写盘工具 Ventoy Rufus balenaEtcher "/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Jackchou00.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Windows软件和解决方案",
+      "item": "https://Jackchou00.github.io/posts/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Windows软件和解决方案",
+  "name": "Windows软件和解决方案",
+  "description": "上网工具 Cloudflare WARP 可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。 Wireguard 前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。 V2RayN + Cloudflare Worker 利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。 小工具 TwinkleTray Wiztree KeyViz HEU_KMS OfficeTool Mactype BCUninstaller ProcessExplorer TrafficMonitor 分流抢票Bypass（据说很厉害的工具，安全性未知） 图像相关 XnConvert 强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。 XnViewMP 能看到很多信息的图片查看器，EXIF信息显示很全。 darktable 开源的图像编辑器，类似Lightroom，功能很全面，但很卡。 AdobeDNGConverter 将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。 RawDigger 专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。 色彩相关 DisplayCal 老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。 NoVideosRGB 调用Nvidia显卡接口实现的精确色域限缩。 写盘工具 Ventoy Rufus balenaEtcher ",
+  "keywords": [
+    
+  ],
+  "articleBody": "上网工具 Cloudflare WARP 可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。 Wireguard 前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。 V2RayN + Cloudflare Worker 利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。 小工具 TwinkleTray Wiztree KeyViz HEU_KMS OfficeTool Mactype BCUninstaller ProcessExplorer TrafficMonitor 分流抢票Bypass（据说很厉害的工具，安全性未知） 图像相关 XnConvert 强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。 XnViewMP 能看到很多信息的图片查看器，EXIF信息显示很全。 darktable 开源的图像编辑器，类似Lightroom，功能很全面，但很卡。 AdobeDNGConverter 将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。 RawDigger 专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。 色彩相关 DisplayCal 老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。 NoVideosRGB 调用Nvidia显卡接口实现的精确色域限缩。 写盘工具 Ventoy Rufus balenaEtcher ",
+  "wordCount" : "42",
+  "inLanguage": "en",
+  "datePublished": "2024-02-14T21:51:35+08:00",
+  "dateModified": "2024-02-14T21:51:35+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Jackchou00.github.io/posts/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Jackchou00.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Jackchou00.github.io/" accesskey="h" title="JacksBlog (Alt + H)">JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://Jackchou00.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Jackchou00.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Windows软件和解决方案
+    </h1>
+    <div class="post-meta">&lt;span title=&#39;2024-02-14 21:51:35 &#43;0800 CST&#39;&gt;February 14, 2024&lt;/span&gt;
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="上网工具">上网工具<a hidden class="anchor" aria-hidden="true" href="#上网工具">#</a></h2>
+<ol>
+<li>Cloudflare WARP
+可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。</li>
+<li>Wireguard
+前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。</li>
+<li>V2RayN + Cloudflare Worker
+利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。</li>
+</ol>
+<h2 id="小工具">小工具<a hidden class="anchor" aria-hidden="true" href="#小工具">#</a></h2>
+<ol>
+<li>TwinkleTray</li>
+<li>Wiztree</li>
+<li>KeyViz</li>
+<li>HEU_KMS</li>
+<li>OfficeTool</li>
+<li>Mactype</li>
+<li>BCUninstaller</li>
+<li>ProcessExplorer</li>
+<li>TrafficMonitor</li>
+<li>分流抢票Bypass（据说很厉害的工具，安全性未知）</li>
+</ol>
+<h2 id="图像相关">图像相关<a hidden class="anchor" aria-hidden="true" href="#图像相关">#</a></h2>
+<ol>
+<li>XnConvert
+强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。</li>
+<li>XnViewMP
+能看到很多信息的图片查看器，EXIF信息显示很全。</li>
+<li>darktable
+开源的图像编辑器，类似Lightroom，功能很全面，但很卡。</li>
+<li>AdobeDNGConverter
+将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。</li>
+<li>RawDigger
+专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。</li>
+</ol>
+<h2 id="色彩相关">色彩相关<a hidden class="anchor" aria-hidden="true" href="#色彩相关">#</a></h2>
+<ol>
+<li>DisplayCal
+老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。</li>
+<li>NoVideosRGB
+调用Nvidia显卡接口实现的精确色域限缩。</li>
+</ol>
+<h2 id="写盘工具">写盘工具<a hidden class="anchor" aria-hidden="true" href="#写盘工具">#</a></h2>
+<ol>
+<li>Ventoy</li>
+<li>Rufus</li>
+<li>balenaEtcher</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://Jackchou00.github.io/">JacksBlog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
