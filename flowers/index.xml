@@ -6,8 +6,16 @@
     <description>Recent content in 小记 🌼 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/flowers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AVIF格式图像测试</title>
+      <link>https://jackchou00.icu/flowers/250120/</link>
+      <pubDate>Mon, 20 Jan 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/flowers/250120/</guid>
+      <description>&lt;p&gt;这是一张带有Adaptive Gainmap的AVIF图像。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jackchou00.github.io/Imgs/flowers/IMG20250119130336.avif&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HelloWorld</title>
       <link>https://jackchou00.icu/flowers/helloworld/</link>
