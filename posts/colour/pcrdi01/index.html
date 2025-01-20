@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>数字影像颜色再现原理笔记：光与视觉 | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, PCRDI">
+<meta name="description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.1">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou00.icu/posts/colour/pcrdi01/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc78ebbd48dd3b5e60a65458727cd12884aa2245762adff277c56fd47e678906.css" integrity="sha256-vHjrvUjdO15gplRYcnzRKISqIkV2Kt/yd8Vv1H5niQY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou00.icu/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou00.icu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/colour/pcrdi01/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/colour/pcrdi01/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="数字影像颜色再现原理笔记：光与视觉">
+  <meta property="og:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.1">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-21T00:00:00+08:00">
+    <meta property="article:modified_time" content="2025-01-21T00:00:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="PCRDI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数字影像颜色再现原理笔记：光与视觉">
+<meta name="twitter:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.1">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "文章 🌳",
+      "item": "https://jackchou00.icu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "色彩科学 🎨",
+      "item": "https://jackchou00.icu/posts/colour/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "数字影像颜色再现原理笔记：光与视觉",
+      "item": "https://jackchou00.icu/posts/colour/pcrdi01/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数字影像颜色再现原理笔记：光与视觉",
+  "name": "数字影像颜色再现原理笔记：光与视觉",
+  "description": "Notes for Principles of Color Reproduction in Digital Images, Ep.1",
+  "keywords": [
+    "Colour", "PCRDI"
+  ],
+  "articleBody": "光 电磁波中一定波长范围的称为光。可见光的短波端波长约360-400nm，长波端约760-830nm，一般取380-780nm。\n不同波长的光能够引发不同的颜色感觉，牛顿利用棱镜将不同波长的光在空间上分开，彩虹不同位置对应着不同的波长，“颜色”也各不相同。\n平时能接触到的光，绝大多数光都是复色光，即并非单一波长，而是由多种波长混合出的光。此处需提及一个重要概念：同色异谱 (Metamerism)。对同一个人来说，一种光对应一种确定的颜色，但一种颜色却不能对应一种确定的光。同色异谱现象是颜色再现的基础和前提，所以我们有可能在显示器上再现自然界中的颜色，即使光谱完全不同。\n光谱 光谱是我们描述复色光的成分的办法。\n光是一种电磁辐射，用辐射量 $X$ 来衡量辐射的多少，光度学中，辐射量有辐射通量、辐射强度、辐射照度、辐射亮度等，但可以笼统的先用辐射量表示。我们希望观察复色光中不同波长的光的辐射多少，因此提出光谱密度: $$X_\\lambda = \\frac{\\mathrm{d}X}{\\mathrm{d}\\lambda}$$ 光谱密度可看作关于波长的函数，用横坐标为波长，纵坐标为光谱密度的图表，就能够形象的表示一个光的光谱。 光谱密度中的辐照度分布也被叫做光谱功率分布 (Spectral Power Distribution, SPD)。\n$X_\\lambda$ 除以 $\\mathit{max}(X_\\lambda)$，即将SPD归一化，最大值为1，得到的关于波长的新函数称为相对光谱功率分布。\n人眼 其中，虹膜能够根据光的强弱自动调节中间瞳孔的尺寸，角膜、晶状体、房水、玻璃体组成乐人眼的光学结构，视网膜上的细胞能够感知光、处理和传递信号，最后通过视神经将神经冲动传递给视觉中枢。\n随着年龄的增大，晶状体的光学密度会增加（即透光率下降），尤其是短波长的部分。即晶状体会变得越来越“黄”，虽然视觉的其他部分（如色适应等）使得人感受不到这样的变化，但会导致人与人之间的同色异谱现象变得严重。\n视网膜不仅将光信号转变为神经冲动，还进行了初步的处理，因此视网膜也可以说是有片上运算的“智能图像传感器”。但视网膜由内到外分别是感受器细胞、双极细胞和神经节细胞。神经节细胞的轴突形成视神经，通过盲点再穿过视网膜继续传递，也就是说，视网膜实际上是一种“前照式”传感器。和视觉相关的感受器细胞有视锥细胞 (cones)和视杆细胞 (rods)，有一些感受器细胞与视觉无关，但也能感受光并参与人的其他生理活动，比如和节律有关的ipRGC。\n视锥细胞分布在视觉中央很小的区域：黄斑的中央凹。95%以上的视锥细胞集中在这里，视杆细胞又很少分布。除了盲点以外，视杆细胞大量分布在20°视角。正常视觉者的视锥细胞有三种，根据对光的波长的敏感性，分为对长波敏感的L，中波敏感的M和短波敏感的S型，但实际上，由于L和M在基因层面的接近，他们的感光波长峰值比较接近（这可能也是红绿色盲是最常见的色盲的原因）。\n注意图中光是自下而上进入眼球的。光穿过层层细胞后，在感受器细胞的末端上的视色素发生光触发的生物电反应，转化为生物电信号，再反向传递到水平细胞、双极细胞、无足细胞层，这里是网状结构，分内外两层，是信息传递和加工的地方，再传递到神经节细胞，由神经节细胞的轴突传递到大脑。\n待续 ",
+  "wordCount" : "1268",
+  "inLanguage": "en",
+  "datePublished": "2025-01-21T00:00:00+08:00",
+  "dateModified": "2025-01-21T00:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou00.icu/posts/colour/pcrdi01/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou00.icu/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou00.icu/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou00.icu/flowers/" title="小记 🌼">
+                    <span>小记 🌼</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/posts/" title="文章 🌳">
+                    <span>文章 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/about/" title="关于 😼">
+                    <span>关于 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      数字影像颜色再现原理笔记：光与视觉
+    </h1>
+    <div class="post-meta"><span title='2025-01-21 00:00:00 +0800 CST'>2025.01.21</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="光">光<a hidden class="anchor" aria-hidden="true" href="#光">#</a></h2>
+<p>电磁波中一定波长范围的称为光。可见光的短波端波长约360-400nm，长波端约760-830nm，一般取380-780nm。</p>
+<p>不同波长的光能够引发不同的颜色感觉，牛顿利用棱镜将不同波长的光在空间上分开，彩虹不同位置对应着不同的波长，“颜色”也各不相同。</p>
+<p>平时能接触到的光，绝大多数光都是复色光，即并非单一波长，而是由多种波长混合出的光。此处需提及一个重要概念：<strong>同色异谱 (Metamerism)</strong>。对同一个人来说，一种光对应一种确定的颜色，但一种颜色却不能对应一种确定的光。同色异谱现象是颜色再现的基础和前提，所以我们有可能在显示器上再现自然界中的颜色，即使光谱完全不同。</p>
+<h2 id="光谱">光谱<a hidden class="anchor" aria-hidden="true" href="#光谱">#</a></h2>
+<p>光谱是我们描述复色光的成分的办法。</p>
+<p>光是一种电磁辐射，用辐射量 $X$ 来衡量辐射的多少，光度学中，辐射量有辐射通量、辐射强度、辐射照度、辐射亮度等，但可以笼统的先用辐射量表示。我们希望观察复色光中不同波长的光的辐射多少，因此提出光谱密度: $$X_\lambda = \frac{\mathrm{d}X}{\mathrm{d}\lambda}$$  <br>
+光谱密度可看作关于波长的函数，用横坐标为波长，纵坐标为光谱密度的图表，就能够形象的表示一个光的光谱。
+<img loading="lazy" src="https://lightinganalysts.com/wp-content/uploads/2014/12/Photosynthesis-CIE-D65-SPD-1024x746.jpg#center">
+光谱密度中的辐照度分布也被叫做光谱功率分布 (Spectral Power Distribution, SPD)。</p>
+<p>$X_\lambda$ 除以 $\mathit{max}(X_\lambda)$，即将SPD归一化，最大值为1，得到的关于波长的新函数称为相对光谱功率分布。</p>
+<h2 id="人眼">人眼<a hidden class="anchor" aria-hidden="true" href="#人眼">#</a></h2>
+<p><img loading="lazy" src="https://th.bing.com/th/id/OIP.JbLdIFCU7YFPuwfWgj9uNAHaH4?rs=1&pid=ImgDetMain#center"></p>
+<p>其中，虹膜能够根据光的强弱自动调节中间瞳孔的尺寸，角膜、晶状体、房水、玻璃体组成乐人眼的光学结构，视网膜上的细胞能够感知光、处理和传递信号，最后通过视神经将神经冲动传递给视觉中枢。</p>
+<p>随着年龄的增大，晶状体的光学密度会增加（即透光率下降），尤其是短波长的部分。即晶状体会变得越来越“黄”，虽然视觉的其他部分（如色适应等）使得人感受不到这样的变化，但会导致人与人之间的同色异谱现象变得严重。</p>
+<p>视网膜不仅将光信号转变为神经冲动，还进行了初步的处理，因此视网膜也可以说是有片上运算的“智能图像传感器”。但视网膜由内到外分别是感受器细胞、双极细胞和神经节细胞。神经节细胞的轴突形成视神经，通过盲点再穿过视网膜继续传递，也就是说，视网膜实际上是一种“前照式”传感器。和视觉相关的感受器细胞有视锥细胞 (cones)和视杆细胞 (rods)，有一些感受器细胞与视觉无关，但也能感受光并参与人的其他生理活动，比如和节律有关的ipRGC。</p>
+<p>视锥细胞分布在视觉中央很小的区域：黄斑的中央凹。95%以上的视锥细胞集中在这里，视杆细胞又很少分布。除了盲点以外，视杆细胞大量分布在20°视角。正常视觉者的视锥细胞有三种，根据对光的波长的敏感性，分为对长波敏感的L，中波敏感的M和短波敏感的S型，但实际上，由于L和M在基因层面的接近，他们的感光波长峰值比较接近（这可能也是红绿色盲是最常见的色盲的原因）。</p>
+<p><img loading="lazy" src="https://pica.zhimg.com/v2-d34ea081c76df8769d8a482e9911d429_r.jpg?source=1940ef5c">
+注意图中光是自下而上进入眼球的。光穿过层层细胞后，在感受器细胞的末端上的视色素发生光触发的生物电反应，转化为生物电信号，再反向传递到水平细胞、双极细胞、无足细胞层，这里是网状结构，分内外两层，是信息传递和加工的地方，再传递到神经节细胞，由神经节细胞的轴突传递到大脑。</p>
+<h2 id="待续">待续<a hidden class="anchor" aria-hidden="true" href="#待续">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou00.icu/tags/pcrdi/">PCRDI</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou00.icu/">🏡JacksBlog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
