@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>古迹 🌃 on 🏡JacksBlog</title>
+    <link>https://jackchou00.icu/posts/old/</link>
+    <description>Recent content in 古迹 🌃 on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 14 Feb 2024 21:51:35 +0800</lastBuildDate>
+    <atom:link href="https://jackchou00.icu/posts/old/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows软件和解决方案</title>
+      <link>https://jackchou00.icu/posts/old/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 14 Feb 2024 21:51:35 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;h2 id=&#34;上网工具&#34;&gt;上网工具&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Cloudflare WARP
+可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。&lt;/li&gt;
+&lt;li&gt;Wireguard
+前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。&lt;/li&gt;
+&lt;li&gt;V2RayN + Cloudflare Worker
+利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;小工具&#34;&gt;小工具&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;TwinkleTray&lt;/li&gt;
+&lt;li&gt;Wiztree&lt;/li&gt;
+&lt;li&gt;KeyViz&lt;/li&gt;
+&lt;li&gt;HEU_KMS&lt;/li&gt;
+&lt;li&gt;OfficeTool&lt;/li&gt;
+&lt;li&gt;Mactype&lt;/li&gt;
+&lt;li&gt;BCUninstaller&lt;/li&gt;
+&lt;li&gt;ProcessExplorer&lt;/li&gt;
+&lt;li&gt;TrafficMonitor&lt;/li&gt;
+&lt;li&gt;分流抢票Bypass（据说很厉害的工具，安全性未知）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;图像相关&#34;&gt;图像相关&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;XnConvert
+强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。&lt;/li&gt;
+&lt;li&gt;XnViewMP
+能看到很多信息的图片查看器，EXIF信息显示很全。&lt;/li&gt;
+&lt;li&gt;darktable
+开源的图像编辑器，类似Lightroom，功能很全面，但很卡。&lt;/li&gt;
+&lt;li&gt;AdobeDNGConverter
+将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。&lt;/li&gt;
+&lt;li&gt;RawDigger
+专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;色彩相关&#34;&gt;色彩相关&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;DisplayCal
+老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。&lt;/li&gt;
+&lt;li&gt;NoVideosRGB
+调用Nvidia显卡接口实现的精确色域限缩。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;写盘工具&#34;&gt;写盘工具&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Ventoy&lt;/li&gt;
+&lt;li&gt;Rufus&lt;/li&gt;
+&lt;li&gt;balenaEtcher&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Postcards introduction Col.01</title>
+      <link>https://jackchou00.icu/posts/old/postcards01/</link>
+      <pubDate>Mon, 29 Jan 2024 00:40:19 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/postcards01/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jackchou00.github.io/Imgs/Postcards/1.webp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the western part of Hangzhou, one of the youngest areas of the city, with a population of over 2 million last year. This photo was taken on a hill at an altitude of about 200 metres, just on the edge of the area, excellent to discover the breathtaking speed of Hangzhou&amp;rsquo;s development.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jackchou00.github.io/Imgs/Postcards/2.webp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This photo shows two pigeons fighting for food, but it happens to look like they were &amp;lsquo;kissing&amp;rsquo; at the moment I pressed the shutter button. It was taken at a Buddhist temple in Hangzhou called &amp;lsquo;Fa Xi&amp;rsquo;, which is famous for its effectiveness in finding marital destiny.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>一加9R刷机记录</title>
+      <link>https://jackchou00.icu/posts/old/%E4%B8%80%E5%8A%A09r%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Thu, 27 Jul 2023 02:51:55 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/%E4%B8%80%E5%8A%A09r%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/</guid>
+      <description>&lt;h2 id=&#34;一加9r刷机记录&#34;&gt;一加9R刷机记录&lt;/h2&gt;
+&lt;h3 id=&#34;oxygenos-氧os&#34;&gt;OxygenOS 氧OS&lt;/h3&gt;
+&lt;p&gt;9008救砖包可以刷入OxygenOS 11，之后升级到12和13.&lt;/p&gt;
+&lt;p&gt;在OxygenOS12，系统设置中不再提供本地升级的入口，需要安装下面的apk。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Processing Raw Images in MATLAB</title>
+      <link>https://jackchou00.icu/posts/old/processingrawinmatlab/</link>
+      <pubDate>Wed, 12 Jul 2023 14:47:06 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/processingrawinmatlab/</guid>
+      <description>&lt;h2 id=&#34;process-raw-images-in-matlab&#34;&gt;Process RAW Images in MATLAB&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一篇由Rob Sumner写于2014年的文章，详细讲述了什么是RAW和在MATLAB中处理RAW文件。以下是对其的补充和若干翻译。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决换行符导致的hugo主题渲染问题</title>
+      <link>https://jackchou00.icu/posts/old/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 29 Jun 2023 15:43:59 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/%E8%A7%A3%E5%86%B3%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%AF%BC%E8%87%B4%E7%9A%84hugo%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
+&lt;p&gt;由Hugo生成的静态网页在本地运行时正常，将Public目录push到Github后，Github Pages无法正确显示CSS样式。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;这一问题是由于Windows和MacOS或linux系统的换行符不同导致的，而Git会自动将换行符转换为CRLF，因此在Windows上生成的静态网页在Github上无法正确显示。  &lt;br&gt;
+解决办法是将git的换行符转换功能关闭，即:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HelloWorld</title>
+      <link>https://jackchou00.icu/posts/old/helloworld/</link>
+      <pubDate>Thu, 29 Jun 2023 15:07:10 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/old/helloworld/</guid>
+      <description>&lt;p&gt;Hello World!&lt;/p&gt;
+&lt;p&gt;这里是Jackchou00的个人博客，由Hugo搭建并部署在Github上。&lt;/p&gt;
+&lt;p&gt;我正在尝试在文章中添加图片，请期待！目前的尝试是使用Webp格式的图片，将图片放置于Hugo的Static文件夹中以备调用。之后将会转向Avif或JPEG-XL，因为他们具有更高的效率。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
