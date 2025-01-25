@@ -6,8 +6,15 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>色彩科学博大精深</title>
+      <link>https://jackchou00.icu/flowers/250126/</link>
+      <pubDate>Sun, 26 Jan 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/flowers/250126/</guid>
+      <description>&lt;p&gt;我经常觉得色彩科学处处充满了魔法。作为一门和“人”有关的学科，除了辐射量以外，从光度学开始就已经充满了“心理物理量”，甚至坎德拉（Candela）这个心理物理量单位还成了国际标准单位。但色彩科学的大厦就这样建立并运行了，仅由17位观察者的实验数据建立的 CIE 1931 模型至今还在大规模的使用。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
       <link>https://jackchou00.icu/posts/colour/pcrdi02/</link>
