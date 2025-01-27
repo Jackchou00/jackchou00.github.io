@@ -74,60 +74,6 @@
 &lt;p&gt;这个博客第一次创建在&lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023年6月29日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像&lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt;这样有一点内容的东西，但更多是被我用Draft雪藏的文章。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Windows软件和解决方案</title>
-      <link>https://jackchou00.icu/posts/old/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Wed, 14 Feb 2024 21:51:35 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/old/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
-      <description>&lt;h2 id=&#34;上网工具&#34;&gt;上网工具&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Cloudflare WARP
-可以白嫖，速度飞快，部分ISP可以连到延迟很低的香港节点，浙江电信只能连到美国节点，YouTube上有大量的教程。缺点是不能分流。&lt;/li&gt;
-&lt;li&gt;Wireguard
-前者的开源客户端版本，有很曲折的分流办法（基于本地DNS），分流的效果和资源消耗不是特别稳定。&lt;/li&gt;
-&lt;li&gt;V2RayN + Cloudflare Worker
-利用V2RayN实现分流，Worker的速度比WARP稍慢一些，伪装了节点以后小部分网站会因为安全问题打不开。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;小工具&#34;&gt;小工具&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;TwinkleTray&lt;/li&gt;
-&lt;li&gt;Wiztree&lt;/li&gt;
-&lt;li&gt;KeyViz&lt;/li&gt;
-&lt;li&gt;HEU_KMS&lt;/li&gt;
-&lt;li&gt;OfficeTool&lt;/li&gt;
-&lt;li&gt;Mactype&lt;/li&gt;
-&lt;li&gt;BCUninstaller&lt;/li&gt;
-&lt;li&gt;ProcessExplorer&lt;/li&gt;
-&lt;li&gt;TrafficMonitor&lt;/li&gt;
-&lt;li&gt;分流抢票Bypass（据说很厉害的工具，安全性未知）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;图像相关&#34;&gt;图像相关&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;XnConvert
-强劲的图像格式转换工具，用来缩小图片尺寸，转换成各种高效率编码格式很好用。&lt;/li&gt;
-&lt;li&gt;XnViewMP
-能看到很多信息的图片查看器，EXIF信息显示很全。&lt;/li&gt;
-&lt;li&gt;darktable
-开源的图像编辑器，类似Lightroom，功能很全面，但很卡。&lt;/li&gt;
-&lt;li&gt;AdobeDNGConverter
-将相机专有RAW格式转换为DNG的小工具，能够启用ZIP压缩，点名批评某老机型没有无损压缩的品牌。转换为DNG的时候会丢失一部分EXIF。&lt;/li&gt;
-&lt;li&gt;RawDigger
-专注于Raw文件信息的软件，提供很多挖掘raw信息的工具。收费。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;色彩相关&#34;&gt;色彩相关&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;DisplayCal
-老牌开源校准工具，有各种各样设备的驱动，甚至能驱动JeTi。&lt;/li&gt;
-&lt;li&gt;NoVideosRGB
-调用Nvidia显卡接口实现的精确色域限缩。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;写盘工具&#34;&gt;写盘工具&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Ventoy&lt;/li&gt;
-&lt;li&gt;Rufus&lt;/li&gt;
-&lt;li&gt;balenaEtcher&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    <item>
       <title>Postcards introduction Col.01</title>
       <link>https://jackchou00.icu/posts/old/postcards01/</link>
       <pubDate>Mon, 29 Jan 2024 00:40:19 +0800</pubDate>
