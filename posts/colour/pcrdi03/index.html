@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Tags | 🏡JacksBlog</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<title>数字影像颜色再现原理笔记：照明体和光源 | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, PCRDI">
+<meta name="description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.3">
 <meta name="author" content="">
-<link rel="canonical" href="https://jackchou00.icu/tags/">
+<link rel="canonical" href="https://jackchou00.icu/posts/colour/pcrdi03/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou00.icu/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
@@ -18,8 +18,7 @@
 <link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://jackchou00.icu/tags/index.xml">
-<link rel="alternate" hreflang="en" href="https://jackchou00.icu/tags/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/colour/pcrdi03/">
 <noscript>
     <style>
         #theme-toggle,
@@ -80,18 +79,80 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/tags/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/colour/pcrdi03/">
   <meta property="og:site_name" content="🏡JacksBlog">
-  <meta property="og:title" content="Tags">
+  <meta property="og:title" content="数字影像颜色再现原理笔记：照明体和光源">
+  <meta property="og:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.3">
   <meta property="og:locale" content="zh-CN">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-01T00:00:00+08:00">
+    <meta property="article:modified_time" content="2025-02-01T00:00:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="PCRDI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="数字影像颜色再现原理笔记：照明体和光源">
+<meta name="twitter:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep.3">
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "文章 🌳",
+      "item": "https://jackchou00.icu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "色彩科学 🎨",
+      "item": "https://jackchou00.icu/posts/colour/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "数字影像颜色再现原理笔记：照明体和光源",
+      "item": "https://jackchou00.icu/posts/colour/pcrdi03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数字影像颜色再现原理笔记：照明体和光源",
+  "name": "数字影像颜色再现原理笔记：照明体和光源",
+  "description": "Notes for Principles of Color Reproduction in Digital Images, Ep.3",
+  "keywords": [
+    "Colour", "PCRDI"
+  ],
+  "articleBody": "黑体 黑体（Black Body）指能够吸收所有电磁辐射而无散射或反射的理想化物体，因此，黑体辐射出的电磁波完全由黑体的温度决定，称为黑体辐射。\n黑体的光谱辐射出射度（W/m^2/nm）可由下式计算： [ M_{\\lambda}(T) = \\frac{2hc^2}{\\lambda^5} \\frac{1}{e^{\\frac{hc}{\\lambda k_B T}} - 1} ]\n其中，$h$为普朗克常数，$c$为光速，$k_B$为玻尔兹曼常数，使用时需注意单位转换（尤其是m和nm）。\n图中展示了几个温度下的黑体光谱辐射出射度。黑体辐射具有以下特征：\n每个温度下的光谱辐射出射度曲线仅有一个峰值。 随着温度的升高，光谱辐射出射度的峰值位置向短波长方向移动。 在任意波长下，高温黑体的辐射出射度始终高于低温黑体的辐射出射度。 用可见光范围内的辐射出射度可以计算出黑体的颜色，将各种温度下的黑体颜色绘制在色度图上，形成的线称为普朗克轨迹。\n通过普朗克轨迹可以看出，随着温度升高，黑体从红色开始，逐渐变为黄色，经过白色区域后变为蓝色（请自行脑补）。日常生活中有时会提及冷暖色光，按照黑体辐射的相关计算，能发出冷色光（偏蓝的光）的黑体具有较高的温度，发暖色光的黑体温度则较低。\n虽然黑体作为理想物体并不存在，但金属在被加热时的特征接近黑体，可以想象一块铁被不断加热的过程以理解黑体辐射。室温中的铁不发光，因为室温时，铁的辐射能量很小。随着铁逐渐被加热，根据特征3，辐射出射度不断提高，铁开始“发光”，先呈现暗红色，再是橙红色。之后，根据特征2，光谱辐射中短波部分逐渐增加，发出的光越来越蓝，呈现冷白色甚至蓝色。\n白炽灯点亮时，其中的钨丝的温度大约为 3000K，呈现黄色。\n待续 ",
+  "wordCount" : "643",
+  "inLanguage": "en",
+  "datePublished": "2025-02-01T00:00:00+08:00",
+  "dateModified": "2025-02-01T00:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou00.icu/posts/colour/pcrdi03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou00.icu/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -150,18 +211,49 @@
     </nav>
 </header>
 <main class="main">
-<header class="page-header">
-    <h1>Tags</h1>
-</header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="https://jackchou00.icu/tags/colour/">Colour <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jackchou00.icu/tags/pcrdi/">PCRDI <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      数字影像颜色再现原理笔记：照明体和光源
+    </h1>
+    <div class="post-meta"><span title='2025-02-01 00:00:00 +0800 CST'>2025.02.01</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="黑体">黑体<a hidden class="anchor" aria-hidden="true" href="#黑体">#</a></h2>
+<p>黑体（Black Body）指能够吸收所有电磁辐射而无散射或反射的理想化物体，因此，黑体辐射出的电磁波完全由黑体的温度决定，称为黑体辐射。</p>
+<p>黑体的光谱辐射出射度（W/m^2/nm）可由下式计算：
+[
+M_{\lambda}(T) = \frac{2hc^2}{\lambda^5} \frac{1}{e^{\frac{hc}{\lambda k_B T}} - 1}
+]<br>
+其中，$h$为普朗克常数，$c$为光速，$k_B$为玻尔兹曼常数，使用时需注意单位转换（尤其是m和nm）。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/8df84bbc877b489fb1939e3c9f23a3a9.svg"></p>
+<p>图中展示了几个温度下的黑体光谱辐射出射度。黑体辐射具有以下特征：</p>
+<ol>
+<li>每个温度下的光谱辐射出射度曲线仅有一个峰值。</li>
+<li>随着温度的升高，光谱辐射出射度的峰值位置向短波长方向移动。</li>
+<li>在任意波长下，高温黑体的辐射出射度始终高于低温黑体的辐射出射度。</li>
+</ol>
+<p>用可见光范围内的辐射出射度可以计算出黑体的颜色，将各种温度下的黑体颜色绘制在色度图上，形成的线称为普朗克轨迹。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/0d6bef2fdf14c740bd22d4ff8c09bc4a.svg"></p>
+<p>通过普朗克轨迹可以看出，随着温度升高，黑体从红色开始，逐渐变为黄色，经过白色区域后变为蓝色（请自行脑补）。日常生活中有时会提及冷暖色光，按照黑体辐射的相关计算，能发出冷色光（偏蓝的光）的黑体具有较高的温度，发暖色光的黑体温度则较低。</p>
+<p>虽然黑体作为理想物体并不存在，但金属在被加热时的特征接近黑体，可以想象一块铁被不断加热的过程以理解黑体辐射。室温中的铁不发光，因为室温时，铁的辐射能量很小。随着铁逐渐被加热，根据特征3，辐射出射度不断提高，铁开始“发光”，先呈现暗红色，再是橙红色。之后，根据特征2，光谱辐射中短波部分逐渐增加，发出的光越来越蓝，呈现冷白色甚至蓝色。</p>
+<p>白炽灯点亮时，其中的钨丝的温度大约为 3000K，呈现黄色。</p>
+<h2 id="待续">待续<a hidden class="anchor" aria-hidden="true" href="#待续">#</a></h2>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/4a1994111b99b7af9ad5b9c7f571e148.webp#center"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou00.icu/tags/pcrdi/">PCRDI</a></li>
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">

@@ -6,8 +6,15 @@
     <description>Recent content in Colour on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jan 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字影像颜色再现原理笔记：照明体和光源</title>
+      <link>https://jackchou00.icu/posts/colour/pcrdi03/</link>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/colour/pcrdi03/</guid>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
       <link>https://jackchou00.icu/posts/colour/pcrdi02/</link>
