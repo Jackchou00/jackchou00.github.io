@@ -6,8 +6,15 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Feb 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个科研上的小变化</title>
+      <link>https://jackchou00.icu/flowers/250204/</link>
+      <pubDate>Tue, 04 Feb 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/flowers/250204/</guid>
+      <description>&lt;p&gt;刚开始搞科研的时候，会觉得自己总是在重复造轮子。一些功能和算法，可能 Adobe 很早就落地到 ACR 里了，色彩科学在图像处理里做的很多事情好像多少都能够在那些最流行的软件里找到。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
       <link>https://jackchou00.icu/posts/colour/pcrdi04/</link>
