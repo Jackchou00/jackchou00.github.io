@@ -131,8 +131,8 @@
   "keywords": [
     "Colour", "PCRDI"
   ],
-  "articleBody": " 关于色适应和色适应模型，可以参考这篇文章的章节1.2.1\n翟其彦, ‘照明色适应与颜色质量’, 博士, 浙江大学, 2018.\n颜色恒常性 一个物体在不同的光照条件和观察环境下，其颜色会发生变化，但是人类视觉系统可以在一定程度上保持对物体颜色的稳定感知。这种现象被称为颜色恒常性（Colour Constancy）。这种保持相对稳定的过程称为色适应（Chromatic Adaptation）。\n照明环境改变时，色适应需要一段时间来完成，图为Fairchild和Reniff（1995）的实验结果，为三位观察者的稳态适应的比例与时间的关系，从 A 切换到 D65。\nM. D. Fairchild and L. Reniff, ‘Time course of chromatic adaptation for color-appearance judgments’, J. Opt. Soc. Am. A, vol. 12, no. 5, p. 824, May 1995, doi: 10.1364/JOSAA.12.000824.\n色适应的形成机制可以大致分为两部分：感觉和认知。\n感觉机制认为视网膜上的三种视锥细胞会根据光的强弱自动独立的调节增益。某种视锥细胞的响应增大时，会降低其增益，三种视锥细胞的增益调节是独立的。von Kries 在1902年提出的基本假设认为视觉器官中各组成部分的疲劳或适应是彼此独立的（当时还没有视锥细胞的概念）。von Kries 的基本假设是所有色适应模型的基础。\n“This can be conceived in the sense that the individual components present in the organ of vision are completely independent of one another and each is fatigued or adapted exclusively according to its own function.”\n认知机制更为复杂，认为人对物体颜色的感觉还受到物体本身的影响。比如草是绿色，苹果是红色，天空是蓝色，视觉能在各种光照条件下保持对这些物体颜色的稳定感知。这种认知机制的形成可能是由于人类在长期的生活中对物体颜色的经验积累。认知机制导致的色适应通常不完全。\n认知机制的一个典型例子是折扣光源（Discounting-the-Illuminant），也称忽略光源。指观察者能够不根据光源，而是根据物体本身的颜色（反射率）来判断物体的颜色。如白天的煤炭是黑色的，夜晚的雪是白色的，但实际上白天煤炭的亮度更高，视觉感知的是主要煤炭和雪的反射率。折扣光源在跨媒介的颜色再现中非常重要，跨媒介颜色再现指用不同的媒介来展示颜色，比如自发光的显示器和印刷出来的纸张上的颜色，自发光的显示器本身就是光源，没有折扣光源现象，而印刷出来的颜色，观察者能够一定程度上忽略照明光源的影响。\nApple 在 iPhone 8 和 iPhone X 上推出的 True Tone 技术（原彩显示），这种技术能够根据环境光照的变化调整显示器的颜色，模拟出折扣光源现象，让显示器像是在该光源下的纸张印刷物一样，一定程度上提高了显示舒适性。\n色适应变换 色适应变换建立了对应色（Corresponding Colours）的联系。对应色指在不同观察条件下能够匹配的两个颜色，设想一个观察者有超强的颜色恒常性，同一个场景，更换不同的光源，他感知到的颜色始终是一样的（始终匹配），此时，该场景下，同一物体在不同光源的颜色就是一对对应色，通常用 XYZ 三刺激值表示颜色，第一个观察条件下的三刺激值为 $X_1, Y_1, Z_1$，第二个观察条件下的三刺激值为 $X_2, Y_2, Z_2$，则这两组三刺激值是这两个观察条件下的对应色。\n色适应变换（Chromatic Adaptation Transform，CAT）是用于预测对应色的模型。输入为两个观察条件（通常用场景白点的三刺激值表示）和一个观察条件下的颜色（用三刺激值表示），预测在另一个观察条件下能够与之组成对应色的颜色（也用三刺激值表示）。\n建立 CAT 模型需要对应色数据集来训练和验证，以下是常见的几种建立对应色数据集的实验方法：\n单目匹配：设计实验装置，分隔左右眼视野，让两边处于不同的观察条件下，观察者比较和匹配两边的颜色刺激。这种方法无法研究认知机制导致的色适应。 记忆匹配：被试者在一个观察条件下记住某种颜色刺激，到另一个观察条件下匹配颜色刺激。 数值估计：被试者在不同的观察环境中对颜色刺激进行“评分”，比如估计颜色的亮度、饱和度、色调等数值。 我没有设计、举行或参加过有关色适应的实验，仅从个人主观臆测的角度，收集对应色实验数据是很困难的。上面的三种方法都有各自的缺陷，比如记忆匹配中，人对颜色的短期记忆很有限，数值估计中，让被试对一个主观的值进行打分估计，需要考虑如何设计实验统一被试间的评分标准。\nCAT 的基本结构 根据 von Kries 的假设，色适应在视觉器官的层面是独立的。色适应变换的基本结构为：\n将输入的 XYZ 转换到某个代表视觉器官的空间。 在这个空间内对每个量进行独立的处理（比如乘各自的增益系数） 转回到 XYZ 空间，得到另一个观察条件下的颜色三刺激值。 von Kries 本人没有给出过一个具体的 CAT 办法，但可以根据其假设建立简单的色适应模型，比如 Ives 和 Helson 模型。\nM. H. Brill, ‘The relation between the color of the illuminant and the color of the illuminated object’, Color Research \u0026 Application, vol. 20, no. 1, pp. 70–76, Feb. 1995, doi: 10.1002/col.5080200112.\nH. Helson, ‘Some Factors and Implications of Color Constancy*’, J. Opt. Soc. Am., vol. 33, no. 10, p. 555, Oct. 1943, doi: 10.1364/JOSA.33.000555.\n首先将两个观察条件的光源或白场、一个颜色刺激（\\(\\mathit{XYZ}_{w1}, \\mathit{XYZ}_{w2}, \\mathit{XYZ}_{1}\\)）转换到 LMS 相对锥体响应空间，可以用一个 3x3 矩阵完成。然后对每个量乘上一个增益系数，可以表示为乘上一个对角矩阵。最后转回到 XYZ 空间，即乘第一步的逆矩阵，得到 $\\mathit{XYZ}_{2}$，有时候也写作 $\\mathit{XYZ}_c$，表示对应色。\n增益系数是两个观察条件的光源或白场的锥体响应之比，即“刺激大的视觉器官会自动调整减小增益”的假设。如：\n$$\rL_2 = \\frac{L_{w2}}{L_{w1}} L_1\r$$这样简单的线性模型已经能够很好的预测对应色数据集中的数据。\n待续 ",
-  "wordCount" : "2174",
+  "articleBody": " 关于色适应和色适应模型，可以参考这篇文章的章节1.2.1\n翟其彦, ‘照明色适应与颜色质量’, 博士, 浙江大学, 2018.\n颜色恒常性 一个物体在不同的光照条件和观察环境下，其颜色会发生变化，但是人类视觉系统可以在一定程度上保持对物体颜色的稳定感知。这种现象被称为颜色恒常性（Colour Constancy）。这种保持相对稳定的过程称为色适应（Chromatic Adaptation）。\n照明环境改变时，色适应需要一段时间来完成，图为Fairchild和Reniff（1995）的实验结果，为三位观察者的稳态适应的比例与时间的关系，从 A 切换到 D65。\nM. D. Fairchild and L. Reniff, ‘Time course of chromatic adaptation for color-appearance judgments’, J. Opt. Soc. Am. A, vol. 12, no. 5, p. 824, May 1995, doi: 10.1364/JOSAA.12.000824.\n色适应的形成机制可以大致分为两部分：感觉和认知。\n感觉机制认为视网膜上的三种视锥细胞会根据光的强弱自动独立的调节增益。某种视锥细胞的响应增大时，会降低其增益，三种视锥细胞的增益调节是独立的。von Kries 在1902年提出的基本假设认为视觉器官中各组成部分的疲劳或适应是彼此独立的（当时还没有视锥细胞的概念）。von Kries 的基本假设是所有色适应模型的基础。\n“This can be conceived in the sense that the individual components present in the organ of vision are completely independent of one another and each is fatigued or adapted exclusively according to its own function.”\n认知机制更为复杂，认为人对物体颜色的感觉还受到物体本身的影响。比如草是绿色，苹果是红色，天空是蓝色，视觉能在各种光照条件下保持对这些物体颜色的稳定感知。这种认知机制的形成可能是由于人类在长期的生活中对物体颜色的经验积累。认知机制导致的色适应通常不完全。\n认知机制的一个典型例子是折扣光源（Discounting-the-Illuminant），也称忽略光源。指观察者能够不根据光源，而是根据物体本身的颜色（反射率）来判断物体的颜色。如白天的煤炭是黑色的，夜晚的雪是白色的，但实际上白天煤炭的亮度更高，视觉感知的是主要煤炭和雪的反射率。折扣光源在跨媒介的颜色再现中非常重要，跨媒介颜色再现指用不同的媒介来展示颜色，比如自发光的显示器和印刷出来的纸张上的颜色，自发光的显示器本身就是光源，没有折扣光源现象，而印刷出来的颜色，观察者能够一定程度上忽略照明光源的影响。\nApple 在 iPhone 8 和 iPhone X 上推出的 True Tone 技术（原彩显示），这种技术能够根据环境光照的变化调整显示器的颜色，模拟出折扣光源现象，让显示器像是在该光源下的纸张印刷物一样，一定程度上提高了显示舒适性。\n色适应变换 色适应变换建立了对应色（Corresponding Colours）的联系。对应色指在不同观察条件下能够匹配的两个颜色，设想一个观察者有超强的颜色恒常性，同一个场景，更换不同的光源，他感知到的颜色始终是一样的（始终匹配），此时，该场景下，同一物体在不同光源的颜色就是一对对应色，通常用 XYZ 三刺激值表示颜色，第一个观察条件下的三刺激值为 $X_1, Y_1, Z_1$，第二个观察条件下的三刺激值为 $X_2, Y_2, Z_2$，则这两组三刺激值是这两个观察条件下的对应色。\n色适应变换（Chromatic Adaptation Transform，CAT）是用于预测对应色的模型。输入为两个观察条件（通常用场景白点的三刺激值表示）和一个观察条件下的颜色（用三刺激值表示），预测在另一个观察条件下能够与之组成对应色的颜色（也用三刺激值表示）。\n建立 CAT 模型需要对应色数据集来训练和验证，以下是常见的几种建立对应色数据集的实验方法：\n单目匹配：设计实验装置，分隔左右眼视野，让两边处于不同的观察条件下，观察者比较和匹配两边的颜色刺激。这种方法无法研究认知机制导致的色适应。 记忆匹配：被试者在一个观察条件下记住某种颜色刺激，到另一个观察条件下匹配颜色刺激。 数值估计：被试者在不同的观察环境中对颜色刺激进行“评分”，比如估计颜色的亮度、饱和度、色调等数值。 我没有设计、举行或参加过有关色适应的实验，仅从个人主观臆测的角度，收集对应色实验数据是很困难的。上面的三种方法都有各自的缺陷，比如记忆匹配中，人对颜色的短期记忆很有限，数值估计中，让被试对一个主观的值进行打分估计，需要考虑如何设计实验统一被试间的评分标准。\nCAT 的基本结构 根据 von Kries 的假设，色适应在视觉器官的层面是独立的。色适应变换的基本结构为：\n将输入的 XYZ 转换到某个代表视觉器官的空间。 在这个空间内对每个量进行独立的处理（比如乘各自的增益系数） 转回到 XYZ 空间，得到另一个观察条件下的颜色三刺激值。 von Kries 本人没有给出过一个具体的 CAT 办法，但可以根据其假设建立简单的色适应模型，比如 Ives 和 Helson 模型。\nM. H. Brill, ‘The relation between the color of the illuminant and the color of the illuminated object’, Color Research \u0026 Application, vol. 20, no. 1, pp. 70–76, Feb. 1995, doi: 10.1002/col.5080200112.\nH. Helson, ‘Some Factors and Implications of Color Constancy*’, J. Opt. Soc. Am., vol. 33, no. 10, p. 555, Oct. 1943, doi: 10.1364/JOSA.33.000555.\n首先将两个观察条件的光源或白场、一个颜色刺激（\\(\\mathit{XYZ}_{w1}, \\mathit{XYZ}_{w2}, \\mathit{XYZ}_{1}\\)）转换到 LMS 相对锥体响应空间，可以用一个 3x3 矩阵完成。然后对每个量乘上一个增益系数，可以表示为乘上一个对角矩阵。最后转回到 XYZ 空间，即乘第一步的逆矩阵，得到 $\\mathit{XYZ}_{2}$，有时候也写作 $\\mathit{XYZ}_c$，表示对应色。\n增益系数是两个观察条件的光源或白场的锥体响应之比，即“刺激大的视觉器官会自动调整减小增益”的假设。如：\n$$\rL_2 = \\frac{L_{w2}}{L_{w1}} L_1\r$$这样简单的线性模型已经能够很好的预测对应色数据集中的数据。\nCAT 的改进 一些研究提出了在第二步使用非线性的调整或是三通道间相互影响的非独立调整来试图改进色适应变换。比如 Nayatani 和 Guth 用幂函数代替线性增益。但并不能获得较好的效果。\n改变从 XYZ 三刺激值到 LMS 相对锥体空间的变换矩阵可能可以得到更好的结果。此时不能再用 LMS 表示，而是改用 RGB。比如 Fairchild 使用的 HPE 变换矩阵，Bradford 的 BFD 变换矩阵，CAT02 和 CAT16 使用的矩阵。\n另外，虽然非线性调整不能取得较好的效果，但线性增益时使用的系数里可以有一些改进，比如 CMC-CAT 和 CAT02 中引入了适应度 D 的概念，用于控制适应的完全程度。D 介于 0 和 1 之间，1 表示完全适应，0 表示完全不适应。在 CAT02 中，D 是一个有关输入侧适应场亮度的数，并加入一个用于代表环境亮暗的因子 F。\n$$\rD = F \\cdot \\left[1 - \\frac{1}{3.6} e^{\\frac{-L_A - 42}{92}}\\right]\r$$其中，$L_A$ 是输入侧适应场的亮度，单位是 cd/m²，$F$ 是环境因子，平均环境中取 1.0，微暗环境取 0.9，暗环境取 0.8，由相对亮度决定，比如明亮的办公室，室内看电视和昏暗的电影院。\nCAT16 现行的 CIE 推荐色适应变换方法是 CAT16，是一个线性变换，一步法 CAT16 的过程如下。\n输入：输入侧适应场白点 \\(\\mathit{XYZ}_{w}\\)，输出侧（参考侧）适应场白点 $\\mathit{XYZ}_{wr}$，输入颜色 $\\mathit{XYZ}$，适应场光源亮度 $L_A$，环境因子 $F$。\n将 \\(\\mathit{XYZ}_{w}\\)，\\(\\mathit{XYZ}_{wr}\\)，$\\mathit{XYZ}$ 转换到 RGB 空间。使用的变换矩阵为 \\(\\mathbf{M}_{\\mathit{CAT16}}\\)。 \\[\r\\begin{bmatrix}\rR \\\\ G \\\\ B\r\\end{bmatrix}\r=\r\\begin{bmatrix}\r0.401288 \u0026 0.650173 \u0026 -0.051461 \\\\\r-0.250268 \u0026 1.204414 \u0026 0.045854 \\\\\r-0.002079 \u0026 0.048952 \u0026 0.953127\r\\end{bmatrix}\r\\begin{bmatrix}\rX \\\\ Y \\\\ Z\r\\end{bmatrix}\r\\] 对 RGB 三通道分别进行适应变换，增益系数是有关适应度 D 的，适应度 D 的计算方法和 CAT02 中一样，G 和 B 的增益系数中将 $R_{wr}$ 和 $R_w$ 更换。 \\[\rk_R = D \\cdot \\frac{Y_w}{Y_{wr}} \\cdot \\frac{R_{wr}}{R_w} + 1 - D \\\\\rR_c = k_R \\cdot R\r\\] 将适应变换后的 RGB 转回 XYZ 空间，使用 \\(\\mathbf{M}_{\\mathit{CAT16}}^{-1}\\)。下标用 c 或 r 表示对应色或参考场的含义。 \\[\r\\begin{bmatrix}\rX_c \\\\ Y_c \\\\ Z_c\r\\end{bmatrix}\r=\r\\mathbf{M}_{CAT16}^{-1}\r\\begin{bmatrix}\rR_c \\\\ G_c \\\\ B_c\r\\end{bmatrix}\r\\]由于适应度 D 的存在，CAT16 在多数情况下是不能逆向的，CAT16 还有一个两步法的版本，用于解决一步法逆向后无法得到原始输入的问题。两步法约定了一个中间光源，比如等能白，通过将输入场适应到等能白场，再从等能白场反向预测输出场的对应色。\n如果用 \\(\\Lambda_{r,t}\\)指代从输入场 t 到输出场 r 的线性增益对角矩阵。则一步法的总变换矩阵为：\n$$\r\\Phi_{r,t}= \\mathbf{M}_{\\mathit{CAT16}}^{-1} \\Lambda_{r,t} \\mathbf{M}_{\\mathit{CAT16}}\r$$两步法的总变换矩阵为：\n$$\r\\begin{align*}\r\\Pi_{r,t} \u0026= \\Psi_{r,se} \\Phi_{se,t} \\\\\r\u0026= \\mathbf{M}_{CAT16}^{-1} \\Lambda_{se,r}^{-1} \\mathbf{M}_{\\mathit{CAT16}} \\mathbf{M}_{\\mathit{CAT16}}^{-1} \\Lambda_{se,t} \\mathbf{M}_{\\mathit{CAT16}} \\\\\r\u0026= \\mathbf{M}_{\\mathit{CAT16}}^{-1} \\Lambda_{se,r}^{-1} \\Lambda_{se,t} \\mathbf{M}_{\\mathit{CAT16}}\r\\end{align*}\r$$其中 se 表示等能白，两步法和一步法在实际效果上几乎没有差别，目前使用更多的是一步法。\n",
+  "wordCount" : "3288",
   "inLanguage": "en",
   "datePublished": "2025-02-03T00:00:00+08:00",
   "dateModified": "2025-02-03T00:00:00+08:00",
@@ -268,9 +268,64 @@
 $$
 L_2 = \frac{L_{w2}}{L_{w1}} L_1
 $$<p>这样简单的线性模型已经能够很好的预测对应色数据集中的数据。</p>
-<h2 id="待续">待续<a hidden class="anchor" aria-hidden="true" href="#待续">#</a></h2>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/fc65063f2f334d24c924f84e3187ee2b.webp#center"></p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/4a1994111b99b7af9ad5b9c7f571e148.webp#center"></p>
+<h3 id="cat-的改进">CAT 的改进<a hidden class="anchor" aria-hidden="true" href="#cat-的改进">#</a></h3>
+<p>一些研究提出了在第二步使用非线性的调整或是三通道间相互影响的非独立调整来试图改进色适应变换。比如 Nayatani 和 Guth 用幂函数代替线性增益。但并不能获得较好的效果。</p>
+<p>改变从 XYZ 三刺激值到 LMS 相对锥体空间的变换矩阵可能可以得到更好的结果。此时不能再用 LMS 表示，而是改用 RGB。比如 Fairchild 使用的 HPE 变换矩阵，Bradford 的 BFD 变换矩阵，CAT02 和 CAT16 使用的矩阵。</p>
+<p>另外，虽然非线性调整不能取得较好的效果，但线性增益时使用的系数里可以有一些改进，比如 CMC-CAT 和 CAT02 中引入了适应度 D 的概念，用于控制适应的完全程度。D 介于 0 和 1 之间，1 表示完全适应，0 表示完全不适应。在 CAT02 中，D 是一个有关输入侧适应场亮度的数，并加入一个用于代表环境亮暗的因子 F。</p>
+$$
+D = F \cdot \left[1 - \frac{1}{3.6} e^{\frac{-L_A - 42}{92}}\right]
+$$<p>其中，$L_A$ 是输入侧适应场的亮度，单位是 cd/m²，$F$ 是环境因子，平均环境中取 1.0，微暗环境取 0.9，暗环境取 0.8，由相对亮度决定，比如明亮的办公室，室内看电视和昏暗的电影院。</p>
+<h3 id="cat16">CAT16<a hidden class="anchor" aria-hidden="true" href="#cat16">#</a></h3>
+<p>现行的 CIE 推荐色适应变换方法是 CAT16，是一个线性变换，一步法 CAT16 的过程如下。</p>
+<p>输入：输入侧适应场白点 \(\mathit{XYZ}_{w}\)，输出侧（参考侧）适应场白点 $\mathit{XYZ}_{wr}$，输入颜色 $\mathit{XYZ}$，适应场光源亮度 $L_A$，环境因子 $F$。</p>
+<ol>
+<li>将 \(\mathit{XYZ}_{w}\)，\(\mathit{XYZ}_{wr}\)，$\mathit{XYZ}$ 转换到 RGB 空间。使用的变换矩阵为 \(\mathbf{M}_{\mathit{CAT16}}\)。</li>
+</ol>
+\[
+    \begin{bmatrix}
+    R \\ G \\ B
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    0.401288 & 0.650173 & -0.051461 \\
+    -0.250268 & 1.204414 & 0.045854 \\
+    -0.002079 & 0.048952 & 0.953127
+    \end{bmatrix}
+    \begin{bmatrix}
+    X \\ Y \\ Z
+    \end{bmatrix}
+\]<ol start="2">
+<li>对 RGB 三通道分别进行适应变换，增益系数是有关适应度 D 的，适应度 D 的计算方法和 CAT02 中一样，G 和 B 的增益系数中将 $R_{wr}$ 和 $R_w$ 更换。</li>
+</ol>
+\[
+    k_R = D \cdot \frac{Y_w}{Y_{wr}} \cdot \frac{R_{wr}}{R_w} + 1 - D \\
+    R_c = k_R \cdot R
+\]<ol start="3">
+<li>将适应变换后的 RGB 转回 XYZ 空间，使用 \(\mathbf{M}_{\mathit{CAT16}}^{-1}\)。下标用 c 或 r 表示对应色或参考场的含义。</li>
+</ol>
+\[
+    \begin{bmatrix}
+    X_c \\ Y_c \\ Z_c
+    \end{bmatrix}
+    =
+    \mathbf{M}_{CAT16}^{-1}
+    \begin{bmatrix}
+    R_c \\ G_c \\ B_c
+    \end{bmatrix}
+\]<p>由于适应度 D 的存在，CAT16 在多数情况下是不能逆向的，CAT16 还有一个两步法的版本，用于解决一步法逆向后无法得到原始输入的问题。两步法约定了一个中间光源，比如等能白，通过将输入场适应到等能白场，再从等能白场反向预测输出场的对应色。</p>
+<p>如果用 \(\Lambda_{r,t}\)指代从输入场 t 到输出场 r 的线性增益对角矩阵。则一步法的总变换矩阵为：</p>
+$$
+\Phi_{r,t}= \mathbf{M}_{\mathit{CAT16}}^{-1} \Lambda_{r,t} \mathbf{M}_{\mathit{CAT16}}
+$$<p>两步法的总变换矩阵为：</p>
+$$
+\begin{align*}
+\Pi_{r,t} &= \Psi_{r,se} \Phi_{se,t} \\
+          &= \mathbf{M}_{CAT16}^{-1} \Lambda_{se,r}^{-1} \mathbf{M}_{\mathit{CAT16}} \mathbf{M}_{\mathit{CAT16}}^{-1} \Lambda_{se,t} \mathbf{M}_{\mathit{CAT16}} \\
+          &= \mathbf{M}_{\mathit{CAT16}}^{-1} \Lambda_{se,r}^{-1} \Lambda_{se,t} \mathbf{M}_{\mathit{CAT16}}
+\end{align*}
+$$<p>其中 se 表示等能白，两步法和一步法在实际效果上几乎没有差别，目前使用更多的是一步法。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 
   </div>
