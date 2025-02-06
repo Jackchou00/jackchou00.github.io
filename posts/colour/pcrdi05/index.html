@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>色彩科学 🎨 | 🏡JacksBlog</title>
-<meta name="keywords" content="">
-<meta name="description" content="这里存放了有关色彩科学的内容。">
+<title>数字影像颜色再现原理笔记：颜色外貌 | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, PCRDI">
+<meta name="description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 5">
 <meta name="author" content="">
-<link rel="canonical" href="https://jackchou00.icu/posts/colour/">
+<link rel="canonical" href="https://jackchou00.icu/posts/colour/pcrdi05/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou00.icu/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
@@ -18,8 +18,7 @@
 <link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://jackchou00.icu/posts/colour/index.xml">
-<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/colour/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/colour/pcrdi05/">
 <noscript>
     <style>
         #theme-toggle,
@@ -80,15 +79,20 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/colour/">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/colour/pcrdi05/">
   <meta property="og:site_name" content="🏡JacksBlog">
-  <meta property="og:title" content="色彩科学 🎨">
-  <meta property="og:description" content="这里存放了有关色彩科学的内容。">
+  <meta property="og:title" content="数字影像颜色再现原理笔记：颜色外貌">
+  <meta property="og:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 5">
   <meta property="og:locale" content="zh-CN">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-07T00:00:00+08:00">
+    <meta property="article:modified_time" content="2025-02-07T00:00:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="PCRDI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="色彩科学 🎨">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="数字影像颜色再现原理笔记：颜色外貌">
+<meta name="twitter:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 5">
 
 
 <script type="application/ld+json">
@@ -107,13 +111,48 @@
       "position":  2 ,
       "name": "色彩科学 🎨",
       "item": "https://jackchou00.icu/posts/colour/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "数字影像颜色再现原理笔记：颜色外貌",
+      "item": "https://jackchou00.icu/posts/colour/pcrdi05/"
     }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数字影像颜色再现原理笔记：颜色外貌",
+  "name": "数字影像颜色再现原理笔记：颜色外貌",
+  "description": "Notes for Principles of Color Reproduction in Digital Images, Ep. 5",
+  "keywords": [
+    "Colour", "PCRDI"
+  ],
+  "articleBody": "高级色度学 之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。\n尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。\n色貌 高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 https://cie.co.at/e-ilv 找到，接下来需要仔细的使用色貌属性的中英文。\n常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colorfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。\n另外，还有很多新的色貌属性正在被研究和提出。\n待续 一些相关网站：\nhttp://www.huevaluechroma.com/index.php\n",
+  "wordCount" : "521",
+  "inLanguage": "en",
+  "datePublished": "2025-02-07T00:00:00+08:00",
+  "dateModified": "2025-02-07T00:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou00.icu/posts/colour/pcrdi05/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou00.icu/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -171,87 +210,39 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>
-    色彩科学 🎨
-  </h1>
-</header>
-<div class="post-content"><p>这里存放了有关色彩科学的内容。</p>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      数字影像颜色再现原理笔记：颜色外貌
+    </h1>
+    <div class="post-meta"><span title='2025-02-07 00:00:00 +0800 CST'>2025.02.07</span>
 
 </div>
+  </header> 
+  <div class="post-content"><h2 id="高级色度学">高级色度学<a hidden class="anchor" aria-hidden="true" href="#高级色度学">#</a></h2>
+<p>之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。</p>
+<p>尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。</p>
+<h2 id="色貌">色貌<a hidden class="anchor" aria-hidden="true" href="#色貌">#</a></h2>
+<p>高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 <a href="https://cie.co.at/e-ilv">https://cie.co.at/e-ilv</a> 找到，接下来需要仔细的使用色貌属性的中英文。</p>
+<p>常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colorfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。</p>
+<p>另外，还有很多新的色貌属性正在被研究和提出。</p>
+<h2 id="待续">待续<a hidden class="anchor" aria-hidden="true" href="#待续">#</a></h2>
+<p>一些相关网站：</p>
+<p><a href="http://www.huevaluechroma.com/index.php">http://www.huevaluechroma.com/index.php</a></p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/4a1994111b99b7af9ad5b9c7f571e148.webp#center"></p>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：颜色外貌
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-07 00:00:00 +0800 CST'>2025.02.07</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：颜色外貌" href="https://jackchou00.icu/posts/colour/pcrdi05/"></a>
-</article>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：色适应变换
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.4</p>
   </div>
-  <footer class="entry-footer"><span title='2025-02-03 00:00:00 +0800 CST'>2025.02.03</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：色适应变换" href="https://jackchou00.icu/posts/colour/pcrdi04/"></a>
-</article>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：照明体和光源
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.3</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-01 00:00:00 +0800 CST'>2025.02.01</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：照明体和光源" href="https://jackchou00.icu/posts/colour/pcrdi03/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：色度学基础
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.2</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-25 00:00:00 +0800 CST'>2025.01.25</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：色度学基础" href="https://jackchou00.icu/posts/colour/pcrdi02/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：光与视觉
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.1</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-21 00:00:00 +0800 CST'>2025.01.21</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：光与视觉" href="https://jackchou00.icu/posts/colour/pcrdi01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：绪论
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.0</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-20 18:00:00 +0800 CST'>2025.01.20</span></footer>
-  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：绪论" href="https://jackchou00.icu/posts/colour/pcrdi00/"></a>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou00.icu/tags/pcrdi/">PCRDI</a></li>
+    </ul>
+  </footer>
 </article>
     </main>
     

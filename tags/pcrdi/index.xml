@@ -6,8 +6,15 @@
     <description>Recent content in PCRDI on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Feb 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/pcrdi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字影像颜色再现原理笔记：颜色外貌</title>
+      <link>https://jackchou00.icu/posts/colour/pcrdi05/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/colour/pcrdi05/</guid>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
       <link>https://jackchou00.icu/posts/colour/pcrdi04/</link>

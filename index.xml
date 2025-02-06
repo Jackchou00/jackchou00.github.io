@@ -6,8 +6,25 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 04 Feb 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个 PQ 测试</title>
+      <link>https://jackchou00.icu/flowers/250207/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/flowers/250207/</guid>
+      <description>&lt;p&gt;一个用了 BT.2100 PQ 做传递函数的 AVIF 图，兼容性应该比较差，有可能看到崩坏的效果，或者根本看不到图片。&lt;/p&gt;
+&lt;p&gt;这个是 0.0-0.203 的，理论上会有和 SDR 图像接近的效果。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/02/86631ab2836c57fa9802c2d9dcad467d.avif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这个是直接缩放到 0-1 全范围 PQ 的，如果设备和浏览器有比较色调映射的话，也许可以看到还算正常的效果？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>数字影像颜色再现原理笔记：颜色外貌</title>
+      <link>https://jackchou00.icu/posts/colour/pcrdi05/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/colour/pcrdi05/</guid>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
+    </item>
     <item>
       <title>一个科研上的小变化</title>
       <link>https://jackchou00.icu/flowers/250204/</link>
