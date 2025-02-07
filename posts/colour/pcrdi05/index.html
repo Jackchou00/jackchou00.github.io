@@ -131,8 +131,8 @@
   "keywords": [
     "Colour", "PCRDI"
   ],
-  "articleBody": "高级色度学 之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。\n尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。\n色貌 高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 https://cie.co.at/e-ilv 找到，接下来需要仔细的使用色貌属性的中英文。\n常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colorfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。\n另外，还有很多新的色貌属性正在被研究和提出。\n待续 一些相关网站：\nhttp://www.huevaluechroma.com/index.php\n",
-  "wordCount" : "521",
+  "articleBody": "高级色度学 之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。\n尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。\n色貌 高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 https://cie.co.at/e-ilv 找到，接下来需要仔细的使用色貌属性的中英文，索引来自 CIE S 017:2020 ILV，关于色貌属性的准确解释，建议去看国际标准的描述。\n常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colourfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。\n另外，还有很多新的色貌属性正在被研究和提出。\n相关色：related colour，17-22-047，colour perceived to belong to an area seen in relation to other colours。描述一个颜色和周围的其他颜色存在关系，最好的例子是“灰色”，灰色一定是一个相关色，因为它只能在与更亮颜色的比较中产生。\n视明度：brightness，17-22-059，attribute of a visual perception according to which an area appears to emit, transmit or reflect, more or less light。描述亮的程度的绝对属性。\n明度：lightness (of a related colour)，17-22-063，brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting。相对色才有的属性，描述区域视明度相对于周围最亮的或白色的视明度的关系。\n一些书里写：明度是相对于周围白点或最亮区域的相对亮度的感知，应为相对视明度。也不代表：明度=视明度/白场视明度，因为他们都是非线性量。\n视彩度：colourfulness，17-22-072，attribute of a visual perception according to which the perceived colour of an area appears to be more or less chromatic。描述颜色的绝对属性。更亮的颜色刺激可能会具有更高的视彩度。\n彩度：chroma，17-22-074，colourfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears grey, white or highly transmitting。彩度是一个颜色刺激的视彩度和相似照明环境下的中性色的视明度之间的关系。\n关于以上四个量，由于颜色恒常性和认知机制，视觉系统自动把图中的红色感知成同一个物体的颜色。在与各自区域的背景或照明环境的比较中，他们具有了相同的明度和彩度（也可以说，明度和彩度是视觉系统排除光源的影响后，对一个样本“反射率”的感知）。而上下颜色的视明度和视彩度这两个绝对属性是不同的。\n饱和度：saturation，17-22-073，colourfulness of an area judged in proportion to its brightness。是一个颜色的视彩度和视明度之间的关系。下面的图片直观的显示了视彩度，视明度和饱和度的区别。\n在 CIECAM 16 中，饱和度由视彩度和视明度的比例计算得来。\n$$ s=100*\\left( \\frac{M}{Q}\\right)^{0.5} $$\n表达有关“彩色”的日常词汇也有很多，比如鲜艳，饱和，彩，或者 Vividness，Brilliance 等。他们在色彩科学中都有不同的含义。\n待续 一些相关网站：\nhttp://www.huevaluechroma.com/index.php\n",
+  "wordCount" : "1454",
   "inLanguage": "en",
   "datePublished": "2025-02-07T00:00:00+08:00",
   "dateModified": "2025-02-07T00:00:00+08:00",
@@ -226,9 +226,27 @@
 <p>之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。</p>
 <p>尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。</p>
 <h2 id="色貌">色貌<a hidden class="anchor" aria-hidden="true" href="#色貌">#</a></h2>
-<p>高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 <a href="https://cie.co.at/e-ilv">https://cie.co.at/e-ilv</a> 找到，接下来需要仔细的使用色貌属性的中英文。</p>
-<p>常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colorfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。</p>
+<p>高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 <a href="https://cie.co.at/e-ilv">https://cie.co.at/e-ilv</a> 找到，接下来需要仔细的使用色貌属性的中英文，索引来自 CIE S 017:2020 ILV，关于色貌属性的准确解释，建议去看国际标准的描述。</p>
+<p>常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colourfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。</p>
 <p>另外，还有很多新的色貌属性正在被研究和提出。</p>
+<p>相关色：related colour，17-22-047，colour perceived to belong to an area seen in relation to other colours。描述一个颜色和周围的其他颜色存在关系，最好的例子是“灰色”，灰色一定是一个相关色，因为它只能在与更亮颜色的比较中产生。</p>
+<p>视明度：brightness，17-22-059，attribute of a visual perception according to which an area appears to emit, transmit or reflect, more or less light。描述亮的程度的绝对属性。</p>
+<p>明度：lightness (of a related colour)，17-22-063，brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting。相对色才有的属性，描述区域视明度相对于周围最亮的或白色的视明度的关系。</p>
+<blockquote>
+<p>一些书里写：明度是相对于周围白点或最亮区域的相对<strong>亮度</strong>的感知，应为相对<strong>视明度</strong>。也不代表：明度=视明度/白场视明度，因为他们都是非线性量。</p>
+</blockquote>
+<p>视彩度：colourfulness，17-22-072，attribute of a visual perception according to which the perceived colour of an area appears to be more or less chromatic。描述颜色的绝对属性。更亮的颜色刺激可能会具有更高的视彩度。</p>
+<p>彩度：chroma，17-22-074，colourfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears grey, white or highly transmitting。彩度是一个颜色刺激的视彩度和相似照明环境下的中性色的视明度之间的关系。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/ac6c24b60d374a8cc60803e7e42cb7ab.jpg"></p>
+<p>关于以上四个量，由于颜色恒常性和认知机制，视觉系统自动把图中的红色感知成同一个物体的颜色。在与各自区域的背景或照明环境的比较中，他们具有了相同的明度和彩度（也可以说，明度和彩度是视觉系统排除光源的影响后，对一个样本“反射率”的感知）。而上下颜色的视明度和视彩度这两个绝对属性是不同的。</p>
+<p>饱和度：saturation，17-22-073，colourfulness of an area judged in proportion to its brightness。是一个颜色的视彩度和视明度之间的关系。下面的图片直观的显示了视彩度，视明度和饱和度的区别。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/1ad86608f99f4323e5fb6a9f1c5c7dd0.jpg"></p>
+<p>在 CIECAM 16 中，饱和度由视彩度和视明度的比例计算得来。</p>
+$$
+s=100*\left( \frac{M}{Q}\right)^{0.5}
+$$<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/3eaaef2ee9c8c60ae30130ad3b8d7096.webp"></p>
+<p>表达有关“彩色”的日常词汇也有很多，比如鲜艳，饱和，彩，或者 Vividness，Brilliance 等。他们在色彩科学中都有不同的含义。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/4249141dbf6f45d17bbdd6751b3a130a.avif#center"></p>
 <h2 id="待续">待续<a hidden class="anchor" aria-hidden="true" href="#待续">#</a></h2>
 <p>一些相关网站：</p>
 <p><a href="http://www.huevaluechroma.com/index.php">http://www.huevaluechroma.com/index.php</a></p>
