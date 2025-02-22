@@ -6,8 +6,15 @@
     <description>Recent content in Colour on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Feb 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Feb 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>颜色空间转换：RGB 与 XYZ</title>
+      <link>https://jackchou00.icu/posts/ccm01/</link>
+      <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/ccm01/</guid>
+      <description>构建矩阵实现 XYZ 和定义在 XYZ 上的 RGB 空间转换</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
       <link>https://jackchou00.icu/posts/pcrdi06/</link>
