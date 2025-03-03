@@ -6,8 +6,15 @@
     <description>Recent content in Colour on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Mar 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB</title>
+      <link>https://jackchou00.icu/posts/isp01/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/isp01/</guid>
+      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
+    </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou00.icu/posts/ccm02/</link>
