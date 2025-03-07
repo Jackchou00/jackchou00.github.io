@@ -126,8 +126,8 @@
   "keywords": [
     "Colour", "CCM", "ISP"
   ],
-  "articleBody": "复习：XYZ 三刺激值 XYZ 是色彩科学最重要的颜色空间，色貌模型、均匀颜色空间、各种 RGB 空间都是从 XYZ 出发的。XYZ 由光谱辐射亮度和颜色匹配函数相乘得到，即：\n$$ X = k \\int_{\\lambda} P(\\lambda) \\bar{x}(\\lambda) d\\lambda $$其中，$P(\\lambda)$ 是光谱辐射亮度，$\\bar{x}(\\lambda)$ 是标准观察者的颜色匹配函数，$k$ 是归一化系数。\n光谱敏感函数 绝大多数相机用滤色片将光分为三个通道，滤色片的透光率和光电二极管的波长响应共同决定了三个通道对不同波长的光的敏感程度。这个与波长相关的函数称为光谱敏感函数（Spectral Sensitivity Function）。\n仿照 XYZ 的计算过程，一个理想传感器输出的像素值可以由下式计算：\n$$ R = k \\int_{\\lambda} P(\\lambda) \\bar{r}(\\lambda) d\\lambda $$其中，$\\bar{r}(\\lambda)$ 是红通道的光谱敏感函数，k 是一个系数，$P(\\lambda)$ 可以是传感器上的光谱辐射照度。\n传感器接收到光的多少不仅由光强决定，还和相机的快门速度、镜头的光圈大小有关，为方便起见，都由 k 统一表示。\n线性变换？ XYZ 和 RAW RGB 都是线性空间，并不意味着他们可以直接通过一个矩阵线性变换，但可以近似的进行变换，即 ISP 中的 CCM（Color Correction Matrix）。\n由上面的公式不难注意到，能够用一个 3x3 的矩阵完成 RAW RGB 到 XYZ 变换的条件是：\n$$ \\begin{aligned} \\bar{x}(\\lambda) = a_{11} \\bar{r}(\\lambda) + a_{12} \\bar{g}(\\lambda) + a_{13} \\bar{b}(\\lambda) \\\\ \\bar{y}(\\lambda) = a_{21} \\bar{r}(\\lambda) + a_{22} \\bar{g}(\\lambda) + a_{23} \\bar{b}(\\lambda) \\\\ \\bar{z}(\\lambda) = a_{31} \\bar{r}(\\lambda) + a_{32} \\bar{g}(\\lambda) + a_{33} \\bar{b}(\\lambda) \\end{aligned} $$如果不能满足上面的条件，可以用最小二乘法求解一个最优的 CCM 矩阵。\n参考实现 以下是一个相机的 SSF（来自一个早期实验，不能作为实际用途），因为我也不知道测的到底准不准。\n通过最小二乘法求解用这个 SSF 线性组合出 CIE 1931 XYZ CMF 的 3x3 矩阵：\n$$ \\begin{bmatrix} 1.297 \u0026 0.0793 \u0026 0.1033 \\\\ 0.558 \u0026 0.569 \u0026 -0.1577 \\\\ 0.0596 \u0026 -0.1675 \u0026 1.2465 \\end{bmatrix} $$用该矩阵将 SSF 转换为一个近似的 XYZ（用 Estimated XYZ 表示）：\n一些问题和待续 以上内容基于的假设：RAW 是线性的，相机的光谱响应范围是 380-780nm 等。 改进 CCM 的方法。 不使用 SSF 建立 CCM 的方法。 衡量 CCM 质量的方法。 ",
-  "wordCount" : "773",
+  "articleBody": "复习：XYZ 三刺激值 XYZ 是色彩科学最重要的颜色空间，色貌模型、均匀颜色空间、各种 RGB 空间都是从 XYZ 出发的。XYZ 由光谱辐射亮度和颜色匹配函数相乘得到，即：\n$$ X = k \\int_{\\lambda} P(\\lambda) \\bar{x}(\\lambda) d\\lambda $$其中，$P(\\lambda)$ 是光谱辐射亮度，$\\bar{x}(\\lambda)$ 是标准观察者的颜色匹配函数，$k$ 是归一化系数。\n光谱敏感函数 绝大多数相机用滤色片将光分为三个通道，滤色片的透光率和光电二极管的波长响应共同决定了三个通道对不同波长的光的敏感程度。这个与波长相关的函数称为光谱敏感函数（Spectral Sensitivity Function）。\n仿照 XYZ 的计算过程，一个理想传感器输出的像素值可以由下式计算：\n$$ R = k \\int_{\\lambda} P(\\lambda) \\bar{r}(\\lambda) d\\lambda $$其中，$\\bar{r}(\\lambda)$ 是红通道的光谱敏感函数，k 是一个系数，$P(\\lambda)$ 可以是传感器上的光谱辐射照度。\n传感器接收到光的多少不仅由光强决定，还和相机的快门速度、镜头的光圈大小有关，为方便起见，都由 k 统一表示。\n线性变换？ XYZ 和 RAW RGB 都是线性空间，并不意味着他们可以直接通过一个矩阵线性变换，但可以近似的进行变换，即 ISP 中的 CCM（Color Correction Matrix）。\n由上面的公式不难注意到，能够用一个 3x3 的矩阵完成 RAW RGB 到 XYZ 变换的条件是：\n$$ \\begin{aligned} \\bar{x}(\\lambda) = a_{11} \\bar{r}(\\lambda) + a_{12} \\bar{g}(\\lambda) + a_{13} \\bar{b}(\\lambda) \\\\ \\bar{y}(\\lambda) = a_{21} \\bar{r}(\\lambda) + a_{22} \\bar{g}(\\lambda) + a_{23} \\bar{b}(\\lambda) \\\\ \\bar{z}(\\lambda) = a_{31} \\bar{r}(\\lambda) + a_{32} \\bar{g}(\\lambda) + a_{33} \\bar{b}(\\lambda) \\end{aligned} $$如果不能满足上面的条件，可以用最小二乘法求解一个最优的 CCM 矩阵。\n参考实现 以下是一个相机的 SSF（来自一个早期实验，不能作为实际用途），因为我也不知道测的到底准不准。\n通过最小二乘法求解用这个 SSF 线性组合出 CIE 1931 XYZ CMF 的 3x3 矩阵：\n$$ \\begin{bmatrix} 1.297 \u0026 0.0793 \u0026 0.1033 \\\\ 0.558 \u0026 0.569 \u0026 -0.1577 \\\\ 0.0596 \u0026 -0.1675 \u0026 1.2465 \\end{bmatrix} $$用该矩阵将 SSF 转换为一个近似的 XYZ（用 Estimated XYZ 表示）：\n一些问题和待续 以上内容基于的假设：RAW 是线性的，相机的光谱响应范围是 380-780nm 等。 改进 CCM 的方法。 不使用 SSF 建立 CCM 的方法。 衡量 CCM 质量的方法 CCM 的目的是将 RAW RGB 转换为 XYZ，我更喜欢的描述是用 RAW 数据“预测”XYZ，衡量 CCM 质量的本质是看预测的是否准确。对 XYZ 来说，可以找一个色差公式计算预测值和真实值的差异。使用的颜色样本通常包括中性色、饱和色和常见物体的颜色，比如肤色、天空、植物等。这些“重要”的颜色也就是色卡上的颜色，最著名的色卡是 Xrite 的 ColorChecker Classic，包含了 24 个色块，但爱色丽没有公布过他们的反射率数据，不利于做理论计算，一个更好的选择是 PMCC (Preferred Memory Color Chart)，它包含了饱和色、中性色和 18 种经典的记忆色，且提供了光谱反射率。\nM. R. Luo, “The new preferred memory color ( PMC ) chart,” Color Research \u0026 Application, p. col.22940, May 2024, doi: 10.1002/col.22940.\n计算这 30 个颜色样本的预测 XYZ 和真实 XYZ 的色差，就能衡量 CCM 的质量。通过更换不同的光源（常见的选择是 D65，A 和 CWF 或 TL84），可以衡量 CCM 在不同光源下的表现。\n",
+  "wordCount" : "1119",
   "inLanguage": "en",
   "datePublished": "2025-03-02T00:00:00+08:00",
   "dateModified": "2025-03-02T00:00:00+08:00",
@@ -261,8 +261,13 @@ $$<p>用该矩阵将 SSF 转换为一个近似的 XYZ（用 Estimated XYZ 表示
 <li>以上内容基于的假设：RAW 是线性的，相机的光谱响应范围是 380-780nm 等。</li>
 <li>改进 CCM 的方法。</li>
 <li>不使用 SSF 建立 CCM 的方法。</li>
-<li>衡量 CCM 质量的方法。</li>
 </ol>
+<h3 id="衡量-ccm-质量的方法">衡量 CCM 质量的方法<a hidden class="anchor" aria-hidden="true" href="#衡量-ccm-质量的方法">#</a></h3>
+<p>CCM 的目的是将 RAW RGB 转换为 XYZ，我更喜欢的描述是用 RAW 数据“预测”XYZ，衡量 CCM 质量的本质是看预测的是否准确。对 XYZ 来说，可以找一个色差公式计算预测值和真实值的差异。使用的颜色样本通常包括中性色、饱和色和常见物体的颜色，比如肤色、天空、植物等。这些“重要”的颜色也就是色卡上的颜色，最著名的色卡是 Xrite 的 ColorChecker Classic，包含了 24 个色块，但爱色丽没有公布过他们的反射率数据，不利于做理论计算，一个更好的选择是 PMCC (Preferred Memory Color Chart)，它包含了饱和色、中性色和 18 种经典的记忆色，且提供了光谱反射率。</p>
+<blockquote>
+<p>M. R. Luo, “The new preferred memory color ( PMC ) chart,” Color Research &amp; Application, p. col.22940, May 2024, doi: 10.1002/col.22940.</p>
+</blockquote>
+<p>计算这 30 个颜色样本的预测 XYZ 和真实 XYZ 的色差，就能衡量 CCM 的质量。通过更换不同的光源（常见的选择是 D65，A 和 CWF 或 TL84），可以衡量 CCM 在不同光源下的表现。</p>
 
 
   </div>
