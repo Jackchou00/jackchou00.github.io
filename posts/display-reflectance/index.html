@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>反射率：高亮环境可读性的第二条路 | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, Display">
+<meta name="description" content="可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou00.icu/posts/display-reflectance/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou00.icu/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou00.icu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/display-reflectance/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/display-reflectance/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="反射率：高亮环境可读性的第二条路">
+  <meta property="og:description" content="可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-14T16:00:00+08:00">
+    <meta property="article:modified_time" content="2025-03-14T16:00:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="Display">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反射率：高亮环境可读性的第二条路">
+<meta name="twitter:description" content="可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "文章 🌳",
+      "item": "https://jackchou00.icu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "反射率：高亮环境可读性的第二条路",
+      "item": "https://jackchou00.icu/posts/display-reflectance/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "反射率：高亮环境可读性的第二条路",
+  "name": "反射率：高亮环境可读性的第二条路",
+  "description": "可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升",
+  "keywords": [
+    "Colour", "Display"
+  ],
+  "articleBody": "亮一点，再亮一点 印象中，从 Realme GT 5 Pro 开始，手机屏幕的峰值亮度开始变得越来越“浮夸”。\n屏幕亮度遥遥领先，突破行业新纪录。全新发光材料搭配狂暴调教算法，不惧耀眼日光，真实还原明暗。——真我 GT 5 Pro\n其峰值亮度已经达到 4500 nits 这样惊人的数值，但这是“局部峰值激发亮度”，只有在很苛刻的条件下（HDR 内容，强光激发，小窗口）才能做到，也几乎没有任何实用价值。很坏的是，这种没有价值的高亮度成为了宣传上的重点和各家竞争的关键，甚至可以在产品参数页里只写这一个亮度。\n之后，亮度战争蔓延到全屏激发、全屏手动亮度，比如一加和小米都提供了额外的阳光模式，允许用户把手动亮度调的更高。各家的宣传口径把高亮度不约而同的叫做“阳光屏”，认为高亮度在手机上最实用的场景是提升高亮环境下的可读性。\n亮度对抗照度 屏幕在高亮度下的可读性是很复杂的，和显示的内容、电光传递函数都有关系，而且是一个主观的心理物理量。一个最简单的量化方法是对比度，即屏幕不显示内容时的亮度和显示一个白色时的亮度，此处的亮度是考虑了屏幕反射环境光的综合亮度。\n$$ \\text{luminance}=\\frac{\\text{illuminance}*\\text{reflectance}}{\\pi}+\\text{display luminance} $$上式中的反射率是 SCI 反射率（包含镜面反射成分），假设屏幕处于一个无限大且均匀的穹顶光照下（比如户外），所以可以用除以 $\\pi$ 的方式估算反射光的亮度。\n随着照度的提高，对比度会很快的下降（注意下图的 y 轴是对数坐标的），使得室外的屏幕可读性不好，表现为看不清，或者觉得屏幕不够“通透”。\n常见的晴天户外照度约为 50000 lx，无镀膜的玻璃包含镜面反射的反射率约为 5%，这种情况下，对比度仅有 2 左右，且增加屏幕亮度的效果有限。\n另辟蹊径：降低屏幕反射率 从上面的计算方法可以看出，提高对比度不仅有提高亮度一种方法，还可以降低屏幕的反射率，可以通过镀膜实现。实际上，iPad 很早就有抗反射涂层技术，也经常出现在各种对比测试里，它的反射图案呈现一种较暗淡的紫红色，但 iPhone 上是没有的（也许是出于耐用性或是微晶玻璃不容易做镀膜的原因）。三星在手机上已经应用，vivo 在 X100 Ultra 上进行了一次尝试，向用户提供一种带有抗反射涂层的手机膜。\n通过这种技术，屏幕的反射率可以降低到低于 2%（按照 DxO 的测试）。降低屏幕反射率对提高对比度是相对高效的，其效果相当于把屏幕亮度提高到 4000 nits 以上。\n值得注意的是，现在手机几乎所有传感器都在屏幕或保护膜以下，vivo 提到了由于更低的反射率，贴了抗反射膜的手机需要刷特别的固件来重新标定传感器。\n一点发现和猜测 用积分球测量的包含镜面反射的反射率，结果和 DxO 是接近的。刚好有一台崭新出厂的 iPhone 16 Pro，其反射率显著的高于久经沙场的裸奔 Find X6 Pro，猜测是微晶玻璃（也就是超瓷晶面板）的特性所致。\n还有一些手机出厂就搭配了磨砂表面，比如一些类纸的手机，他们的不包含镜面反射的反射率自然会显著的更高，而包含镜面反射的反射率和正常手机差不多。\n另外，以上测量都是把屏幕擦的干干净净之后测量的，如果屏幕沾染上指纹、油污，反射率都会显著增高，尤其是带来一些不理想的纹理和各向异的杂散光。一些实体店里的手机被很多人把玩过，或者是没有清理屏幕的习惯，屏幕的显示质感都会变得糟糕。\n",
+  "wordCount" : "1263",
+  "inLanguage": "en",
+  "datePublished": "2025-03-14T16:00:00+08:00",
+  "dateModified": "2025-03-14T16:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou00.icu/posts/display-reflectance/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou00.icu/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou00.icu/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou00.icu/flowers/" title="🌼">
+                    <span>🌼</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/posts/" title="文章 🌳">
+                    <span>文章 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/tags/" title="标签 🏷️">
+                    <span>标签 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/about/" title="关于 😼">
+                    <span>关于 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      反射率：高亮环境可读性的第二条路
+    </h1>
+    <div class="post-meta"><span title='2025-03-14 16:00:00 +0800 +0800'>2025.03.14</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="亮一点再亮一点">亮一点，再亮一点<a hidden class="anchor" aria-hidden="true" href="#亮一点再亮一点">#</a></h2>
+<p>印象中，从 Realme GT 5 Pro 开始，手机屏幕的峰值亮度开始变得越来越“浮夸”。</p>
+<blockquote>
+<p>屏幕亮度遥遥领先，突破行业新纪录。全新发光材料搭配狂暴调教算法，不惧耀眼日光，真实还原明暗。——真我 GT 5 Pro</p>
+</blockquote>
+<p>其峰值亮度已经达到 4500 nits 这样惊人的数值，但这是“局部峰值激发亮度”，只有在很苛刻的条件下（HDR 内容，强光激发，小窗口）才能做到，也几乎没有任何实用价值。很坏的是，这种没有价值的高亮度成为了宣传上的重点和各家竞争的关键，甚至可以在产品参数页里只写这一个亮度。</p>
+<p>之后，亮度战争蔓延到全屏激发、全屏手动亮度，比如一加和小米都提供了额外的阳光模式，允许用户把手动亮度调的更高。各家的宣传口径把高亮度不约而同的叫做“阳光屏”，认为高亮度在手机上最实用的场景是提升高亮环境下的可读性。</p>
+<h2 id="亮度对抗照度">亮度对抗照度<a hidden class="anchor" aria-hidden="true" href="#亮度对抗照度">#</a></h2>
+<p>屏幕在高亮度下的可读性是很复杂的，和显示的内容、电光传递函数都有关系，而且是一个主观的心理物理量。一个最简单的量化方法是对比度，即屏幕不显示内容时的亮度和显示一个白色时的亮度，此处的亮度是考虑了屏幕反射环境光的综合亮度。</p>
+$$
+\text{luminance}=\frac{\text{illuminance}*\text{reflectance}}{\pi}+\text{display luminance}
+$$<p>上式中的反射率是 SCI 反射率（包含镜面反射成分），假设屏幕处于一个无限大且均匀的穹顶光照下（比如户外），所以可以用除以 $\pi$ 的方式估算反射光的亮度。</p>
+<p>随着照度的提高，对比度会很快的下降（注意下图的 y 轴是对数坐标的），使得室外的屏幕可读性不好，表现为看不清，或者觉得屏幕不够“通透”。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/5c3672c33e3c1e6e0d7e593f0aaa09db.svg"></p>
+<p>常见的晴天户外照度约为 50000 lx，无镀膜的玻璃包含镜面反射的反射率约为 5%，这种情况下，对比度仅有 2 左右，且增加屏幕亮度的效果有限。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/201215489a2972882d2e7ad00691087a.svg"></p>
+<h2 id="另辟蹊径降低屏幕反射率">另辟蹊径：降低屏幕反射率<a hidden class="anchor" aria-hidden="true" href="#另辟蹊径降低屏幕反射率">#</a></h2>
+<p>从上面的计算方法可以看出，提高对比度不仅有提高亮度一种方法，还可以降低屏幕的反射率，可以通过镀膜实现。实际上，iPad 很早就有抗反射涂层技术，也经常出现在各种对比测试里，它的反射图案呈现一种较暗淡的紫红色，但 iPhone 上是没有的（也许是出于耐用性或是微晶玻璃不容易做镀膜的原因）。三星在手机上已经应用，vivo 在 X100 Ultra 上进行了一次尝试，向用户提供一种带有抗反射涂层的手机膜。</p>
+<p>通过这种技术，屏幕的反射率可以降低到低于 2%（按照 DxO 的测试）。降低屏幕反射率对提高对比度是相对高效的，其效果相当于把屏幕亮度提高到 4000 nits 以上。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/bbdd2deb2ed54f05e57fa88a19995455.svg"></p>
+<p>值得注意的是，现在手机几乎所有传感器都在屏幕或保护膜以下，vivo 提到了由于更低的反射率，贴了抗反射膜的手机需要刷特别的固件来重新标定传感器。</p>
+<h2 id="一点发现和猜测">一点发现和猜测<a hidden class="anchor" aria-hidden="true" href="#一点发现和猜测">#</a></h2>
+<p>用积分球测量的包含镜面反射的反射率，结果和 DxO 是接近的。刚好有一台崭新出厂的 iPhone 16 Pro，其反射率显著的高于久经沙场的裸奔 Find X6 Pro，猜测是微晶玻璃（也就是超瓷晶面板）的特性所致。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/d4d9e6e810e1dec9b4bcec01dbfafc84.svg"></p>
+<p>还有一些手机出厂就搭配了磨砂表面，比如一些类纸的手机，他们的不包含镜面反射的反射率自然会显著的更高，而包含镜面反射的反射率和正常手机差不多。</p>
+<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/b6ca79c847941012064a2dd2f166ea23.svg"></p>
+<p>另外，以上测量都是把屏幕擦的干干净净之后测量的，如果屏幕沾染上指纹、油污，反射率都会显著增高，尤其是带来一些不理想的纹理和各向异的杂散光。一些实体店里的手机被很多人把玩过，或者是没有清理屏幕的习惯，屏幕的显示质感都会变得糟糕。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou00.icu/tags/display/">Display</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou00.icu/">🏡JacksBlog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
