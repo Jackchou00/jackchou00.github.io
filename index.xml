@@ -6,8 +6,15 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Mar 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图像处理中的色貌模型</title>
+      <link>https://jackchou00.icu/posts/icam01/</link>
+      <pubDate>Wed, 26 Mar 2025 20:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/icam01/</guid>
+      <description>颜色外貌与跨媒介色彩再现</description>
+    </item>
     <item>
       <title>与 MIUI 难分秋毫</title>
       <link>https://jackchou00.icu/flowers/250320/</link>
@@ -179,11 +186,11 @@
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/about/</guid>
       <description>&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
-&lt;p&gt;我是Jack Chou。&lt;/p&gt;
-&lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅&lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt;和&lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我是 Jack Chou。&lt;/p&gt;
+&lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅 &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt; 和 &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;爱好有很多，主要是摄影、猫和咖啡。&lt;/p&gt;
 &lt;h2 id=&#34;关于这里&#34;&gt;关于这里&lt;/h2&gt;
-&lt;p&gt;这个博客第一次创建在&lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023年6月29日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像&lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt;这样有一点内容的东西，但更多是被我用Draft雪藏的文章。&lt;/p&gt;</description>
+&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Postcards introduction Col.01</title>
