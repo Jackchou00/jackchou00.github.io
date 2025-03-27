@@ -6,8 +6,15 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 26 Mar 2025 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何正确读取 RAW 文件</title>
+      <link>https://jackchou00.icu/posts/how-to-read-raw/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/how-to-read-raw/</guid>
+      <description>跑得快不一定赢，不跌跟头才是成功</description>
+    </item>
     <item>
       <title>图像处理中的色貌模型</title>
       <link>https://jackchou00.icu/posts/icam01/</link>
