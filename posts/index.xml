@@ -6,8 +6,15 @@
     <description>Recent content in 文章 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Apr 2025 13:30:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>并非色差：用色卡评价最终输出图像</title>
+      <link>https://jackchou00.icu/posts/colour-checker-for-jpg/</link>
+      <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/colour-checker-for-jpg/</guid>
+      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
+    </item>
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou00.icu/posts/how-to-read-raw/</link>
