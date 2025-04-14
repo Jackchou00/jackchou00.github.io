@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="中文" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://jackchou00.icu/posts/isp01/">
+<link rel="alternate" hreflang="中文" href="https://jackchou00.icu/posts/isp01/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,7 +83,7 @@
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB">
   <meta property="og:description" content="解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论">
-  <meta property="og:locale" content="zh-CN">
+  <meta property="og:locale" content="中文">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-04T00:00:00+08:00">
@@ -127,8 +127,8 @@
     "Colour", "CCM", "ISP"
   ],
   "articleBody": " 观前提示：抽象和中二的部分都是 DeepSeek R1 写的，它还有更多更离谱的。\n《ISP锻造入门：从零开始铸造你的「原神之眼」RAW处理器》 《博士，你甚至不肯叫我一声ISP：三原色与勇者傻瓜套装》 《像素工程师修炼Day1：如何让RAW的野生RGB臣服于人类の色彩暴政》 §0. 序章：勇者的觉醒——在像素荒原上捡到一本《ISP入门指南》 ISP（Image Signal Processor）负责将传感器输出的 RAW 图像转换为在屏幕上显示的图像。通常涉及各种颜色空间的转换，处理和映射。\n这个系列将从最基础的 ISP 开始，逐渐加入模块来解决遇到的问题，提高图像质量。\n接下来将实现一个最基本的两步 ISP，获得初始武器。\n§1. 理想的 RAW 图像 理想的起点是范围在 0-1 之间，0 代表没有输入，1 代表传感器的饱和值的三通道图像。但相机吐出的 RAW 图像是有黑电平补偿、没有解拜尔阵列、经过相机厂商编码的私有格式。\n好在已经有很多开源工具能够帮我们完成这些预处理，比如 dcraw、libraw 等。Rawpy 是一个 Python 包装的 LibRaw，使用下面的代码可以将 RAW 图像读取为一个比较理想的 numpy 数组：\ndef read_raw_image(path): with rawpy.imread(path) as raw: rgb = raw.postprocess( gamma=(1, 1), output_bps=16, use_auto_wb=False, use_camera_wb=False, user_wb=[1, 1, 1, 1], output_color=rawpy.ColorSpace.raw, no_auto_bright=True, half_size=True, ) rgb = rgb / 65535.0 return rgb 这里的 rgb 是一个三维的 numpy 数组，形状是 (H, W, 3)，H 和 W 分别是图像的高和宽。是经过预处理的理想 RAW 图像。\n如果直接编码成图像，得到的就是“原图”。\n§2. 从RAW RGB到XYZ 请看前传：颜色空间转换：RAW 与 XYZ。\nCCM（Color Correction Matrix）是一个 3x3 的矩阵，用于将 RAW RGB 转换为 XYZ。\nccm = np.array( [[1.297, 0.558, 0.0596], [0.0793, 0.569, -0.1675], [0.1033, -0.1577, 1.2465]] ) cameraRGB_2D = cameraRGB.reshape(-1, 3) XYZ_2D = np.dot(cameraRGB_2D, ccm) XYZ = XYZ_2D.reshape(cameraRGB.shape) 此处两步 reshape 是为了进行矩阵乘法，如果之后还需要进行其他操作，可以暂时保留向量形态。\n此时得到的 XYZ 是对拍摄环境中三刺激值的估计，于是，从相机各自不同的光谱响应转换到了一个统一的颜色空间。这里的操作并不考虑三刺激值的绝对值，如果要对整体亮度调整，在 XYZ 上进行操作是比较合理的，比如乘上一个系数来模拟曝光补偿。\n§3. 从XYZ 到 sRGB 请看前传：颜色空间转换：XYZ 与 sRGB。\nM_XYZ2sRGB = np.array( [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.2040, 1.0570]] ) sRGB_linear_2D = np.dot(XYZ_2D, M_XYZ2sRGB.T) sRGB_linear = sRGB_linear_2D.reshape(cameraRGB.shape) sRGB_linear_clipped = np.clip(sRGB_linear, 0, 1) sRGB = np.where( sRGB_linear_clipped \u003c= 0.0031308, 12.92 * sRGB_linear_clipped, 1.055 * np.power(sRGB_linear_clipped, 1 / 2.4) - 0.055, ) 这里的操作包括色彩空间转换和 OETF（光电传递函数），将 XYZ 转换为 sRGB 空间。sRGB 是一个 0-1 之间的三通道图像，可以直接显示在屏幕上。注意在应用 OETF 之前，需要将线性空间的 sRGB_linear 限制在 0-1 之间，这一步实际上是将超出色域的颜色直接裁切，保证色域内的颜色绝对再现，是一种最简单的色域映射方法。\n§4. 初始武器锻造报告 至此，我们已经完成了一个最基础的 ISP，虽然简单，重要的是它每一步都有色彩科学的理论支撑。\n为了展示这个 ISP 有多脆弱，我们点亮这盏灯，就能遇到的第一个问题。\n高光溢出：当超出传感器的饱和值，传感器将其记录为（1, 1, 1），这样的像素在经过初始版本的 ISP 处理后，变成（1, 0.8, 1），呈现粉色。一种简单粗暴的解决办法是在 cameraRGB 上检测是否有饱和像素，如果有，就直接显示白色。\n之后，我们将补齐初始版本省略的模块，解决会遇到的各种问题，并逐渐提高图像质量。\n",
-  "wordCount" : "1230",
-  "inLanguage": "en",
+  "wordCount" : "213",
+  "inLanguage": "中文",
   "datePublished": "2025-03-04T00:00:00+08:00",
   "dateModified": "2025-03-04T00:00:00+08:00",
   "mainEntityOfPage": {
@@ -184,6 +184,12 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou00.icu/en/" title="English"
+                            aria-label="English">En</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -255,7 +261,7 @@
 <p>如果直接编码成图像，得到的就是“原图”。</p>
 <p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/4d8b79729fe910c67f91fcffc78d5ada.jpg"></p>
 <h2 id="2-从raw-rgb到xyz">§2. 从RAW RGB到XYZ<a hidden class="anchor" aria-hidden="true" href="#2-从raw-rgb到xyz">#</a></h2>
-<p>请看前传：<a href="/posts/ccm02">颜色空间转换：RAW 与 XYZ</a>。</p>
+<p>请看前传：<a href="/posts/ccm02/">颜色空间转换：RAW 与 XYZ</a>。</p>
 <p>CCM（Color Correction Matrix）是一个 3x3 的矩阵，用于将 RAW RGB 转换为 XYZ。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ccm <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(
 </span></span><span style="display:flex;"><span>    [[<span style="color:#ae81ff">1.297</span>, <span style="color:#ae81ff">0.558</span>, <span style="color:#ae81ff">0.0596</span>], 
@@ -268,7 +274,7 @@
 </span></span></code></pre></div><p>此处两步 <code>reshape</code> 是为了进行矩阵乘法，如果之后还需要进行其他操作，可以暂时保留向量形态。</p>
 <p>此时得到的 <code>XYZ</code> 是对拍摄环境中三刺激值的估计，于是，从相机各自不同的光谱响应转换到了一个统一的颜色空间。这里的操作并不考虑三刺激值的绝对值，如果要对整体亮度调整，在 <code>XYZ</code> 上进行操作是比较合理的，比如乘上一个系数来模拟曝光补偿。</p>
 <h2 id="3-从xyz-到-srgb">§3. 从XYZ 到 sRGB<a hidden class="anchor" aria-hidden="true" href="#3-从xyz-到-srgb">#</a></h2>
-<p>请看前传：<a href="/posts/ccm01">颜色空间转换：XYZ 与 sRGB</a>。</p>
+<p>请看前传：<a href="/posts/ccm01/">颜色空间转换：XYZ 与 sRGB</a>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>M_XYZ2sRGB <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(
 </span></span><span style="display:flex;"><span>    [[<span style="color:#ae81ff">3.2406</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.5372</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.4986</span>],
 </span></span><span style="display:flex;"><span>     [<span style="color:#f92672">-</span><span style="color:#ae81ff">0.9689</span>, <span style="color:#ae81ff">1.8758</span>, <span style="color:#ae81ff">0.0415</span>],

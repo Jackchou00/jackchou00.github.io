@@ -5,7 +5,7 @@
     <link>https://jackchou00.icu/flowers/</link>
     <description>Recent content in 杂记 🌼 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
-    <language>zh-CN</language>
+    <language>中文</language>
     <lastBuildDate>Thu, 03 Apr 2025 19:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/flowers/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -69,14 +69,23 @@
       <link>https://jackchou00.icu/flowers/250204/</link>
       <pubDate>Tue, 04 Feb 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/flowers/250204/</guid>
-      <description>&lt;p&gt;刚开始搞科研的时候，会觉得自己总是在重复造轮子。一些功能和算法，可能 Adobe 很早就落地到 ACR 里了，色彩科学在图像处理里做的很多事情好像多少都能够在那些最流行的软件里找到。&lt;/p&gt;</description>
+      <description>&lt;p&gt;刚开始搞科研的时候，会觉得自己总是在重复造轮子。一些功能和算法，可能 Adobe 很早就落地到 ACR 里了，色彩科学在图像处理里做的很多事情好像多少都能够在那些最流行的软件里找到。&lt;/p&gt;
+&lt;p&gt;现在又觉得，哪怕是很基础的东西，也远比表面上的复杂，会想弄清楚到底是如何操作的，我自己能不能复现出来。比如 ACR 里简单的一个滑块，控制白平衡里的色温。刚学摄影和后期的时候，觉得这很好理解，包括色温什么的概念。后来对 ISP 有一点了解，发现对相机和图像算法来说根本没有色温这个概念。再后来做相机特征化的时候，白平衡的概念又和 ISP 里的不同了，直接可以从 RAW 变换到三刺激值，色适应变换并不在流程的最前端。&lt;/p&gt;
+&lt;p&gt;这时候再回到摄影师的视角，如果拿别人在 ACR 里调好的预设，或者自己调这些参数的时候，好像是在一个黑盒子上做一些操作。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/02/fc65063f2f334d24c924f84e3187ee2b.webp#center&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>色彩科学博大精深</title>
       <link>https://jackchou00.icu/flowers/250126/</link>
       <pubDate>Sun, 26 Jan 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/flowers/250126/</guid>
-      <description>&lt;p&gt;我经常觉得色彩科学处处充满了魔法。作为一门和“人”有关的学科，除了辐射量以外，从光度学开始就已经充满了“心理物理量”，甚至坎德拉（Candela）这个心理物理量单位还成了国际标准单位。但色彩科学的大厦就这样建立并运行了，仅由17位观察者的实验数据建立的 CIE 1931 模型至今还在大规模的使用。&lt;/p&gt;</description>
+      <description>&lt;p&gt;我经常觉得色彩科学处处充满了魔法。作为一门和“人”有关的学科，除了辐射量以外，从光度学开始就已经充满了“心理物理量”，甚至坎德拉（Candela）这个心理物理量单位还成了国际标准单位。但色彩科学的大厦就这样建立并运行了，仅由17位观察者的实验数据建立的 CIE 1931 模型至今还在大规模的使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1979年10月第十六届国际计量大会将坎德拉定义为：频率为540×10^12Hz的单色辐射光源（黄绿色可见光）在某方向的辐射强度为1/683 瓦每球面度，该辐射源在该方向的发光强度为1坎德拉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;包括均匀颜色空间、颜色外貌，再到图像处理、质量评价。从线性到非线性，从物理到心理，在一层层心理物理量上叠加新的心理物理量，不断地抽象出越来越复杂的模型。色彩科学在旁人眼里也许带有不少“玄学”色彩，摄影师群体里也更多用模棱两可和抽象的词汇去描述色彩。&lt;/p&gt;
+&lt;p&gt;现在，我可以从科学的角度去解释很多现象，也还有很多的现象在指导着我的科研思路。对我而言，色彩科学不仅是科学，还是一门艺术，我也不排斥它适当的带有一些“玄学”，毕竟从根本上这是一门研究“人”的学科，如果人的一切行为表现都能被精准的解释，好像也是一件挺遥远和恐怖的事情。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/01/3e4e3594db2f8dc5bd1e7b9d898b1c2b.jpg#center&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>角落里的咖啡</title>

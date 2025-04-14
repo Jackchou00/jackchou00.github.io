@@ -5,7 +5,7 @@
     <link>https://jackchou00.icu/</link>
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
-    <language>zh-CN</language>
+    <language>中文</language>
     <lastBuildDate>Wed, 09 Apr 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -139,7 +139,10 @@
       <link>https://jackchou00.icu/flowers/250204/</link>
       <pubDate>Tue, 04 Feb 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/flowers/250204/</guid>
-      <description>&lt;p&gt;刚开始搞科研的时候，会觉得自己总是在重复造轮子。一些功能和算法，可能 Adobe 很早就落地到 ACR 里了，色彩科学在图像处理里做的很多事情好像多少都能够在那些最流行的软件里找到。&lt;/p&gt;</description>
+      <description>&lt;p&gt;刚开始搞科研的时候，会觉得自己总是在重复造轮子。一些功能和算法，可能 Adobe 很早就落地到 ACR 里了，色彩科学在图像处理里做的很多事情好像多少都能够在那些最流行的软件里找到。&lt;/p&gt;
+&lt;p&gt;现在又觉得，哪怕是很基础的东西，也远比表面上的复杂，会想弄清楚到底是如何操作的，我自己能不能复现出来。比如 ACR 里简单的一个滑块，控制白平衡里的色温。刚学摄影和后期的时候，觉得这很好理解，包括色温什么的概念。后来对 ISP 有一点了解，发现对相机和图像算法来说根本没有色温这个概念。再后来做相机特征化的时候，白平衡的概念又和 ISP 里的不同了，直接可以从 RAW 变换到三刺激值，色适应变换并不在流程的最前端。&lt;/p&gt;
+&lt;p&gt;这时候再回到摄影师的视角，如果拿别人在 ACR 里调好的预设，或者自己调这些参数的时候，好像是在一个黑盒子上做一些操作。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/02/fc65063f2f334d24c924f84e3187ee2b.webp#center&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
@@ -160,7 +163,13 @@
       <link>https://jackchou00.icu/flowers/250126/</link>
       <pubDate>Sun, 26 Jan 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/flowers/250126/</guid>
-      <description>&lt;p&gt;我经常觉得色彩科学处处充满了魔法。作为一门和“人”有关的学科，除了辐射量以外，从光度学开始就已经充满了“心理物理量”，甚至坎德拉（Candela）这个心理物理量单位还成了国际标准单位。但色彩科学的大厦就这样建立并运行了，仅由17位观察者的实验数据建立的 CIE 1931 模型至今还在大规模的使用。&lt;/p&gt;</description>
+      <description>&lt;p&gt;我经常觉得色彩科学处处充满了魔法。作为一门和“人”有关的学科，除了辐射量以外，从光度学开始就已经充满了“心理物理量”，甚至坎德拉（Candela）这个心理物理量单位还成了国际标准单位。但色彩科学的大厦就这样建立并运行了，仅由17位观察者的实验数据建立的 CIE 1931 模型至今还在大规模的使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1979年10月第十六届国际计量大会将坎德拉定义为：频率为540×10^12Hz的单色辐射光源（黄绿色可见光）在某方向的辐射强度为1/683 瓦每球面度，该辐射源在该方向的发光强度为1坎德拉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;包括均匀颜色空间、颜色外貌，再到图像处理、质量评价。从线性到非线性，从物理到心理，在一层层心理物理量上叠加新的心理物理量，不断地抽象出越来越复杂的模型。色彩科学在旁人眼里也许带有不少“玄学”色彩，摄影师群体里也更多用模棱两可和抽象的词汇去描述色彩。&lt;/p&gt;
+&lt;p&gt;现在，我可以从科学的角度去解释很多现象，也还有很多的现象在指导着我的科研思路。对我而言，色彩科学不仅是科学，还是一门艺术，我也不排斥它适当的带有一些“玄学”，毕竟从根本上这是一门研究“人”的学科，如果人的一切行为表现都能被精准的解释，好像也是一件挺遥远和恐怖的事情。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/01/3e4e3594db2f8dc5bd1e7b9d898b1c2b.jpg#center&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
@@ -194,6 +203,13 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jackchou00.github.io/Imgs/flowers/IMG20250119130336.avif&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Notes on Principles of Color Reproduction in Digital Images: Introduction</title>
+      <link>https://jackchou00.icu/en/posts/pcrdi00/</link>
+      <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/en/posts/pcrdi00/</guid>
+      <description>Ep.0</description>
+    </item>
+    <item>
       <title>数字影像颜色再现原理笔记：绪论</title>
       <link>https://jackchou00.icu/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
@@ -218,7 +234,38 @@
 &lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅 &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt; 和 &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;爱好有很多，主要是摄影、猫和咖啡。&lt;/p&gt;
 &lt;h2 id=&#34;关于这里&#34;&gt;关于这里&lt;/h2&gt;
-&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;</description>
+&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;
+&lt;p&gt;后来，一个非常幸运的机会结束了那次诡异的秋招，也不再有什么动力和目标去更新这个博客，而是偶尔用在一些奇怪的用途。比如，它被用来给巴黎住 Airbnb 遇到的法国夫妻分享 &lt;a href=&#34;https://jackchou00.icu/posts/old/postcards01/&#34;&gt;明信片故事&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这是上一次建设博客的故事，之前的部分内容还能够在 &lt;a href=&#34;https://jackchou00.icu/posts/old/&#34;&gt;古迹 🌃&lt;/a&gt; 中找到。&lt;/p&gt;
+&lt;p&gt;由于是一个部署在 Github 上的静态网站，我在 GitHub 上的其他 pages 也会拥有相同的域名，这样，访客如果不输入后面的内容，直接访问这个域名，就会看到混乱的，很久没有更新的博客。&lt;/p&gt;
+&lt;p&gt;而为了更方便的分享那些项目的 pages 和利用 CloudFlare 的 Tunnel 功能，我购买了 &lt;a href=&#34;https://jackchou00.icu&#34;&gt;jackchou00.icu&lt;/a&gt; 这个域名，荒废博客的问题变得更加明显。&lt;/p&gt;
+&lt;p&gt;2025 年 1 月 20 日，为了满足我自己的分享欲和小心虚荣心，也为了让这个域名不要指向荒废的博客，重新装修过的 JacksBlog 正式 push 了。这一次，他的目的是记录一些科研和兴趣中的东西，分享一些图片和生活。&lt;/p&gt;
+&lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
+&lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2025.04.14: 增加多语言支持（Experimental Support for Multiple Languages）。&lt;/li&gt;
+&lt;li&gt;2025.02.17: 发现使用 Tags 就能很好的实现分类，移除了 Colour 这个二级分类。&lt;/li&gt;
+&lt;li&gt;2025.02.11: 部署了 Github Actions，现在，博客的源文件也有版本管理和自动部署了。&lt;/li&gt;
+&lt;li&gt;2025.02.02：增加了用于切换显示/隐藏的按钮，使用短代码实现。&lt;/li&gt;
+&lt;li&gt;2025.01.24: 停用 Misans，尝试加快加载速度，现在的中文字体是 Google Font 的思源黑体。&lt;/li&gt;
+&lt;li&gt;2025.01.22: 使用 Cloudflare R2 存储图片。&lt;/li&gt;
+&lt;li&gt;2025.01.20: 更新了字体，使用 Google Font 引入 Ubuntu Sans 和 Ubuntu Mono。中文字体是 MiSans，使用本地加载的方式。Code 的背景颜色修改为&lt;code&gt;238&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;2025.01.18: 引入对$\LaTeX$公式的支持，参考 &lt;a href=&#34;https://adityatelange.github.io/hugo-PaperMod/posts/math-typesetting/&#34;&gt;PaperMod: Math Typesetting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2025.01.15: 修改了 PaperMod 的页面背景颜色。
+将&lt;code&gt;themes\PaperMod\assets\css\core\theme-vars.css&lt;/code&gt;中的&lt;code&gt;theme&lt;/code&gt;，从纯白改为&lt;code&gt;245&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://jackchou00.icu/en/about/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/en/about/</guid>
+      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m Jack Chou.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m currently a graduate student in color science. For more about me and our work, please visit &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;my personal page&lt;/a&gt; and &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;lab website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My hobbies include photography, cats, and coffee.&lt;/p&gt;
+&lt;h2 id=&#34;about-this-blog&#34;&gt;About This Blog&lt;/h2&gt;
+&lt;p&gt;This blog was first created on &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;June 29, 2023&lt;/a&gt;, originally intended as a portfolio for job hunting. Looking back, my limited experience and mindset at that time made it difficult to produce quality content, and that job search was unlikely to succeed. However, there were some decent posts like &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt;, though most were hidden as drafts.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Postcards introduction Col.01</title>
@@ -238,7 +285,29 @@
       <description>&lt;h2 id=&#34;一加9r刷机记录&#34;&gt;一加9R刷机记录&lt;/h2&gt;
 &lt;h3 id=&#34;oxygenos-氧os&#34;&gt;OxygenOS 氧OS&lt;/h3&gt;
 &lt;p&gt;9008救砖包可以刷入OxygenOS 11，之后升级到12和13.&lt;/p&gt;
-&lt;p&gt;在OxygenOS12，系统设置中不再提供本地升级的入口，需要安装下面的apk。&lt;/p&gt;</description>
+&lt;p&gt;在OxygenOS12，系统设置中不再提供本地升级的入口，需要安装下面的apk。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://oxygenos.oneplus.net/OPLocalUpdate_For_Android12.apk&#34;&gt;https://oxygenos.oneplus.net/OPLocalUpdate_For_Android12.apk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用体验：氧OS11和ColorOS不太一样，很简洁，傻快的动画。12和13和ColorOS很像了，内置的APP比较多一点，谷歌全家桶基本都装上了。因为是印度那边的系统，本地化还是不太好，约等于没有。续航还行，马马虎虎。&lt;/p&gt;
+&lt;h3 id=&#34;coloros131&#34;&gt;ColorOS13.1&lt;/h3&gt;
+&lt;p&gt;从别的系统回到ColorOS也是用9008，会丢失数据，和原系统无关。&lt;/p&gt;
+&lt;p&gt;区别是ColorOS用的MsmTools需要售后的验证码和密码，所以目前应该只能找售后刷，微信上和客服说下就行，不用去线下。&lt;/p&gt;
+&lt;p&gt;客服那边说完以后会有邮件发过来，下载线刷包和工具，剩下的交给远程的技术就行。&lt;/p&gt;
+&lt;p&gt;第一次刷的时候验证出错，换了个电脑解决的，原因不明，期间可能会安装点高通的驱动什么的。&lt;/p&gt;
+&lt;p&gt;使用体验：真·出厂系统，13和13.1相对流畅，手动设置一下毒瘤APP的电池策略以后续航很好。缺点是预装比较多，系统比较臃肿，安装APP之前要漫长的安全检查，谷歌相机会报毒，不卸载不让用支付软件。新搞出来的小布建议蛮好用的，航班、高铁车次会像Apple那样常驻显示。&lt;/p&gt;
+&lt;h3 id=&#34;nameless-无名&#34;&gt;Nameless 无名&lt;/h3&gt;
+&lt;p&gt;有很完善的Wiki和安装指导，电报群很热闹，更新很快，应该是需要从氧13某个版本解bl锁以后刷入。&lt;/p&gt;
+&lt;p&gt;国内的第三方ROM，基于AOSP，刚开机的时候会说欢迎使用你的Pixel。&lt;/p&gt;
+&lt;p&gt;非常简洁漂亮的系统，意外的是对Airpods支持很好，能看电量和各种信息，还有专门的图标和设置界面。&lt;/p&gt;
+&lt;p&gt;缺点是类原生系统调度和后台控制比较放飞自我，容易发热，耗电速度惊人。刷了Magisk之后，用Scene5配合冻它会好很多，但是root了以后日用太不方便了。遂放弃。&lt;/p&gt;
+&lt;p&gt;安卓14的正式版据说是2024年1月启动。&lt;/p&gt;
+&lt;h3 id=&#34;coloros14-beta&#34;&gt;ColorOS14 Beta&lt;/h3&gt;
+&lt;p&gt;2024.11.16 Oneplus9R开始ColorOS Log内测，应该是最后一个大版本更新。&lt;/p&gt;
+&lt;p&gt;LE2100_14.0.0.50(CN01): 很卡，尤其是微信和网易云，有自定义刷新率，但是AVES和高德都不能100%触发120Hz。振动通知有问题。&lt;/p&gt;
+&lt;p&gt;LE2100_14.0.0.51(CN01): 11.19更新，增量47.81MB，修复了振动通知。&lt;/p&gt;
+&lt;p&gt;内测版又卡又不更新，反馈Bug权当放屁，润回13.1了，回滚需要全清，有官方降级工具，但很难用。&lt;/p&gt;
+&lt;h3 id=&#34;coloros14&#34;&gt;ColorOS14&lt;/h3&gt;
+&lt;p&gt;LE2100_14.0.0.300(CN01)：1.5日的第一个正式版，总体上和内测差不多，卡顿问题好了不少，还是显著的不如13.1。尤其是淘宝、微信，流体云通知很不好用，小布建议里的高铁车次会先显示第二程的问题也仍有。&lt;/p&gt;
+&lt;p&gt;LE2100_14.0.0.301(CN01)：2.5更新的，增量1.5GB，没看出来修复了啥，稍微流畅一些。多了一个新春水印，只有本机拍的照片能用，很简单的功能，机型会显示成LE2100而不是一加9R。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Processing Raw Images in MATLAB</title>
@@ -247,7 +316,22 @@
       <guid>https://jackchou00.icu/posts/old/processingrawinmatlab/</guid>
       <description>&lt;h2 id=&#34;process-raw-images-in-matlab&#34;&gt;Process RAW Images in MATLAB&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这是一篇由Rob Sumner写于2014年的文章，详细讲述了什么是RAW和在MATLAB中处理RAW文件。以下是对其的补充和若干翻译。&lt;/p&gt;</description>
+&lt;p&gt;这是一篇由Rob Sumner写于2014年的文章，详细讲述了什么是RAW和在MATLAB中处理RAW文件。以下是对其的补充和若干翻译。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;raw-data及其意义&#34;&gt;RAW Data及其意义&lt;/h3&gt;
+&lt;p&gt;对于图像处理和计算机视觉来说，研究者往往对于图像本身的含义不感兴趣，他们将图像（往往是8bit的灰度或三通道彩色）视作多变量的函数、随机数构成的矩阵或是一些连接的像素，在此基础上设计算法。&lt;/p&gt;
+&lt;p&gt;RAW Data真正将场景中光照与图像连接起来，这对于HDR、天文摄影等与传感器行为有关的模型和方法是重要的。在这类问题下，知悉图像被捕获后的整个处理链是必要的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The best image to deal with is the sensor data straight from the camera, the &lt;em&gt;raw&lt;/em&gt; data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在（2023），很多设备都具备输出RAW文件的能力，比如中端和高端的单反相机与微单相机，甚至一些手机也可以输出RAW。但他们都将遵循以下几个原则。&lt;/p&gt;
+&lt;p&gt;RAW特指未经压缩的，包含了传感器像素值和一系列元数据（EXIF）的文件，可以有多种不同的专有的格式（尼康的NEF，佳能的CR2等），也可以是开放的格式，例如DNG（Digital Negative，数字负片）。RAW文件被故意设计成不可解读的数据格式（原文应该指厂商的专有格式），但一些逆向工程已经成功，比如CR2格式。具体请见&lt;a href=&#34;http://lclevy.free.fr/cr2/&#34;&gt;CR2逆向工程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;注：剩余文章中，RAW指代文件，例如CR2，raw指代未经处理的传感器原始数据&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;raw-sensor-data的本质&#34;&gt;Raw Sensor Data的本质&lt;/h3&gt;
+&lt;p&gt;从根本上来说，raw data不是能够被人眼所理解的，它既不包含一个确定的值来定义黑色，也没有确定的白色。raw是一个单通道的强度图像，像素值存储在10-16位数据中（根据不同型号的相机而定），对同一型号的传感器而言，不会有像素值高于某一个特定的值，表示了CCD或CMOS物理上的饱和点。实际输出的像素值可能大于我们期望的相机应有的范围（介于0到未曝光的像素值、或大于有意义的曝光像素值）。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;注：最后一句稍微有些拗口，原文为：The output may also be larger than the expected pixel dimensions of the camera, including a border of unexposed pixels to the left and above the meaningfully exposed ones. 可能意指超出传感器预期的暗电流或饱和值（由于噪声或坏点）&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;color-filter-array-颜色滤镜&#34;&gt;Color Filter Array 颜色滤镜&lt;/h4&gt;
+&lt;p&gt;光子传感器（也就是CMOS或CCD）实际上只能给出一个标量，不能给出实际颜色，通过在传感器表面安装一个与像素位置相对应的滤色片，可得知单个像素感知到的单个颜色的值，通过与邻近的其他颜色的像素比对，可以估计出这一点的颜色。这个估计的过程被称作解马赛克（Demosaicing），产生m乘n乘3的RGB值阵列，即我们需要的彩色数码图像。&lt;/p&gt;</description>
     </item>
     <item>
       <title>解决换行符导致的hugo主题渲染问题</title>
@@ -258,7 +342,9 @@
 &lt;p&gt;由Hugo生成的静态网页在本地运行时正常，将Public目录push到Github后，Github Pages无法正确显示CSS样式。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;这一问题是由于Windows和MacOS或linux系统的换行符不同导致的，而Git会自动将换行符转换为CRLF，因此在Windows上生成的静态网页在Github上无法正确显示。  &lt;br&gt;
-解决办法是将git的换行符转换功能关闭，即:&lt;/p&gt;</description>
+解决办法是将git的换行符转换功能关闭，即:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global core.autocrlf false
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再次push到Github上，即可正常显示。&lt;/p&gt;</description>
     </item>
     <item>
       <title>HelloWorld</title>
