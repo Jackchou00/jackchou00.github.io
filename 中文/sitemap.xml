@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou00.icu/</loc>
-    <lastmod>2025-04-09T23:00:00+08:00</lastmod>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jackchou00.icu/tags/colour/</loc>
-    <lastmod>2025-04-09T23:00:00+08:00</lastmod>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -26,6 +26,35 @@
                 rel="alternate"
                 hreflang="中文"
                 href="https://jackchou00.icu/tags/colour/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/posts/hdr-format-conversion/</loc>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/tags/</loc>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="中文"
+                href="https://jackchou00.icu/tags/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/posts/</loc>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="中文"
+                href="https://jackchou00.icu/posts/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/tags/pcrdi/</loc>
@@ -41,34 +70,8 @@
                 href="https://jackchou00.icu/tags/pcrdi/"
                 />
   </url><url>
-    <loc>https://jackchou00.icu/tags/</loc>
-    <lastmod>2025-04-09T23:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="中文"
-                href="https://jackchou00.icu/tags/"
-                />
-  </url><url>
     <loc>https://jackchou00.icu/posts/pcrdi07/</loc>
     <lastmod>2025-04-09T23:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://jackchou00.icu/posts/</loc>
-    <lastmod>2025-04-09T23:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="中文"
-                href="https://jackchou00.icu/posts/"
-                />
   </url><url>
     <loc>https://jackchou00.icu/flowers/</loc>
     <lastmod>2025-04-03T19:00:00+08:00</lastmod>
