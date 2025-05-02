@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="中文" dir="auto">
+<html lang="zh-cn" dir="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="中文" href="https://jackchou00.icu/posts/hdr-format-conversion/">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/hdr-format-conversion/">
 <noscript>
     <style>
         #theme-toggle,
@@ -83,7 +83,7 @@
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="HDR 格式转换">
   <meta property="og:description" content="Conversion of HDR still image formats">
-  <meta property="og:locale" content="中文">
+  <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-04-25T00:00:00+08:00">
@@ -126,7 +126,7 @@
   ],
   "articleBody": "显示参考的线性光 进行图像格式转换的时候，所有线性光空间指代的都应该是显示参考 Display referred 的。即计算出图像被显示之后在显示器上的光亮度（亮度或绝对三刺激值）。\n解码的时候使用 EOTF，编码的时候使用逆向的 EOTF 而不是 OETF（PQ 一类的传递函数会有区别）。\nPQ 或 HLG 传递函数 与 HDR 视频类似，将传递函数从 Gamma 或 709 换成 PQ 或 HLG，就能实现 SDR 向 HDR 的转变，对静态图像来说，已有国际标准 ISO-22028-5。\n佳能最早在微单引入了 10bit 的 HEIC 编码，使用 PQ 作为传递函数，索尼有 HLG 静态图像，在新版本的 ACR 中，启用 HDR 输出但不启用最大兼容得到的 AVIF 和 16 位 TIF 就是 PQ 编码的。\n对这种 HDR 图片，只需要应用正确的传递函数转换到线性光或从线性光编码即可。\nGainmap Gainmap 是专用于静态图像的一种实现 HDR 的方法，优点是非常好的兼容性，它可以同时保存 SDR 和 HDR 的内容（而不是依赖动态元数据及 TMO），并且对显示驱动非常友好。\nJPG，JXL，AVIF 都可以保存这种格式，尤其是 JPG，带有 Gainmap 的 JPG 实际上就是两个 JPG 文件首尾拼接起来，不支持这种格式的图片查看器直接读取第一张就是普通的 SDR 图片，在社交媒体选择发送原图后，还能保留后一张 Gainmap，即使 app 本身不支持，保存到别的 app 也有可能看到 HDR 效果。\nGainmap 最早大规模应用应该是 OPPO 的 Find X6 Pro，后来 Google 推广了 UltraHDR 格式，ISO 正在制定 ISO-21496-1 标准，UltraHDR 1.1 版本已经兼容了这一标准。\nGainmap 可以只写入亮度，也可以是三通道的，最近发布的 OPPO Find X8 Ultra 中的原彩 ProXDR 就是指代三通道 Gainmap。\nGainmap 可以理解为一种补充增强信息（SEI）或颜色重映射信息（CRI），记录了 SDR 和 HDR 源的区别，另外通过类似静态元数据的东西保存了 Gainmap 的绝对亮度关系。\n元数据包括：内容最大亮度增益（HDR 相比 SDR 亮多少），显示最大亮度增益（母版 HDR 相比 SDR 亮多少），编码 gainmap 时用到的 Gamma 和可选的偏移量。\n关于最大亮度增益和显示最大亮度增益，一个例子是 ACR 中的 HDR 限制器，可以将后期制作时的 HDR headroom 限制到 n 档，比如设置了一个三档的限制，那么后期制作时显示器的最大增益是三档，但内容可能有超过三档的亮度增益，只是被裁切了。设置这个显示最大亮度增益的元数据的目的可能是用于还原制作时的创作意图。\n关于 SDR 的名义亮度 虽然实际使用的时候很少遵守，但 SDR 其实是有规定的白点亮度的，比如 sRGB 是 80 nits，ITU-R BT.2035 里规定的是 100 nits。\n可以按照这个亮度将 SDR 内容转换成绝对亮度，再应用逆向的 EOTF 编码，更多时候使用的名义亮度是 203 nits，这个亮度源自 ITU-R BT.2408 对各种亮度的推荐值，其中漫射白为 203 nits，但也说明了不能把这个漫射白亮度理解为 SDR 的名义亮度。\n",
   "wordCount" : "166",
-  "inLanguage": "中文",
+  "inLanguage": "zh-cn",
   "datePublished": "2025-04-25T00:00:00+08:00",
   "dateModified": "2025-04-25T00:00:00+08:00",
   "mainEntityOfPage": {
@@ -194,6 +194,11 @@
             <li>
                 <a href="https://jackchou00.icu/posts/" title="文章 🌳">
                     <span>文章 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/photos/" title="照片 📷">
+                    <span>照片 📷</span>
                 </a>
             </li>
             <li>

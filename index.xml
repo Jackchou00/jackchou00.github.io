@@ -5,7 +5,7 @@
     <link>https://jackchou00.icu/</link>
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
-    <language>中文</language>
+    <language>zh-cn</language>
     <lastBuildDate>Fri, 02 May 2025 15:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -142,18 +142,18 @@
       <description>香啊，很香啊！</description>
     </item>
     <item>
-      <title>一个 PQ 测试</title>
-      <link>https://jackchou00.icu/flowers/250207/</link>
-      <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/flowers/250207/</guid>
-      <description>HDR (PQ) test images</description>
-    </item>
-    <item>
       <title>数字影像颜色再现原理笔记：颜色外貌</title>
       <link>https://jackchou00.icu/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi05/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
+    </item>
+    <item>
+      <title>一个 PQ 测试</title>
+      <link>https://jackchou00.icu/flowers/250207/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/flowers/250207/</guid>
+      <description>HDR (PQ) test images</description>
     </item>
     <item>
       <title>一个科研上的小变化</title>
