@@ -6,8 +6,15 @@
     <description>Recent content in Colour on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 13 May 2025 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iCAM06：图像处理中的色貌模型</title>
+      <link>https://jackchou00.icu/posts/icam06-survey/</link>
+      <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
+      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+    </item>
     <item>
       <title>HLG 白皮书解读</title>
       <link>https://jackchou00.icu/draft/hlg-understanding/</link>
@@ -42,13 +49,6 @@
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/how-to-read-raw/</guid>
       <description>跑得快不一定赢，不跌跟头才是成功</description>
-    </item>
-    <item>
-      <title>图像处理中的色貌模型</title>
-      <link>https://jackchou00.icu/posts/icam01/</link>
-      <pubDate>Wed, 26 Mar 2025 20:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/icam01/</guid>
-      <description>颜色外貌与跨媒介色彩再现</description>
     </item>
     <item>
       <title>反射率：高亮环境可读性的第二条路</title>
