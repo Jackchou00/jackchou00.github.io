@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>HDR on 🏡JacksBlog</title>
+    <link>https://jackchou00.icu/tags/hdr/</link>
+    <description>Recent content in HDR on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 13 May 2025 12:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou00.icu/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HLG 白皮书解读</title>
+      <link>https://jackchou00.icu/draft/hlg-understanding/</link>
+      <pubDate>Tue, 13 May 2025 12:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/draft/hlg-understanding/</guid>
+      <description>一种似乎很高级的显示独立传递函数</description>
+    </item>
+  </channel>
+</rss>

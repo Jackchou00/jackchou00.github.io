@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou00.icu/</loc>
-    <lastmod>2025-05-02T15:00:00+08:00</lastmod>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jackchou00.icu/tags/colour/</loc>
-    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,11 +28,17 @@
                 href="https://jackchou00.icu/tags/colour/"
                 />
   </url><url>
-    <loc>https://jackchou00.icu/posts/hdr-format-conversion/</loc>
-    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+    <loc>https://jackchou00.icu/draft/</loc>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/tags/hdr/</loc>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/draft/hlg-understanding/</loc>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://jackchou00.icu/tags/</loc>
-    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -43,6 +49,9 @@
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/tags/"
                 />
+  </url><url>
+    <loc>https://jackchou00.icu/posts/hdr-format-conversion/</loc>
+    <lastmod>2025-04-25T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://jackchou00.icu/posts/</loc>
     <lastmod>2025-04-25T00:00:00+08:00</lastmod>
