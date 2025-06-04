@@ -6,8 +6,15 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Jun 2025 13:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 23:30:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
+      <link>https://jackchou00.icu/posts/pcrdi07/</link>
+      <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/pcrdi07/</guid>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
+    </item>
     <item>
       <title>一支很贵的咖啡豆</title>
       <link>https://jackchou00.icu/flowers/250601/</link>
@@ -16,7 +23,7 @@
       <description>首届云南 CoE 试点赛第二名</description>
     </item>
     <item>
-      <title>一个帮助理解 HDR 传递函数的小实验（水）</title>
+      <title>一个帮助理解 HDR 传递函数的小实验</title>
       <link>https://jackchou00.icu/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/bt2408/</guid>
@@ -49,13 +56,6 @@
       <pubDate>Fri, 25 Apr 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/hdr-format-conversion/</guid>
       <description>Conversion of HDR still image formats</description>
-    </item>
-    <item>
-      <title>数字影像颜色再现原理笔记：颜色再现</title>
-      <link>https://jackchou00.icu/posts/pcrdi07/</link>
-      <pubDate>Wed, 09 Apr 2025 23:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/pcrdi07/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
     </item>
     <item>
       <title>自己试试能读明白吗？</title>
