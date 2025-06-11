@@ -277,6 +277,7 @@
 &lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
 &lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;2025.06.11: 使用 Saas 加速国内访问和 Cloudflare 企业支持。&lt;/li&gt;
 &lt;li&gt;2025.04.14: 增加多语言支持（Experimental Support for Multiple Languages）。&lt;/li&gt;
 &lt;li&gt;2025.02.17: 发现使用 Tags 就能很好的实现分类，移除了 Colour 这个二级分类。&lt;/li&gt;
 &lt;li&gt;2025.02.11: 部署了 Github Actions，现在，博客的源文件也有版本管理和自动部署了。&lt;/li&gt;
