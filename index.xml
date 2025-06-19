@@ -6,8 +6,24 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 Jun 2025 23:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个测试页面</title>
+      <link>https://jackchou00.icu/photos/test_photos/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/photos/test_photos/</guid>
+      <description>&lt;p&gt;不能再鸽了，近期还需要完成一些测试：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AVIF 压缩参数和图片分辨率，文件大小。&lt;/li&gt;
+&lt;li&gt;OSS 的价格和访问速度。&lt;/li&gt;
+&lt;li&gt;文章的具体形式。&lt;/li&gt;
+&lt;li&gt;HDR 图片的 SDR 兼容问题（采用 PQ 或是 Gainmap）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;祝这个板块早日康复吧。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jack-ali-img.oss-cn-hangzhou.aliyuncs.com/DSC07265.avif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jack-ali-img.oss-cn-hangzhou.aliyuncs.com/DSC07267.avif&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
       <link>https://jackchou00.icu/posts/pcrdi07/</link>

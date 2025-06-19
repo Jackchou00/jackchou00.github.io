@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou00.icu/</loc>
-    <lastmod>2025-06-11T18:00:00+08:00</lastmod>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +14,28 @@
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/"
                 />
+  </url><url>
+    <loc>https://jackchou00.icu/tags/photos/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/tags/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/photos/test_photos/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/photos/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://jackchou00.icu/posts/</loc>
     <lastmod>2025-06-11T18:00:00+08:00</lastmod>
@@ -52,19 +74,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/tags/pcrdi/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/tags/</loc>
-    <lastmod>2025-06-04T23:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/tags/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/posts/pcrdi07/</loc>
@@ -200,7 +209,5 @@
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/categories/"
                 />
-  </url><url>
-    <loc>https://jackchou00.icu/photos/</loc>
   </url>
 </urlset>
