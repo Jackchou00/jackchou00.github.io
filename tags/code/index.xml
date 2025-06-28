@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Code on 🏡JacksBlog</title>
+    <link>https://jackchou00.icu/tags/code/</link>
+    <description>Recent content in Code on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 29 Jun 2025 01:03:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou00.icu/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何从 Git 历史记录中彻底删除文件</title>
+      <link>https://jackchou00.icu/posts/git-rm-files/</link>
+      <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/git-rm-files/</guid>
+      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,15 @@
     <description>Recent content in 文章 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 Jun 2025 23:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jun 2025 01:03:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何从 Git 历史记录中彻底删除文件</title>
+      <link>https://jackchou00.icu/posts/git-rm-files/</link>
+      <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/posts/git-rm-files/</guid>
+      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
+    </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
       <link>https://jackchou00.icu/posts/pcrdi07/</link>
