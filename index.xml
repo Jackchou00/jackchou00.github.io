@@ -28,15 +28,22 @@
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/photos/test_photos/</guid>
       <description>&lt;p&gt;不能再鸽了，近期还需要完成一些测试：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AVIF 压缩参数和图片分辨率，文件大小。&lt;/li&gt;
-&lt;li&gt;OSS 的价格和访问速度。&lt;/li&gt;
-&lt;li&gt;文章的具体形式。&lt;/li&gt;
-&lt;li&gt;HDR 图片的 SDR 兼容问题（采用 PQ 或是 Gainmap）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;祝这个板块早日康复吧。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jack-ali-img.oss-cn-hangzhou.aliyuncs.com/DSC07265.avif&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jack-ali-img.oss-cn-hangzhou.aliyuncs.com/DSC07267.avif&#34;&gt;&lt;/p&gt;</description>
+&lt;h2 id=&#34;格式&#34;&gt;格式&lt;/h2&gt;
+&lt;p&gt;AVIF 压缩参数和图片分辨率，文件大小。&lt;/p&gt;
+&lt;p&gt;经过肉眼观测，4096px 的图片，500KB 的 avif 能够有不错的观感、加载速度和费用平衡。&lt;/p&gt;
+&lt;h2 id=&#34;oss&#34;&gt;OSS&lt;/h2&gt;
+&lt;p&gt;考虑了一下阿里云 OSS，bucket 放在杭州，然后开着公共读的话，外网流量比较多，海外访问速度也一般。使用 CDN 的话需要域名备案，其实和放在 R2 再套 CDN 的麻烦程度没有区别。&lt;/p&gt;
+&lt;p&gt;阿里云的费用是 0.15 每月每 GB，R2 是 0.015USD 每月每 GB，还有 10GB 的免费额度。&lt;/p&gt;
+&lt;p&gt;最重要的是 R2 没有外网流量费用，虽然国内访问慢一点，但是不会钱包爆炸，所以暂时苦一苦国内，先用 R2，以后如果真的有很多国内读者，考虑套一个 CDN。&lt;/p&gt;
+&lt;h2 id=&#34;文章的具体形式&#34;&gt;文章的具体形式&lt;/h2&gt;
+&lt;p&gt;最困难的可能是文章的文件名，因为它会成为 URL 的一部分，暂时就用主题加日期这样不优雅但相对高效的办法。&lt;/p&gt;
+&lt;p&gt;比较关键的是，也许不会有太多机会产出大量的单一题材图片（翻译成人话是没有太大段的旅游），太零碎的话也不好。所以暂定是在 summary 标出图片的数量（类似以前多图杀猫时代的 nP 标法）。附加一点简单的文字描述，组成一个图片为主的游记或者日记形式。&lt;/p&gt;
+&lt;h2 id=&#34;hdr&#34;&gt;HDR&lt;/h2&gt;
+&lt;p&gt;小红书都支持 HDR 图片了，你还在等什么？&lt;/p&gt;
+&lt;p&gt;好在既然用了浏览器，HDR 图片的支持可谓易如反掌，再加上一个开源项目即将完工，各种 HDR 图片格式之间的转换也不再是难题，初步的想法是用 PQ 传递函数的 AVIF（美其名曰 ISO-22028-5），苦一苦安卓用户。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最后祝这个板块早日康复&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/06/f18fcd893eab54b627782c64c94e8a2c.avif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://img.jackchou00.icu/jack-img/2025/06/dc08599279e0cc2fe536be0a575b75df.avif&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
@@ -307,6 +314,7 @@
 &lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
 &lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;2025.06.29: 把阿里云 OSS 上的图片迁移到 Cloudflare R2 上。&lt;/li&gt;
 &lt;li&gt;2025.06.11: 使用 Saas 加速国内访问和 Cloudflare 企业支持。&lt;/li&gt;
 &lt;li&gt;2025.04.14: 增加多语言支持（Experimental Support for Multiple Languages）。&lt;/li&gt;
 &lt;li&gt;2025.02.17: 发现使用 Tags 就能很好的实现分类，移除了 Colour 这个二级分类。&lt;/li&gt;
