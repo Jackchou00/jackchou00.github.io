@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou00.icu/en/</loc>
-    <lastmod>2025-01-20T18:00:00+08:00</lastmod>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,8 +15,21 @@
                 href="https://jackchou00.icu/en/"
                 />
   </url><url>
+    <loc>https://jackchou00.icu/en/tags/cam/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/cam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/cam/"
+                />
+  </url><url>
     <loc>https://jackchou00.icu/en/tags/colour/</loc>
-    <lastmod>2025-01-20T18:00:00+08:00</lastmod>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -26,6 +39,71 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou00.icu/en/tags/colour/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/en/tags/hdr/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/hdr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/hdr/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/en/posts/icam06-survey/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/posts/icam06-survey/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/posts/icam06-survey/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/en/tags/isp/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/isp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/isp/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/en/posts/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/posts/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/en/tags/</loc>
+    <lastmod>2025-05-13T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/en/posts/pcrdi00/</loc>
@@ -52,32 +130,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou00.icu/en/tags/pcrdi/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/en/posts/</loc>
-    <lastmod>2025-01-20T18:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/posts/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/en/tags/</loc>
-    <lastmod>2025-01-20T18:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/tags/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/en/about/</loc>
