@@ -13,7 +13,7 @@
       <link>https://jackchou00.icu/posts/git-rm-files/</link>
       <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/git-rm-files/</guid>
-      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
+      <description>学习使用git-filter-repo彻底删除Git历史中的大文件或敏感信息，掌握正确操作步骤、注意事项及协作者同步方法，确保仓库安全并避免数据泄露。</description>
     </item>
   </channel>
 </rss>

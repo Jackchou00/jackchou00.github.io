@@ -13,42 +13,42 @@
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
+      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou00.icu/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
-      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+      <description>探索iCAM06色貌模型在HDR图像处理中的应用，解析其通过色适应、色调压缩与均匀颜色空间实现颜色再现的核心原理，揭示高动态范围图像处理的科学方法与实践效果。</description>
     </item>
     <item>
       <title>并非色差：用色卡评价最终输出图像</title>
       <link>https://jackchou00.icu/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/colour-checker-for-jpg/</guid>
-      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
+      <description>探索如何利用色卡和Imatest分析图像颜色准确性，解析CIELAB转换、DeltaE2000色差及白平衡影响。了解如何优化曝光与亮度设置，提升颜色还原效果。</description>
     </item>
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou00.icu/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/how-to-read-raw/</guid>
-      <description>跑得快不一定赢，不跌跟头才是成功</description>
+      <description>探索正确读取RAW文件的方法与工具对比，包括Dcraw和Rawpy/Libraw，详解Sony、Canon等品牌RAW格式差异及最佳实践指南，助力专业图像处理。</description>
     </item>
     <item>
       <title>转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB</title>
       <link>https://jackchou00.icu/posts/isp01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/isp01/</guid>
-      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
+      <description>探索如何通过3x3 CCM矩阵将RAW图像转换至sRGB空间，揭秘ISP处理流程中的高光溢出问题与解决方案，构建科学色彩处理基础框架。</description>
     </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou00.icu/posts/ccm02/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/ccm02/</guid>
-      <description>RAW 到 XYZ 的转换</description>
+      <description>解析RAW到XYZ颜色空间转换原理，探讨CCM矩阵与光谱敏感函数的应用，分享优化色差计算及矩阵质量的实用方法。</description>
     </item>
   </channel>
 </rss>

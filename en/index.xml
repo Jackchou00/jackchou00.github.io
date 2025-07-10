@@ -13,26 +13,21 @@
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
+      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
     </item>
     <item>
       <title>Notes on Principles of Color Reproduction in Digital Images: Introduction</title>
       <link>https://jackchou00.icu/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/pcrdi00/</guid>
-      <description>Ep.0</description>
+      <description>Introductory notes on Principles of Color Reproduction in Digital Images: book overview, study plan and chapter summaries on color science and digital imaging.</description>
     </item>
     <item>
       <title>About</title>
       <link>https://jackchou00.icu/en/about/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/about/</guid>
-      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m Jack Chou.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m currently a graduate student in color science. For more about me and our work, please visit &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;my personal page&lt;/a&gt; and &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;lab website&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;My hobbies include photography, cats, and coffee.&lt;/p&gt;
-&lt;h2 id=&#34;about-this-blog&#34;&gt;About This Blog&lt;/h2&gt;
-&lt;p&gt;This blog was first created on &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;June 29, 2023&lt;/a&gt;, originally intended as a portfolio for job hunting. Looking back, my limited experience and mindset at that time made it difficult to produce quality content, and that job search was unlikely to succeed. However, there were some decent posts like &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt;, though most were hidden as drafts.&lt;/p&gt;</description>
+      <description>Graduate student in color science Jack Chou relaunches JacksBlog to share research, photography, cats, coffee and site updates built with Hugo on GitHub Pages.</description>
     </item>
   </channel>
 </rss>

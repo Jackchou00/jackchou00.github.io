@@ -13,14 +13,14 @@
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
+      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
     </item>
     <item>
       <title>Notes on Principles of Color Reproduction in Digital Images: Introduction</title>
       <link>https://jackchou00.icu/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/pcrdi00/</guid>
-      <description>Ep.0</description>
+      <description>Introductory notes on Principles of Color Reproduction in Digital Images: book overview, study plan and chapter summaries on color science and digital imaging.</description>
     </item>
   </channel>
 </rss>

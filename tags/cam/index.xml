@@ -13,14 +13,14 @@
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
+      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou00.icu/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
-      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+      <description>探索iCAM06色貌模型在HDR图像处理中的应用，解析其通过色适应、色调压缩与均匀颜色空间实现颜色再现的核心原理，揭示高动态范围图像处理的科学方法与实践效果。</description>
     </item>
   </channel>
 </rss>
