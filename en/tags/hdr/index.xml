@@ -13,7 +13,7 @@
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
+      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
     </item>
   </channel>
 </rss>

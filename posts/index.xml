@@ -13,126 +13,126 @@
       <link>https://jackchou00.icu/posts/git-rm-files/</link>
       <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/git-rm-files/</guid>
-      <description>学习使用git-filter-repo彻底删除Git历史中的大文件或敏感信息，掌握正确操作步骤、注意事项及协作者同步方法，确保仓库安全并避免数据泄露。</description>
+      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
       <link>https://jackchou00.icu/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi07/</guid>
-      <description>深入剖析数字影像的颜色再现原理，探索从光谱匹配到喜好色的不同再现目标。本文详细解读 ICC 四种显色意图与色域概念，并解释色域映射如何处理超出色域的颜色，为你揭开色彩管理的神秘面纱。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
     </item>
     <item>
       <title>一个帮助理解 HDR 传递函数的小实验</title>
       <link>https://jackchou00.icu/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/bt2408/</guid>
-      <description>通过Python代码示例解析BT.2408标准中的HDR传递函数，对比PQ与HLG系统转换18%灰卡与漫射白亮度值的差异，帮助正确实现OOTF/EOTF转换。</description>
+      <description>一些无聊的定义，爱来自 BT.2408</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou00.icu/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
-      <description>探索iCAM06色貌模型在HDR图像处理中的应用，解析其通过色适应、色调压缩与均匀颜色空间实现颜色再现的核心原理，揭示高动态范围图像处理的科学方法与实践效果。</description>
+      <description>颜色外貌在图像处理和再现中的简单尝试</description>
     </item>
     <item>
       <title>HDR 图像格式转换</title>
       <link>https://jackchou00.icu/posts/hdr-format-conversion/</link>
       <pubDate>Fri, 25 Apr 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/hdr-format-conversion/</guid>
-      <description>解析HDR图像格式转换原理，探讨Gainmap技术如何实现SDR/HDR兼容性，掌握PQ/HLG传递函数与编码量化位深对高动态范围图像处理的关键作用。</description>
+      <description>Conversion of HDR still image formats</description>
     </item>
     <item>
       <title>并非色差：用色卡评价最终输出图像</title>
       <link>https://jackchou00.icu/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/colour-checker-for-jpg/</guid>
-      <description>探索如何利用色卡和Imatest分析图像颜色准确性，解析CIELAB转换、DeltaE2000色差及白平衡影响。了解如何优化曝光与亮度设置，提升颜色还原效果。</description>
+      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
     </item>
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou00.icu/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/how-to-read-raw/</guid>
-      <description>探索正确读取RAW文件的方法与工具对比，包括Dcraw和Rawpy/Libraw，详解Sony、Canon等品牌RAW格式差异及最佳实践指南，助力专业图像处理。</description>
+      <description>跑得快不一定赢，不跌跟头才是成功</description>
     </item>
     <item>
       <title>反射率：高亮环境可读性的第二条路</title>
       <link>https://jackchou00.icu/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/display-reflectance/</guid>
-      <description>探索如何通过降低屏幕反射率提升户外屏幕可读性，抗反射涂层技术如何替代单纯亮度竞争。实测数据揭示反射率对对比度的关键影响，揭秘手机屏幕显示优化的新方向。</description>
+      <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
     </item>
     <item>
       <title>转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB</title>
       <link>https://jackchou00.icu/posts/isp01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/isp01/</guid>
-      <description>探索如何通过3x3 CCM矩阵将RAW图像转换至sRGB空间，揭秘ISP处理流程中的高光溢出问题与解决方案，构建科学色彩处理基础框架。</description>
+      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
     </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou00.icu/posts/ccm02/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/ccm02/</guid>
-      <description>解析RAW到XYZ颜色空间转换原理，探讨CCM矩阵与光谱敏感函数的应用，分享优化色差计算及矩阵质量的实用方法。</description>
+      <description>RAW 到 XYZ 的转换</description>
     </item>
     <item>
       <title>颜色空间转换：RGB 与 XYZ</title>
       <link>https://jackchou00.icu/posts/ccm01/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/ccm01/</guid>
-      <description>RGB与XYZ颜色空间转换矩阵构建方法，探索sRGB色度坐标定义及非线性传递函数原理，掌握色彩空间转换。</description>
+      <description>构建矩阵实现 XYZ 和定义在 XYZ 上的 RGB 空间转换</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
       <link>https://jackchou00.icu/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi06/</guid>
-      <description>探索数字影像颜色再现的核心原理。本文深入解析两种基础颜色测量方法：基于光谱功率分布的分光测量和直接获取三刺激值的积分测量。了解分光光度计与色度计的区别，以及它们在色彩科学和实际应用中的作用与局限性。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 6</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色外貌</title>
       <link>https://jackchou00.icu/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi05/</guid>
-      <description>探索颜色外貌的核心原理，旨在解释为何相同色彩在不同观察条件下会呈现出完全不同的视觉感知。文章详细辨析视明度、明度、彩度与饱和度等关键色貌属性的精确定义，并系统剖析CIECAM16等现代色貌模型的工作机制与跨媒体再现应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
       <link>https://jackchou00.icu/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi04/</guid>
-      <description>探索色适应变换原理与颜色恒常性机制，深入解析CAT16模型在数字影像中的应用，揭示True Tone技术如何模拟人眼色彩适应特性。了解色彩科学的核心算法与实际场景应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.4</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：照明体和光源</title>
       <link>https://jackchou00.icu/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi03/</guid>
-      <description>深入解析数字影像颜色再现原理：黑体辐射、色温与标准照明体D65/A/E的核心作用，揭秘显色性指标（CRI/CQS/TLCI）对色彩保真的影响，掌握光源与照明体的本质区别。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
       <link>https://jackchou00.icu/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi02/</guid>
-      <description>探索数字影像颜色再现核心原理，详解CIE 1931 RGB/XYZ系统、均匀颜色空间及CIEDE2000色差公式。掌握颜色混合定律与孟塞尔系统，构建色度学基础关键知识体系。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：光与视觉</title>
       <link>https://jackchou00.icu/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi01/</guid>
-      <description>解析数字影像颜色再现原理，探讨光谱响应、人眼视觉机制及光度学原理，揭示同色异谱现象与颜色科学基础。探索光与视觉的相互作用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.1</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：绪论</title>
       <link>https://jackchou00.icu/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi00/</guid>
-      <description>系统解析数字影像颜色再现原理核心知识，涵盖色度学基础、色适应模型与颜色管理系统，附算法复现与文献扩展，助力色彩科学系统学习。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.0</description>
     </item>
   </channel>
 </rss>

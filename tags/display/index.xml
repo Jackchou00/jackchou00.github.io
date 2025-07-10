@@ -13,14 +13,14 @@
       <link>https://jackchou00.icu/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/bt2408/</guid>
-      <description>通过Python代码示例解析BT.2408标准中的HDR传递函数，对比PQ与HLG系统转换18%灰卡与漫射白亮度值的差异，帮助正确实现OOTF/EOTF转换。</description>
+      <description>一些无聊的定义，爱来自 BT.2408</description>
     </item>
     <item>
       <title>反射率：高亮环境可读性的第二条路</title>
       <link>https://jackchou00.icu/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/display-reflectance/</guid>
-      <description>探索如何通过降低屏幕反射率提升户外屏幕可读性，抗反射涂层技术如何替代单纯亮度竞争。实测数据揭示反射率对对比度的关键影响，揭秘手机屏幕显示优化的新方向。</description>
+      <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
     </item>
   </channel>
 </rss>

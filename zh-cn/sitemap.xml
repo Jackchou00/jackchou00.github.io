@@ -62,9 +62,6 @@
     <loc>https://jackchou00.icu/photos/test-photos/</loc>
     <lastmod>2025-06-20T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://jackchou00.icu/draft/</loc>
-    <lastmod>2025-06-11T18:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://jackchou00.icu/tags/colour/</loc>
     <lastmod>2025-06-04T23:30:00+08:00</lastmod>
     <xhtml:link
@@ -157,6 +154,9 @@
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/tags/isp/"
                 />
+  </url><url>
+    <loc>https://jackchou00.icu/draft/</loc>
+    <lastmod>2025-05-13T12:00:00+08:00</lastmod>
   </url><url>
     <loc>https://jackchou00.icu/draft/hlg-understanding/</loc>
     <lastmod>2025-05-13T12:00:00+08:00</lastmod>

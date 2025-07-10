@@ -27,7 +27,7 @@
       <link>https://jackchou00.icu/posts/git-rm-files/</link>
       <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/git-rm-files/</guid>
-      <description>学习使用git-filter-repo彻底删除Git历史中的大文件或敏感信息，掌握正确操作步骤、注意事项及协作者同步方法，确保仓库安全并避免数据泄露。</description>
+      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
     </item>
     <item>
       <title>📷 马黛茶店里的猫猫</title>
@@ -41,14 +41,14 @@
       <link>https://jackchou00.icu/photos/test-photos/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/photos/test-photos/</guid>
-      <description>探讨图片博客优化策略，解析AVIF压缩参数、R2存储方案与色彩管理技巧，平衡画质与带宽成本，提供HDR适配解决方案。</description>
+      <description>点击五次版本号进入开发者模式</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
       <link>https://jackchou00.icu/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi07/</guid>
-      <description>深入剖析数字影像的颜色再现原理，探索从光谱匹配到喜好色的不同再现目标。本文详细解读 ICC 四种显色意图与色域概念，并解释色域映射如何处理超出色域的颜色，为你揭开色彩管理的神秘面纱。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
     </item>
     <item>
       <title>一支很贵的咖啡豆</title>
@@ -62,21 +62,21 @@
       <link>https://jackchou00.icu/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/bt2408/</guid>
-      <description>通过Python代码示例解析BT.2408标准中的HDR传递函数，对比PQ与HLG系统转换18%灰卡与漫射白亮度值的差异，帮助正确实现OOTF/EOTF转换。</description>
+      <description>一些无聊的定义，爱来自 BT.2408</description>
     </item>
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
-      <description>Explore iCAM06 Python workflow: from raw sensor data to HDR rendering via chromatic adaptation, tone compression and IPT tweaks in colour appearance models.</description>
+      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou00.icu/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
-      <description>探索iCAM06色貌模型在HDR图像处理中的应用，解析其通过色适应、色调压缩与均匀颜色空间实现颜色再现的核心原理，揭示高动态范围图像处理的科学方法与实践效果。</description>
+      <description>颜色外貌在图像处理和再现中的简单尝试</description>
     </item>
     <item>
       <title>HLG 白皮书解读</title>
@@ -104,7 +104,7 @@
       <link>https://jackchou00.icu/posts/hdr-format-conversion/</link>
       <pubDate>Fri, 25 Apr 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/hdr-format-conversion/</guid>
-      <description>解析HDR图像格式转换原理，探讨Gainmap技术如何实现SDR/HDR兼容性，掌握PQ/HLG传递函数与编码量化位深对高动态范围图像处理的关键作用。</description>
+      <description>Conversion of HDR still image formats</description>
     </item>
     <item>
       <title>自己试试能读明白吗？</title>
@@ -118,14 +118,14 @@
       <link>https://jackchou00.icu/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/colour-checker-for-jpg/</guid>
-      <description>探索如何利用色卡和Imatest分析图像颜色准确性，解析CIELAB转换、DeltaE2000色差及白平衡影响。了解如何优化曝光与亮度设置，提升颜色还原效果。</description>
+      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
     </item>
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou00.icu/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/how-to-read-raw/</guid>
-      <description>探索正确读取RAW文件的方法与工具对比，包括Dcraw和Rawpy/Libraw，详解Sony、Canon等品牌RAW格式差异及最佳实践指南，助力专业图像处理。</description>
+      <description>跑得快不一定赢，不跌跟头才是成功</description>
     </item>
     <item>
       <title>与 MIUI 难分秋毫</title>
@@ -139,7 +139,7 @@
       <link>https://jackchou00.icu/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/display-reflectance/</guid>
-      <description>探索如何通过降低屏幕反射率提升户外屏幕可读性，抗反射涂层技术如何替代单纯亮度竞争。实测数据揭示反射率对对比度的关键影响，揭秘手机屏幕显示优化的新方向。</description>
+      <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
     </item>
     <item>
       <title>可爱捏</title>
@@ -160,14 +160,14 @@
       <link>https://jackchou00.icu/posts/isp01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/isp01/</guid>
-      <description>探索如何通过3x3 CCM矩阵将RAW图像转换至sRGB空间，揭秘ISP处理流程中的高光溢出问题与解决方案，构建科学色彩处理基础框架。</description>
+      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
     </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou00.icu/posts/ccm02/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/ccm02/</guid>
-      <description>解析RAW到XYZ颜色空间转换原理，探讨CCM矩阵与光谱敏感函数的应用，分享优化色差计算及矩阵质量的实用方法。</description>
+      <description>RAW 到 XYZ 的转换</description>
     </item>
     <item>
       <title>被奥创创死了</title>
@@ -181,14 +181,14 @@
       <link>https://jackchou00.icu/posts/ccm01/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/ccm01/</guid>
-      <description>RGB与XYZ颜色空间转换矩阵构建方法，探索sRGB色度坐标定义及非线性传递函数原理，掌握色彩空间转换。</description>
+      <description>构建矩阵实现 XYZ 和定义在 XYZ 上的 RGB 空间转换</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
       <link>https://jackchou00.icu/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi06/</guid>
-      <description>探索数字影像颜色再现的核心原理。本文深入解析两种基础颜色测量方法：基于光谱功率分布的分光测量和直接获取三刺激值的积分测量。了解分光光度计与色度计的区别，以及它们在色彩科学和实际应用中的作用与局限性。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 6</description>
     </item>
     <item>
       <title>上班吗</title>
@@ -209,7 +209,7 @@
       <link>https://jackchou00.icu/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi05/</guid>
-      <description>探索颜色外貌的核心原理，旨在解释为何相同色彩在不同观察条件下会呈现出完全不同的视觉感知。文章详细辨析视明度、明度、彩度与饱和度等关键色貌属性的精确定义，并系统剖析CIECAM16等现代色貌模型的工作机制与跨媒体再现应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
     </item>
     <item>
       <title>一个 PQ 测试</title>
@@ -233,14 +233,14 @@
       <link>https://jackchou00.icu/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi04/</guid>
-      <description>探索色适应变换原理与颜色恒常性机制，深入解析CAT16模型在数字影像中的应用，揭示True Tone技术如何模拟人眼色彩适应特性。了解色彩科学的核心算法与实际场景应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.4</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：照明体和光源</title>
       <link>https://jackchou00.icu/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi03/</guid>
-      <description>深入解析数字影像颜色再现原理：黑体辐射、色温与标准照明体D65/A/E的核心作用，揭秘显色性指标（CRI/CQS/TLCI）对色彩保真的影响，掌握光源与照明体的本质区别。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
     </item>
     <item>
       <title>色彩科学博大精深</title>
@@ -260,7 +260,7 @@
       <link>https://jackchou00.icu/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi02/</guid>
-      <description>探索数字影像颜色再现核心原理，详解CIE 1931 RGB/XYZ系统、均匀颜色空间及CIEDE2000色差公式。掌握颜色混合定律与孟塞尔系统，构建色度学基础关键知识体系。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
     </item>
     <item>
       <title>角落里的咖啡</title>
@@ -276,21 +276,21 @@
       <link>https://jackchou00.icu/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi01/</guid>
-      <description>解析数字影像颜色再现原理，探讨光谱响应、人眼视觉机制及光度学原理，揭示同色异谱现象与颜色科学基础。探索光与视觉的相互作用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.1</description>
     </item>
     <item>
       <title>Notes on Principles of Color Reproduction in Digital Images: Introduction</title>
       <link>https://jackchou00.icu/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/pcrdi00/</guid>
-      <description>Introductory notes on Principles of Color Reproduction in Digital Images: book overview, study plan and chapter summaries on color science and digital imaging.</description>
+      <description>Ep.0</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：绪论</title>
       <link>https://jackchou00.icu/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi00/</guid>
-      <description>系统解析数字影像颜色再现原理核心知识，涵盖色度学基础、色适应模型与颜色管理系统，附算法复现与文献扩展，助力色彩科学系统学习。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.0</description>
     </item>
     <item>
       <title>HelloWorld</title>
@@ -305,14 +305,45 @@
       <link>https://jackchou00.icu/about/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/about/</guid>
-      <description>了解 Jack Chou 的个人博客，这里是色彩科学研究生分享科研心得、摄影作品、猫咪日常与咖啡品味的空间。探索这个由 Hugo 和 PaperMod 驱动的静态网站背后的故事与技术更新日志。</description>
+      <description>&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
+&lt;p&gt;我是 Jack Chou。&lt;/p&gt;
+&lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅 &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt; 和 &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;爱好有很多，主要是摄影、猫和咖啡。&lt;/p&gt;
+&lt;h2 id=&#34;关于这里&#34;&gt;关于这里&lt;/h2&gt;
+&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;
+&lt;p&gt;后来，一个非常幸运的机会结束了那次诡异的秋招，也不再有什么动力和目标去更新这个博客，而是偶尔用在一些奇怪的用途。比如，它被用来给巴黎住 Airbnb 遇到的法国夫妻分享 &lt;a href=&#34;https://jackchou00.icu/posts/old/postcards01/&#34;&gt;明信片故事&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这是上一次建设博客的故事，之前的部分内容还能够在 &lt;a href=&#34;https://jackchou00.icu/posts/old/&#34;&gt;古迹 🌃&lt;/a&gt; 中找到。&lt;/p&gt;
+&lt;p&gt;由于是一个部署在 Github 上的静态网站，我在 GitHub 上的其他 pages 也会拥有相同的域名，这样，访客如果不输入后面的内容，直接访问这个域名，就会看到混乱的，很久没有更新的博客。&lt;/p&gt;
+&lt;p&gt;而为了更方便的分享那些项目的 pages 和利用 CloudFlare 的 Tunnel 功能，我购买了 &lt;a href=&#34;https://jackchou00.icu&#34;&gt;jackchou00.icu&lt;/a&gt; 这个域名，荒废博客的问题变得更加明显。&lt;/p&gt;
+&lt;p&gt;2025 年 1 月 20 日，为了满足我自己的分享欲和小心虚荣心，也为了让这个域名不要指向荒废的博客，重新装修过的 JacksBlog 正式 push 了。这一次，他的目的是记录一些科研和兴趣中的东西，分享一些图片和生活。&lt;/p&gt;
+&lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
+&lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2025.06.29: 把阿里云 OSS 上的图片迁移到 Cloudflare R2 上。&lt;/li&gt;
+&lt;li&gt;2025.06.11: 使用 Saas 加速国内访问和 Cloudflare 企业支持。&lt;/li&gt;
+&lt;li&gt;2025.04.14: 增加多语言支持（Experimental Support for Multiple Languages）。&lt;/li&gt;
+&lt;li&gt;2025.02.17: 发现使用 Tags 就能很好的实现分类，移除了 Colour 这个二级分类。&lt;/li&gt;
+&lt;li&gt;2025.02.11: 部署了 Github Actions，现在，博客的源文件也有版本管理和自动部署了。&lt;/li&gt;
+&lt;li&gt;2025.02.02：增加了用于切换显示/隐藏的按钮，使用短代码实现。&lt;/li&gt;
+&lt;li&gt;2025.01.24: 停用 Misans，尝试加快加载速度，现在的中文字体是 Google Font 的思源黑体。&lt;/li&gt;
+&lt;li&gt;2025.01.22: 使用 Cloudflare R2 存储图片。&lt;/li&gt;
+&lt;li&gt;2025.01.20: 更新了字体，使用 Google Font 引入 Ubuntu Sans 和 Ubuntu Mono。中文字体是 MiSans，使用本地加载的方式。Code 的背景颜色修改为&lt;code&gt;238&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;2025.01.18: 引入对$\LaTeX$公式的支持，参考 &lt;a href=&#34;https://adityatelange.github.io/hugo-PaperMod/posts/math-typesetting/&#34;&gt;PaperMod: Math Typesetting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2025.01.15: 修改了 PaperMod 的页面背景颜色。
+将&lt;code&gt;themes\PaperMod\assets\css\core\theme-vars.css&lt;/code&gt;中的&lt;code&gt;theme&lt;/code&gt;，从纯白改为&lt;code&gt;245&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>About</title>
       <link>https://jackchou00.icu/en/about/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/about/</guid>
-      <description>Graduate student in color science Jack Chou relaunches JacksBlog to share research, photography, cats, coffee and site updates built with Hugo on GitHub Pages.</description>
+      <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m Jack Chou.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m currently a graduate student in color science. For more about me and our work, please visit &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;my personal page&lt;/a&gt; and &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;lab website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My hobbies include photography, cats, and coffee.&lt;/p&gt;
+&lt;h2 id=&#34;about-this-blog&#34;&gt;About This Blog&lt;/h2&gt;
+&lt;p&gt;This blog was first created on &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;June 29, 2023&lt;/a&gt;, originally intended as a portfolio for job hunting. Looking back, my limited experience and mindset at that time made it difficult to produce quality content, and that job search was unlikely to succeed. However, there were some decent posts like &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt;, though most were hidden as drafts.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Postcards introduction Col.01</title>

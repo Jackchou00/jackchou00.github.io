@@ -13,63 +13,63 @@
       <link>https://jackchou00.icu/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi07/</guid>
-      <description>深入剖析数字影像的颜色再现原理，探索从光谱匹配到喜好色的不同再现目标。本文详细解读 ICC 四种显色意图与色域概念，并解释色域映射如何处理超出色域的颜色，为你揭开色彩管理的神秘面纱。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
       <link>https://jackchou00.icu/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi06/</guid>
-      <description>探索数字影像颜色再现的核心原理。本文深入解析两种基础颜色测量方法：基于光谱功率分布的分光测量和直接获取三刺激值的积分测量。了解分光光度计与色度计的区别，以及它们在色彩科学和实际应用中的作用与局限性。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 6</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色外貌</title>
       <link>https://jackchou00.icu/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi05/</guid>
-      <description>探索颜色外貌的核心原理，旨在解释为何相同色彩在不同观察条件下会呈现出完全不同的视觉感知。文章详细辨析视明度、明度、彩度与饱和度等关键色貌属性的精确定义，并系统剖析CIECAM16等现代色貌模型的工作机制与跨媒体再现应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
       <link>https://jackchou00.icu/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi04/</guid>
-      <description>探索色适应变换原理与颜色恒常性机制，深入解析CAT16模型在数字影像中的应用，揭示True Tone技术如何模拟人眼色彩适应特性。了解色彩科学的核心算法与实际场景应用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.4</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：照明体和光源</title>
       <link>https://jackchou00.icu/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi03/</guid>
-      <description>深入解析数字影像颜色再现原理：黑体辐射、色温与标准照明体D65/A/E的核心作用，揭秘显色性指标（CRI/CQS/TLCI）对色彩保真的影响，掌握光源与照明体的本质区别。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
       <link>https://jackchou00.icu/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi02/</guid>
-      <description>探索数字影像颜色再现核心原理，详解CIE 1931 RGB/XYZ系统、均匀颜色空间及CIEDE2000色差公式。掌握颜色混合定律与孟塞尔系统，构建色度学基础关键知识体系。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：光与视觉</title>
       <link>https://jackchou00.icu/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi01/</guid>
-      <description>解析数字影像颜色再现原理，探讨光谱响应、人眼视觉机制及光度学原理，揭示同色异谱现象与颜色科学基础。探索光与视觉的相互作用。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.1</description>
     </item>
     <item>
       <title>Notes on Principles of Color Reproduction in Digital Images: Introduction</title>
       <link>https://jackchou00.icu/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/en/posts/pcrdi00/</guid>
-      <description>Introductory notes on Principles of Color Reproduction in Digital Images: book overview, study plan and chapter summaries on color science and digital imaging.</description>
+      <description>Ep.0</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：绪论</title>
       <link>https://jackchou00.icu/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/pcrdi00/</guid>
-      <description>系统解析数字影像颜色再现原理核心知识，涵盖色度学基础、色适应模型与颜色管理系统，附算法复现与文献扩展，助力色彩科学系统学习。</description>
+      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.0</description>
     </item>
   </channel>
 </rss>
