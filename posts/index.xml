@@ -6,7 +6,7 @@
     <description>Recent content in 文章 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Jun 2025 01:03:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何从 Git 历史记录中彻底删除文件</title>
@@ -80,10 +80,10 @@
     </item>
     <item>
       <title>颜色空间转换：RGB 与 XYZ</title>
-      <link>https://jackchou00.icu/posts/ccm01/</link>
+      <link>https://jackchou00.icu/posts/ccm01-rgb-xyz/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/ccm01/</guid>
-      <description>构建矩阵实现 XYZ 和定义在 XYZ 上的 RGB 空间转换</description>
+      <guid>https://jackchou00.icu/posts/ccm01-rgb-xyz/</guid>
+      <description>最常见的颜色空间莫过于以 sRGB 为代表的 RGB 空间，本文将介绍如何在这样的 RGB 空间与 XYZ 空间间转换。</description>
     </item>
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
