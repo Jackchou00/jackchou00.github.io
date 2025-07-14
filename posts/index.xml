@@ -80,9 +80,9 @@
     </item>
     <item>
       <title>颜色空间转换：RGB 与 XYZ</title>
-      <link>https://jackchou00.icu/posts/ccm01-rgb-xyz/</link>
+      <link>https://jackchou00.icu/posts/ccm-01-rgb-xyz/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/ccm01-rgb-xyz/</guid>
+      <guid>https://jackchou00.icu/posts/ccm-01-rgb-xyz/</guid>
       <description>最常见的颜色空间莫过于以 sRGB 为代表的 RGB 空间，本文将介绍如何在这样的 RGB 空间与 XYZ 空间间转换。</description>
     </item>
     <item>
