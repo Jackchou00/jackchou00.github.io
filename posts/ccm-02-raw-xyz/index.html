@@ -9,8 +9,8 @@
 <meta name="keywords" content="Colour, CCM, ISP">
 <meta name="description" content="RAW 到 XYZ 的转换">
 <meta name="author" content="">
-<link rel="canonical" href="https://jackchou00.icu/posts/ccm02/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
+<link rel="canonical" href="https://jackchou00.icu/posts/ccm-02-raw-xyz/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou00.icu/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
@@ -18,7 +18,8 @@
 <link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/ccm02/">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/ccm-02-raw-xyz/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/en/posts/ccm-02-raw-xyz/">
 <noscript>
     <style>
         #theme-toggle,
@@ -79,7 +80,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/ccm02/">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/ccm-02-raw-xyz/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="颜色空间转换：RAW 与 XYZ">
   <meta property="og:description" content="RAW 到 XYZ 的转换">
@@ -111,7 +112,7 @@
       "@type": "ListItem",
       "position":  2 ,
       "name": "颜色空间转换：RAW 与 XYZ",
-      "item": "https://jackchou00.icu/posts/ccm02/"
+      "item": "https://jackchou00.icu/posts/ccm-02-raw-xyz/"
     }
   ]
 }
@@ -133,7 +134,7 @@
   "dateModified": "2025-03-02T00:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://jackchou00.icu/posts/ccm02/"
+    "@id": "https://jackchou00.icu/posts/ccm-02-raw-xyz/"
   },
   "publisher": {
     "@type": "Organization",
@@ -224,7 +225,12 @@
     <h1 class="post-title entry-hint-parent">
       颜色空间转换：RAW 与 XYZ
     </h1>
-    <div class="post-meta"><span title='2025-03-02 00:00:00 +0800 +0800'>2025.03.02</span>
+    <div class="post-meta"><span title='2025-03-02 00:00:00 +0800 +0800'>2025.03.02</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou00.icu/en/posts/ccm-02-raw-xyz/">En</a>
+    </li>
+</ul>
 
 </div>
   </header> <div class="toc">
@@ -279,7 +285,7 @@ $$
 $$<p>如果不能满足上面的条件，可以用最小二乘法求解一个最优的 CCM 矩阵。</p>
 <h2 id="参考实现">参考实现<a hidden class="anchor" aria-hidden="true" href="#参考实现">#</a></h2>
 <p>以下是一个相机的 SSF（来自一个早期实验，不能作为实际用途），<em>因为我也不知道测的到底准不准</em>。</p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/dfb799e77299349967351a2a61b5b114.svg"></p>
+<p><img alt="某相机的光谱敏感函数" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/dfb799e77299349967351a2a61b5b114.svg"></p>
 <p>通过最小二乘法求解用这个 SSF 线性组合出 CIE 1931 XYZ CMF 的 3x3 矩阵：</p>
 $$
 \begin{bmatrix}
@@ -288,7 +294,7 @@ $$
 0.0596 & -0.1675 & 1.2465
 \end{bmatrix}
 $$<p>用该矩阵将 SSF 转换为一个近似的 XYZ（用 Estimated XYZ 表示）：</p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/0510acfc38f56697681c7a8b0a9032cf.svg"></p>
+<p><img alt="从光谱敏感函数线性组合出的颜色匹配函数" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/03/0510acfc38f56697681c7a8b0a9032cf.svg"></p>
 <h2 id="一些问题和待续">一些问题和待续<a hidden class="anchor" aria-hidden="true" href="#一些问题和待续">#</a></h2>
 <ol>
 <li>以上内容基于的假设：RAW 是线性的，相机的光谱响应范围是 380-780nm 等。</li>
@@ -311,6 +317,19 @@ $$<p>用该矩阵将 SSF 转换为一个近似的 XYZ（用 Estimated XYZ 表示
       <li><a href="https://jackchou00.icu/tags/ccm/">CCM</a></li>
       <li><a href="https://jackchou00.icu/tags/isp/">ISP</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://jackchou00.icu/posts/isp01/">
+    <span class="title">« </span>
+    <br>
+    <span>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</span>
+  </a>
+  <a class="next" href="https://jackchou00.icu/posts/ccm-01-rgb-xyz/">
+    <span class="title"> »</span>
+    <br>
+    <span>颜色空间转换：RGB 与 XYZ</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>

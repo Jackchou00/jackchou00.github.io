@@ -9,17 +9,17 @@
     <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou00.icu/tags/ccm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB</title>
+      <title>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</title>
       <link>https://jackchou00.icu/posts/isp01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/isp01/</guid>
-      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
+      <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
     </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
-      <link>https://jackchou00.icu/posts/ccm02/</link>
+      <link>https://jackchou00.icu/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/ccm02/</guid>
+      <guid>https://jackchou00.icu/posts/ccm-02-raw-xyz/</guid>
       <description>RAW 到 XYZ 的转换</description>
     </item>
     <item>

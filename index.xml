@@ -149,17 +149,17 @@
       <description>强而有力，强而有力口牙</description>
     </item>
     <item>
-      <title>转生ISP异世界Day0：误入RAW森林的我用3x3魔法阵召唤RGB</title>
+      <title>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</title>
       <link>https://jackchou00.icu/posts/isp01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/posts/isp01/</guid>
-      <description>解密RAW色彩密码本：CCM参数炼成与sRGB传送门构建方法论</description>
+      <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
     </item>
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
-      <link>https://jackchou00.icu/posts/ccm02/</link>
+      <link>https://jackchou00.icu/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/ccm02/</guid>
+      <guid>https://jackchou00.icu/posts/ccm-02-raw-xyz/</guid>
       <description>RAW 到 XYZ 的转换</description>
     </item>
     <item>
@@ -287,15 +287,15 @@
 &lt;p&gt;欢迎来到全新的JacksBlog👏&lt;/p&gt;</description>
     </item>
     <item>
-      <title>About</title>
+      <title>关于</title>
       <link>https://jackchou00.icu/about/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou00.icu/about/</guid>
-      <description>&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;我&#34;&gt;我&lt;/h2&gt;
 &lt;p&gt;我是 Jack Chou。&lt;/p&gt;
 &lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅 &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt; 和 &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;爱好有很多，主要是摄影、猫和咖啡。&lt;/p&gt;
-&lt;h2 id=&#34;关于这里&#34;&gt;关于这里&lt;/h2&gt;
+&lt;h2 id=&#34;这里&#34;&gt;这里&lt;/h2&gt;
 &lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou00.icu/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou00.icu/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;
 &lt;p&gt;后来，一个非常幸运的机会结束了那次诡异的秋招，也不再有什么动力和目标去更新这个博客，而是偶尔用在一些奇怪的用途。比如，它被用来给巴黎住 Airbnb 遇到的法国夫妻分享 &lt;a href=&#34;https://jackchou00.icu/posts/old/postcards01/&#34;&gt;明信片故事&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;这是上一次建设博客的故事，之前的部分内容还能够在 &lt;a href=&#34;https://jackchou00.icu/posts/old/&#34;&gt;古迹 🌃&lt;/a&gt; 中找到。&lt;/p&gt;
@@ -305,6 +305,7 @@
 &lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
 &lt;h2 id=&#34;更新日志&#34;&gt;更新日志&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;2025.07.20: 使用 Gemini 2.5 Pro 翻译了全部文章，英文字体更换为 Lora。&lt;/li&gt;
 &lt;li&gt;2025.06.29: 把阿里云 OSS 上的图片迁移到 Cloudflare R2 上。&lt;/li&gt;
 &lt;li&gt;2025.06.11: 使用 Saas 加速国内访问和 Cloudflare 企业支持。&lt;/li&gt;
 &lt;li&gt;2025.04.14: 增加多语言支持（Experimental Support for Multiple Languages）。&lt;/li&gt;

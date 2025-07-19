@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, ISP">
+<meta name="description" content="Reflections on learning to analyse image colour using Imatest and colour charts">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou00.icu/en/posts/colour-checker-for-jpg/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou00.icu/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou00.icu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou00.icu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/colour-checker-for-jpg/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/en/posts/colour-checker-for-jpg/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/en/posts/colour-checker-for-jpg/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart">
+  <meta property="og:description" content="Reflections on learning to analyse image colour using Imatest and colour charts">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-02T13:30:00+08:00">
+    <meta property="article:modified_time" content="2025-04-02T13:30:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="ISP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart">
+<meta name="twitter:description" content="Reflections on learning to analyse image colour using Imatest and colour charts">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts 🌳",
+      "item": "https://jackchou00.icu/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart",
+      "item": "https://jackchou00.icu/en/posts/colour-checker-for-jpg/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart",
+  "name": "Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart",
+  "description": "Reflections on learning to analyse image colour using Imatest and colour charts",
+  "keywords": [
+    "Colour", "ISP"
+  ],
+  "articleBody": " Note: I have not used Imatest myself (it’s expensive). The following content is based on my subjective and intuitive understanding after observing analyses done by others.\nPipeline sRGB -\u003e XYZ -\u003e CIELAB (Display) \u003c-\u003e CIELAB (Reference)\nThe test described above is for the final result (the output JPG image), not for the intermediate processes. The pipeline within the image processor affects the colours on the chart in various ways; that is to say, processes like auto exposure (AE) also influence the result.\nStarting from the final output JPG image (assuming it is in the sRGB space), it is first converted to XYZ tristimulus values (using the corresponding colour space’s conversion matrix and electro-optical transfer function). The resulting XYZ tristimulus values are display-referred and normalised, meaning they are identical to the tristimulus values measured on a perfectly colour-managed or standard display, divided by luminance.\nCalculating colour difference requires a uniform colour space. Converting XYZ to CIELAB also requires a reference white point ($\\text{XYZ}_{n}$). For display-referred colours, the display’s white point is a common choice.\nThe CIELAB values for a colour chart can usually be looked up directly, or if the chart’s reflectance data is public, its XYZ values can be calculated using the spectral power distribution of a standard illuminant (usually D65) and a standard observer’s colour matching functions. Then, using D65 as the reference white point, its CIELAB values can be calculated.\nNext, a colour difference formula is chosen in CIELAB to calculate the difference, such as the most commonly used DeltaE2000. Of course, CIELAB can be replaced with other uniform colour spaces or colour appearance models for more multi-dimensional comparisons.\nResults and Analysis Simply calculating the average colour difference for all colours is not sensible, as the conclusions that can be drawn are very limited (unless your sole goal is perfect colour reproduction).\nWhite Balance and Chromatic Adaptation In the CIELAB values calculated for the colour chart as described above, the chroma of the greyscale patches should be close to 0. Whether the chroma of the greyscale in the actual image is also close to 0 depends on the shooting light source and the camera’s white balance processing. If the camera’s white balance completely corrects for the light source (equivalent to fully adapting to D65), then the greyscale part of the colour chart in the image should also appear neutral.\nHowever, white balance algorithms do not necessarily perform complete chromatic adaptation for all shooting environments. This also contradicts our subjective perception. The most typical example is an incandescent lamp; under such a yellowish light source, complete colour constancy is not achieved. In this case, a more ideal colour reproduction would be to retain some of the “yellowness,” i.e., incomplete adaptation. The greyscale patches in the image of the colour chart would then not be neutral but would have a certain amount of chroma.\nIn situations where complete adaptation to D65 is required (the greyscale should appear neutral), the chroma deviation $\\Delta C$ in the greyscale area can be used to describe the accuracy of the white balance.\nIf the image’s white point is not D65, the target light source for white balance should be this white point. In this case, one must consider whether the incorrect chromatic adaptation transform in CIELAB will have an impact (CIELAB should ideally only work under D65).\nStylisation Since the test image has gone through the entire image processing pipeline, it will naturally include some stylisation, such as memory colour enhancement or more complex and aggressive processing. At this point, evaluating whether the colours are “accurate” becomes somewhat unreasonable. However, one can still observe the direction in which typical colours are shifted and adjusted by comparing the standard colours of the chart with the colours of the chart in the image.\nIt is important to note that one should no longer evaluate whether the colours are “accurate.” Moreover, because the camera does not satisfy the so-called Luther condition, there is already a significant error when converting from the camera’s RGB to XYZ. If you train and test using the colour chart on its own, the colour difference calculated on the XYZ values converted from RAW will generally not be less than 3. Subsequent stylisation, space conversions, and gamut and tone compression will only introduce more errors. Therefore, when judging accuracy or stylisation tendencies, one needs to consider whether they are caused by errors or introduced by stylisation. The accumulation of colour difference does not always proceed in one direction; it is possible that the final colour difference becomes very small, and even cases where the difference for individual colours is less than 1 may occur. This does not mean the camera can reproduce that colour so accurately under other conditions.\nWhen analysing stylisation, the ratio of the image’s average chroma to the chart’s average chroma can be used to observe whether the overall chroma of the image has increased. One can also observe the shift of each typical colour or convert to CIELCh and other spaces for a more in-depth analysis.\nAuto Exposure and Lightness The camera’s auto exposure strategy also affects colour difference. Furthermore, the XYZ values converted back from the final image are display-referred. Relative to the reflectance of the colour chart, the original scene’s luminance is not necessarily linear. Multiplying these display-referred XYZ values by a coefficient to simulate gain does not represent the exposure control at the time of shooting; it is more like adjusting the display’s backlight brightness (without synchronously adjusting the reference white point chosen for the CIELAB calculation). This is a very strange operation, but it can effectively reduce colour difference anomalies caused by exposure errors. In the example below, multiplying the XYZ values by a factor of 0.76 can reduce the colour difference by three units (this might only be meaningful computationally).\nTherefore, Imatest also provides a chroma difference that excludes lightness, calculating only the difference in chroma without considering the effect of lightness. This seems even stranger (because operations like changing backlight brightness or exposure control also affect chroma).\nUneven Illumination and Metamerism When photographing a colour chart, it is best to have uniform illumination. However, when using a light box, it is inevitable that the top part will be closer to the light source and thus brighter. After applying the simulated lightness adjustment mentioned above, one can observe the lightness difference. If the top rows all have positive values and the bottom rows all have negative values, one needs to consider whether this is due to uneven illumination.\nThe correction method on RAW data is to use a uniform surface (a grey card or matte photo paper) for calibration. However, the image has already passed through the entire ISP, and the resulting linear light is display-referred; it cannot represent the scene-referred linear light.\nRegarding the issue of metamerism: the CIELAB values provided by the colour chart are calculated from its reflectance and the D65 standard illuminant. However, in reality, no light source has a spectral power distribution identical to that of a standard illuminant. The camera’s spectral sensitivity functions, after correction by a colour matrix, also differ from the standard observer’s colour matching functions. Therefore, metamerism is unavoidable. This will also lead to an erroneous increase in colour difference, because the colour chart not only evaluates the camera’s colour reproduction but also, to some extent, the light source’s colour rendering index and the camera’s metamerism.\nColour Charts and Colour Analysis What role do colour charts really play in image processing and evaluation, and what do all those numbers in various spaces mean?\nFor me, the greatest value of a colour chart is that it provides 30 very typical reflectance samples, including memory colours, saturated colours, and neutral colours. The spectral data for standard illuminants and standard observers can be easily obtained, allowing for very flexible calculation of tristimulus values. This is far more meaningful than a set of CIELAB values that can only be used under D65.\nThis is also why using the PMCC is more recommended, as its reflectance data is published. In theory, you could even use it without owning a physical chart, simply treating it as 30 reflectance samples.\nFurthermore, I feel it is highly inappropriate to make subjective colour evaluations directly from an image of a colour chart. Divorced from the physical object, the effect of memory colours should be negligible. Can one really associate a blue patch with the blue sky and perform memory colour enhancement? For an observer, it is unreasonable to judge whether colours are natural, or even accurate, simply by looking at thirty coloured squares.\nAdditionally, when using various colour spaces and colour appearance models for analysis, one should be precise with terminology and not casually use words like “saturated” or “vivid.” If a colour appearance model is being used, its precise colour attributes should be used for description.\nRelevant data and articles about the colour chart can be found here:\nM. R. Luo, “The new preferred memory color ( PMC ) chart,” Color Research \u0026 Application, p. col.22940, May 2024, doi: 10.1002/col.22940.\nA Simple Example This is a colour chart photographed using a camera’s auto white balance and auto-metering. The lighting condition was a normal white LED, not a standard illuminant simulator or a full-spectrum LED.\nCalculating the colour difference directly using the method described above yields an average $\\Delta E_{2000}$ of 6.5. Almost all lightness values are too high, meaning the image is too bright when using the screen’s white point as the reference. After multiplying the XYZ values by 0.76, the minimum colour difference of 3.8 is obtained. This operation darkens the image without changing the screen brightness, which is equivalent to lowering the backlight brightness without adjusting the screen white point used for the CIELAB calculation.\nThis means that observing the image above with reduced screen brightness is identical to viewing this image without reducing screen brightness, but the calculated colour difference will be different.\nAnalysis of Greyscale and Lightness Looking at the colour difference for each colour patch, the white patch in the original image has a colour difference of only 0.83, whereas after reducing the brightness, it becomes 6.01. In the greyscale, the lightness difference between the second and second-to-last patches and their references is almost 0. The lightness of the white and black patches is lower than the reference, while the lightness of the two middle patches is higher than the reference. This implies that the ISP may contain a Sigmoid-like tone curve that increases contrast.\n",
+  "wordCount" : "1747",
+  "inLanguage": "en",
+  "datePublished": "2025-04-02T13:30:00+08:00",
+  "dateModified": "2025-04-02T13:30:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou00.icu/en/posts/colour-checker-for-jpg/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou00.icu/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou00.icu/en/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou00.icu/" title="中文"
+                            aria-label="中文">Zh-Cn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou00.icu/en/posts/" title="Posts 🌳">
+                    <span>Posts 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/en/photos/" title="Photos 📷">
+                    <span>Photos 📷</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/en/tags/" title="Tags 🏷️">
+                    <span>Tags 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou00.icu/en/about/" title="About 😼">
+                    <span>About 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart
+    </h1>
+    <div class="post-meta"><span title='2025-04-02 13:30:00 +0800 +0800'>2025.04.02</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou00.icu/posts/colour-checker-for-jpg/">Zh-Cn</a>
+    </li>
+</ul>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#pipeline" aria-label="Pipeline">Pipeline</a></li>
+                <li>
+                    <a href="#results-and-analysis" aria-label="Results and Analysis">Results and Analysis</a><ul>
+                        
+                <li>
+                    <a href="#white-balance-and-chromatic-adaptation" aria-label="White Balance and Chromatic Adaptation">White Balance and Chromatic Adaptation</a></li>
+                <li>
+                    <a href="#stylisation" aria-label="Stylisation">Stylisation</a></li>
+                <li>
+                    <a href="#auto-exposure-and-lightness" aria-label="Auto Exposure and Lightness">Auto Exposure and Lightness</a></li>
+                <li>
+                    <a href="#uneven-illumination-and-metamerism" aria-label="Uneven Illumination and Metamerism">Uneven Illumination and Metamerism</a></li></ul>
+                </li>
+                <li>
+                    <a href="#colour-charts-and-colour-analysis" aria-label="Colour Charts and Colour Analysis">Colour Charts and Colour Analysis</a></li>
+                <li>
+                    <a href="#a-simple-example" aria-label="A Simple Example">A Simple Example</a><ul>
+                        
+                <li>
+                    <a href="#analysis-of-greyscale-and-lightness" aria-label="Analysis of Greyscale and Lightness">Analysis of Greyscale and Lightness</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>Note: I have not used Imatest myself (it&rsquo;s expensive). The following content is based on my subjective and intuitive understanding after observing analyses done by others.</p>
+</blockquote>
+<h2 id="pipeline">Pipeline<a hidden class="anchor" aria-hidden="true" href="#pipeline">#</a></h2>
+<p><strong>sRGB -&gt; XYZ -&gt; CIELAB (Display) &lt;-&gt; CIELAB (Reference)</strong></p>
+<p>The test described above is for the final result (the output JPG image), not for the intermediate processes. The pipeline within the image processor affects the colours on the chart in various ways; that is to say, processes like auto exposure (AE) also influence the result.</p>
+<p>Starting from the final output JPG image (assuming it is in the sRGB space), it is first converted to XYZ tristimulus values (using the corresponding colour space&rsquo;s conversion matrix and electro-optical transfer function). The resulting XYZ tristimulus values are display-referred and normalised, meaning they are identical to the tristimulus values measured on a perfectly colour-managed or standard display, divided by luminance.</p>
+<p>Calculating colour difference requires a uniform colour space. Converting XYZ to CIELAB also requires a reference white point ($\text{XYZ}_{n}$). For display-referred colours, the display&rsquo;s white point is a common choice.</p>
+<p>The CIELAB values for a colour chart can usually be looked up directly, or if the chart&rsquo;s reflectance data is public, its XYZ values can be calculated using the spectral power distribution of a standard illuminant (usually D65) and a standard observer&rsquo;s colour matching functions. Then, using D65 as the reference white point, its CIELAB values can be calculated.</p>
+<p>Next, a colour difference formula is chosen in CIELAB to calculate the difference, such as the most commonly used DeltaE2000. Of course, CIELAB can be replaced with other uniform colour spaces or colour appearance models for more multi-dimensional comparisons.</p>
+<h2 id="results-and-analysis">Results and Analysis<a hidden class="anchor" aria-hidden="true" href="#results-and-analysis">#</a></h2>
+<p>Simply calculating the average colour difference for all colours is not sensible, as the conclusions that can be drawn are very limited (unless your sole goal is perfect colour reproduction).</p>
+<h3 id="white-balance-and-chromatic-adaptation">White Balance and Chromatic Adaptation<a hidden class="anchor" aria-hidden="true" href="#white-balance-and-chromatic-adaptation">#</a></h3>
+<p>In the CIELAB values calculated for the colour chart as described above, the chroma of the greyscale patches should be close to 0. Whether the chroma of the greyscale in the actual image is also close to 0 depends on the shooting light source and the camera&rsquo;s white balance processing. If the camera&rsquo;s white balance completely corrects for the light source (equivalent to fully adapting to D65), then the greyscale part of the colour chart in the image should also appear neutral.</p>
+<p>However, white balance algorithms do not necessarily perform complete chromatic adaptation for all shooting environments. This also contradicts our subjective perception. The most typical example is an incandescent lamp; under such a yellowish light source, complete colour constancy is not achieved. In this case, a more ideal colour reproduction would be to retain some of the &ldquo;yellowness,&rdquo; i.e., incomplete adaptation. The greyscale patches in the image of the colour chart would then not be neutral but would have a certain amount of chroma.</p>
+<p>In situations where complete adaptation to D65 is required (the greyscale should appear neutral), the chroma deviation $\Delta C$ in the greyscale area can be used to describe the accuracy of the white balance.</p>
+<p>If the image&rsquo;s white point is not D65, the target light source for white balance should be this white point. In this case, one must consider whether the incorrect chromatic adaptation transform in CIELAB will have an impact (CIELAB should ideally only work under D65).</p>
+<h3 id="stylisation">Stylisation<a hidden class="anchor" aria-hidden="true" href="#stylisation">#</a></h3>
+<p>Since the test image has gone through the entire image processing pipeline, it will naturally include some stylisation, such as memory colour enhancement or more complex and aggressive processing. At this point, evaluating whether the colours are &ldquo;accurate&rdquo; becomes somewhat unreasonable. However, one can still observe the direction in which typical colours are shifted and adjusted by comparing the standard colours of the chart with the colours of the chart in the image.</p>
+<p>It is important to note that one should no longer evaluate whether the colours are &ldquo;accurate.&rdquo; Moreover, because the camera does not satisfy the so-called Luther condition, there is already a significant error when converting from the camera&rsquo;s RGB to XYZ. If you train and test using the colour chart on its own, the colour difference calculated on the XYZ values converted from RAW will generally not be less than 3. Subsequent stylisation, space conversions, and gamut and tone compression will only introduce more errors. Therefore, when judging accuracy or stylisation tendencies, one needs to consider whether they are caused by errors or introduced by stylisation. The accumulation of colour difference does not always proceed in one direction; it is possible that the final colour difference becomes very small, and even cases where the difference for individual colours is less than 1 may occur. This does not mean the camera can reproduce that colour so accurately under other conditions.</p>
+<p>When analysing stylisation, the ratio of the image&rsquo;s average chroma to the chart&rsquo;s average chroma can be used to observe whether the overall chroma of the image has increased. One can also observe the shift of each typical colour or convert to CIELCh and other spaces for a more in-depth analysis.</p>
+<h3 id="auto-exposure-and-lightness">Auto Exposure and Lightness<a hidden class="anchor" aria-hidden="true" href="#auto-exposure-and-lightness">#</a></h3>
+<p>The camera&rsquo;s auto exposure strategy also affects colour difference. Furthermore, the XYZ values converted back from the final image are display-referred. Relative to the reflectance of the colour chart, the original scene&rsquo;s luminance is not necessarily linear. Multiplying these display-referred XYZ values by a coefficient to simulate gain does not represent the exposure control at the time of shooting; it is more like adjusting the display&rsquo;s backlight brightness (without synchronously adjusting the reference white point chosen for the CIELAB calculation). This is a very strange operation, but it can effectively reduce colour difference anomalies caused by exposure errors. In the example below, multiplying the XYZ values by a factor of 0.76 can reduce the colour difference by three units (this might only be meaningful computationally).</p>
+<p>Therefore, Imatest also provides a chroma difference that excludes lightness, calculating only the difference in chroma without considering the effect of lightness. This seems even stranger (because operations like changing backlight brightness or exposure control also affect chroma).</p>
+<h3 id="uneven-illumination-and-metamerism">Uneven Illumination and Metamerism<a hidden class="anchor" aria-hidden="true" href="#uneven-illumination-and-metamerism">#</a></h3>
+<p>When photographing a colour chart, it is best to have uniform illumination. However, when using a light box, it is inevitable that the top part will be closer to the light source and thus brighter. After applying the simulated lightness adjustment mentioned above, one can observe the lightness difference. If the top rows all have positive values and the bottom rows all have negative values, one needs to consider whether this is due to uneven illumination.</p>
+<p>The correction method on RAW data is to use a uniform surface (a grey card or matte photo paper) for calibration. However, the image has already passed through the entire ISP, and the resulting linear light is display-referred; it cannot represent the scene-referred linear light.</p>
+<p>Regarding the issue of metamerism: the CIELAB values provided by the colour chart are calculated from its reflectance and the D65 standard illuminant. However, in reality, no light source has a spectral power distribution identical to that of a standard illuminant. The camera&rsquo;s spectral sensitivity functions, after correction by a colour matrix, also differ from the standard observer&rsquo;s colour matching functions. Therefore, metamerism is unavoidable. This will also lead to an erroneous increase in colour difference, because the colour chart not only evaluates the camera&rsquo;s colour reproduction but also, to some extent, the light source&rsquo;s colour rendering index and the camera&rsquo;s metamerism.</p>
+<h2 id="colour-charts-and-colour-analysis">Colour Charts and Colour Analysis<a hidden class="anchor" aria-hidden="true" href="#colour-charts-and-colour-analysis">#</a></h2>
+<p>What role do colour charts really play in image processing and evaluation, and what do all those numbers in various spaces mean?</p>
+<p>For me, the greatest value of a colour chart is that it provides 30 very typical reflectance samples, including memory colours, saturated colours, and neutral colours. The spectral data for standard illuminants and standard observers can be easily obtained, allowing for very flexible calculation of tristimulus values. This is far more meaningful than a set of CIELAB values that can only be used under D65.</p>
+<p>This is also why using the PMCC is more recommended, as its reflectance data is published. In theory, you could even use it without owning a physical chart, simply treating it as 30 reflectance samples.</p>
+<p>Furthermore, I feel it is highly inappropriate to make subjective colour evaluations directly from an image of a colour chart. Divorced from the physical object, the effect of memory colours should be negligible. Can one really associate a blue patch with the blue sky and perform memory colour enhancement? For an observer, it is unreasonable to judge whether colours are natural, or even accurate, simply by looking at thirty coloured squares.</p>
+<p>Additionally, when using various colour spaces and colour appearance models for analysis, one should be precise with terminology and not casually use words like &ldquo;saturated&rdquo; or &ldquo;vivid.&rdquo; If a colour appearance model is being used, its precise colour attributes should be used for description.</p>
+<p>Relevant data and articles about the colour chart can be found here:</p>
+<blockquote>
+<p>M. R. Luo, “The new preferred memory color ( PMC ) chart,” <em>Color Research &amp; Application</em>, p. col.22940, May 2024, doi: <a href="https://doi.org/10.1002/col.22940">10.1002/col.22940</a>.</p>
+</blockquote>
+<h2 id="a-simple-example">A Simple Example<a hidden class="anchor" aria-hidden="true" href="#a-simple-example">#</a></h2>
+<p><img alt="Colour chart shot in fully automatic mode" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/04/54d3bab72b873118f3a236413c0b9243.avif"></p>
+<p>This is a colour chart photographed using a camera&rsquo;s auto white balance and auto-metering. The lighting condition was a normal white LED, not a standard illuminant simulator or a full-spectrum LED.</p>
+<p>Calculating the colour difference directly using the method described above yields an average $\Delta E_{2000}$ of 6.5. Almost all lightness values are too high, meaning the image is too bright when using the screen&rsquo;s white point as the reference. After multiplying the XYZ values by 0.76, the minimum colour difference of 3.8 is obtained. This operation darkens the image without changing the screen brightness, which is equivalent to lowering the backlight brightness without adjusting the screen white point used for the CIELAB calculation.</p>
+<p><img alt="Colour chart after adjusting lightness only in linear space" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/04/849dd2d421f04fe0c75a159aaabdc6f3.avif"></p>
+<p>This means that observing the image above with reduced screen brightness is identical to viewing this image without reducing screen brightness, but the calculated colour difference will be different.</p>
+<h3 id="analysis-of-greyscale-and-lightness">Analysis of Greyscale and Lightness<a hidden class="anchor" aria-hidden="true" href="#analysis-of-greyscale-and-lightness">#</a></h3>
+<p>Looking at the colour difference for each colour patch, the white patch in the original image has a colour difference of only 0.83, whereas after reducing the brightness, it becomes 6.01. In the greyscale, the lightness difference between the second and second-to-last patches and their references is almost 0. The lightness of the white and black patches is lower than the reference, while the lightness of the two middle patches is higher than the reference. This implies that the ISP may contain a Sigmoid-like tone curve that increases contrast.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou00.icu/en/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou00.icu/en/tags/isp/">ISP</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://jackchou00.icu/en/posts/hdr-format-conversion/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>HDR Image Format Conversion</span>
+  </a>
+  <a class="next" href="https://jackchou00.icu/en/posts/how-to-read-raw/">
+    <span class="title">Next »</span>
+    <br>
+    <span>How to Correctly Read RAW Files</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou00.icu/en/">🏡JacksBlog</a></span> · 
+        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CCM on 🏡JacksBlog</title>
+    <link>https://jackchou00.icu/en/tags/ccm/</link>
+    <description>Recent content in CCM on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou00.icu/en/tags/ccm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array</title>
+      <link>https://jackchou00.icu/en/posts/isp01/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/en/posts/isp01/</guid>
+      <description>Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology</description>
+    </item>
+    <item>
+      <title>Colour Space Conversion: RAW to XYZ</title>
+      <link>https://jackchou00.icu/en/posts/ccm-02-raw-xyz/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/en/posts/ccm-02-raw-xyz/</guid>
+      <description>Converting RAW to XYZ</description>
+    </item>
+    <item>
+      <title>Colour Space Conversion: RGB to XYZ</title>
+      <link>https://jackchou00.icu/en/posts/ccm-01-rgb-xyz/</link>
+      <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou00.icu/en/posts/ccm-01-rgb-xyz/</guid>
+      <description>The most common colour space is undoubtedly the RGB space, represented by sRGB. This article will explain how to convert between such an RGB space and the XYZ space.</description>
+    </item>
+  </channel>
+</rss>

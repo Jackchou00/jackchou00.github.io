@@ -10,7 +10,7 @@
 <meta name="description" content="Conversion of HDR still image formats">
 <meta name="author" content="">
 <link rel="canonical" href="https://jackchou00.icu/posts/hdr-format-conversion/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou00.icu/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/hdr-format-conversion/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/en/posts/hdr-format-conversion/">
 <noscript>
     <style>
         #theme-toggle,
@@ -79,7 +80,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/hdr-format-conversion/">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/hdr-format-conversion/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="HDR 图像格式转换">
   <meta property="og:description" content="Conversion of HDR still image formats">
@@ -222,7 +223,12 @@
     <h1 class="post-title entry-hint-parent">
       HDR 图像格式转换
     </h1>
-    <div class="post-meta"><span title='2025-04-25 00:00:00 +0800 +0800'>2025.04.25</span>
+    <div class="post-meta"><span title='2025-04-25 00:00:00 +0800 +0800'>2025.04.25</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou00.icu/en/posts/hdr-format-conversion/">En</a>
+    </li>
+</ul>
 
 </div>
   </header> <div class="toc">
@@ -264,9 +270,9 @@
 <p>只有一堆数字是没有意义的，还需要知道他们定义在什么空间上，至少要标注出三基色、白点和传递函数（也就是 RGB 空间的定义）。</p>
 <p>附加信息就需要告诉解码器和系统里的色彩管理，这些数字的具体含义，如果没有的话，一般会当成 sRGB 处理，颜色空间与实际不匹配的话就会出大问题。</p>
 <p>解码软件解出像素值和附加信息之后，颜色管理系统会把这些已知色彩空间的像素值转换成显示器的驱动值然后正确显示，所以理论上，码值甚至可以是三刺激值和线性的，只要有对应的附加信息来标注它。下面的图是两个标识了 XYZ 空间和线性传递函数的 PMCC 色卡，图片中的像素值直接是三刺激值。</p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/06/10c610e35151f2c92b4e3d81065f1406.avif"></p>
+<p><img alt="D65 光源下的 PMCC 色卡 XYZ 图像" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/06/10c610e35151f2c92b4e3d81065f1406.avif"></p>
 <p>这是一个 D65 光源下的色卡三刺激值图像，其中超出 1 的部分进行裁切，实际上这是一种错误的处理，nclx 中的 CIEXYZ 需要以等能白为白点，可以选用 ICC 中的 Bradford CAT 来转换。</p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/06/d314f9020f60ce63115708c92aaa1711.avif"></p>
+<p><img alt="适应到 E 白点的D65 光源下的 PMCC 色卡 XYZ 图像" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/06/d314f9020f60ce63115708c92aaa1711.avif"></p>
 <p>这是适应到等能白的图片（用的是直接替换白点），由于适应到等能白，所以不会出现超过 1 的值，显示的时候，由系统的颜色管理将其色适应到显示白点上，因此看起来的效果应当与浅色模式下的背景接近，浅色模式的页面背景码值是 245。</p>
 <p>如果你在使用 iOS 或 iPadOS，可能看不到这两个图像，别的系统经测试基本都可以。</p>
 <p>附加信息的具体形式有很多种，比如嵌入 ICC 配置文件，或者是保存在图像文件里的 xml 语句或是 nclx，还可以存在 EXIF 里。</p>
@@ -298,6 +304,19 @@
     <ul class="post-tags">
       <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://jackchou00.icu/posts/icam06-survey/">
+    <span class="title">« </span>
+    <br>
+    <span>iCAM06：图像处理中的色貌模型</span>
+  </a>
+  <a class="next" href="https://jackchou00.icu/posts/colour-checker-for-jpg/">
+    <span class="title"> »</span>
+    <br>
+    <span>并非色差：用色卡评价最终输出图像</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>

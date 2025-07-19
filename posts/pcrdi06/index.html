@@ -10,7 +10,7 @@
 <meta name="description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 6">
 <meta name="author" content="">
 <link rel="canonical" href="https://jackchou00.icu/posts/pcrdi06/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e8837ce64944702606369ded1d43934e0fd20de57cd2c4db27374b5bac45e207.css" integrity="sha256-6IN85klEcCYGNp3tHUOTTg/SDeV80sTbJzdLW6xF4gc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou00.icu/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou00.icu/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jackchou00.icu/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="zh-cn" href="https://jackchou00.icu/posts/pcrdi06/">
+<link rel="alternate" hreflang="en" href="https://jackchou00.icu/en/posts/pcrdi06/">
 <noscript>
     <style>
         #theme-toggle,
@@ -79,7 +80,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/pcrdi06/">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou00.icu/posts/pcrdi06/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="数字影像颜色再现原理笔记：颜色测量">
   <meta property="og:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 6">
@@ -125,8 +126,8 @@
   "keywords": [
     "Colour", "PCRDI"
   ],
-  "articleBody": "分光 不论是三刺激值 XYZ 还是其它的颜色属性，都是从光谱派生而来的，直接测量光谱功率分布（Spectral Power Distribution）是最基础的颜色测量方法，通过光谱可以计算出任何需要的颜色属性，且具有最大的灵活性。\n光谱的测量核心在于分光，牛顿使用棱镜，将波长不同的光在空间上分开，形成彩虹，就是一种分光的方法。使用棱镜、光栅等原理都能实现分光，区别在于光谱分辨率、光谱带宽、光谱范围等。\n分光之后，使用光电二极管、CCD、CMOS 等光电探测器，将空间上分开的光谱采集和处理。\n另外，根据是否自带光源，测量的具体是何种光谱功率分布（何种辐射度量），光谱测量仪器可分为分光光度计（Spectrophotometer）、光谱辐射度计（Spectroradiometer）等。\n最著名的光谱辐射度计可能是 Konica Minolta 的 CS-2000，它可以测量 380-780nm 的 1nm 间隔的辐射亮度。\n积分 有时候，我们只需要颜色属性而非光谱，比如最常见的 CIE XYZ 三刺激值，按照 XYZ 的定义：\n$$ X = K\\int_{380nm}^{780nm} P(\\lambda) \\cdot \\bar{x}(\\lambda) d\\lambda $$ 其中，$P(\\lambda)$ 是光谱功率分布，$\\bar{x}(\\lambda)$ 是颜色匹配函数，$K$ 是归一化系数。\n如果有一种滤色片，它的透射光谱乘上探测器的光谱敏感函数，得到的整体的光谱敏感度与$\\bar{x}(\\lambda)$相似，那么直接读取输出值就可以得到$X$。这种类似于直接在物理意义上对光谱进行积分的方法，称为积分测量，可以直接得到颜色属性。\n通过积分能测量的属性有：三刺激值（使用颜色匹配函数积分），亮度（使用光谱视效函数积分）。总之，只要是通过一个光谱敏感函数积分得到的属性，都可以使用积分测量。准确度取决于仪器的光谱特性的匹配程度。\n色度计（Colorimeter），廉价的色差仪就是使用了积分测量。比如 Datacolor 的 SpyderX。\n积分测量的问题在于，颜色匹配函数并非一直不变。比如最早使用的 CIE1931 颜色匹配函数，到后来的 CIE1964，再到 CIE2006，而积分测量方法不能够向后兼容，也没有计算其他光谱相关指标的能力，例如积分设备测出来三刺激值完全一致的两个光源，可能具有不同的蓝光能量分布，对节律的影响就不同。另外，匹配不好的仪器会导致同色异谱现象，即输出误差会随着光谱的变化而变化。相机在一定程度上也能够看作是一种对颜色的积分测量，其光谱敏感函数称为 SSF（Spectral Sensitivity Function）。\n其它测量方面 除了最基础的光谱测量，还需要考虑实际物体在不同角度的反射率，光泽，纹理等。工业上还会有一次性测量二维平面乃至三维空间中的颜色的需求。都有专门的仪器和方法进行测量，当然，价格一般也是不菲。\n比如 Eldim 公司的 EZContrast 系列能够一次测量多个角度的反射率或辐射亮度，TopCon 公司生产的成像光度计能够一次测量二维平面上多个点的光谱和颜色。\n而相机作为一种具有三种光谱积分的成像设备，是很好的低成本二维成像颜色测量工具，但需要格外注意同色异谱现象和特征化。\n",
-  "wordCount" : "62",
+  "articleBody": "分光 不论是三刺激值 XYZ 还是其它的颜色属性，都是从光谱派生而来的，直接测量光谱功率分布（Spectral Power Distribution）是最基础的颜色测量方法，通过光谱可以计算出任何需要的颜色属性，且具有最大的灵活性。\n光谱的测量核心在于分光，牛顿使用棱镜，将波长不同的光在空间上分开，形成彩虹，就是一种分光的方法。使用棱镜、光栅等原理都能实现分光，区别在于光谱分辨率、光谱带宽、光谱范围等。\n分光之后，使用光电二极管、CCD、CMOS 等光电探测器，将空间上分开的光谱采集和处理。\n另外，根据是否自带光源，测量的具体是何种光谱功率分布（何种辐射度量），光谱测量仪器可分为分光光度计（Spectrophotometer）、光谱辐射度计（Spectroradiometer）等。\n最著名的光谱辐射度计可能是 Konica Minolta 的 CS-2000，它可以测量 380-780nm 的 1nm 间隔的辐射亮度。\n积分 有时候，我们只需要颜色属性而非光谱，比如最常见的 CIE XYZ 三刺激值，按照 XYZ 的定义：\n$$ X = K\\int_{380nm}^{780nm} P(\\lambda) \\cdot \\bar{x}(\\lambda) d\\lambda $$ 其中，$P(\\lambda)$ 是光谱功率分布，$\\bar{x}(\\lambda)$ 是颜色匹配函数，$K$ 是归一化系数。\n如果有一种滤色片，它的透射光谱乘上探测器的光谱敏感函数，得到的整体的光谱敏感度与 $\\bar{x}(\\lambda)$ 相似，那么直接读取输出值就可以得到$X$。这种类似于直接在物理意义上对光谱进行积分的方法，称为积分测量，可以直接得到颜色属性。\n通过积分能测量的属性有：三刺激值（使用颜色匹配函数积分），亮度（使用光谱视效函数积分）。总之，只要是通过一个光谱敏感函数积分得到的属性，都可以使用积分测量。准确度取决于仪器的光谱特性的匹配程度。\n色度计（Colorimeter），廉价的色差仪就是使用了积分测量。比如 Datacolor 的 SpyderX。\n积分测量的问题在于，颜色匹配函数并非一直不变。比如最早使用的 CIE1931 颜色匹配函数，到后来的 CIE1964，再到 CIE2006，而积分测量方法不能够向后兼容，也没有计算其他光谱相关指标的能力，例如积分设备测出来三刺激值完全一致的两个光源，可能具有不同的蓝光能量分布，对节律的影响就不同。另外，匹配不好的仪器会导致同色异谱现象，即输出误差会随着光谱的变化而变化。相机在一定程度上也能够看作是一种对颜色的积分测量，其光谱敏感函数称为 SSF（Spectral Sensitivity Function）。\n其它测量方面 除了最基础的光谱测量，还需要考虑实际物体在不同角度的反射率，光泽，纹理等。工业上还会有一次性测量二维平面乃至三维空间中的颜色的需求。都有专门的仪器和方法进行测量，当然，价格一般也是不菲。\n比如 Eldim 公司的 EZContrast 系列能够一次测量多个角度的反射率或辐射亮度，TopCon 公司生产的成像光度计能够一次测量二维平面上多个点的光谱和颜色。\n而相机作为一种具有三种光谱积分的成像设备，是很好的低成本二维成像颜色测量工具，但需要格外注意同色异谱现象和特征化。\n",
+  "wordCount" : "64",
   "inLanguage": "zh-cn",
   "datePublished": "2025-02-21T00:00:00+08:00",
   "dateModified": "2025-02-21T00:00:00+08:00",
@@ -223,7 +224,12 @@
     <h1 class="post-title entry-hint-parent">
       数字影像颜色再现原理笔记：颜色测量
     </h1>
-    <div class="post-meta"><span title='2025-02-21 00:00:00 +0800 +0800'>2025.02.21</span>
+    <div class="post-meta"><span title='2025-02-21 00:00:00 +0800 +0800'>2025.02.21</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou00.icu/en/posts/pcrdi06/">En</a>
+    </li>
+</ul>
 
 </div>
   </header> <div class="toc">
@@ -257,7 +263,7 @@ $$
 X = K\int_{380nm}^{780nm} P(\lambda) \cdot \bar{x}(\lambda) d\lambda
 $$<p>
 其中，$P(\lambda)$ 是光谱功率分布，$\bar{x}(\lambda)$ 是颜色匹配函数，$K$ 是归一化系数。</p>
-<p>如果有一种滤色片，它的透射光谱乘上探测器的光谱敏感函数，得到的整体的光谱敏感度与$\bar{x}(\lambda)$相似，那么直接读取输出值就可以得到$X$。这种类似于直接在物理意义上对光谱进行积分的方法，称为积分测量，可以直接得到颜色属性。</p>
+<p>如果有一种滤色片，它的透射光谱乘上探测器的光谱敏感函数，得到的整体的光谱敏感度与 $\bar{x}(\lambda)$ 相似，那么直接读取输出值就可以得到$X$。这种类似于直接在物理意义上对光谱进行积分的方法，称为积分测量，可以直接得到颜色属性。</p>
 <p>通过积分能测量的属性有：三刺激值（使用颜色匹配函数积分），亮度（使用光谱视效函数积分）。总之，只要是通过一个光谱敏感函数积分得到的属性，都可以使用积分测量。准确度取决于仪器的光谱特性的匹配程度。</p>
 <p>色度计（Colorimeter），廉价的色差仪就是使用了积分测量。比如 Datacolor 的 SpyderX。</p>
 <p>积分测量的问题在于，颜色匹配函数并非一直不变。比如最早使用的 CIE1931 颜色匹配函数，到后来的 CIE1964，再到 CIE2006，而积分测量方法不能够向后兼容，也没有计算其他光谱相关指标的能力，例如积分设备测出来三刺激值完全一致的两个光源，可能具有不同的蓝光能量分布，对节律的影响就不同。另外，匹配不好的仪器会导致同色异谱现象，即输出误差会随着光谱的变化而变化。相机在一定程度上也能够看作是一种对颜色的积分测量，其光谱敏感函数称为 SSF（Spectral Sensitivity Function）。</p>
@@ -265,7 +271,7 @@ $$<p>
 <p>除了最基础的光谱测量，还需要考虑实际物体在不同角度的反射率，光泽，纹理等。工业上还会有一次性测量二维平面乃至三维空间中的颜色的需求。都有专门的仪器和方法进行测量，当然，价格一般也是不菲。</p>
 <p>比如 Eldim 公司的 EZContrast 系列能够一次测量多个角度的反射率或辐射亮度，TopCon 公司生产的成像光度计能够一次测量二维平面上多个点的光谱和颜色。</p>
 <p>而相机作为一种具有三种光谱积分的成像设备，是很好的低成本二维成像颜色测量工具，但需要格外注意同色异谱现象和特征化。</p>
-<p><img loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/f1889911ece2d06295d9b389e44e76dc.avif"></p>
+<p><img alt="Taki" loading="lazy" src="https://img.jackchou00.icu/jack-img/2025/02/f1889911ece2d06295d9b389e44e76dc.avif"></p>
 
 
   </div>
@@ -275,6 +281,19 @@ $$<p>
       <li><a href="https://jackchou00.icu/tags/colour/">Colour</a></li>
       <li><a href="https://jackchou00.icu/tags/pcrdi/">PCRDI</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://jackchou00.icu/posts/ccm-01-rgb-xyz/">
+    <span class="title">« </span>
+    <br>
+    <span>颜色空间转换：RGB 与 XYZ</span>
+  </a>
+  <a class="next" href="https://jackchou00.icu/posts/pcrdi05/">
+    <span class="title"> »</span>
+    <br>
+    <span>数字影像颜色再现原理笔记：颜色外貌</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
