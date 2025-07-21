@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou00.icu/</loc>
-    <lastmod>2025-07-11T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +13,51 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/photos/sunset-250721/</loc>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/tags/clouds/</loc>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou00.icu/tags/photos/</loc>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/photos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/photos/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/tags/</loc>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/tags/"
+                />
+  </url><url>
+    <loc>https://jackchou00.icu/photos/</loc>
+    <lastmod>2025-07-21T20:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou00.icu/en/photos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou00.icu/photos/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/tags/code/</loc>
@@ -26,19 +71,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/tags/code/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/tags/</loc>
-    <lastmod>2025-07-11T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/tags/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/posts/git-rm-files/</loc>
@@ -91,32 +123,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou00.icu/tags/cats/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/tags/photos/</loc>
-    <lastmod>2025-06-28T18:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/tags/photos/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/tags/photos/"
-                />
-  </url><url>
-    <loc>https://jackchou00.icu/photos/</loc>
-    <lastmod>2025-06-28T18:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou00.icu/en/photos/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou00.icu/photos/"
                 />
   </url><url>
     <loc>https://jackchou00.icu/photos/test-photos/</loc>
