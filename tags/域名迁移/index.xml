@@ -34,8 +34,8 @@
 &lt;p&gt;&lt;strong&gt;双语支持&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;自动检测页面语言（通过 &lt;code&gt;document.documentElement.lang&lt;/code&gt; 和 URL 路径）&lt;/li&gt;
-&lt;li&gt;中文：&lt;code&gt;👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;英文：&lt;code&gt;👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;中文：&lt;code&gt;👋 再见，jackchou00.icu    🚀 新的旅途，从 jackchou.top 起程&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;英文：&lt;code&gt;👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at jackchou.top&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;

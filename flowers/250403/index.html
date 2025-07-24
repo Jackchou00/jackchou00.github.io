@@ -168,9 +168,9 @@ body.notice-shown {
   }
   
   
-  
-  
-  
+  if (localStorage.getItem('domain-migration-dismissed') === 'true') {
+    return;
+  }
   
   
   const noticeHTML = `
@@ -178,10 +178,10 @@ body.notice-shown {
       <div class="notice-content">
         <div class="notice-text">
           <span class="zh-notice" style="display: none;">
-            👋 再见，jackchou00.icu 🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+            👋 再见，jackchou00.icu    🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
           </span>
           <span class="en-notice" style="display: none;">
-            👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+            👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
           </span>
         </div>
         <button class="close-btn" onclick="dismissNotice()">✕</button>

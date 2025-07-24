@@ -28,8 +28,8 @@ themes/PaperMod/layouts/partials/extend_head.html:15-157
 双语支持
 
 自动检测页面语言（通过 document.documentElement.lang 和 URL 路径）
-中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程
-英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top
+中文：👋 再见，jackchou00.icu    🚀 新的旅途，从 jackchou.top 起程
+英文：👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at jackchou.top
 
 
 
@@ -230,9 +230,9 @@ body.notice-shown {
   }
   
   
-  
-  
-  
+  if (localStorage.getItem('domain-migration-dismissed') === 'true') {
+    return;
+  }
   
   
   const noticeHTML = `
@@ -240,10 +240,10 @@ body.notice-shown {
       <div class="notice-content">
         <div class="notice-text">
           <span class="zh-notice" style="display: none;">
-            👋 再见，jackchou00.icu 🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+            👋 再见，jackchou00.icu    🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
           </span>
           <span class="en-notice" style="display: none;">
-            👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+            👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
           </span>
         </div>
         <button class="close-btn" onclick="dismissNotice()">✕</button>
@@ -293,7 +293,7 @@ body.notice-shown {
 文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157
 核心功能 固定顶部横幅
 使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持
-自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互
+自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互
 可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期
 硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计
 桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：">
@@ -329,8 +329,8 @@ themes/PaperMod/layouts/partials/extend_head.html:15-157
 双语支持
 
 自动检测页面语言（通过 document.documentElement.lang 和 URL 路径）
-中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程
-英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top
+中文：👋 再见，jackchou00.icu    🚀 新的旅途，从 jackchou.top 起程
+英文：👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at jackchou.top
 
 
 
@@ -399,12 +399,12 @@ insertAdjacentHTML 动态插入 HTML
   "@type": "BlogPosting",
   "headline": "域名迁移通知横幅实现记录",
   "name": "域名迁移通知横幅实现记录",
-  "description": "需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。\n实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。\n文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157\n核心功能 固定顶部横幅\n使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持\n自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互\n可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期\n硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计\n桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：\n",
+  "description": "需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。\n实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。\n文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157\n核心功能 固定顶部横幅\n使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持\n自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互\n可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期\n硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计\n桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：\n",
   "keywords": [
     "Hugo", "PaperMod", "域名迁移", "前端开发"
   ],
-  "articleBody": "需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。\n实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。\n文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157\n核心功能 固定顶部横幅\n使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持\n自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互\n可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期\n硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计\n桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：\n方法一：自动过期（推荐） 无需任何操作 2025年10月24日后自动不显示 方法二：手动移除 删除 themes/PaperMod/layouts/partials/extend_head.html 文件中的第15-157行：\n\u003cstyle\u003e ... \u003c/style\u003e \u003cscript\u003e ... \u003c/script\u003e 即删除从 开始到最后一个 结束的所有代码。\n注意事项 主题更新：如果更新 PaperMod 主题，需要重新添加这些代码 缓存问题：用户浏览器可能有缓存，新访客会立即看到通知 SEO 影响：横幅不会影响 SEO，因为它是通过 JavaScript 动态添加的 效果预览 页面顶部出现紫色渐变横幅 根据页面语言显示相应文本 用户可以关闭通知 移动设备上自适应布局 ",
-  "wordCount" : "134",
+  "articleBody": "需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。\n实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。\n文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157\n核心功能 固定顶部横幅\n使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持\n自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互\n可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期\n硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计\n桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：\n方法一：自动过期（推荐） 无需任何操作 2025年10月24日后自动不显示 方法二：手动移除 删除 themes/PaperMod/layouts/partials/extend_head.html 文件中的第15-157行：\n\u003cstyle\u003e ... \u003c/style\u003e \u003cscript\u003e ... \u003c/script\u003e 即删除从 开始到最后一个 结束的所有代码。\n注意事项 主题更新：如果更新 PaperMod 主题，需要重新添加这些代码 缓存问题：用户浏览器可能有缓存，新访客会立即看到通知 SEO 影响：横幅不会影响 SEO，因为它是通过 JavaScript 动态添加的 效果预览 页面顶部出现紫色渐变横幅 根据页面语言显示相应文本 用户可以关闭通知 移动设备上自适应布局 ",
+  "wordCount" : "133",
   "inLanguage": "zh-cn",
   "datePublished": "2025-07-24T00:00:00Z",
   "dateModified": "2025-07-24T00:00:00Z",
@@ -570,8 +570,8 @@ insertAdjacentHTML 动态插入 HTML
 <p><strong>双语支持</strong></p>
 <ul>
 <li>自动检测页面语言（通过 <code>document.documentElement.lang</code> 和 URL 路径）</li>
-<li>中文：<code>👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程</code></li>
-<li>英文：<code>👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top</code></li>
+<li>中文：<code>👋 再见，jackchou00.icu    🚀 新的旅途，从 jackchou.top 起程</code></li>
+<li>英文：<code>👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at jackchou.top</code></li>
 </ul>
 </li>
 <li>
