@@ -80,7 +80,151 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><meta property="og:url" content="https://jackchou.top/draft/">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+#domain-migration-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+#domain-migration-notice.show {
+  display: block;
+}
+
+#domain-migration-notice .notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#domain-migration-notice .notice-text {
+  flex: 1;
+  text-align: center;
+}
+
+#domain-migration-notice .close-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+#domain-migration-notice .close-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+#domain-migration-notice a {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+body.notice-shown {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  #domain-migration-notice {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  #domain-migration-notice .notice-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  body.notice-shown {
+    padding-top: 80px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  
+  const expiryDate = new Date('2025-10-31');
+  const now = new Date();
+  
+  if (now > expiryDate) {
+    return; 
+  }
+  
+  
+  
+  
+  
+  
+  
+  const noticeHTML = `
+    <div id="domain-migration-notice">
+      <div class="notice-content">
+        <div class="notice-text">
+          <span class="zh-notice" style="display: none;">
+            👋 再见，jackchou00.icu 🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+          </span>
+          <span class="en-notice" style="display: none;">
+            👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+          </span>
+        </div>
+        <button class="close-btn" onclick="dismissNotice()">✕</button>
+      </div>
+    </div>
+  `;
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.body.insertAdjacentHTML('afterbegin', noticeHTML);
+    
+    
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const zhNotice = document.querySelector('.zh-notice');
+    const enNotice = document.querySelector('.en-notice');
+    
+    if (isEnglish && enNotice) {
+      enNotice.style.display = 'inline';
+    } else if (zhNotice) {
+      zhNotice.style.display = 'inline';
+    }
+    
+    
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.classList.add('show');
+      document.body.classList.add('notice-shown');
+    }
+  });
+  
+  
+  window.dismissNotice = function() {
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.style.display = 'none';
+      document.body.classList.remove('notice-shown');
+      localStorage.setItem('domain-migration-dismissed', 'true');
+    }
+  };
+})();
+</script><meta property="og:url" content="https://jackchou.top/draft/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="Drafts">
   <meta property="og:description" content="JacksBlog: JackChou 的博客，色彩科学，摄影，技术分享">
@@ -182,6 +326,27 @@
     Drafts
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">域名迁移通知横幅实现记录
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。
+实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。
+文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157
+核心功能 固定顶部横幅
+使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持
+自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见 jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互
+可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期
+硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计
+桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-24 00:00:00 +0000 UTC'>2025.07.24</span></footer>
+  <a class="entry-link" aria-label="post link to 域名迁移通知横幅实现记录" href="https://jackchou.top/draft/domain-migration-notice/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
