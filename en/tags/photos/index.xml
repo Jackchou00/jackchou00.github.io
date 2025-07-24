@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Photos on 🏡JacksBlog</title>
-    <link>https://jackchou00.icu/en/tags/photos/</link>
+    <link>https://jackchou.top/en/tags/photos/</link>
     <description>Recent content in Photos on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
     <lastBuildDate>Sat, 28 Jun 2025 18:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jackchou00.icu/en/tags/photos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/en/tags/photos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>📷 Cats in a Mate Tea Shop</title>
-      <link>https://jackchou00.icu/en/photos/cat-250628/</link>
+      <link>https://jackchou.top/en/photos/cat-250628/</link>
       <pubDate>Sat, 28 Jun 2025 18:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/photos/cat-250628/</guid>
+      <guid>https://jackchou.top/en/photos/cat-250628/</guid>
       <description>(9 Images) Some cat energy</description>
     </item>
     <item>
       <title>Instructions and Test Page</title>
-      <link>https://jackchou00.icu/en/photos/test-photos/</link>
+      <link>https://jackchou.top/en/photos/test-photos/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/photos/test-photos/</guid>
+      <guid>https://jackchou.top/en/photos/test-photos/</guid>
       <description>Click five times on the version number to enter developer mode</description>
     </item>
   </channel>

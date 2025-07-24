@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ISP on 🏡JacksBlog</title>
-    <link>https://jackchou00.icu/en/tags/isp/</link>
+    <link>https://jackchou.top/en/tags/isp/</link>
     <description>Recent content in ISP on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
     <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jackchou00.icu/en/tags/isp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/en/tags/isp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
-      <link>https://jackchou00.icu/en/posts/icam06-survey/</link>
+      <link>https://jackchou.top/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/posts/icam06-survey/</guid>
+      <guid>https://jackchou.top/en/posts/icam06-survey/</guid>
       <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
     </item>
     <item>
       <title>Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart</title>
-      <link>https://jackchou00.icu/en/posts/colour-checker-for-jpg/</link>
+      <link>https://jackchou.top/en/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/posts/colour-checker-for-jpg/</guid>
+      <guid>https://jackchou.top/en/posts/colour-checker-for-jpg/</guid>
       <description>Reflections on learning to analyse image colour using Imatest and colour charts</description>
     </item>
     <item>
       <title>How to Correctly Read RAW Files</title>
-      <link>https://jackchou00.icu/en/posts/how-to-read-raw/</link>
+      <link>https://jackchou.top/en/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/posts/how-to-read-raw/</guid>
+      <guid>https://jackchou.top/en/posts/how-to-read-raw/</guid>
       <description>Running fast doesn&amp;rsquo;t guarantee a win; avoiding pitfalls is true success.</description>
     </item>
     <item>
       <title>Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array</title>
-      <link>https://jackchou00.icu/en/posts/isp-01/</link>
+      <link>https://jackchou.top/en/posts/isp-01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/posts/isp-01/</guid>
+      <guid>https://jackchou.top/en/posts/isp-01/</guid>
       <description>Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology</description>
     </item>
     <item>
       <title>Colour Space Conversion: RAW to XYZ</title>
-      <link>https://jackchou00.icu/en/posts/ccm-02-raw-xyz/</link>
+      <link>https://jackchou.top/en/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/en/posts/ccm-02-raw-xyz/</guid>
+      <guid>https://jackchou.top/en/posts/ccm-02-raw-xyz/</guid>
       <description>Converting RAW to XYZ</description>
     </item>
   </channel>

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>照片 📷 on 🏡JacksBlog</title>
-    <link>https://jackchou00.icu/photos/</link>
+    <link>https://jackchou.top/photos/</link>
     <description>Recent content in 照片 📷 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 21 Jul 2025 20:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jackchou00.icu/photos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/photos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>📷 彩虹和日落</title>
-      <link>https://jackchou00.icu/photos/sunset-250721/</link>
+      <link>https://jackchou.top/photos/sunset-250721/</link>
       <pubDate>Mon, 21 Jul 2025 20:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/photos/sunset-250721/</guid>
+      <guid>https://jackchou.top/photos/sunset-250721/</guid>
       <description>(3 Images) 西湖边的彩虹与火烧云</description>
     </item>
     <item>
       <title>📷 马黛茶店里的猫猫</title>
-      <link>https://jackchou00.icu/photos/cat-250628/</link>
+      <link>https://jackchou.top/photos/cat-250628/</link>
       <pubDate>Sat, 28 Jun 2025 18:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/photos/cat-250628/</guid>
+      <guid>https://jackchou.top/photos/cat-250628/</guid>
       <description>(9 Images) 一些猫猫能量</description>
     </item>
     <item>
       <title>说明及测试页面</title>
-      <link>https://jackchou00.icu/photos/test-photos/</link>
+      <link>https://jackchou.top/photos/test-photos/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/photos/test-photos/</guid>
+      <guid>https://jackchou.top/photos/test-photos/</guid>
       <description>点击五次版本号进入开发者模式</description>
     </item>
   </channel>

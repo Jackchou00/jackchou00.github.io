@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HDR on 🏡JacksBlog</title>
-    <link>https://jackchou00.icu/tags/hdr/</link>
+    <link>https://jackchou.top/tags/hdr/</link>
     <description>Recent content in HDR on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 26 May 2025 02:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jackchou00.icu/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一个帮助理解 HDR 传递函数的小实验</title>
-      <link>https://jackchou00.icu/posts/bt2408/</link>
+      <link>https://jackchou.top/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/bt2408/</guid>
+      <guid>https://jackchou.top/posts/bt2408/</guid>
       <description>一些无聊的定义，爱来自 BT.2408</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
-      <link>https://jackchou00.icu/posts/icam06-survey/</link>
+      <link>https://jackchou.top/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/posts/icam06-survey/</guid>
+      <guid>https://jackchou.top/posts/icam06-survey/</guid>
       <description>颜色外貌在图像处理和再现中的简单尝试</description>
     </item>
     <item>
       <title>HLG 白皮书解读</title>
-      <link>https://jackchou00.icu/draft/hlg-understanding/</link>
+      <link>https://jackchou.top/draft/hlg-understanding/</link>
       <pubDate>Tue, 13 May 2025 12:00:00 +0800</pubDate>
-      <guid>https://jackchou00.icu/draft/hlg-understanding/</guid>
+      <guid>https://jackchou.top/draft/hlg-understanding/</guid>
       <description>一种似乎很高级的显示独立传递函数</description>
     </item>
   </channel>
