@@ -15,14 +15,44 @@
                 href="https://jackchou.top/"
                 />
   </url><url>
-    <loc>https://jackchou.top/draft/</loc>
+    <loc>https://jackchou.top/tags/anything/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/anything/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/anything/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/tags/code/</loc>
+    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/code/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/hugo/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jackchou.top/tags/papermod/</loc>
-    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/hugo/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
@@ -37,14 +67,31 @@
                 href="https://jackchou.top/tags/"
                 />
   </url><url>
-    <loc>https://jackchou.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://jackchou.top/posts/domain-migration/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/domain-migration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/domain-migration/"
+                />
   </url><url>
-    <loc>https://jackchou.top/tags/%E5%9F%9F%E5%90%8D%E8%BF%81%E7%A7%BB/</loc>
+    <loc>https://jackchou.top/posts/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jackchou.top/draft/domain-migration-notice/</loc>
-    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/"
+                />
   </url><url>
     <loc>https://jackchou.top/photos/sunset-250721/</loc>
     <lastmod>2025-07-21T20:00:00+08:00</lastmod>
@@ -78,19 +125,6 @@
                 href="https://jackchou.top/photos/"
                 />
   </url><url>
-    <loc>https://jackchou.top/tags/code/</loc>
-    <lastmod>2025-06-29T01:03:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/code/"
-                />
-  </url><url>
     <loc>https://jackchou.top/posts/git-rm-files/</loc>
     <lastmod>2025-06-29T01:03:00+08:00</lastmod>
     <xhtml:link
@@ -102,19 +136,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou.top/posts/git-rm-files/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/posts/</loc>
-    <lastmod>2025-07-11T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/posts/"
                 />
   </url><url>
     <loc>https://jackchou.top/photos/cat-250628/</loc>
@@ -155,6 +176,9 @@
                 hreflang="zh-cn"
                 href="https://jackchou.top/photos/test-photos/"
                 />
+  </url><url>
+    <loc>https://jackchou.top/draft/</loc>
+    <lastmod>2025-06-11T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://jackchou.top/tags/colour/</loc>
     <lastmod>2025-07-11T00:00:00+08:00</lastmod>

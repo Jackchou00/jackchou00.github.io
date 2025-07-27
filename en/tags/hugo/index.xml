@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Code on 🏡JacksBlog</title>
-    <link>https://jackchou.top/en/tags/code/</link>
-    <description>Recent content in Code on 🏡JacksBlog</description>
+    <title>Hugo on 🏡JacksBlog</title>
+    <link>https://jackchou.top/en/tags/hugo/</link>
+    <description>Recent content in Hugo on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
     <lastBuildDate>Thu, 24 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jackchou.top/en/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/en/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changing Domains and Random Thoughts</title>
       <link>https://jackchou.top/en/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/en/posts/domain-migration/</guid>
       <description>Like mayflies in the universe, insignificant as a grain in vast sea</description>
-    </item>
-    <item>
-      <title>How to Completely Remove a File from Git History</title>
-      <link>https://jackchou.top/en/posts/git-rm-files/</link>
-      <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
-      <guid>https://jackchou.top/en/posts/git-rm-files/</guid>
-      <description>To be honest, I do this so often myself that I had to write something as a reminder (and for my own future reference).</description>
     </item>
   </channel>
 </rss>

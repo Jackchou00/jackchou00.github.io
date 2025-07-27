@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="auto">
 
-<head><meta charset="utf-8">
+<head>
+	<meta name="generator" content="Hugo 0.140.2"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>前端开发 | 🏡JacksBlog</title>
-<meta name="keywords" content="">
+<title>🏡JacksBlog</title>
+
 <meta name="description" content="JacksBlog: JackChou 的博客，色彩科学，摄影，技术分享">
 <meta name="author" content="">
-<link rel="canonical" href="https://jackchou.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+<link rel="canonical" href="https://jackchou.top/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
@@ -18,8 +19,9 @@
 <link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://jackchou.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/index.xml">
-<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+<link rel="alternate" type="application/rss+xml" href="https://jackchou.top/index.xml">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/">
+<link rel="alternate" hreflang="en" href="https://jackchou.top/en/">
 <noscript>
     <style>
         #theme-toggle,
@@ -224,16 +226,29 @@ body.notice-shown {
     }
   };
 })();
-</script><meta property="og:url" content="https://jackchou.top/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+</script><meta property="og:url" content="https://jackchou.top/">
   <meta property="og:site_name" content="🏡JacksBlog">
-  <meta property="og:title" content="前端开发">
+  <meta property="og:title" content="🏡JacksBlog">
   <meta property="og:description" content="JacksBlog: JackChou 的博客，色彩科学，摄影，技术分享">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端开发">
+<meta name="twitter:title" content="🏡JacksBlog">
 <meta name="twitter:description" content="JacksBlog: JackChou 的博客，色彩科学，摄影，技术分享">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "🏡JacksBlog",
+  "url": "https://jackchou.top/",
+  "description": "JacksBlog: JackChou 的博客，色彩科学，摄影，技术分享",
+  "logo": "https://jackchou.top/favicon.ico",
+  "sameAs": [
+      "https://github.com/Jackchou00", "mailto:jackchou00@zju.edu.cn"
+  ]
+}
+</script>
 </head>
 
 <body class="list" id="top">
@@ -306,32 +321,25 @@ body.notice-shown {
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
-  <h1>
-    前端开发
-  </h1>
-</header>
 
-<article class="post-entry tag-entry"> 
+<article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">域名迁移通知横幅实现记录
+    <h2 class="entry-hint-parent">数字影像颜色再现原理笔记：绪论
     </h2>
   </header>
   <div class="entry-content">
-    <p>需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。
-实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。
-文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157
-核心功能 固定顶部横幅
-使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持
-自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互
-可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期
-硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计
-桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：
-...</p>
+    <p>Notes for Principles of Color Reproduction in Digital Images, Ep.0</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-24 00:00:00 +0000 UTC'>2025.07.24</span></footer>
-  <a class="entry-link" aria-label="post link to 域名迁移通知横幅实现记录" href="https://jackchou.top/draft/domain-migration-notice/"></a>
+  <footer class="entry-footer"><span title='2025-01-20 18:00:00 +0800 +0800'>2025.01.20</span></footer>
+  <a class="entry-link" aria-label="post link to 数字影像颜色再现原理笔记：绪论" href="https://jackchou.top/posts/pcrdi00/"></a>
 </article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://jackchou.top/page/2/">
+      «&nbsp;&nbsp;
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

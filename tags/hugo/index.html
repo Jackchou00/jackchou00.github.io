@@ -20,6 +20,7 @@
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://jackchou.top/tags/hugo/index.xml">
 <link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/tags/hugo/">
+<link rel="alternate" hreflang="en" href="https://jackchou.top/en/tags/hugo/">
 <noscript>
     <style>
         #theme-toggle,
@@ -314,23 +315,14 @@ body.notice-shown {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">域名迁移通知横幅实现记录
+    <h2 class="entry-hint-parent">换个域名，随便聊聊
     </h2>
   </header>
   <div class="entry-content">
-    <p>需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。
-实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。
-文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157
-核心功能 固定顶部横幅
-使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持
-自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互
-可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期
-硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计
-桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：
-...</p>
+    <p>寄蜉蝣于天地，渺沧海之一粟</p>
   </div>
   <footer class="entry-footer"><span title='2025-07-24 00:00:00 +0000 UTC'>2025.07.24</span></footer>
-  <a class="entry-link" aria-label="post link to 域名迁移通知横幅实现记录" href="https://jackchou.top/draft/domain-migration-notice/"></a>
+  <a class="entry-link" aria-label="post link to 换个域名，随便聊聊" href="https://jackchou.top/posts/domain-migration/"></a>
 </article>
     </main>
     

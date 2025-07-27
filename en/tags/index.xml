@@ -6,13 +6,27 @@
     <description>Recent content in Tags on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anything</title>
+      <link>https://jackchou.top/en/tags/anything/</link>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://jackchou.top/en/tags/anything/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Code</title>
       <link>https://jackchou.top/en/tags/code/</link>
-      <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/en/tags/code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://jackchou.top/en/tags/hugo/</link>
+      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://jackchou.top/en/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
