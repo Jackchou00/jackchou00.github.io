@@ -6,8 +6,15 @@
     <description>Recent content in Posts 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beyond visual appraisal: objective test procedures for Sony camera displays</title>
+      <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
+      <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
+      <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
+    </item>
     <item>
       <title>Changing Domains and Random Thoughts</title>
       <link>https://jackchou.top/en/posts/domain-migration/</link>

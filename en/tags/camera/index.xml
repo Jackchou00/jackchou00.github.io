@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Camera on 🏡JacksBlog</title>
+    <link>https://jackchou.top/en/tags/camera/</link>
+    <description>Recent content in Camera on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Aug 2025 12:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/en/tags/camera/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beyond visual appraisal: objective test procedures for Sony camera displays</title>
+      <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
+      <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
+      <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
+    </item>
+  </channel>
+</rss>
