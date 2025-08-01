@@ -6,8 +6,15 @@
     <description>Recent content in 文章 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>索尼相机屏幕的小测试</title>
+      <link>https://jackchou.top/posts/sony-camera-screen/</link>
+      <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/sony-camera-screen/</guid>
+      <description>相机的屏幕是决定拍照体验的一大因素，关于这块屏幕好坏的评论随处可见，但这样的“嵌入式设备”，测量并非易事，接下来，将介绍我的思路和一次简单的测量实战。</description>
+    </item>
     <item>
       <title>换个域名，随便聊聊</title>
       <link>https://jackchou.top/posts/domain-migration/</link>
