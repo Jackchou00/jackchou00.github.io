@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jackchou.top/en/</loc>
-    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -15,8 +15,73 @@
                 href="https://jackchou.top/en/"
                 />
   </url><url>
+    <loc>https://jackchou.top/en/posts/badge-and-blog-workflow/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/badge-and-blog-workflow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/badge-and-blog-workflow/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/anything/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/anything/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/anything/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/code/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/code/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/hugo/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/hugo/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/papermod/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/papermod/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/papermod/"
+                />
+  </url><url>
     <loc>https://jackchou.top/en/posts/</loc>
-    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -26,6 +91,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/</loc>
+    <lastmod>2025-08-04T02:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/posts/sony-camera-screen/</loc>
@@ -80,32 +158,6 @@
                 href="https://jackchou.top/en/tags/display/"
                 />
   </url><url>
-    <loc>https://jackchou.top/en/tags/</loc>
-    <lastmod>2025-08-01T12:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/anything/</loc>
-    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/anything/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/anything/"
-                />
-  </url><url>
     <loc>https://jackchou.top/en/posts/domain-migration/</loc>
     <lastmod>2025-07-24T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -117,32 +169,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/domain-migration/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/code/</loc>
-    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/code/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/hugo/</loc>
-    <lastmod>2025-07-24T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/hugo/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/posts/git-rm-files/</loc>

@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Hugo on 🏡JacksBlog</title>
-    <link>https://jackchou.top/tags/hugo/</link>
-    <description>Recent content in Hugo on 🏡JacksBlog</description>
+    <title>PaperMod on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/papermod/</link>
+    <description>Recent content in PaperMod on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 04 Aug 2025 02:00:00 +0800</lastBuildDate>
-    <atom:link href="https://jackchou.top/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jackchou.top/tags/papermod/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>加个小玩意儿，随便聊聊</title>
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
       <description>通过一个 Badge 粗略地显示访客数，顺便聊聊我更新博客的大致流程</description>
-    </item>
-    <item>
-      <title>换个域名，随便聊聊</title>
-      <link>https://jackchou.top/posts/domain-migration/</link>
-      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jackchou.top/posts/domain-migration/</guid>
-      <description>寄蜉蝣于天地，渺沧海之一粟</description>
     </item>
   </channel>
 </rss>
