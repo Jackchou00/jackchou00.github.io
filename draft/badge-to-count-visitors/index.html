@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>为Hugo博客添加访客统计Badge | 🏡JacksBlog</title>
+<meta name="keywords" content="Hugo, Code, PaperMod">
+<meta name="description" content="通过修改PaperMod主题和配置，在footer下方居中显示访客统计徽章">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou.top/draft/badge-to-count-visitors/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7661776b18b3ce31a740dd6e5be11f84f6e3f987238493cf541cd274acdb2612.css" integrity="sha256-dmF3axizzjGnQN1uW&#43;EfhPbj&#43;YcjhJPPVBzSdKzbJhI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou.top/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou.top/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou.top/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/draft/badge-to-count-visitors/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+#domain-migration-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+#domain-migration-notice.show {
+  display: block;
+}
+
+#domain-migration-notice .notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#domain-migration-notice .notice-text {
+  flex: 1;
+  text-align: center;
+}
+
+#domain-migration-notice .close-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+#domain-migration-notice .close-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+#domain-migration-notice a {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+body.notice-shown {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  #domain-migration-notice {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  #domain-migration-notice .notice-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  body.notice-shown {
+    padding-top: 80px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  
+  const expiryDate = new Date('2025-10-31');
+  const now = new Date();
+  
+  if (now > expiryDate) {
+    return; 
+  }
+  
+  
+  if (localStorage.getItem('domain-migration-dismissed') === 'true') {
+    return;
+  }
+  
+  
+  const noticeHTML = `
+    <div id="domain-migration-notice">
+      <div class="notice-content">
+        <div class="notice-text">
+          <span class="zh-notice" style="display: none;">
+            👋 再见，jackchou00.icu    🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+          </span>
+          <span class="en-notice" style="display: none;">
+            👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+          </span>
+        </div>
+        <button class="close-btn" onclick="dismissNotice()">✕</button>
+      </div>
+    </div>
+  `;
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.body.insertAdjacentHTML('afterbegin', noticeHTML);
+    
+    
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const zhNotice = document.querySelector('.zh-notice');
+    const enNotice = document.querySelector('.en-notice');
+    
+    if (isEnglish && enNotice) {
+      enNotice.style.display = 'inline';
+    } else if (zhNotice) {
+      zhNotice.style.display = 'inline';
+    }
+    
+    
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.classList.add('show');
+      document.body.classList.add('notice-shown');
+    }
+  });
+  
+  
+  window.dismissNotice = function() {
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.style.display = 'none';
+      document.body.classList.remove('notice-shown');
+      localStorage.setItem('domain-migration-dismissed', 'true');
+    }
+  };
+})();
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc1311d77d6840123f21aa2f8a31c84";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><meta property="og:url" content="https://jackchou.top/draft/badge-to-count-visitors/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="为Hugo博客添加访客统计Badge">
+  <meta property="og:description" content="通过修改PaperMod主题和配置，在footer下方居中显示访客统计徽章">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="draft">
+    <meta property="article:published_time" content="2025-08-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-03T00:00:00+00:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Code">
+    <meta property="article:tag" content="PaperMod">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为Hugo博客添加访客统计Badge">
+<meta name="twitter:description" content="通过修改PaperMod主题和配置，在footer下方居中显示访客统计徽章">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Drafts",
+      "item": "https://jackchou.top/draft/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "为Hugo博客添加访客统计Badge",
+      "item": "https://jackchou.top/draft/badge-to-count-visitors/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "为Hugo博客添加访客统计Badge",
+  "name": "为Hugo博客添加访客统计Badge",
+  "description": "通过修改PaperMod主题和配置，在footer下方居中显示访客统计徽章",
+  "keywords": [
+    "Hugo", "Code", "PaperMod"
+  ],
+  "articleBody": "需求背景 想为博客添加一个visitor badge来显示访客统计，要求显示在footer下方居中位置，而不是混在footer文字中。\n实现方案 技术选择 使用 visitor-badge.laobi.icu 服务来生成访客统计徽章，这是一个免费的第三方服务，只需要提供页面ID即可生成美观的SVG徽章。\n修改过程 第一步：配置分离 将visitor badge从footer文字中分离出来，在hugo.yaml中单独配置：\n文件位置： hugo.yaml:82-85\nfooter: hideCopyright: false text: \"my friends' websites: [zhxwu](https://zhxwu.com/)\" visitorsImage: \"https://visitor-badge.laobi.icu/badge?page_id=page.id\" 修改说明：\n从footer.text中移除了![visitors](URL)代码 新增visitorsImage参数专门存储badge URL 保持footer文字的简洁性 第二步：主题扩展 修改PaperMod主题的extend_footer.html文件来显示badge：\n文件位置： themes/PaperMod/layouts/partials/extend_footer.html:3-7\n{{- if .Site.Params.visitorsImage -}} \u003cdiv style=\"text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;\"\u003e \u003cimg src=\"{{ .Site.Params.visitorsImage }}\" alt=\"visitors\" style=\"max-width: 120px; height: auto;\" /\u003e \u003c/div\u003e {{- end -}} 技术细节 Hugo模板语法 {{- if .Site.Params.visitorsImage -}}：条件判断，只有配置了visitorsImage才显示 {{ .Site.Params.visitorsImage }}：读取hugo.yaml中的配置参数 {{- -}}：去除多余的空白字符 CSS样式设计 text-align: center：文本居中对齐 width: 100%：容器占满父元素宽度 display: flex; justify-content: center：Flexbox布局确保元素水平居中 margin-top: 10px; margin-bottom: 20px：与footer保持适当间距，底部留白 max-width: 120px：限制badge最大宽度，避免过大显示 height: auto：保持图片比例 布局考虑 位置选择：使用extend_footer.html而不是修改footer.html，避免主题更新时丢失修改 响应式：使用百分比和Flexbox确保在不同屏幕尺寸下都能正确居中 兼容性：Hugo模板条件判断确保没有配置时不会显示空白区域 优势分析 与直接在footer.text中显示相比 布局控制：可以精确控制位置、大小和间距 配置灵活：更换URL只需修改一个参数 主题兼容：使用主题提供的扩展点，升级主题时不会丢失 样式独立：不受footer文字样式影响 维护便利性 参数化配置：更换统计服务或page_id只需修改hugo.yaml 开关控制：删除visitorsImage参数即可隐藏badge 主题安全：不直接修改主题核心文件 使用说明 更换统计链接 修改hugo.yaml中的visitorsImage参数：\nvisitorsImage: \"https://visitor-badge.laobi.icu/badge?page_id=jackchou.top\" 调整样式 修改extend_footer.html中的CSS样式：\n调整大小：修改max-width值 调整间距：修改margin-top和margin-bottom值 调整位置：修改Flexbox属性 移除功能 删除或注释掉hugo.yaml中的visitorsImage参数即可。\n注意事项 主题更新：如果更新PaperMod主题，需要重新添加extend_footer.html的修改 第三方依赖：依赖外部统计服务，如果服务不可用会显示破图 隐私考虑：访客统计会收集用户访问数据，需要符合隐私政策要求 扩展可能 这个方案可以轻松扩展到其他类型的徽章，比如：\nGitHub stars badge License badge Build status badge 等等，只需要在hugo.yaml中添加相应参数，在extend_footer.html中添加对应的显示逻辑即可。 ",
+  "wordCount" : "133",
+  "inLanguage": "zh-cn",
+  "datePublished": "2025-08-03T00:00:00Z",
+  "dateModified": "2025-08-03T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou.top/draft/badge-to-count-visitors/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou.top/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou.top/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou.top/en/" title="English"
+                            aria-label="English">En</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou.top/posts/" title="文章 🌳">
+                    <span>文章 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/photos/" title="照片 📷">
+                    <span>照片 📷</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/tags/" title="标签 🏷️">
+                    <span>标签 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/about/" title="关于 😼">
+                    <span>关于 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      为Hugo博客添加访客统计Badge
+    </h1>
+    <div class="post-meta"><span title='2025-08-03 00:00:00 +0000 UTC'>2025.08.03</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%9c%80%e6%b1%82%e8%83%8c%e6%99%af" aria-label="需求背景">需求背景</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e6%96%b9%e6%a1%88" aria-label="实现方案">实现方案</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e9%80%89%e6%8b%a9" aria-label="技术选择">技术选择</a></li>
+                <li>
+                    <a href="#%e4%bf%ae%e6%94%b9%e8%bf%87%e7%a8%8b" aria-label="修改过程">修改过程</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e9%85%8d%e7%bd%ae%e5%88%86%e7%a6%bb" aria-label="第一步：配置分离">第一步：配置分离</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e4%b8%bb%e9%a2%98%e6%89%a9%e5%b1%95" aria-label="第二步：主题扩展">第二步：主题扩展</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%8a%80%e6%9c%af%e7%bb%86%e8%8a%82" aria-label="技术细节">技术细节</a><ul>
+                        
+                <li>
+                    <a href="#hugo%e6%a8%a1%e6%9d%bf%e8%af%ad%e6%b3%95" aria-label="Hugo模板语法">Hugo模板语法</a></li>
+                <li>
+                    <a href="#css%e6%a0%b7%e5%bc%8f%e8%ae%be%e8%ae%a1" aria-label="CSS样式设计">CSS样式设计</a></li>
+                <li>
+                    <a href="#%e5%b8%83%e5%b1%80%e8%80%83%e8%99%91" aria-label="布局考虑">布局考虑</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bc%98%e5%8a%bf%e5%88%86%e6%9e%90" aria-label="优势分析">优势分析</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%8e%e7%9b%b4%e6%8e%a5%e5%9c%a8footertext%e4%b8%ad%e6%98%be%e7%a4%ba%e7%9b%b8%e6%af%94" aria-label="与直接在footer.text中显示相比">与直接在footer.text中显示相比</a></li>
+                <li>
+                    <a href="#%e7%bb%b4%e6%8a%a4%e4%be%bf%e5%88%a9%e6%80%a7" aria-label="维护便利性">维护便利性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e" aria-label="使用说明">使用说明</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9b%b4%e6%8d%a2%e7%bb%9f%e8%ae%a1%e9%93%be%e6%8e%a5" aria-label="更换统计链接">更换统计链接</a></li>
+                <li>
+                    <a href="#%e8%b0%83%e6%95%b4%e6%a0%b7%e5%bc%8f" aria-label="调整样式">调整样式</a></li>
+                <li>
+                    <a href="#%e7%a7%bb%e9%99%a4%e5%8a%9f%e8%83%bd" aria-label="移除功能">移除功能</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" aria-label="注意事项">注意事项</a></li>
+                <li>
+                    <a href="#%e6%89%a9%e5%b1%95%e5%8f%af%e8%83%bd" aria-label="扩展可能">扩展可能</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="需求背景">需求背景<a hidden class="anchor" aria-hidden="true" href="#需求背景">#</a></h2>
+<p>想为博客添加一个visitor badge来显示访客统计，要求显示在footer下方居中位置，而不是混在footer文字中。</p>
+<h2 id="实现方案">实现方案<a hidden class="anchor" aria-hidden="true" href="#实现方案">#</a></h2>
+<h3 id="技术选择">技术选择<a hidden class="anchor" aria-hidden="true" href="#技术选择">#</a></h3>
+<p>使用 <a href="https://visitor-badge.laobi.icu/">visitor-badge.laobi.icu</a> 服务来生成访客统计徽章，这是一个免费的第三方服务，只需要提供页面ID即可生成美观的SVG徽章。</p>
+<h3 id="修改过程">修改过程<a hidden class="anchor" aria-hidden="true" href="#修改过程">#</a></h3>
+<h4 id="第一步配置分离">第一步：配置分离<a hidden class="anchor" aria-hidden="true" href="#第一步配置分离">#</a></h4>
+<p>将visitor badge从footer文字中分离出来，在<code>hugo.yaml</code>中单独配置：</p>
+<p><strong>文件位置：</strong> <code>hugo.yaml:82-85</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">footer</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hideCopyright</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">text</span>: <span style="color:#e6db74">&#34;my friends&#39; websites: [zhxwu](https://zhxwu.com/)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">visitorsImage</span>: <span style="color:#e6db74">&#34;https://visitor-badge.laobi.icu/badge?page_id=page.id&#34;</span>
+</span></span></code></pre></div><p><strong>修改说明：</strong></p>
+<ul>
+<li>从<code>footer.text</code>中移除了<code>![visitors](URL)</code>代码</li>
+<li>新增<code>visitorsImage</code>参数专门存储badge URL</li>
+<li>保持footer文字的简洁性</li>
+</ul>
+<h4 id="第二步主题扩展">第二步：主题扩展<a hidden class="anchor" aria-hidden="true" href="#第二步主题扩展">#</a></h4>
+<p>修改PaperMod主题的<code>extend_footer.html</code>文件来显示badge：</p>
+<p><strong>文件位置：</strong> <code>themes/PaperMod/layouts/partials/extend_footer.html:3-7</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{- if .Site.Params.visitorsImage -}}
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.Params.visitorsImage }}&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;visitors&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;max-width: 120px; height: auto;&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>{{- end -}}
+</span></span></code></pre></div><h3 id="技术细节">技术细节<a hidden class="anchor" aria-hidden="true" href="#技术细节">#</a></h3>
+<h4 id="hugo模板语法">Hugo模板语法<a hidden class="anchor" aria-hidden="true" href="#hugo模板语法">#</a></h4>
+<ul>
+<li><code>{{- if .Site.Params.visitorsImage -}}</code>：条件判断，只有配置了visitorsImage才显示</li>
+<li><code>{{ .Site.Params.visitorsImage }}</code>：读取hugo.yaml中的配置参数</li>
+<li><code>{{- -}}</code>：去除多余的空白字符</li>
+</ul>
+<h4 id="css样式设计">CSS样式设计<a hidden class="anchor" aria-hidden="true" href="#css样式设计">#</a></h4>
+<ul>
+<li><code>text-align: center</code>：文本居中对齐</li>
+<li><code>width: 100%</code>：容器占满父元素宽度</li>
+<li><code>display: flex; justify-content: center</code>：Flexbox布局确保元素水平居中</li>
+<li><code>margin-top: 10px; margin-bottom: 20px</code>：与footer保持适当间距，底部留白</li>
+<li><code>max-width: 120px</code>：限制badge最大宽度，避免过大显示</li>
+<li><code>height: auto</code>：保持图片比例</li>
+</ul>
+<h4 id="布局考虑">布局考虑<a hidden class="anchor" aria-hidden="true" href="#布局考虑">#</a></h4>
+<ol>
+<li><strong>位置选择</strong>：使用<code>extend_footer.html</code>而不是修改footer.html，避免主题更新时丢失修改</li>
+<li><strong>响应式</strong>：使用百分比和Flexbox确保在不同屏幕尺寸下都能正确居中</li>
+<li><strong>兼容性</strong>：Hugo模板条件判断确保没有配置时不会显示空白区域</li>
+</ol>
+<h3 id="优势分析">优势分析<a hidden class="anchor" aria-hidden="true" href="#优势分析">#</a></h3>
+<h4 id="与直接在footertext中显示相比">与直接在footer.text中显示相比<a hidden class="anchor" aria-hidden="true" href="#与直接在footertext中显示相比">#</a></h4>
+<ol>
+<li><strong>布局控制</strong>：可以精确控制位置、大小和间距</li>
+<li><strong>配置灵活</strong>：更换URL只需修改一个参数</li>
+<li><strong>主题兼容</strong>：使用主题提供的扩展点，升级主题时不会丢失</li>
+<li><strong>样式独立</strong>：不受footer文字样式影响</li>
+</ol>
+<h4 id="维护便利性">维护便利性<a hidden class="anchor" aria-hidden="true" href="#维护便利性">#</a></h4>
+<ol>
+<li><strong>参数化配置</strong>：更换统计服务或page_id只需修改hugo.yaml</li>
+<li><strong>开关控制</strong>：删除visitorsImage参数即可隐藏badge</li>
+<li><strong>主题安全</strong>：不直接修改主题核心文件</li>
+</ol>
+<h3 id="使用说明">使用说明<a hidden class="anchor" aria-hidden="true" href="#使用说明">#</a></h3>
+<h4 id="更换统计链接">更换统计链接<a hidden class="anchor" aria-hidden="true" href="#更换统计链接">#</a></h4>
+<p>修改<code>hugo.yaml</code>中的<code>visitorsImage</code>参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">visitorsImage</span>: <span style="color:#e6db74">&#34;https://visitor-badge.laobi.icu/badge?page_id=jackchou.top&#34;</span>
+</span></span></code></pre></div><h4 id="调整样式">调整样式<a hidden class="anchor" aria-hidden="true" href="#调整样式">#</a></h4>
+<p>修改<code>extend_footer.html</code>中的CSS样式：</p>
+<ul>
+<li>调整大小：修改<code>max-width</code>值</li>
+<li>调整间距：修改<code>margin-top</code>和<code>margin-bottom</code>值</li>
+<li>调整位置：修改Flexbox属性</li>
+</ul>
+<h4 id="移除功能">移除功能<a hidden class="anchor" aria-hidden="true" href="#移除功能">#</a></h4>
+<p>删除或注释掉<code>hugo.yaml</code>中的<code>visitorsImage</code>参数即可。</p>
+<h3 id="注意事项">注意事项<a hidden class="anchor" aria-hidden="true" href="#注意事项">#</a></h3>
+<ol>
+<li><strong>主题更新</strong>：如果更新PaperMod主题，需要重新添加extend_footer.html的修改</li>
+<li><strong>第三方依赖</strong>：依赖外部统计服务，如果服务不可用会显示破图</li>
+<li><strong>隐私考虑</strong>：访客统计会收集用户访问数据，需要符合隐私政策要求</li>
+</ol>
+<h3 id="扩展可能">扩展可能<a hidden class="anchor" aria-hidden="true" href="#扩展可能">#</a></h3>
+<p>这个方案可以轻松扩展到其他类型的徽章，比如：</p>
+<ul>
+<li>GitHub stars badge</li>
+<li>License badge</li>
+<li>Build status badge</li>
+<li>等等，只需要在hugo.yaml中添加相应参数，在extend_footer.html中添加对应的显示逻辑即可。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou.top/tags/hugo/">Hugo</a></li>
+      <li><a href="https://jackchou.top/tags/code/">Code</a></li>
+      <li><a href="https://jackchou.top/tags/papermod/">PaperMod</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou.top/">🏡JacksBlog</a></span> · 
+        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div style="text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt="visitors" style="max-width: 120px; height: auto;" />
+</div>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
