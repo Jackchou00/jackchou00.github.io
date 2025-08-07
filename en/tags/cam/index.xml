@@ -6,8 +6,15 @@
     <description>Recent content in CAM on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/cam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Simple Understanding of CAT16 Reversibility and Transitivity</title>
+      <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
+      <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
+      <description>Details in chromatic adaptation models: one forward and one inverse enable reversibility and transitivity</description>
+    </item>
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou.top/en/posts/icam06-survey/</link>

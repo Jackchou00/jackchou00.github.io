@@ -6,8 +6,15 @@
     <description>Recent content in Colour on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 Aug 2025 12:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAT16 可逆性与传递性的简单理解</title>
+      <link>https://jackchou.top/posts/cat16-reversibility/</link>
+      <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
+      <description>色适应模型中的细节：一正一逆，成就可逆与传递</description>
+    </item>
     <item>
       <title>不仅目测：索尼相机屏幕的客观测试和方法</title>
       <link>https://jackchou.top/posts/sony-camera-screen/</link>
