@@ -6,8 +6,15 @@
     <description>Recent content in HDR on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 26 May 2025 02:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>
+      <link>https://jackchou.top/posts/gainmap-image-intro/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/gainmap-image-intro/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第一篇，旨在介绍一种新的图像格式：Gainmap 的基本概念，通过增加一层增益图和元数据的方式，实现 HDR 静态图像的存储。其特点在于，是一种与 SDR 兼容性很好，相对亮度的 HDR 格式。</description>
+    </item>
     <item>
       <title>一个帮助理解 HDR 传递函数的小实验</title>
       <link>https://jackchou.top/posts/bt2408/</link>

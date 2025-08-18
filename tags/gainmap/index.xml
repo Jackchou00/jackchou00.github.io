@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gainmap on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/gainmap/</link>
+    <description>Recent content in Gainmap on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>
+      <link>https://jackchou.top/posts/gainmap-image-intro/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/gainmap-image-intro/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第一篇，旨在介绍一种新的图像格式：Gainmap 的基本概念，通过增加一层增益图和元数据的方式，实现 HDR 静态图像的存储。其特点在于，是一种与 SDR 兼容性很好，相对亮度的 HDR 格式。</description>
+    </item>
+  </channel>
+</rss>

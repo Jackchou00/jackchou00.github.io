@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gainmap on 🏡JacksBlog</title>
+    <link>https://jackchou.top/en/tags/gainmap/</link>
+    <description>Recent content in Gainmap on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
+      <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
+      <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CAT on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/cat/</link>
+    <description>Recent content in CAT on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/cat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理解 CAT16：为何两步法才能保证可逆？</title>
+      <link>https://jackchou.top/posts/cat16-reversibility/</link>
+      <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
+      <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
+    </item>
+  </channel>
+</rss>

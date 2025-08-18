@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/cam/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CAT16 可逆性与传递性的简单理解</title>
+      <title>理解 CAT16：为何两步法才能保证可逆？</title>
       <link>https://jackchou.top/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
-      <description>色适应模型中的细节：一正一逆，成就可逆与传递</description>
+      <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
     </item>
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>

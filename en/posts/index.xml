@@ -6,31 +6,38 @@
     <description>Recent content in Posts 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A Simple Understanding of CAT16 Reversibility and Transitivity</title>
+      <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
+      <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
+      <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
+    </item>
+    <item>
+      <title>Understanding CAT16: Why Are Two Steps Needed to Ensure Reversibility?</title>
       <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
-      <description>Details in chromatic adaptation models: one forward and one inverse enable reversibility and transitivity</description>
+      <description>Details in colour adaptation models similar to CAT16: one forward and one reverse, achieving reversibility and transference</description>
     </item>
     <item>
-      <title>Add a little gadget, just chatting</title>
+      <title>Add a Little Gadget, and Talk About How I Update My Articles</title>
       <link>https://jackchou.top/en/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/badge-and-blog-workflow/</guid>
-      <description>Use a Badge to roughly show visitor count, plus a quick share of my blog update workflow</description>
+      <description>Using a badge to roughly show visitor count, and my general process for updating blog posts</description>
     </item>
     <item>
-      <title>Beyond visual appraisal: objective test procedures for Sony camera displays</title>
+      <title>Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays</title>
       <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
       <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
       <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
     </item>
     <item>
-      <title>Changing Domains and Random Thoughts</title>
+      <title>Changing Domains and Random Thoughts About Personal Blog</title>
       <link>https://jackchou.top/en/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/en/posts/domain-migration/</guid>

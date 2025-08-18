@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap | 🏡JacksBlog</title>
+<meta name="keywords" content="Colour, HDR, Gainmap">
+<meta name="description" content="This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&#39;s an HDR format based on relative luminance, with excellent SDR compatibility.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou.top/en/posts/gainmap-image-intro/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou.top/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou.top/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou.top/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/posts/gainmap-image-intro/">
+<link rel="alternate" hreflang="en" href="https://jackchou.top/en/posts/gainmap-image-intro/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+#domain-migration-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+#domain-migration-notice.show {
+  display: block;
+}
+
+#domain-migration-notice .notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#domain-migration-notice .notice-text {
+  flex: 1;
+  text-align: center;
+}
+
+#domain-migration-notice .close-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+#domain-migration-notice .close-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+#domain-migration-notice a {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+body.notice-shown {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  #domain-migration-notice {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  #domain-migration-notice .notice-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  body.notice-shown {
+    padding-top: 80px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  
+  const expiryDate = new Date('2025-10-31');
+  const now = new Date();
+  
+  if (now > expiryDate) {
+    return; 
+  }
+  
+  
+  if (localStorage.getItem('domain-migration-dismissed') === 'true') {
+    return;
+  }
+  
+  
+  const noticeHTML = `
+    <div id="domain-migration-notice">
+      <div class="notice-content">
+        <div class="notice-text">
+          <span class="zh-notice" style="display: none;">
+            👋 再见，jackchou00.icu    🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+          </span>
+          <span class="en-notice" style="display: none;">
+            👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+          </span>
+        </div>
+        <button class="close-btn" onclick="dismissNotice()">✕</button>
+      </div>
+    </div>
+  `;
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.body.insertAdjacentHTML('afterbegin', noticeHTML);
+    
+    
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const zhNotice = document.querySelector('.zh-notice');
+    const enNotice = document.querySelector('.en-notice');
+    
+    if (isEnglish && enNotice) {
+      enNotice.style.display = 'inline';
+    } else if (zhNotice) {
+      zhNotice.style.display = 'inline';
+    }
+    
+    
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.classList.add('show');
+      document.body.classList.add('notice-shown');
+    }
+  });
+  
+  
+  window.dismissNotice = function() {
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.style.display = 'none';
+      document.body.classList.remove('notice-shown');
+      localStorage.setItem('domain-migration-dismissed', 'true');
+    }
+  };
+})();
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc1311d77d6840123f21aa2f8a31c84";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><meta property="og:url" content="https://jackchou.top/en/posts/gainmap-image-intro/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap">
+  <meta property="og:description" content="This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&#39;s an HDR format based on relative luminance, with excellent SDR compatibility.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-19T00:00:00+08:00">
+    <meta property="article:modified_time" content="2025-08-19T00:00:00+08:00">
+    <meta property="article:tag" content="Colour">
+    <meta property="article:tag" content="HDR">
+    <meta property="article:tag" content="Gainmap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap">
+<meta name="twitter:description" content="This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&#39;s an HDR format based on relative luminance, with excellent SDR compatibility.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts 🌳",
+      "item": "https://jackchou.top/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap",
+      "item": "https://jackchou.top/en/posts/gainmap-image-intro/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap",
+  "name": "Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap",
+  "description": "This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it's an HDR format based on relative luminance, with excellent SDR compatibility.",
+  "keywords": [
+    "Colour", "HDR", "Gainmap"
+  ],
+  "articleBody": "Two JPEGs Most modern mobile phones now support Gainmap photos. The ProXDR photos often mentioned by OPPO are, in fact, Gainmaps. Previously, it was a proprietary format, but they later adopted Google’s UltraHDR.\nIf you search for the JPEG start marker FF D8 and end marker FF D9 in binary mode, you’ll find that this type of image file contains more than one JPEG image. Typically, right after the first end marker, you’ll find the start marker for the next one. If you separate them directly from the byte stream and save them as two separate JPEG files, you can see the base image and the gainmap. Additionally, within the APPn marker segment of the gainmap, you can find the metadata needed to decode it in XMP format, such as Min, Max, Gamma, and Offset.\nInterestingly, the straight-out-of-camera JPEGs from Sigma’s latest camera, the Sigma BF, also use this format, making it the first camera to produce HDR JPEGs directly. It’s a pleasant surprise to see this format in the traditional camera industry.\nThis is a JPG photo taken with an OPPO Find X6 Pro that complies with the UltraHDR standard. The building at Huawei’s LianQiu Lake campus was illuminated by sunlight from one side, creating a large contrast between light and shadow. On the left is the first JPG segment, which is the primary image in UltraHDR—a standard SDR image. This is what you see on viewers that don’t support UltraHDR or on non-HDR displays. In the middle is the second JPG segment, the Gainmap. As it’s not designed to be viewed directly, it’s just rendered here in RGB as a way to ‘visualise’ it.\n{ \"Version\": 1.0, \"GainMapMin\": 0, \"GainMapMax\": 2.16048, \"Gamma\": 1, \"OffsetSDR\": 0, \"OffsetHDR\": 0, \"HDRCapacityMin\": 0, \"HDRCapacityMax\": 2.16048, \"BaseRenditionIsHDR\": false, \"OplusScale\": 4.47065 } This is the metadata extracted from the APP1 segment of the second JPG. The pixel values in the gainmap need to be calculated into a ‘multiplier’ based on this metadata to produce the HDR effect on the right. OplusScale is a proprietary field from OPPO; its exact purpose is unclear. The rest are standard elements of UltraHDR.\nOn the right is the composited HDR result. For demonstration purposes, this image is actually a pure HDR AVIF image, decoded and then re-encoded using PQ; it is not an UltraHDR file. If the peak luminance of the display allows, the visual effect is identical; otherwise, it may look different. Below is the original version in UltraHDR format. The file size is relatively large, so it might load a bit slowly.\nRecording the Difference A Gainmap records the difference between SDR and HDR. This can be understood from many perspectives.\nImagine you have an image, and on an HDR device, you want certain areas of the picture to be brighter than the standard SDR white point, creating a highlight effect. Without altering the SDR display effect, you can use another image to mark the areas that need to be brightened and by how much, and then encode the SDR image and the difference map together.\nAlternatively, say you have an HDR image, but its format has poor compatibility, and relying on devices to tone map it down to SDR also yields unsatisfactory results. You could first tone map it down to a pleasing SDR image, encode it into a traditional, mature format, and then use another image to record the difference between the original HDR and the SDR version, and encode them together.\nIn short, a Gainmap itself only records the difference. You could, for instance, take an image with actual content, treat it as a gainmap, and package it with a solid-colour base image. This would create something where the picture is only visible on a device that can successfully decode it for HDR display.\nThe two examples above both use an SDR base image. In reality, the base image can also be in HDR, with the Gainmap recording how to tone map it down to SDR. However, in most cases, an SDR base image is used because even if the decoder doesn’t support it, the file can still be displayed as a regular SDR image, offering the best compatibility.\nTherefore, a Gainmap is simply an encoding method to be used after you have both an HDR and an SDR image. It shouldn’t be seen as a method for adjusting the image itself. For example, performing some operation on the Gainmap to make the image brighter, or generating a Gainmap with some algorithm without an existing HDR image to up-convert an SDR image to HDR.\nCalculating the Gainmap Regarding how to generate a Gainmap, I believe readers should refer to the documentation for specific platforms, especially for a new technology like Gainmaps with many competing standards. This article focuses more on introducing the concept.\nA few recommended documents and web pages:\nGoogle’s UltraHDR. This is currently the most widely used dual-layer HDR format. Version 1.1 is also compatible with the ISO 21496-1 international standard. If you’re an Android developer, it’s a must-read. Adobe’s gainmap. Adobe is also a major proponent of this format. The demo app they released is the most convenient way to view various HDR images. That page also has a detailed spec document containing some very valuable notes. Before generating a Gainmap, you need to prepare your SDR and HDR images in a linear light space. For instance, you might define the SDR image’s pixel value range from 0 to 1, with the HDR image aligned to the same scale but allowing for negative numbers or values greater than 1. This is because both SDR and HDR need to share the same colour primaries (e.g., P3). If a smaller set of primaries is chosen (like sRGB), or if the HDR image has a very wide colour gamut, negative values can occur. Don’t worry, Gainmaps can record negative values. Values over 1 are a characteristic of HDR itself.\n$$\rG = \\log_2 \\frac{\\text{HDR}+k_{\\text{hdr}}}{\\text{SDR}+k_{\\text{sdr}}}\r$$Here, the two k values are offsets used to shift potential negative values into the positive range, ensuring the logarithm operation is valid.\nNext, find the maximum and minimum values of G, which are used to map G into the 0-1 range. For better reliability, you can choose to exclude a small percentage of the lowest and highest values before selecting the min and max, and then clip any values outside the 0-1 range.\nThis gives you an image in the 0-1 range. You can apply a gamma curve to it to improve quantisation efficiency and choose a suitable bit depth (usually 8-bit) and encoding method to encode it.\nAt the same time, you must also encode the offsets, maximum and minimum values, gamma, and other metadata together according to the specification.\nSingle-Channel vs. Three-Channel To save space, a Gainmap can be greyscale, which is what most Android phones currently use. The “True Colour ProXDR” photos on the OPPO X8 Ultra, for instance, refer to an upgrade to three channels.\nThe main difference between a greyscale Gainmap and a three-channel colour Gainmap lies in the correlation or degree of freedom between the SDR and HDR versions.\nA three-channel Gainmap offers almost complete freedom. The HDR and SDR versions can be unrelated, as the Gainmap can establish a link between any two arbitrary points. A single-channel Gainmap, however, requires the RGB pixel values in the SDR and HDR images to have the same ratio, or in other words, to lie on the same line from the origin in a spatial coordinate system.\nWithout constraints on the SDR image, both types of gainmaps can achieve the same HDR colour gamut volume. However, the three-channel version allows for more flexible tone mapping methods, whereas a single-channel gainmap can only perform tone mapping in terms of luminance. When keeping the SDR image the same, a three-channel Gainmap can control the HDR image with more finesse.\nWhat’s the impact? According to the Bezold–Brücke and Hunt effects, as brightness changes, the hue and saturation of colours also change. A single-channel gainmap can only control luminance. If you preserve the HDR appearance, the tone mapping down to SDR is restricted. If you preserve the SDR appearance, the HDR content you can store is limited, as their hues (referring to the RGB space, not perceptual hue) cannot differ.\nFurthermore, in terms of quantisation precision, a three-channel Gainmap also has certain advantages. By recording the individual maximum and minimum values for each of the three channels in the metadata, it allows control over the compression level and gamma for each channel during normalisation.\nCompressing the Gainmap When compressing a Gainmap, especially with downscaling operations (most phones downscale to 50% of the original width and height), misalignment with the base image can occur, causing the composite HDR image to exhibit false colour artefacts and banding. Similarly, compressing the base image can also lead to misalignment with the Gainmap, particularly in high-frequency areas, which becomes more apparent in typical HDR scenes like point light sources.\nThe methods for compressing a gainmap are largely the same as for a regular image, such as JPG, JPEG XL, and HEIC. However, gainmaps are not quite the same as regular images, so some have proposed specialised methods. The simplest involves applying an additional gamma function to the gainmap. There are also methods that use machine learning, like this paper that uses an MLP to compress gainmaps.\nT. D. Canham, S. Tedla, M. J. Murdoch, and M. S. Brown, “Gain-MLP: Improving HDR gainmap Encoding via a Lightweight MLP,” Mar. 14, 2025, arXiv:2503.11883.\nOther Packaging Methods JPEG XL is the latest JPEG format, which boasts a very high compression ratio and supports many new features, including dual-layer formats.\nHEIF and AVIF also support dual-layer formats, storing the gainmap as an auxiliary image in the metadata. For example, HDR photos taken with an iPhone are saved in this manner. During decoding, you first need to find the corresponding tag to extract the Gainmap. Photos taken on OPPO phones with ‘High Efficiency’ storage enabled are also stored as HEIF, but the tags are different.\nTIFF can also save multiple frames together, so it can also store gainmaps.\nWhen exporting an HDR image from Adobe Camera Raw or Lightroom, if you select ‘Maximum Compatibility’, the exported file will be in one of the formats mentioned above.\nSummary and Future The Gainmap has been widely adopted. It’s forward-compatible, widely supported by various new container formats, and conveniently stores the result of tone mapping.\nFrom an HDR perspective, however, it’s based on relative luminance, just like SDR, but it’s also constrained by the peak brightness of the HDR display. When a user adjusts the screen brightness, the displayed result may change significantly. If a display’s HDR capability is less than the maximum specified in the gainmap, the practical implementation of tone mapping for these intermediate cases is somewhat ambiguous.\nAdditionally, storing a gainmap requires two 8-bit images, which might be less compression-efficient than a single 10 or 12-bit pure HDR image. Most cloud services that process JPEGs (like image compression on CDNs or moderation on social media) might also miss the gainmap because it’s located after the end of the first JPG stream.\nIn the next post, I’ll write about the characteristics and usage of common Gainmap formats, and I’ll also organise and provide some Python code.\n",
+  "wordCount" : "1886",
+  "inLanguage": "en",
+  "datePublished": "2025-08-19T00:00:00+08:00",
+  "dateModified": "2025-08-19T00:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou.top/en/posts/gainmap-image-intro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou.top/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou.top/en/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou.top/" title="中文"
+                            aria-label="中文">Zh-Cn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou.top/en/posts/" title="Posts 🌳">
+                    <span>Posts 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/photos/" title="Photos 📷">
+                    <span>Photos 📷</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/tags/" title="Tags 🏷️">
+                    <span>Tags 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/about/" title="About 😼">
+                    <span>About 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap
+    </h1>
+    <div class="post-description">
+      This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&#39;s an HDR format based on relative luminance, with excellent SDR compatibility.
+    </div>
+    <div class="post-meta"><span title='2025-08-19 00:00:00 +0800 +0800'>2025.08.19</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou.top/posts/gainmap-image-intro/">Zh-Cn</a>
+    </li>
+</ul>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#two-jpegs" aria-label="Two JPEGs">Two JPEGs</a></li>
+                <li>
+                    <a href="#recording-the-difference" aria-label="Recording the Difference">Recording the Difference</a></li>
+                <li>
+                    <a href="#calculating-the-gainmap" aria-label="Calculating the Gainmap">Calculating the Gainmap</a></li>
+                <li>
+                    <a href="#single-channel-vs-three-channel" aria-label="Single-Channel vs. Three-Channel">Single-Channel vs. Three-Channel</a></li>
+                <li>
+                    <a href="#compressing-the-gainmap" aria-label="Compressing the Gainmap">Compressing the Gainmap</a></li>
+                <li>
+                    <a href="#other-packaging-methods" aria-label="Other Packaging Methods">Other Packaging Methods</a></li>
+                <li>
+                    <a href="#summary-and-future" aria-label="Summary and Future">Summary and Future</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="two-jpegs">Two JPEGs<a hidden class="anchor" aria-hidden="true" href="#two-jpegs">#</a></h2>
+<p>Most modern mobile phones now support Gainmap photos. The ProXDR photos often mentioned by OPPO are, in fact, Gainmaps. Previously, it was a proprietary format, but they later adopted Google&rsquo;s UltraHDR.</p>
+<p>If you search for the JPEG start marker <code>FF D8</code> and end marker <code>FF D9</code> in binary mode, you&rsquo;ll find that this type of image file contains more than one JPEG image. Typically, right after the first end marker, you&rsquo;ll find the start marker for the next one. If you separate them directly from the byte stream and save them as two separate JPEG files, you can see the base image and the gainmap. Additionally, within the APPn marker segment of the gainmap, you can find the metadata needed to decode it in XMP format, such as Min, Max, Gamma, and Offset.</p>
+<p>Interestingly, the straight-out-of-camera JPEGs from Sigma&rsquo;s latest camera, the Sigma BF, also use this format, making it the first camera to produce HDR JPEGs directly. It&rsquo;s a pleasant surprise to see this format in the traditional camera industry.</p>
+<p><img alt="Base image, gainmap, and the resulting HDR image" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/7b707c62cd1a652311d0dc9e86e18a5d.avif"></p>
+<p>This is a JPG photo taken with an OPPO Find X6 Pro that complies with the UltraHDR standard. The building at Huawei&rsquo;s LianQiu Lake campus was illuminated by sunlight from one side, creating a large contrast between light and shadow. On the left is the first JPG segment, which is the primary image in UltraHDR—a standard SDR image. This is what you see on viewers that don&rsquo;t support UltraHDR or on non-HDR displays. In the middle is the second JPG segment, the Gainmap. As it&rsquo;s not designed to be viewed directly, it&rsquo;s just rendered here in RGB as a way to &lsquo;visualise&rsquo; it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;GainMapMin&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;GainMapMax&#34;</span>: <span style="color:#ae81ff">2.16048</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Gamma&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;OffsetSDR&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;OffsetHDR&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;HDRCapacityMin&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;HDRCapacityMax&#34;</span>: <span style="color:#ae81ff">2.16048</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;BaseRenditionIsHDR&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;OplusScale&#34;</span>: <span style="color:#ae81ff">4.47065</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is the metadata extracted from the APP1 segment of the second JPG. The pixel values in the gainmap need to be calculated into a &lsquo;multiplier&rsquo; based on this metadata to produce the HDR effect on the right. <code>OplusScale</code> is a proprietary field from OPPO; its exact purpose is unclear. The rest are standard elements of UltraHDR.</p>
+<p>On the right is the composited HDR result. For demonstration purposes, this image is actually a pure HDR AVIF image, decoded and then re-encoded using PQ; it is not an UltraHDR file. If the peak luminance of the display allows, the visual effect is identical; otherwise, it may look different. Below is the original version in UltraHDR format. The file size is relatively large, so it might load a bit slowly.</p>
+<p><img alt="The original image in UltraHDR format" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/ff11ed6494bb8adfb876afb8db615c9a.jpg"></p>
+<h2 id="recording-the-difference">Recording the Difference<a hidden class="anchor" aria-hidden="true" href="#recording-the-difference">#</a></h2>
+<p>A Gainmap records the difference between SDR and HDR. This can be understood from many perspectives.</p>
+<p>Imagine you have an image, and on an HDR device, you want certain areas of the picture to be brighter than the standard SDR white point, creating a highlight effect. Without altering the SDR display effect, you can use another image to mark the areas that need to be brightened and by how much, and then encode the SDR image and the difference map together.</p>
+<p>Alternatively, say you have an HDR image, but its format has poor compatibility, and relying on devices to tone map it down to SDR also yields unsatisfactory results. You could first tone map it down to a pleasing SDR image, encode it into a traditional, mature format, and then use another image to record the difference between the original HDR and the SDR version, and encode them together.</p>
+<p>In short, a Gainmap itself only records the difference. You could, for instance, take an image with actual content, treat it as a gainmap, and package it with a solid-colour base image. This would create something where the picture is only visible on a device that can successfully decode it for HDR display.</p>
+<p>The two examples above both use an SDR base image. In reality, the base image can also be in HDR, with the Gainmap recording how to tone map it down to SDR. However, in most cases, an SDR base image is used because even if the decoder doesn&rsquo;t support it, the file can still be displayed as a regular SDR image, offering the best compatibility.</p>
+<p>Therefore, a Gainmap is simply an encoding method to be used after you have both an HDR and an SDR image. It shouldn&rsquo;t be seen as a method for adjusting the image itself. For example, performing some operation on the Gainmap to make the image brighter, or generating a Gainmap with some algorithm without an existing HDR image to up-convert an SDR image to HDR.</p>
+<h2 id="calculating-the-gainmap">Calculating the Gainmap<a hidden class="anchor" aria-hidden="true" href="#calculating-the-gainmap">#</a></h2>
+<blockquote>
+<p>Regarding how to generate a Gainmap, I believe readers should refer to the documentation for specific platforms, especially for a new technology like Gainmaps with many competing standards. This article focuses more on introducing the concept.</p>
+</blockquote>
+<p>A few recommended documents and web pages:</p>
+<ul>
+<li>Google&rsquo;s <a href="https://developer.android.com/media/platform/hdr-image-format">UltraHDR</a>. This is currently the most widely used dual-layer HDR format. Version 1.1 is also compatible with the ISO 21496-1 international standard. If you&rsquo;re an Android developer, it&rsquo;s a must-read.</li>
+<li>Adobe&rsquo;s <a href="https://helpx.adobe.com/camera-raw/using/gain-map.html">gainmap</a>. Adobe is also a major proponent of this format. The demo app they released is the most convenient way to view various HDR images. That page also has a detailed spec document containing some very valuable notes.</li>
+</ul>
+<p>Before generating a Gainmap, you need to prepare your SDR and HDR images in a <strong>linear light space</strong>. For instance, you might define the SDR image&rsquo;s pixel value range from 0 to 1, with the HDR image aligned to the same scale but allowing for negative numbers or values greater than 1. This is because both SDR and HDR need to share the same colour primaries (e.g., P3). If a smaller set of primaries is chosen (like sRGB), or if the HDR image has a very wide colour gamut, negative values can occur. Don&rsquo;t worry, Gainmaps can record negative values. Values over 1 are a characteristic of HDR itself.</p>
+$$
+G = \log_2 \frac{\text{HDR}+k_{\text{hdr}}}{\text{SDR}+k_{\text{sdr}}}
+$$<p>Here, the two <code>k</code> values are offsets used to shift potential negative values into the positive range, ensuring the logarithm operation is valid.</p>
+<p>Next, find the maximum and minimum values of G, which are used to map G into the 0-1 range. For better reliability, you can choose to exclude a small percentage of the lowest and highest values before selecting the min and max, and then clip any values outside the 0-1 range.</p>
+<p>This gives you an image in the 0-1 range. You can apply a gamma curve to it to improve quantisation efficiency and choose a suitable bit depth (usually 8-bit) and encoding method to encode it.</p>
+<p>At the same time, you must also encode the offsets, maximum and minimum values, gamma, and other metadata together according to the specification.</p>
+<h2 id="single-channel-vs-three-channel">Single-Channel vs. Three-Channel<a hidden class="anchor" aria-hidden="true" href="#single-channel-vs-three-channel">#</a></h2>
+<p>To save space, a Gainmap can be greyscale, which is what most Android phones currently use. The &ldquo;True Colour ProXDR&rdquo; photos on the OPPO X8 Ultra, for instance, refer to an upgrade to three channels.</p>
+<p>The main difference between a greyscale Gainmap and a three-channel colour Gainmap lies in the correlation or degree of freedom between the SDR and HDR versions.</p>
+<p>A three-channel Gainmap offers almost complete freedom. The HDR and SDR versions can be unrelated, as the Gainmap can establish a link between any two arbitrary points. A single-channel Gainmap, however, requires the RGB pixel values in the SDR and HDR images to have the same ratio, or in other words, to lie on the same line from the origin in a spatial coordinate system.</p>
+<p>Without constraints on the SDR image, both types of gainmaps can achieve the same HDR colour gamut volume. However, the three-channel version allows for more flexible tone mapping methods, whereas a single-channel gainmap can only perform tone mapping in terms of luminance. When keeping the SDR image the same, a three-channel Gainmap can control the HDR image with more finesse.</p>
+<p>What&rsquo;s the impact? According to the Bezold–Brücke and Hunt effects, as brightness changes, the hue and saturation of colours also change. A single-channel gainmap can only control luminance. If you preserve the HDR appearance, the tone mapping down to SDR is restricted. If you preserve the SDR appearance, the HDR content you can store is limited, as their hues (referring to the RGB space, not perceptual hue) cannot differ.</p>
+<p>Furthermore, in terms of quantisation precision, a three-channel Gainmap also has certain advantages. By recording the individual maximum and minimum values for each of the three channels in the metadata, it allows control over the compression level and gamma for each channel during normalisation.</p>
+<h2 id="compressing-the-gainmap">Compressing the Gainmap<a hidden class="anchor" aria-hidden="true" href="#compressing-the-gainmap">#</a></h2>
+<p>When compressing a Gainmap, especially with downscaling operations (most phones downscale to 50% of the original width and height), misalignment with the base image can occur, causing the composite HDR image to exhibit false colour artefacts and banding. Similarly, compressing the base image can also lead to misalignment with the Gainmap, particularly in high-frequency areas, which becomes more apparent in typical HDR scenes like point light sources.</p>
+<p>The methods for compressing a gainmap are largely the same as for a regular image, such as JPG, JPEG XL, and HEIC. However, gainmaps are not quite the same as regular images, so some have proposed specialised methods. The simplest involves applying an additional gamma function to the gainmap. There are also methods that use machine learning, like this paper that uses an MLP to compress gainmaps.</p>
+<blockquote>
+<p>T. D. Canham, S. Tedla, M. J. Murdoch, and M. S. Brown, “Gain-MLP: Improving HDR gainmap Encoding via a Lightweight MLP,” Mar. 14, 2025, arXiv:2503.11883.</p>
+</blockquote>
+<h2 id="other-packaging-methods">Other Packaging Methods<a hidden class="anchor" aria-hidden="true" href="#other-packaging-methods">#</a></h2>
+<p>JPEG XL is the latest JPEG format, which boasts a very high compression ratio and supports many new features, including dual-layer formats.</p>
+<p>HEIF and AVIF also support dual-layer formats, storing the gainmap as an auxiliary image in the metadata. For example, HDR photos taken with an iPhone are saved in this manner. During decoding, you first need to find the corresponding tag to extract the Gainmap. Photos taken on OPPO phones with &lsquo;High Efficiency&rsquo; storage enabled are also stored as HEIF, but the tags are different.</p>
+<p>TIFF can also save multiple frames together, so it can also store gainmaps.</p>
+<p>When exporting an HDR image from Adobe Camera Raw or Lightroom, if you select &lsquo;Maximum Compatibility&rsquo;, the exported file will be in one of the formats mentioned above.</p>
+<h2 id="summary-and-future">Summary and Future<a hidden class="anchor" aria-hidden="true" href="#summary-and-future">#</a></h2>
+<p>The Gainmap has been widely adopted. It&rsquo;s forward-compatible, widely supported by various new container formats, and conveniently stores the result of tone mapping.</p>
+<p>From an HDR perspective, however, it&rsquo;s based on relative luminance, just like SDR, but it&rsquo;s also constrained by the peak brightness of the HDR display. When a user adjusts the screen brightness, the displayed result may change significantly. If a display&rsquo;s HDR capability is less than the maximum specified in the gainmap, the practical implementation of tone mapping for these intermediate cases is somewhat ambiguous.</p>
+<p>Additionally, storing a gainmap requires two 8-bit images, which might be less compression-efficient than a single 10 or 12-bit pure HDR image. Most cloud services that process JPEGs (like image compression on CDNs or moderation on social media) might also miss the gainmap because it&rsquo;s located after the end of the first JPG stream.</p>
+<p>In the next post, I&rsquo;ll write about the characteristics and usage of common Gainmap formats, and I&rsquo;ll also organise and provide some Python code.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou.top/en/tags/colour/">Colour</a></li>
+      <li><a href="https://jackchou.top/en/tags/hdr/">HDR</a></li>
+      <li><a href="https://jackchou.top/en/tags/gainmap/">Gainmap</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou.top/en/">🏡JacksBlog</a></span> · 
+        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu.com</a>, <a href="https://ylqian.com/">ylqian.com</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div style="text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt="visitors" style="max-width: 120px; height: auto;" />
+</div>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

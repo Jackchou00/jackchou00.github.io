@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/cam/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A Simple Understanding of CAT16 Reversibility and Transitivity</title>
+      <title>Understanding CAT16: Why Are Two Steps Needed to Ensure Reversibility?</title>
       <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
-      <description>Details in chromatic adaptation models: one forward and one inverse enable reversibility and transitivity</description>
+      <description>Details in colour adaptation models similar to CAT16: one forward and one reverse, achieving reversibility and transference</description>
     </item>
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>

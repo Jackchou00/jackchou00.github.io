@@ -6,21 +6,28 @@
     <description>Recent content in 文章 🌳 on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CAT16 可逆性与传递性的简单理解</title>
+      <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>
+      <link>https://jackchou.top/posts/gainmap-image-intro/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/gainmap-image-intro/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第一篇，旨在介绍一种新的图像格式：Gainmap 的基本概念，通过增加一层增益图和元数据的方式，实现 HDR 静态图像的存储。其特点在于，是一种与 SDR 兼容性很好，相对亮度的 HDR 格式。</description>
+    </item>
+    <item>
+      <title>理解 CAT16：为何两步法才能保证可逆？</title>
       <link>https://jackchou.top/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
-      <description>色适应模型中的细节：一正一逆，成就可逆与传递</description>
+      <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
     </item>
     <item>
-      <title>加个小玩意儿，随便聊聊</title>
+      <title>加个小玩意儿，再聊聊我更新文章的方法</title>
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
-      <description>通过一个 Badge 粗略地显示访客数，顺便聊聊我更新博客的大致流程</description>
+      <description>通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程</description>
     </item>
     <item>
       <title>不仅目测：索尼相机屏幕的客观测试和方法</title>
@@ -30,7 +37,7 @@
       <description>相机的屏幕是决定拍照体验的一大因素，关于这块屏幕好坏的评论随处可见，但这样的“嵌入式设备”，测量并非易事，接下来，将介绍我的思路和一次简单的测量实战。</description>
     </item>
     <item>
-      <title>换个域名，随便聊聊</title>
+      <title>换个域名，随便聊聊我对博客的看法</title>
       <link>https://jackchou.top/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/posts/domain-migration/</guid>
