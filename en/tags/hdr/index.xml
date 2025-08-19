@@ -8,6 +8,7 @@
     <language>en</language>
     <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
       <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
     </item>
+    
     <item>
       <title>A Small Experiment to Help Understand HDR Transfer Functions</title>
       <link>https://jackchou.top/en/posts/bt2408/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/en/posts/bt2408/</guid>
       <description>Some tedious definitions, with love from BT.2408</description>
     </item>
+    
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou.top/en/posts/icam06-survey/</link>

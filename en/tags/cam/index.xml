@@ -8,6 +8,7 @@
     <language>en</language>
     <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/cam/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Understanding CAT16: Why Are Two Steps Needed to Ensure Reversibility?</title>
       <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
       <description>Details in colour adaptation models similar to CAT16: one forward and one reverse, achieving reversibility and transference</description>
     </item>
+    
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou.top/en/posts/icam06-survey/</link>

@@ -8,6 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Mon, 04 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>加个小玩意儿，再聊聊我更新文章的方法</title>
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
       <description>通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程</description>
     </item>
+    
     <item>
       <title>换个域名，随便聊聊我对博客的看法</title>
       <link>https://jackchou.top/posts/domain-migration/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/posts/domain-migration/</guid>
       <description>寄蜉蝣于天地，渺沧海之一粟</description>
     </item>
+    
     <item>
       <title>如何从 Git 历史记录中彻底删除文件</title>
       <link>https://jackchou.top/posts/git-rm-files/</link>

@@ -8,6 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/isp/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou.top/posts/icam06-survey/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/posts/icam06-survey/</guid>
       <description>颜色外貌在图像处理和再现中的简单尝试</description>
     </item>
+    
     <item>
       <title>并非色差：用色卡评价最终输出图像</title>
       <link>https://jackchou.top/posts/colour-checker-for-jpg/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/posts/colour-checker-for-jpg/</guid>
       <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
     </item>
+    
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou.top/posts/how-to-read-raw/</link>
@@ -29,6 +32,7 @@
       <guid>https://jackchou.top/posts/how-to-read-raw/</guid>
       <description>跑得快不一定赢，不跌跟头才是成功</description>
     </item>
+    
     <item>
       <title>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</title>
       <link>https://jackchou.top/posts/isp-01/</link>
@@ -36,6 +40,7 @@
       <guid>https://jackchou.top/posts/isp-01/</guid>
       <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
     </item>
+    
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>

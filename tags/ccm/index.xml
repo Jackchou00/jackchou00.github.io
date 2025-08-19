@@ -8,6 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/ccm/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</title>
       <link>https://jackchou.top/posts/isp-01/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/posts/isp-01/</guid>
       <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
     </item>
+    
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/posts/ccm-02-raw-xyz/</guid>
       <description>RAW 到 XYZ 的转换</description>
     </item>
+    
     <item>
       <title>颜色空间转换：RGB 与 XYZ</title>
       <link>https://jackchou.top/posts/ccm-01-rgb-xyz/</link>

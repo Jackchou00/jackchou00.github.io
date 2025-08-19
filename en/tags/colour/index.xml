@@ -8,6 +8,7 @@
     <language>en</language>
     <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
       <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
     </item>
+    
     <item>
       <title>Understanding CAT16: Why Are Two Steps Needed to Ensure Reversibility?</title>
       <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
       <description>Details in colour adaptation models similar to CAT16: one forward and one reverse, achieving reversibility and transference</description>
     </item>
+    
     <item>
       <title>Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays</title>
       <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
@@ -29,6 +32,7 @@
       <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
       <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Colour Reproduction and Gamut</title>
       <link>https://jackchou.top/en/posts/pcrdi07/</link>
@@ -36,6 +40,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi07/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 7</description>
     </item>
+    
     <item>
       <title>A Small Experiment to Help Understand HDR Transfer Functions</title>
       <link>https://jackchou.top/en/posts/bt2408/</link>
@@ -43,6 +48,7 @@
       <guid>https://jackchou.top/en/posts/bt2408/</guid>
       <description>Some tedious definitions, with love from BT.2408</description>
     </item>
+    
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou.top/en/posts/icam06-survey/</link>
@@ -50,6 +56,7 @@
       <guid>https://jackchou.top/en/posts/icam06-survey/</guid>
       <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
     </item>
+    
     <item>
       <title>HDR Image Format Conversion</title>
       <link>https://jackchou.top/en/posts/hdr-format-conversion/</link>
@@ -57,6 +64,7 @@
       <guid>https://jackchou.top/en/posts/hdr-format-conversion/</guid>
       <description>Conversion of HDR still image formats</description>
     </item>
+    
     <item>
       <title>Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart</title>
       <link>https://jackchou.top/en/posts/colour-checker-for-jpg/</link>
@@ -64,6 +72,7 @@
       <guid>https://jackchou.top/en/posts/colour-checker-for-jpg/</guid>
       <description>Reflections on learning to analyse image colour using Imatest and colour charts</description>
     </item>
+    
     <item>
       <title>How to Correctly Read RAW Files</title>
       <link>https://jackchou.top/en/posts/how-to-read-raw/</link>
@@ -71,6 +80,7 @@
       <guid>https://jackchou.top/en/posts/how-to-read-raw/</guid>
       <description>Running fast doesn&amp;rsquo;t guarantee a win; avoiding pitfalls is true success.</description>
     </item>
+    
     <item>
       <title>Reflectance: A Second Path to Readability in Bright Environments</title>
       <link>https://jackchou.top/en/posts/display-reflectance/</link>
@@ -78,6 +88,7 @@
       <guid>https://jackchou.top/en/posts/display-reflectance/</guid>
       <description>Potentially a more effective improvement than class-leading screen brightness and aggressive tuning algorithms.</description>
     </item>
+    
     <item>
       <title>Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array</title>
       <link>https://jackchou.top/en/posts/isp-01/</link>
@@ -85,6 +96,7 @@
       <guid>https://jackchou.top/en/posts/isp-01/</guid>
       <description>Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology</description>
     </item>
+    
     <item>
       <title>Colour Space Conversion: RAW to XYZ</title>
       <link>https://jackchou.top/en/posts/ccm-02-raw-xyz/</link>
@@ -92,6 +104,7 @@
       <guid>https://jackchou.top/en/posts/ccm-02-raw-xyz/</guid>
       <description>Converting RAW to XYZ</description>
     </item>
+    
     <item>
       <title>Colour Space Conversion: RGB to XYZ</title>
       <link>https://jackchou.top/en/posts/ccm-01-rgb-xyz/</link>
@@ -99,6 +112,7 @@
       <guid>https://jackchou.top/en/posts/ccm-01-rgb-xyz/</guid>
       <description>The most common colour space is undoubtedly the RGB space, represented by sRGB. This article will explain how to convert between such an RGB space and the XYZ space.</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Colour Measurement</title>
       <link>https://jackchou.top/en/posts/pcrdi06/</link>
@@ -106,6 +120,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi06/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 6</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Colour Appearance</title>
       <link>https://jackchou.top/en/posts/pcrdi05/</link>
@@ -113,6 +128,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi05/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 5</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Chromatic Adaptation Transform</title>
       <link>https://jackchou.top/en/posts/pcrdi04/</link>
@@ -120,6 +136,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi04/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.4</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Illuminants and Light Sources</title>
       <link>https://jackchou.top/en/posts/pcrdi03/</link>
@@ -127,6 +144,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi03/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.3</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Fundamentals of Colorimetry</title>
       <link>https://jackchou.top/en/posts/pcrdi02/</link>
@@ -134,6 +152,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi02/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Light and Vision</title>
       <link>https://jackchou.top/en/posts/pcrdi01/</link>
@@ -141,6 +160,7 @@
       <guid>https://jackchou.top/en/posts/pcrdi01/</guid>
       <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.1</description>
     </item>
+    
     <item>
       <title>Principles of Colour Reproduction in Digital Images Notes: Introduction</title>
       <link>https://jackchou.top/en/posts/pcrdi00/</link>

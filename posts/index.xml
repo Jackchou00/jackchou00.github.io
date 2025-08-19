@@ -8,6 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>
       <link>https://jackchou.top/posts/gainmap-image-intro/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/posts/gainmap-image-intro/</guid>
       <description>这是 HDR 静态图像格式解析系列的第一篇，旨在介绍一种新的图像格式：Gainmap 的基本概念，通过增加一层增益图和元数据的方式，实现 HDR 静态图像的存储。其特点在于，是一种与 SDR 兼容性很好，相对亮度的 HDR 格式。</description>
     </item>
+    
     <item>
       <title>理解 CAT16：为何两步法才能保证可逆？</title>
       <link>https://jackchou.top/posts/cat16-reversibility/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
       <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
     </item>
+    
     <item>
       <title>加个小玩意儿，再聊聊我更新文章的方法</title>
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
@@ -29,6 +32,7 @@
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
       <description>通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程</description>
     </item>
+    
     <item>
       <title>不仅目测：索尼相机屏幕的客观测试和方法</title>
       <link>https://jackchou.top/posts/sony-camera-screen/</link>
@@ -36,6 +40,7 @@
       <guid>https://jackchou.top/posts/sony-camera-screen/</guid>
       <description>相机的屏幕是决定拍照体验的一大因素，关于这块屏幕好坏的评论随处可见，但这样的“嵌入式设备”，测量并非易事，接下来，将介绍我的思路和一次简单的测量实战。</description>
     </item>
+    
     <item>
       <title>换个域名，随便聊聊我对博客的看法</title>
       <link>https://jackchou.top/posts/domain-migration/</link>
@@ -43,6 +48,7 @@
       <guid>https://jackchou.top/posts/domain-migration/</guid>
       <description>寄蜉蝣于天地，渺沧海之一粟</description>
     </item>
+    
     <item>
       <title>如何从 Git 历史记录中彻底删除文件</title>
       <link>https://jackchou.top/posts/git-rm-files/</link>
@@ -50,6 +56,7 @@
       <guid>https://jackchou.top/posts/git-rm-files/</guid>
       <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：颜色再现和色域</title>
       <link>https://jackchou.top/posts/pcrdi07/</link>
@@ -57,6 +64,7 @@
       <guid>https://jackchou.top/posts/pcrdi07/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
     </item>
+    
     <item>
       <title>一个帮助理解 HDR 传递函数的小实验</title>
       <link>https://jackchou.top/posts/bt2408/</link>
@@ -64,6 +72,7 @@
       <guid>https://jackchou.top/posts/bt2408/</guid>
       <description>一些无聊的定义，爱来自 BT.2408</description>
     </item>
+    
     <item>
       <title>iCAM06：图像处理中的色貌模型</title>
       <link>https://jackchou.top/posts/icam06-survey/</link>
@@ -71,6 +80,7 @@
       <guid>https://jackchou.top/posts/icam06-survey/</guid>
       <description>颜色外貌在图像处理和再现中的简单尝试</description>
     </item>
+    
     <item>
       <title>HDR 图像格式转换</title>
       <link>https://jackchou.top/posts/hdr-format-conversion/</link>
@@ -78,6 +88,7 @@
       <guid>https://jackchou.top/posts/hdr-format-conversion/</guid>
       <description>Conversion of HDR still image formats</description>
     </item>
+    
     <item>
       <title>并非色差：用色卡评价最终输出图像</title>
       <link>https://jackchou.top/posts/colour-checker-for-jpg/</link>
@@ -85,6 +96,7 @@
       <guid>https://jackchou.top/posts/colour-checker-for-jpg/</guid>
       <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
     </item>
+    
     <item>
       <title>如何正确读取 RAW 文件</title>
       <link>https://jackchou.top/posts/how-to-read-raw/</link>
@@ -92,6 +104,7 @@
       <guid>https://jackchou.top/posts/how-to-read-raw/</guid>
       <description>跑得快不一定赢，不跌跟头才是成功</description>
     </item>
+    
     <item>
       <title>反射率：高亮环境可读性的第二条路</title>
       <link>https://jackchou.top/posts/display-reflectance/</link>
@@ -99,6 +112,7 @@
       <guid>https://jackchou.top/posts/display-reflectance/</guid>
       <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
     </item>
+    
     <item>
       <title>转生 ISP 异世界 Day0：误入 RAW 森林的我用 3x3 魔法阵召唤 RGB</title>
       <link>https://jackchou.top/posts/isp-01/</link>
@@ -106,6 +120,7 @@
       <guid>https://jackchou.top/posts/isp-01/</guid>
       <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
     </item>
+    
     <item>
       <title>颜色空间转换：RAW 与 XYZ</title>
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>
@@ -113,6 +128,7 @@
       <guid>https://jackchou.top/posts/ccm-02-raw-xyz/</guid>
       <description>RAW 到 XYZ 的转换</description>
     </item>
+    
     <item>
       <title>颜色空间转换：RGB 与 XYZ</title>
       <link>https://jackchou.top/posts/ccm-01-rgb-xyz/</link>
@@ -120,6 +136,7 @@
       <guid>https://jackchou.top/posts/ccm-01-rgb-xyz/</guid>
       <description>最常见的颜色空间莫过于以 sRGB 为代表的 RGB 空间，本文将介绍如何在这样的 RGB 空间与 XYZ 空间间转换。</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：颜色测量</title>
       <link>https://jackchou.top/posts/pcrdi06/</link>
@@ -127,6 +144,7 @@
       <guid>https://jackchou.top/posts/pcrdi06/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 6</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：颜色外貌</title>
       <link>https://jackchou.top/posts/pcrdi05/</link>
@@ -134,6 +152,7 @@
       <guid>https://jackchou.top/posts/pcrdi05/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：色适应变换</title>
       <link>https://jackchou.top/posts/pcrdi04/</link>
@@ -141,6 +160,7 @@
       <guid>https://jackchou.top/posts/pcrdi04/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep.4</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：照明体和光源</title>
       <link>https://jackchou.top/posts/pcrdi03/</link>
@@ -148,6 +168,7 @@
       <guid>https://jackchou.top/posts/pcrdi03/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：色度学基础</title>
       <link>https://jackchou.top/posts/pcrdi02/</link>
@@ -155,6 +176,7 @@
       <guid>https://jackchou.top/posts/pcrdi02/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：光与视觉</title>
       <link>https://jackchou.top/posts/pcrdi01/</link>
@@ -162,6 +184,7 @@
       <guid>https://jackchou.top/posts/pcrdi01/</guid>
       <description>Notes for Principles of Color Reproduction in Digital Images, Ep.1</description>
     </item>
+    
     <item>
       <title>数字影像颜色再现原理笔记：绪论</title>
       <link>https://jackchou.top/posts/pcrdi00/</link>

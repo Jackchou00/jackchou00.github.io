@@ -8,6 +8,7 @@
     <language>en</language>
     <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/isp/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>iCAM06: Colour Appearance Model in Image Processing</title>
       <link>https://jackchou.top/en/posts/icam06-survey/</link>
@@ -15,6 +16,7 @@
       <guid>https://jackchou.top/en/posts/icam06-survey/</guid>
       <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
     </item>
+    
     <item>
       <title>Not Just Colour Difference—Evaluating Final Output Images with a Colour Chart</title>
       <link>https://jackchou.top/en/posts/colour-checker-for-jpg/</link>
@@ -22,6 +24,7 @@
       <guid>https://jackchou.top/en/posts/colour-checker-for-jpg/</guid>
       <description>Reflections on learning to analyse image colour using Imatest and colour charts</description>
     </item>
+    
     <item>
       <title>How to Correctly Read RAW Files</title>
       <link>https://jackchou.top/en/posts/how-to-read-raw/</link>
@@ -29,6 +32,7 @@
       <guid>https://jackchou.top/en/posts/how-to-read-raw/</guid>
       <description>Running fast doesn&amp;rsquo;t guarantee a win; avoiding pitfalls is true success.</description>
     </item>
+    
     <item>
       <title>Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array</title>
       <link>https://jackchou.top/en/posts/isp-01/</link>
@@ -36,6 +40,7 @@
       <guid>https://jackchou.top/en/posts/isp-01/</guid>
       <description>Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology</description>
     </item>
+    
     <item>
       <title>Colour Space Conversion: RAW to XYZ</title>
       <link>https://jackchou.top/en/posts/ccm-02-raw-xyz/</link>
