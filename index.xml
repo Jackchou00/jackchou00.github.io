@@ -6,8 +6,16 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>适用于色彩科学的 LLM 用法和测试题</title>
+      <link>https://jackchou.top/posts/llm-for-colour/</link>
+      <pubDate>Thu, 21 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/llm-for-colour/</guid>
+      <description>大语言模型在代码生成和知识问答方面表现出色，但在色彩科学的应用中仍存在陷阱。本文将探讨如何正确看待和使用 LLM，并提供测试题。</description>
+    </item>
     
     <item>
       <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>

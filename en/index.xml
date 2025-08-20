@@ -6,8 +6,16 @@
     <description>Recent content on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using LLMs for Colour Science: Best Practices and Test Questions</title>
+      <link>https://jackchou.top/en/posts/llm-for-colour/</link>
+      <pubDate>Thu, 21 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/llm-for-colour/</guid>
+      <description>Large Language Models excel at code generation and knowledge Q&amp;amp;A, but their application in colour science is fraught with pitfalls. This article explores how to correctly approach and use LLMs, and provides test questions。</description>
+    </item>
     
     <item>
       <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>

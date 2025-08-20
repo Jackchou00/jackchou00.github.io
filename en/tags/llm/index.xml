@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LLM on 🏡JacksBlog</title>
+    <link>https://jackchou.top/en/tags/llm/</link>
+    <description>Recent content in LLM on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Aug 2025 02:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/en/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using LLMs for Colour Science: Best Practices and Test Questions</title>
+      <link>https://jackchou.top/en/posts/llm-for-colour/</link>
+      <pubDate>Thu, 21 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/llm-for-colour/</guid>
+      <description>Large Language Models excel at code generation and knowledge Q&amp;amp;A, but their application in colour science is fraught with pitfalls. This article explores how to correctly approach and use LLMs, and provides test questions。</description>
+    </item>
+    
+    <item>
+      <title>Add a Little Gadget, and Talk About How I Update My Articles</title>
+      <link>https://jackchou.top/en/posts/badge-and-blog-workflow/</link>
+      <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/badge-and-blog-workflow/</guid>
+      <description>Using a badge to roughly show visitor count, and my general process for updating blog posts</description>
+    </item>
+  </channel>
+</rss>
