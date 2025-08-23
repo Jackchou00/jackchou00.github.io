@@ -6,8 +6,16 @@
     <description>Recent content in HDR on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR 图像格式解析（二）：JPEG 和对 JPEG 的魔改</title>
+      <link>https://jackchou.top/posts/jpeg-structure/</link>
+      <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/jpeg-structure/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。</description>
+    </item>
     
     <item>
       <title>HDR 图像格式解析（一）：Gainmap 的基本概念</title>

@@ -6,8 +6,16 @@
     <description>Recent content in Gainmap on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR Image Format Analysis (Part Two): JPEG and Its Modifications</title>
+      <link>https://jackchou.top/en/posts/jpeg-structure/</link>
+      <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/jpeg-structure/</guid>
+      <description>This is the second article in the HDR static image format analysis series. It will introduce the structure of JPEG and the current modifications made to it to support new features like HDR, which will be helpful for the future encoding and decoding of HDR images in the JPEG format.</description>
+    </item>
     
     <item>
       <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
