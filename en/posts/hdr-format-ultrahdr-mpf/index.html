@@ -423,6 +423,7 @@ var _hmt = _hmt || [];
 <h2 id="identifying-ultrahdr">Identifying UltraHDR<a hidden class="anchor" aria-hidden="true" href="#identifying-ultrahdr">#</a></h2>
 <p><img alt="Primary, Gainmap, and HDR rendering" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/7b707c62cd1a652311d0dc9e86e18a5d.avif"></p>
 <p>The first JPEG stream in the file is the primary image. In the primary image&rsquo;s APP1, look for an XMP packet, and inside it check for <code>hdrgm:Version=&quot;1.0&quot;</code>, where <code>hdrgm</code> is the namespace identifier <code>http://ns.adobe.com/hdr-gain-map/1.0/</code>. If present, the file can be considered compliant with UltraHDR. For strict UltraHDR (Google&rsquo;s spec), the XMP packet should also include GContainer content, which describes the parts contained in the container, such as the Primary and the GainMap, and their data lengths.</p>
+<p><img alt="UltraHDR Structure" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/81af15190c6b03b6b2938accb5fe109f.avif"></p>
 <p>For example, below is the first XMP packet from a JPG shot on an OPPO Find X6 Pro, which meets UltraHDR and GContainer requirements.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;x:xmpmeta</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:x=</span><span style="color:#e6db74">&#34;adobe:ns:meta/&#34;</span>

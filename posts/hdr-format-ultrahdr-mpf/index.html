@@ -423,6 +423,7 @@ var _hmt = _hmt || [];
 <h2 id="识别-ultrahdr">识别 UltraHDR<a hidden class="anchor" aria-hidden="true" href="#识别-ultrahdr">#</a></h2>
 <p><img alt="主图、增益图和 HDR 效果图" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/7b707c62cd1a652311d0dc9e86e18a5d.avif"></p>
 <p>文件中的第一个 JPEG 流为“主图像”，在主图像的 APP1 中寻找是否有 XMP 数据包，并在其中寻找是否有 <code>hdrgm:Version=&quot;1.0&quot;</code>，其中，<code>hdrgm</code> 指的是命名空间标识符 <code>http://ns.adobe.com/hdr-gain-map/1.0/</code>。如果有，则该文件就可以被认为是符合 UltraHDR 标准的。如果是严格意义上的 UltraHDR（符合谷歌标准的），这个 XMP 数据包中还应该有关于 <code>GContainer</code> 的内容，用于描述容器内包含的各个部分，例如主图像（Primary）和增益图（GainMap）及其数据长度。</p>
+<p><img alt="UltraHDR 的结构" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/81af15190c6b03b6b2938accb5fe109f.avif"></p>
 <p>比如以下是 OPPO Find X6 Pro 拍摄的 JPG 图片中的第一个 XMP 数据包，符合 UltraHDR 和 GContainer 的要求。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;x:xmpmeta</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:x=</span><span style="color:#e6db74">&#34;adobe:ns:meta/&#34;</span>
