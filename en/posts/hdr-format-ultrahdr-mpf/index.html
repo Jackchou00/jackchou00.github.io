@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HDR Image Formats Explained (III): UltraHDR and MPF | 🏡JacksBlog</title>
+<meta name="keywords" content="Code, HDR, Gainmap, UltraHDR">
+<meta name="description" content="This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.">
+<meta name="author" content="">
+<link rel="canonical" href="https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou.top/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou.top/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou.top/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/posts/hdr-format-ultrahdr-mpf/">
+<link rel="alternate" hreflang="en" href="https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+SC:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+#domain-migration-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  z-index: 1000;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: none;
+}
+
+#domain-migration-notice.show {
+  display: block;
+}
+
+#domain-migration-notice .notice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#domain-migration-notice .notice-text {
+  flex: 1;
+  text-align: center;
+}
+
+#domain-migration-notice .close-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+#domain-migration-notice .close-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+#domain-migration-notice a {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+body.notice-shown {
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  #domain-migration-notice {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  #domain-migration-notice .notice-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  body.notice-shown {
+    padding-top: 80px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  
+  const expiryDate = new Date('2025-10-31');
+  const now = new Date();
+  
+  if (now > expiryDate) {
+    return; 
+  }
+  
+  
+  if (localStorage.getItem('domain-migration-dismissed') === 'true') {
+    return;
+  }
+  
+  
+  const noticeHTML = `
+    <div id="domain-migration-notice">
+      <div class="notice-content">
+        <div class="notice-text">
+          <span class="zh-notice" style="display: none;">
+            👋 再见，jackchou00.icu    🚀 新的旅途，从 <a href="https://jackchou.top">jackchou.top</a> 起程
+          </span>
+          <span class="en-notice" style="display: none;">
+            👋 Goodbye, jackchou00.icu    🚀 A new chapter will begin at <a href="https://jackchou.top">jackchou.top</a>
+          </span>
+        </div>
+        <button class="close-btn" onclick="dismissNotice()">✕</button>
+      </div>
+    </div>
+  `;
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    document.body.insertAdjacentHTML('afterbegin', noticeHTML);
+    
+    
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const zhNotice = document.querySelector('.zh-notice');
+    const enNotice = document.querySelector('.en-notice');
+    
+    if (isEnglish && enNotice) {
+      enNotice.style.display = 'inline';
+    } else if (zhNotice) {
+      zhNotice.style.display = 'inline';
+    }
+    
+    
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.classList.add('show');
+      document.body.classList.add('notice-shown');
+    }
+  });
+  
+  
+  window.dismissNotice = function() {
+    const notice = document.getElementById('domain-migration-notice');
+    if (notice) {
+      notice.style.display = 'none';
+      document.body.classList.remove('notice-shown');
+      localStorage.setItem('domain-migration-dismissed', 'true');
+    }
+  };
+})();
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4dc1311d77d6840123f21aa2f8a31c84";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><meta property="og:url" content="https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/">
+  <meta property="og:site_name" content="🏡JacksBlog">
+  <meta property="og:title" content="HDR Image Formats Explained (III): UltraHDR and MPF">
+  <meta property="og:description" content="This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-26T01:00:00+08:00">
+    <meta property="article:modified_time" content="2025-08-26T01:00:00+08:00">
+    <meta property="article:tag" content="Code">
+    <meta property="article:tag" content="HDR">
+    <meta property="article:tag" content="Gainmap">
+    <meta property="article:tag" content="UltraHDR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDR Image Formats Explained (III): UltraHDR and MPF">
+<meta name="twitter:description" content="This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts 🌳",
+      "item": "https://jackchou.top/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HDR Image Formats Explained (III): UltraHDR and MPF",
+      "item": "https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HDR Image Formats Explained (III): UltraHDR and MPF",
+  "name": "HDR Image Formats Explained (III): UltraHDR and MPF",
+  "description": "This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google's UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.",
+  "keywords": [
+    "Code", "HDR", "Gainmap", "UltraHDR"
+  ],
+  "articleBody": " Reference: https://developer.android.com/media/platform/hdr-image-format\nIdentifying UltraHDR The first JPEG stream in the file is the primary image. In the primary image’s APP1, look for an XMP packet, and inside it check for hdrgm:Version=\"1.0\", where hdrgm is the namespace identifier http://ns.adobe.com/hdr-gain-map/1.0/. If present, the file can be considered compliant with UltraHDR. For strict UltraHDR (Google’s spec), the XMP packet should also include GContainer content, which describes the parts contained in the container, such as the Primary and the GainMap, and their data lengths.\nFor example, below is the first XMP packet from a JPG shot on an OPPO Find X6 Pro, which meets UltraHDR and GContainer requirements.\n",
+  "wordCount" : "1677",
+  "inLanguage": "en",
+  "datePublished": "2025-08-26T01:00:00+08:00",
+  "dateModified": "2025-08-26T01:00:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "🏡JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou.top/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou.top/en/" accesskey="h" title="🏡JacksBlog (Alt + H)">🏡JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou.top/" title="中文"
+                            aria-label="中文">Zh-Cn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou.top/en/posts/" title="Posts 🌳">
+                    <span>Posts 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/photos/" title="Photos 📷">
+                    <span>Photos 📷</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/tags/" title="Tags 🏷️">
+                    <span>Tags 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/en/about/" title="About 😼">
+                    <span>About 😼</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      HDR Image Formats Explained (III): UltraHDR and MPF
+    </h1>
+    <div class="post-description">
+      This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.
+    </div>
+    <div class="post-meta"><span title='2025-08-26 01:00:00 +0800 +0800'>2025.08.26</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou.top/posts/hdr-format-ultrahdr-mpf/">Zh-Cn</a>
+    </li>
+</ul>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#identifying-ultrahdr" aria-label="Identifying UltraHDR">Identifying UltraHDR</a></li>
+                <li>
+                    <a href="#old-man-mpf" aria-label="Old Man: MPF">Old Man: MPF</a></li>
+                <li>
+                    <a href="#deep-dive-into-gainmap" aria-label="Deep Dive into Gainmap">Deep Dive into Gainmap</a></li>
+                <li>
+                    <a href="#decoding-and-tone-mapping" aria-label="Decoding and tone-mapping">Decoding and tone-mapping</a></li>
+                <li>
+                    <a href="#compatibility-with-iso-21496-1" aria-label="Compatibility with ISO 21496-1">Compatibility with ISO 21496-1</a></li>
+                <li>
+                    <a href="#the-pioneer-that-ended-the-warring-states-era" aria-label="The pioneer that ended the Warring States era">The pioneer that ended the Warring States era</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>Reference: <a href="https://developer.android.com/media/platform/hdr-image-format">https://developer.android.com/media/platform/hdr-image-format</a></p>
+</blockquote>
+<h2 id="identifying-ultrahdr">Identifying UltraHDR<a hidden class="anchor" aria-hidden="true" href="#identifying-ultrahdr">#</a></h2>
+<p><img alt="Primary, Gainmap, and HDR rendering" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/7b707c62cd1a652311d0dc9e86e18a5d.avif"></p>
+<p>The first JPEG stream in the file is the primary image. In the primary image&rsquo;s APP1, look for an XMP packet, and inside it check for <code>hdrgm:Version=&quot;1.0&quot;</code>, where <code>hdrgm</code> is the namespace identifier <code>http://ns.adobe.com/hdr-gain-map/1.0/</code>. If present, the file can be considered compliant with UltraHDR. For strict UltraHDR (Google&rsquo;s spec), the XMP packet should also include GContainer content, which describes the parts contained in the container, such as the Primary and the GainMap, and their data lengths.</p>
+<p>For example, below is the first XMP packet from a JPG shot on an OPPO Find X6 Pro, which meets UltraHDR and GContainer requirements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;x:xmpmeta</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:x=</span><span style="color:#e6db74">&#34;adobe:ns:meta/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">x:xmptk=</span><span style="color:#e6db74">&#34;Adobe XMP Core 5.1.2&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;rdf:RDF</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:rdf=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;rdf:Description</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">xmlns:Container=</span><span style="color:#e6db74">&#34;http://ns.google.com/photos/1.0/container/&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">xmlns:Item=</span><span style="color:#e6db74">&#34;http://ns.google.com/photos/1.0/container/item/&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">xmlns:hdrgm=</span><span style="color:#e6db74">&#34;http://ns.adobe.com/hdr-gain-map/1.0/&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:Version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;Container:Directory&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;rdf:Seq&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;rdf:li</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">rdf:parseType=</span><span style="color:#e6db74">&#34;Resource&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Container:Item</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">Item:Semantic=</span><span style="color:#e6db74">&#34;Primary&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">Item:Mime=</span><span style="color:#e6db74">&#34;image/jpeg&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/rdf:li&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;rdf:li</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">rdf:parseType=</span><span style="color:#e6db74">&#34;Resource&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;Container:Item</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">Item:Semantic=</span><span style="color:#e6db74">&#34;GainMap&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">Item:Mime=</span><span style="color:#e6db74">&#34;image/jpeg&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">Item:Length=</span><span style="color:#e6db74">&#34;401160&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;/rdf:li&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/rdf:Seq&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/Container:Directory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/rdf:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/rdf:RDF&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/x:xmpmeta&gt;</span>
+</span></span></code></pre></div><h2 id="old-man-mpf">Old Man: MPF<a hidden class="anchor" aria-hidden="true" href="#old-man-mpf">#</a></h2>
+<p>Compared with the custom GContainer, the more general Multi-Picture Format (MPF) was proposed by CIPA in 2009 to label and organise multiple frames within a single JPEG file, such as low-resolution previews, 3D imaging, burst frames, and so on. Today, MPF is also commonly used to tag and locate the Gainmap in an HDR image. MPF information is stored in the primary JPEG&rsquo;s APP2 segment, and is organised similarly to EXIF&rsquo;s IFD structure.</p>
+<p>The basic layout of an APP2 segment is as follows:</p>
+<ul>
+<li>Starts with marker FF E2, followed by a 2-byte segment length.</li>
+<li>Then 4 bytes MPF identifier &ldquo;4D 50 46 00&rdquo; (i.e. &ldquo;MPF\0&rdquo;). From the position after the identifier, define the MPF offset base (base, taken as 0).</li>
+<li>Next 4 bytes are the endianness tag, same as TIFF (for example big-endian is 4D 4D 00 2A).</li>
+<li>After that, 4 bytes give the offset to the first IFD (relative to the MPF base); if the IFD follows immediately, this value is 8.</li>
+</ul>
+<p>Inside the MPF IFD:</p>
+<ul>
+<li>2 bytes for the number of entries.</li>
+<li>Each IFD entry takes 12 bytes; common entries include:
+<ul>
+<li>MPFVersion (type UNDEFINED, count 4, usually ASCII &ldquo;0100&rdquo;)</li>
+<li>NumberOfImages (type LONG, count 1)</li>
+<li>MPEntry (type UNDEFINED; the entry itself stores a relative offset to the actual MP Entry array)</li>
+</ul>
+</li>
+<li>At the end there are 4 bytes for the offset to the &ldquo;next IFD&rdquo; (0 if none).</li>
+</ul>
+<p>The MP Entry array describes each image in the file. Each entry is a fixed 16 bytes, typically containing: 4-byte attributes, 4-byte image data length, 4-byte data offset (relative to the MPF base, pointing to that image&rsquo;s SOI), and two 2-byte indices for dependencies (0 if none).</p>
+<p>Below is an example (hex) with brief comments:</p>
+<pre tabindex="0"><code class="language-bin" data-lang="bin">FF E2 00 58              # APP2 and segment length
+4D 50 46 00              # &#34;MPF\0&#34; identifier (the position after it is defined as MPF offset base 0)
+4D 4D 00 2A              # Big-endian tag (same as TIFF)
+00 00 00 08              # Offset to the first IFD (relative to base), 8 means immediately following
+00 03                    # Number of IFD entries: 3
+B0 00 00 07 00 00 00 04 30 31 30 30  # MPFVersion: type 07 (UNDEFINED), count 4, &#34;0100&#34;
+B0 01 00 04 00 00 00 01 00 00 00 02  # NumberOfImages: type 04 (LONG), value 2
+B0 02 00 07 00 00 00 20 00 00 00 32  # MPEntry: type 07, count 32, data offset 0x32
+00 00 00 00              # Next IFD offset: none (0)
+# MP Entry array (16 bytes per entry)
+00 03 00 00  00 5B ED A0  00 00 00 00  00 00 00 00  # Entry 1 (primary): length 0x005BEDA0, offset 0 (primary SOI lies before MPF; offset cannot be negative, so record 0)
+00 00 00 00  00 06 1F 08  00 5B E4 87  00 00 00 00  # Entry 2 (Gainmap): length 0x00061F08, offset 0x005BE487 (relative to MPF base, points to the second JPEG stream&#39;s SOI)
+</code></pre><p>In this example:</p>
+<ul>
+<li>The second image (Gainmap) length 0x00061F08 matches the Gainmap size recorded in XMP (401160); its data offset 0x005BE487 points to the second JPEG stream&rsquo;s SOI, relative to the MPF base.</li>
+<li>The first (primary) lists the full codestream length 0x005BEDA0; because the primary SOI appears before the MPF base, the data offset cannot be negative, so it is written as 0.</li>
+</ul>
+<p>For more detail, see CIPA&rsquo;s official &ldquo;DC-x007-2009 Multi-Picture Format&rdquo;.</p>
+<h2 id="deep-dive-into-gainmap">Deep Dive into Gainmap<a hidden class="anchor" aria-hidden="true" href="#deep-dive-into-gainmap">#</a></h2>
+<blockquote>
+<p>Pedantry corner: UltraHDR refers to using GContainer in the primary to mark locations; the Gainmap with XMP is not defined by UltraHDR, but by Adobe&rsquo;s standard.</p>
+</blockquote>
+<p>Once you&rsquo;ve determined whether the image conforms to UltraHDR and whether the Gainmap is located via GContainer or MPF, you can then find the Gainmap and its metadata.</p>
+<p>A Gainmap also uses XMP to store metadata. In the located Gainmap JPEG stream, look for an APP1 segment with XMP.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;x:xmpmeta</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">xmlns:x=</span><span style="color:#e6db74">&#34;adobe:ns:meta/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">x:xmptk=</span><span style="color:#e6db74">&#34;Adobe XMP Core 5.1.2&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;rdf:RDF</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:rdf=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;rdf:Description</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">xmlns:hdrgm=</span><span style="color:#e6db74">&#34;http://ns.adobe.com/hdr-gain-map/1.0/&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:Version=</span><span style="color:#e6db74">&#34;1.0&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:GainMapMin=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:GainMapMax=</span><span style="color:#e6db74">&#34;2.16048&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:Gamma=</span><span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:OffsetSDR=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:OffsetHDR=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:HDRCapacityMin=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:HDRCapacityMax=</span><span style="color:#e6db74">&#34;2.16048&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:BaseRenditionIsHDR=</span><span style="color:#e6db74">&#34;False&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hdrgm:OplusScale=</span><span style="color:#e6db74">&#34;4.47065&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/rdf:Description&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/x:xmpmeta&gt;</span>
+</span></span></code></pre></div><p>Again, there&rsquo;s a namespace hdrgm pointing to Adobe&rsquo;s Gainmap standard, which records the metadata a Gainmap needs (OplusScale is OPPO&rsquo;s private field).</p>
+<p>Next, using the Gainmap encoding process as a guide, let&rsquo;s briefly explain these parameters. First, this is a single-channel Gainmap; encoding generally uses the Gainmap to record differences in luminance. Luminance is computed from RGB colour primaries as a weighted combination of RGB pixel values, essentially the second row of the RGB-&gt;XYZ matrix (i.e. computing a Y value). For a three-channel case, you operate directly on RGB per channel.</p>
+<p>Let Yhdr and Ysdr be the HDR and SDR after conversion to luminance. Both need to be converted to linear space and be on the same scale.</p>
+$$
+\text{pixel gain} = \frac{Y_{\text{hdr}} + \text{offset hdr}}{Y_{\text{sdr}} + \text{offset sdr}}
+$$<p>The two offsets serve a few purposes; commonly you can use 1/64 as the offset:</p>
+<ul>
+<li>Ensure Y hdr + offset hdr is always positive for the logarithm.</li>
+<li>Avoid division issues when Y sdr is 0.</li>
+<li>Improve encoding precision in dark regions</li>
+</ul>
+<p>Then take log base 2 of pixel gain, and record the GainMapMin and GainMapMax at this point.</p>
+<p>When normalising pixel gain to 0-1, UltraHDR uses max/min content boost instead of the recorded Gainmap min/max. The difference stems from the offsets. Personally, I think using the Gainmap values is better. After that, clamp anything outside 0-1.</p>
+<blockquote>
+<p>What is content boost: this controls the brightness of the HDR content and can be defined by the creator. Google uses the term &ldquo;implementation-defined&rdquo;. Compared with objectively computing the HDR/SDR brightness ratio, this user-defined parameter enables subjective effects. For example, if you want every HDR pixel to be brighter than its SDR counterpart, set the min content boost to 1.</p>
+</blockquote>
+<p>Next, apply a power function (Gamma) to the normalised pixel gain. In most cases Gamma can be 1; if the Gainmap contains lots of detail, you can use a slightly larger Gamma.</p>
+<p>Finally, stretch the 0-1 Gainmap to 0-255 and encode it as a JPEG image. A JPEG quality no lower than 85-90 is recommended.</p>
+<p>As for HDR Capacity Min/Max, they represent the display&rsquo;s HDR capability. I&rsquo;m not entirely sure why a display-related quantity is stored in the image; perhaps the idea is similar to the &ldquo;grading display&rdquo; in HDR video workflows, recording the creator&rsquo;s display to assist tone mapping. Most of the time, these values are set the same as Gainmap Min/Max.</p>
+<p>There&rsquo;s also a field indicating whether the base image is SDR or HDR, <code>BaseRenditionIsHDR</code>, usually False.</p>
+<h2 id="decoding-and-tone-mapping">Decoding and tone-mapping<a hidden class="anchor" aria-hidden="true" href="#decoding-and-tone-mapping">#</a></h2>
+<p>Here we introduce another variable: Display Boost. It records the ratio between the HDR white point and the SDR white point of the current display, similar to Apple&rsquo;s Headroom. For example, if SDR white is 100 nits and HDR white is 1600 nits, the Display Boost is 16.</p>
+<p>It is used during UltraHDR decoding, mainly when Display Boost is less than Content Boost, i.e. the device cannot fully display the HDR brightness of the content. A weight is introduced to control the brightness of the HDR portion so that it remains within the screen&rsquo;s capability.</p>
+<p>The weight is calculated as follows, with all quantities in log2 non-linear space.</p>
+$$
+\text{weight} = \frac{\text{max display}-\text{min capacity}}{\text{max capacity}-\text{min capacity}}
+$$<p>Then clamp it to the 0-1 range, where 1 means the device can display the full HDR content. It is applied to G, the log2 result computed earlier from HDR, SDR, and the two offsets.</p>
+<p>During encoding:</p>
+$$
+G = \log_2 \frac{\text{HDR}+k_{\text{hdr}}}{\text{SDR}+k_{\text{sdr}}}
+$$<p>During decoding:</p>
+$$
+\text{HDR} = (\text{SDR}+k_{\text{sdr}}) \cdot 2^{G \cdot \text{weight}}-k_{\text{hdr}}
+$$<p>When the weight is 1, the computed HDR equals the previously encoded HDR. When the weight is less than 1, the HDR you get reduces the Gainmap contribution according to the screen&rsquo;s actual capability, producing an &ldquo;in-between&rdquo; version, down to weight 0 which shows a fully SDR version.</p>
+<h2 id="compatibility-with-iso-21496-1">Compatibility with ISO 21496-1<a hidden class="anchor" aria-hidden="true" href="#compatibility-with-iso-21496-1">#</a></h2>
+<p>ISO 21496-1 is the international standard for gain-map type HDR still images. It no longer uses XMP in APP1 to store Gainmap metadata; instead it defines a dedicated metadata segment in APP2 to follow the standard. The metadata itself is basically the same.</p>
+<p>UltraHDR 1.1 is compatible with ISO 21496-1, which in practice means you have both the XMP in APP1 and the standardised segment in APP2.</p>
+<p><img alt="ISO21496 structure" loading="lazy" src="https://img.jackchou.top/jack-img/2025/08/7021524e1f8d28c8194c7a071a266d0c.avif"></p>
+<h2 id="the-pioneer-that-ended-the-warring-states-era">The pioneer that ended the Warring States era<a hidden class="anchor" aria-hidden="true" href="#the-pioneer-that-ended-the-warring-states-era">#</a></h2>
+<p>Before UltraHDR, dual-layer HDR still images were in a Warring States-era free-for-all: each phone brand had its own standard, and they were mutually incompatible.</p>
+<p>Google introduced the UltraHDR standard in Android 13. By using GContainer and MPF to indicate the Gainmap&rsquo;s location, it helps decoders correctly find the second JPEG frame defined by Adobe&rsquo;s Gainmap standard. With a very lean approach and minimal changes, it elegantly achieves backwards compatibility.</p>
+<p>At present, almost all phone galleries (devices shipping with Android 13 or newer, or iPhones with OLED screens) and Chromium-based browsers can handle this format and most of its variants.</p>
+<p>Although it is limited by JPEG&rsquo;s relatively low compression efficiency, 8-bit depth, and lossy compression, UltraHDR is still a solid upgrade to JPG.</p>
+<p>From here, dual-layer HDR formats should gradually move to HEIF, AVIF, or even JPEG XL under the ISO 21496-1 standard. But JPEG, as the most widely used image format, will remain in long-term, heavy use.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou.top/en/tags/code/">Code</a></li>
+      <li><a href="https://jackchou.top/en/tags/hdr/">HDR</a></li>
+      <li><a href="https://jackchou.top/en/tags/gainmap/">Gainmap</a></li>
+      <li><a href="https://jackchou.top/en/tags/ultrahdr/">UltraHDR</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou.top/en/">🏡JacksBlog</a></span> · 
+        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu.com</a>, <a href="https://ylqian.com/">ylqian.com</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div style="text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt="visitors" style="max-width: 120px; height: auto;" />
+</div>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

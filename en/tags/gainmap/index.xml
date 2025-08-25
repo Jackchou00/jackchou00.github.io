@@ -6,11 +6,19 @@
     <description>Recent content in Gainmap on 🏡JacksBlog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Aug 2025 02:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Aug 2025 01:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>HDR Image Format Analysis (Part Two): JPEG and Its Modifications</title>
+      <title>HDR Image Formats Explained (III): UltraHDR and MPF</title>
+      <link>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</link>
+      <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</guid>
+      <description>This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&amp;#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.</description>
+    </item>
+    
+    <item>
+      <title>HDR Image Format Analysis (II): JPEG and Its Modifications</title>
       <link>https://jackchou.top/en/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/jpeg-structure/</guid>
@@ -18,7 +26,7 @@
     </item>
     
     <item>
-      <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
+      <title>Decoding HDR Image Formats (I): Basic Concepts of Gainmap</title>
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>

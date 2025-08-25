@@ -10,7 +10,7 @@
     <atom:link href="https://jackchou.top/en/tags/colour/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Decoding HDR Image Formats (Part One): Basic Concepts of Gainmap</title>
+      <title>Decoding HDR Image Formats (I): Basic Concepts of Gainmap</title>
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>

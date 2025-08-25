@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>UltraHDR on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/ultrahdr/</link>
+    <description>Recent content in UltraHDR on 🏡JacksBlog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 26 Aug 2025 01:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/ultrahdr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR 图像格式解析（三）：UltraHDR 和 MPF</title>
+      <link>https://jackchou.top/posts/hdr-format-ultrahdr-mpf/</link>
+      <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/hdr-format-ultrahdr-mpf/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第三篇，将介绍多图像格式 MPF 和谷歌推出的 UltraHDR 格式，这是一种基于双层 JPEG 和 XMP 元数据的 HDR 静态图像格式，已经得到非常广泛的应用。</description>
+    </item>
+  </channel>
+</rss>
