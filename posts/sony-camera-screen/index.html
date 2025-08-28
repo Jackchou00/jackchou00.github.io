@@ -8,11 +8,7 @@
 <title>不仅目测：索尼相机屏幕的客观测试和方法 | 🏡JacksBlog</title>
 <meta name="keywords" content="Colour, Camera, Display">
 <meta name="description" content="相机的屏幕是决定拍照体验的一大因素，关于这块屏幕好坏的评论随处可见，但这样的“嵌入式设备”，测量并非易事，接下来，将介绍我的思路和一次简单的测量实战。">
-
-
-
-<meta name="author" content="Jack Chou">
-
+<meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/posts/sony-camera-screen/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -289,10 +285,14 @@ var _hmt = _hmt || [];
     "Colour", "Camera", "Display"
   ],
   "articleBody": "本文所述方法，目前测试仅对索尼相机有效。\n向屏幕输入信号 显示器的测量，或者说特征化（Characterization），目的是建立起两个空间的关系，比如说图片中的像素值和显示出的光的三刺激值。对于相机来说，难点在于如何将一个像素值输入到相机的屏幕上显示出来，因为相机的屏幕不能够直接输入一个显示信号，我们也不便确定机内的系统是否有色彩管理。\n我首先想到的是，向存储卡写入图片，看看相机能否当作一种“图片播放器”使用，实测索尼相机卡里如果有不是来自相机拍的图片，会报“无法读取存储卡”的错误。\n顺着上面的思路，我们能不能找到一种方法，把相机直出的 JPG 文件里的内容修改掉，让相机认为这张图片是他自己拍的，从而显示？实际操作里，用到的不是修改直出 JPG 文件里的图像，而是把这个 JPG 里的元数据提取出来，生成一个纯色图片，把元数据嵌入进去。\n提取元数据的方法有很多，比较著名的有 Pillow，能够提取 ICC（直出 JPG 没有这个）和 EXIF，但还不够，索尼直出的 JPG 还有一个 XMP，记录了两个 uuid，不搬这个的话也会报错，能够处理这一段 APP 的工具是 Exiftool。\n使用以下命令搬运元数据，其中，pure_color_image是提供内容的临时图像，可以由 Pillow 等创建，缩略图可以清空，也可以保留。\nexiftool -tagsFromFile input_path -all:all -o output_path pure_color_image 写一个简单的小工具，搬运元数据到新的纯色图后，就能够在机内的屏幕上显示了。\n简单测量 接下来，用同样的办法处理了 30 张图片，作为一次简单的实战和测试，机内设置为默认的手动亮度（a7c2 的默认与晴朗天气模式，zve10mk2 的晴朗天气模式具有类似的表现）。\n选择的测试点包括：\n纯色：R/G/B 轴向各两个（120、255），共 6 个 混合纯色：黄、青、品，3 个 灰阶：0–255，步长 15，共 18 个 参考彩色：浅色皮肤 (241,149,108)；偏蓝的绿 (140,253,153)；偏紫的蓝 (7,47,122)，共 3 个 用于评价色域覆盖，灰阶稳定性和传递函数，以及色差。\n亮度和对比度 默认的手动亮度为 267.86 nits，显示黑色时为 0.15 nits，对比度 1823:1。\n调到晴朗天气模式之后，亮度为 951.19 nits，黑色为 0.54 nits，对比度 1771:1。\n色域覆盖和容积 利用三基色的色坐标，可以计算与 sRGB 相比的色域覆盖和容积：\n转换到 CIE 1976 UCS 中（也就是 u’v’），计算三角形的面积之比，相比 sRGB 的色域覆盖为 95.90%，色域容积为 101.14%。\n灰阶与传递函数 展示了灰阶的亮度值，并按照最大亮度进行归一化后，与 sRGB 的标准传递函数进行对比，这块屏的传递函数与 Gamma 拟合的并不好，硬要调整 Gamma 指数的话，比较接近 2.6。\n色差 因为我们输入的图片是基于原本 sRGB 的直出修改的，因此他的理论值应该是 sRGB 空间对应的三刺激值，按显示白色时的亮度进行归一化后，计算所有 30 个颜色相比标准 sRGB 的色差值。\n按 CIEDE 2000 计算色差，平均 deltaE 为 3.12，最大 deltaE 为 7.34（洋红色）。\n关于 Adobe RGB 多数相机可以在机内设置“颜色空间”，一般会提供 sRGB 和 AdobeRGB 两个选项，该选项只会影响 JPG 文件，一般来说，标识颜色空间使用的是 ICC 配置文件，而索尼相机则使用了一种不同的办法，是依靠 EXIF 内的 Tag 实现的。\nInteroperability Index: R03 - DCF option file (Adobe RGB) Interoperability Version: 0100 Adobe 的 Gain Map Demo 能够识别到这个 Tag，将图片标识为 Adobe RGB 空间。\n而 Exiftool 的默认行为不会搬运这两个 Tag，需要加上参数 -unsafe。\n小结 这块索尼的机内屏幕，虽然称不上优秀，但也不是特别垃圾，唯一的缺点可能是传递函数的 Gamma 值（如果这样说的话）有点过于高了，接近 1000 nits 的最大亮度也不低，观感较差的原因更多要归咎于太小的尺寸、太低的分辨率和比较差的可视角度。\n作为一个提供预览的屏幕，把色域做的大一些，有倾向性的显示一个更加鲜艳、对比更高的画面，结合更大的显示面积、高分辨率和比较好的可视角度。能够大幅提高拍摄的实际体验。实际上，哈苏 X2D 的屏幕就在一定程度上有这样的优化，也是我见过显示效果最好（此处的好指的是看起来好）的相机显示屏之一。\n我想没人会在这块屏上严肃的评价图片好与坏，我会更喜欢那种看起来更好，让用户在拍摄的时候有一个更讨喜的画面的相机。至于导出到别的显示器上与内屏差距太大，可以在配套的软件里做文章，提供一个将图片调整到机内屏幕上观感的预设，这在类似 ICC 的颜色管理系统里不是什么难事。\n",
-  "wordCount" : "171",
+  "wordCount" : "1725",
   "inLanguage": "zh-cn",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-01T12:00:00+08:00",
   "dateModified": "2025-08-01T12:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Jack"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://jackchou.top/posts/sony-camera-screen/"
@@ -389,7 +389,7 @@ var _hmt = _hmt || [];
     <div class="post-description">
       相机的屏幕是决定拍照体验的一大因素，关于这块屏幕好坏的评论随处可见，但这样的“嵌入式设备”，测量并非易事，接下来，将介绍我的思路和一次简单的测量实战。
     </div>
-    <div class="post-meta"><span title='2025-08-01 12:00:00 +0800 +0800'>2025.08.01</span>&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2025-08-01 12:00:00 +0800 +0800'>2025.08.01</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
         <a href="https://jackchou.top/en/posts/sony-camera-screen/">En</a>

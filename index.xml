@@ -284,16 +284,7 @@
 &lt;p&gt;我目前是色彩科学领域的研究生，关于我和我们的工作，请参阅 &lt;a href=&#34;http://cel.zju.edu.cn/2024/0923/c27449a2965767/page.htm&#34;&gt;我的个人页面&lt;/a&gt; 和 &lt;a href=&#34;http://cel.zju.edu.cn&#34;&gt;实验室网站&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;爱好有很多，主要是摄影、猫和咖啡。&lt;/p&gt;
 &lt;h2 id=&#34;这里&#34;&gt;这里&lt;/h2&gt;
-&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou.top/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou.top/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;
-&lt;p&gt;后来，一个非常幸运的机会结束了那次诡异的秋招，也不再有什么动力和目标去更新这个博客，而是偶尔用在一些奇怪的用途。比如，它被用来给巴黎住 Airbnb 遇到的法国夫妻分享 &lt;a href=&#34;https://jackchou.top/posts/old/postcards01/&#34;&gt;明信片故事&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;这是上一次建设博客的故事，之前的部分内容还能够在 &lt;a href=&#34;https://jackchou.top/posts/old/&#34;&gt;古迹 🌃&lt;/a&gt; 中找到。&lt;/p&gt;
-&lt;p&gt;由于是一个部署在 Github 上的静态网站，我在 GitHub 上的其他 pages 也会拥有相同的域名，这样，访客如果不输入后面的内容，直接访问这个域名，就会看到混乱的，很久没有更新的博客。&lt;/p&gt;
-&lt;p&gt;而为了更方便的分享那些项目的 pages 和利用 CloudFlare 的 Tunnel 功能，我购买了 &lt;a href=&#34;https://jackchou00.icu&#34;&gt;jackchou00.icu&lt;/a&gt; 这个域名，荒废博客的问题变得更加明显。&lt;/p&gt;
-&lt;p&gt;2025 年 1 月 20 日，为了满足我自己的分享欲和小心虚荣心，也为了让这个域名不要指向荒废的博客，重新装修过的 JacksBlog 正式 push 了。这一次，他的目的是记录一些科研和兴趣中的东西，分享一些图片和生活。&lt;/p&gt;
-&lt;p&gt;网页是由 Hugo 生成的，使用的主题是稍作修改的 PaperMod，部署在 Github Pages 上并由 Cloudflare DNS 和代理。&lt;/p&gt;
-&lt;h2 id=&#34;未来&#34;&gt;未来&lt;/h2&gt;
-&lt;p&gt;不知道为什么不能在阿里云上续费 jackchou00.icu 这个域名，目前可以付一年之后迁移，之后续费需要 12 USD 每年，再让我纠结一会儿。&lt;/p&gt;
-&lt;p&gt;目前迁移到 jackchou.top 这个域名，并由 jackchou00.icu 和 zms.im 重定向。&lt;/p&gt;</description>
+&lt;p&gt;这个博客第一次创建在 &lt;a href=&#34;https://jackchou.top/posts/old/helloworld/&#34;&gt;2023 年 6 月 29 日&lt;/a&gt;，当时的目的是在秋招的时候能够有一个地方展示自己的内容，实际上，以那时那种一知半解的经验、阅历和心态，并不能写出像样的东西，那次秋招现在想来也不可能成功。不过也有像 &lt;a href=&#34;https://jackchou.top/posts/old/processingrawinmatlab/&#34;&gt;Processing Raw Images in MATLAB&lt;/a&gt; 这样有一点内容的东西，但更多是被我用 Draft 雪藏的文章。&lt;/p&gt;</description>
     </item>
     
     

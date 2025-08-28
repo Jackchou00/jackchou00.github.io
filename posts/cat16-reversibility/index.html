@@ -8,11 +8,7 @@
 <title>理解 CAT16：为何两步法才能保证可逆？ | 🏡JacksBlog</title>
 <meta name="keywords" content="Colour, CAM, CAT">
 <meta name="description" content="类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递">
-
-
-
-<meta name="author" content="Jack Chou">
-
+<meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/posts/cat16-reversibility/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -289,10 +285,14 @@ var _hmt = _hmt || [];
     "Colour", "CAM", "CAT"
   ],
   "articleBody": "CAT16 简介 当两个颜色在两种光源下呈现相同外观时，它们被称为对应色。色适应变换模型可以根据两种光源的条件和其中一个颜色的三刺激值，预测其在另一光源下的对应色的三刺激值。CAT16 就是目前最新的一种色适应变换模型。\n它的基本结构与 von Kries 假设类似，先将三刺激值转换到一个特别的锥体空间，然后在该空间内进行分别独立的增益，最后转换回三刺激值。这三步都可由矩阵描述。\n从三刺激值转换到锥体空间的矩阵称为 $\\mathrm{M}_{16}$，从锥体空间回到三刺激值使用其逆矩阵 $\\mathrm{M}_{16}^{-1}$。中间通道独立的增益由一个对角矩阵 $\\Lambda$ 描述，即：\n$$ \\Phi_{r,t} = \\mathrm{M}_{16}^{-1} \\cdot \\Lambda_{r,t} \\cdot \\mathrm{M}_{16} $$在使用中，我们把两个光源称为测试（Test）和参考（Reference），上式中的下标表示由测试向参考变换（r,t 表示从 t 到 r）。已知的一个颜色样本位于测试侧时，称为正向变换（Forward），用 $\\Phi$ 表示。\n如果已知的颜色位于参考侧，则为逆向变换（Inverse），用 $\\Psi$ 表示，比如预测已知参考侧颜色的对应色时，使用如下矩阵。\n$$ \\Psi_{t,r} = \\Phi_{r,t}^{-1} = \\mathrm{M}_{16}^{-1} \\cdot \\Lambda_{r,t}^{-1} \\cdot \\mathrm{M}_{16} $$由于接下来涉及很多的符号，为了方便理解，请先理解“在 CAT16 中，正向变换和逆向变换不等于交换光源”：\n$$ \\Psi_{t,r} = \\Phi_{r,t}^{-1} \\ne \\Phi_{t,r} $$本文中，不考虑色适应模型中的亮度适应，将 $Y_w=Y_{wr}$.\n一步 CAT16 为什么是不可逆的 可逆指的是：进行一次 A 向 B 的正向变换，再一次 B 向 A 的正向变换，是否能得到原来的值，或者说，A 向 B 正向变换，B 向 C 正向变换，是否等价于 A 向 C 正向变换。\n一步法是不满足可逆或传递的，罪魁祸首是适应度 D，一个用于描述适应程度的因子，介于 0-1 之间，可以直接指定，也可以由场亮度等计算而来，我们仔细观察对角阵中元素的结构。\n$$ \\text{Gain} = D \\cdot \\frac{\\text{RGB}_{\\textit{Ref}}}{\\text{RGB}_{\\textit{Test}}} + (1 - D) $$这个对角阵实际上是一个单位阵和一个白点变换相关的对角阵，按照适应度 D 进行线性组合。\n进行一次 A 向 B 的正向变换，再一次 B 向 A 的正向变换，记 $\\text{RGB}_{B}/\\text{RGB}_{A} = x$。\n$$ (Dx+(1-D))\\cdot(D\\frac{1}{x}+(1-D)) $$这样的两个线性组合，进行乘算的时候，就会变出一些二次项，导致仅在 D 为 0 或 1 的时候等价于直接变换。\n两步 CAT16 为什么是可逆的 因为其由一步正向变换接一步逆向变换组成，中间光源是等能白点。\n$$ \\Pi_{r,t} = \\Psi_{r,e} \\cdot \\Phi_{e,t} = \\mathrm{M}_{16}^{-1} \\cdot \\Lambda_{e,r}^{-1} \\cdot \\Lambda_{e,t} \\cdot \\mathrm{M}_{16} $$当需要传递或可逆时，实际上发生的是“正向变换接逆向变换，再正向变换接逆向变换”，中间两步是互逆的。\n比如说，A 到 B 到 C，发生的是 A 正向到 E，E 逆向到 B，B 正向到 E，E 逆向到 C，中间那两步就恰好互逆而抵消了，等价于 A 到 C 的两步法。\n$$ \\Pi_{C,A} = \\mathrm{M}_{16}^{-1} \\cdot \\Lambda_{E,C}^{-1} \\cdot \\Lambda_{E,B} \\cdot \\Lambda_{E,B}^{-1} \\cdot \\Lambda_{E,A} \\cdot \\mathrm{M}_{16} $$所以两个正向或者两个逆向组成的两步法也是不可逆的（用等能白点也不行），必须一正一负，才能在传递的时候让中间互逆。\n注意到，中间的光源在数学上可以是任意的，不一定非得是等能白。\n意义所在 一步的 CAT16 直接连接了测试场和参考场，但由于适应度的存在并不传递和对称，因此在不完全适应的情况下是“不正确”的，两步的则通过一个中间光源，使其在数学上传递和可逆。\n对称和传递性被认为是色适应模型应当具有的属性，但也有研究认为并非如此。\n一步法和两步法在各种视觉数据集上的性能非常类似，在实际中，推荐使用两步法的 CAT16 色适应。这也与 CIECAM16 的行为保持一致，CIECAM16 的第一步是将颜色刺激适应到等能白场，使用正向和逆向的 CIECAM16 等同于两步法 CAT16。\n实践里，一些用到色适应模型的地方会需要传递性和对称性，来避免误差的逐渐累积，比如颜色管理系统，显示链路。\n论文中的一些问题 Li, C.; Li, Z.; Wang, Z.; Xu, Y.; Luo, M. R.; Cui, G.; Melgosa, M.; Brill, M. H.; Pointer, M. Comprehensive Color Solutions: CAM16, CAT16, and CAM16-UCS. Color Research \u0026 Application 2017, 42 (6), 703–718. https://doi.org/10.1002/col.22131.\nEquation (5) 里的 Y_w 应该是 RGB_wr，否则会与后文中的 Y_w=Y_wr=100 部分矛盾。\nEquation (24) 和 Equation (23) 并不等价，Equation (23) 的两步 CAT16 具有可逆性，(24) 的没有。\n另一篇讨论 CAT16 的补充文章就提到了这个问题，两步法中正向/逆向排列组合得到的四种形式里，只有两种是传递和可逆的。其中一种最终被采纳，即先正向，再逆向，也就是上文的 Equation (23)。\nLi, C.; Xu, Y.; Wang, Z.; Luo, M. R.; Cui, G.; Melgosa, M.; Brill, M. H.; Pointer, M. Comparing Two‐step and One‐step Chromatic Adaptation Transforms Using the CAT16 Model. Color Research \u0026 Application 2018, 43 (5), 633–642. https://doi.org/10.1002/col.22226.\n醋来了 之前说要把用到的一些代码示例开源，结果写着写着写成草稿本了。现在新开了一个仓库，专门存放博客里用到的代码示例，这是第一篇附有代码的文章。\n其中有两个文件：\ncat16_comparison.py：比较一步和两步的可逆性。 cat16_paper_implementation.py：文章附录中的两步法实现和测试例（由 Gemini 完成） 开源地址：JacksBlog Examples: 01\n",
-  "wordCount" : "289",
+  "wordCount" : "1811",
   "inLanguage": "zh-cn",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-07T18:00:00+08:00",
   "dateModified": "2025-08-07T18:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Jack"
+  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://jackchou.top/posts/cat16-reversibility/"
@@ -386,7 +386,7 @@ var _hmt = _hmt || [];
     <h1 class="post-title entry-hint-parent">
       理解 CAT16：为何两步法才能保证可逆？
     </h1>
-    <div class="post-meta"><span title='2025-08-07 18:00:00 +0800 +0800'>2025.08.07</span>&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2025-08-07 18:00:00 +0800 +0800'>2025.08.07</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
         <a href="https://jackchou.top/en/posts/cat16-reversibility/">En</a>
