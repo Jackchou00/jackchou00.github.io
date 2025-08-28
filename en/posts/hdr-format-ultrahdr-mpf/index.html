@@ -8,7 +8,11 @@
 <title>HDR Image Formats Explained (III): UltraHDR and MPF | 🏡JacksBlog</title>
 <meta name="keywords" content="Code, HDR, Gainmap, UltraHDR">
 <meta name="description" content="This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -248,7 +252,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Gainmap">
     <meta property="article:tag" content="UltraHDR">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="HDR Image Formats Explained (III): UltraHDR and MPF">
 <meta name="twitter:description" content="This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.">
 
@@ -286,7 +292,7 @@ var _hmt = _hmt || [];
   "articleBody": " Reference: https://developer.android.com/media/platform/hdr-image-format\nIdentifying UltraHDR The first JPEG stream in the file is the primary image. In the primary image’s APP1, look for an XMP packet, and inside it check for hdrgm:Version=\"1.0\", where hdrgm is the namespace identifier http://ns.adobe.com/hdr-gain-map/1.0/. If present, the file can be considered compliant with UltraHDR. For strict UltraHDR (Google’s spec), the XMP packet should also include GContainer content, which describes the parts contained in the container, such as the Primary and the GainMap, and their data lengths.\nFor example, below is the first XMP packet from a JPG shot on an OPPO Find X6 Pro, which meets UltraHDR and GContainer requirements.\n",
   "wordCount" : "1677",
   "inLanguage": "en",
-  "datePublished": "2025-08-26T01:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-26T01:00:00+08:00",
   "dateModified": "2025-08-26T01:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

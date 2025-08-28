@@ -8,7 +8,11 @@
 <title>换个域名，随便聊聊我对博客的看法 | 🏡JacksBlog</title>
 <meta name="keywords" content="Hugo, Code, Anything">
 <meta name="description" content="寄蜉蝣于天地，渺沧海之一粟">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/posts/domain-migration/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -247,7 +251,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="Hugo">
     <meta property="article:tag" content="Code">
     <meta property="article:tag" content="Anything">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="换个域名，随便聊聊我对博客的看法">
 <meta name="twitter:description" content="寄蜉蝣于天地，渺沧海之一粟">
 
@@ -285,7 +291,7 @@ var _hmt = _hmt || [];
   "articleBody": "秘密花园 2023 年 10 月，为了用 Cloudflare 的 Tunnel 功能，我买了一年 jackchou00.icu 这个域名，顺便作为 GitHub 的自定义域名。后来，有了写博客的动力，想多买几年的时候，阿里云上却无法续费，于是换上了之前在别的地方买的一个续费比较便宜的 jackchou.top，然后续到了 2035 年。\n作为一个放在 GitHub 上的静态网站，换域名实在是一件再简单不过的事情，无非买个域名，换一下自定义域名和 DNS 记录，而让网站消失在互联网上也是一件同样简单的事情，几乎没有排名和 SEO，一个月都不更新的分享小众领域冷门方向的个人小站，换个域名或是过期，可能就找不到了。\n翻看收藏夹里几位前辈的博客，多是一年半载不曾更新，或是再也无法访问的。写个人博客这种全凭自觉的事情，放弃是再自然不过，也许等到我开始工作，甚至换了领域，或者干脆哪天不想写了，这里也会变成一片寂静吧。\n我不喜欢“运营”社交媒体的感觉，我会不自觉的去关注那些数据和流量，我也不喜欢博人眼球的标题和内容。在这里写这个博客反而会让我有一种记录和分享的快感，在这里，数据也不重要，因为我根本不统计，我只假设并期待来访者能有所收获，在这里，我只需要对自己负责，好像是在打理一片只属于自己的，却又对全互联网开放的小花园，这种在大庭广众的阴暗角落的感觉很微妙。\n不过至少到 2035 年前，您可以通过 jackchou.top 访问这里，之后，也可以用 jackchou00.github.io。我充分相信 Cloudflare 和 Github 的可用性，这里可以说是与天地同寿。\n换域名的细节 我本来以为换域名会是一件麻烦事，不过回头想想好像工作量只有改一下 DNS 和 CNAME，更多的是如何让知道这个地方存在的人继续知道，SEO 什么的其实我也无所谓。\n我暂时把我所有的域名都重定向过来了，你可以通过 jackchou00.icu, zms.im, jackchou.xyz 访问这里。不过只有 jackchou.top 买的比较久。\n如果你在 2025.7-2025.10 这三个多月间访问过这里，也许你会注意到一条横幅，这是 Claude Code 的作品，感兴趣的话请看他自己写的日志。\n需求背景 博客域名从 jackchou00.icu 迁移到 jackchou.top，需要创建一个醒目的横幅通知访问者域名变更，并考虑三个月后的移除便利性。\n实现方案 选择的方法 修改 PaperMod 主题的 extend_head.html 文件，这是主题提供的自定义扩展点，所有页面都会加载。\n文件位置 themes/PaperMod/layouts/partials/extend_head.html:15-157\n核心功能 固定顶部横幅\n使用 position: fixed 固定在页面顶部 渐变背景色增加视觉吸引力 高 z-index 确保在最上层显示 双语支持\n自动检测页面语言（通过 document.documentElement.lang 和 URL 路径） 中文：👋 再见，jackchou00.icu 🚀 新的旅途，从 jackchou.top 起程 英文：👋 Goodbye, jackchou00.icu 🚀 A new chapter will begin at jackchou.top 用户交互\n可点击 ✕ 按钮关闭 关闭状态保存到 localStorage，刷新页面不再显示 显示通知时自动给 body 添加 padding-top 避免内容被遮挡 自动过期\n硬编码过期时间：2025-10-31（三个月后） 过期后自动不显示，无需手动操作 响应式设计\n桌面端和移动端不同的布局和间距 移动端文字和按钮垂直排列 技术细节 CSS 样式 渐变背景：linear-gradient(135deg, #667eea 0%, #764ba2 100%) 链接颜色：黄色 #ffeb3b 增加可读性 阴影效果：box-shadow: 0 2px 10px rgba(0,0,0,0.1) JavaScript 逻辑 使用 IIFE（立即执行函数）包装，避免全局变量污染 DOMContentLoaded 事件确保页面加载完成后执行 insertAdjacentHTML 动态插入 HTML 移除方法 有两种移除方式：\n方法一：自动过期（推荐） 无需任何操作 2025 年 10 月 24 日后自动不显示 方法二：手动移除 删除 themes/PaperMod/layouts/partials/extend_head.html 文件中的第 15-157 行：\n\u003cstyle\u003e ... \u003c/style\u003e \u003cscript\u003e ... \u003c/script\u003e 即删除从 开始到最后一个 结束的所有代码。\n注意事项 主题更新：如果更新 PaperMod 主题，需要重新添加这些代码 缓存问题：用户浏览器可能有缓存，新访客会立即看到通知 SEO 影响：横幅不会影响 SEO，因为它是通过 JavaScript 动态添加的 ",
   "wordCount" : "188",
   "inLanguage": "zh-cn",
-  "datePublished": "2025-07-24T00:00:00Z",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-07-24T00:00:00Z",
   "dateModified": "2025-07-24T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",

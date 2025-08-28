@@ -8,7 +8,11 @@
 <title>HDR 图像格式解析（三）：UltraHDR 和 MPF | 🏡JacksBlog</title>
 <meta name="keywords" content="Code, HDR, Gainmap, UltraHDR">
 <meta name="description" content="这是 HDR 静态图像格式解析系列的第三篇，将介绍多图像格式 MPF 和谷歌推出的 UltraHDR 格式，这是一种基于双层 JPEG 和 XMP 元数据的 HDR 静态图像格式，已经得到非常广泛的应用。">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/posts/hdr-format-ultrahdr-mpf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -248,7 +252,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Gainmap">
     <meta property="article:tag" content="UltraHDR">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="HDR 图像格式解析（三）：UltraHDR 和 MPF">
 <meta name="twitter:description" content="这是 HDR 静态图像格式解析系列的第三篇，将介绍多图像格式 MPF 和谷歌推出的 UltraHDR 格式，这是一种基于双层 JPEG 和 XMP 元数据的 HDR 静态图像格式，已经得到非常广泛的应用。">
 
@@ -286,7 +292,7 @@ var _hmt = _hmt || [];
   "articleBody": " 参考文档：https://developer.android.com/media/platform/hdr-image-format\n识别 UltraHDR 文件中的第一个 JPEG 流为“主图像”，在主图像的 APP1 中寻找是否有 XMP 数据包，并在其中寻找是否有 hdrgm:Version=\"1.0\"，其中，hdrgm 指的是命名空间标识符 http://ns.adobe.com/hdr-gain-map/1.0/。如果有，则该文件就可以被认为是符合 UltraHDR 标准的。如果是严格意义上的 UltraHDR（符合谷歌标准的），这个 XMP 数据包中还应该有关于 GContainer 的内容，用于描述容器内包含的各个部分，例如主图像（Primary）和增益图（GainMap）及其数据长度。\n比如以下是 OPPO Find X6 Pro 拍摄的 JPG 图片中的第一个 XMP 数据包，符合 UltraHDR 和 GContainer 的要求。\n",
   "wordCount" : "731",
   "inLanguage": "zh-cn",
-  "datePublished": "2025-08-26T01:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-26T01:00:00+08:00",
   "dateModified": "2025-08-26T01:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

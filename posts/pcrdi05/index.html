@@ -8,7 +8,11 @@
 <title>数字影像颜色再现原理笔记：颜色外貌 | 🏡JacksBlog</title>
 <meta name="keywords" content="Colour, PCRDI">
 <meta name="description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 5">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/posts/pcrdi05/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -246,7 +250,9 @@ var _hmt = _hmt || [];
     <meta property="article:modified_time" content="2025-02-07T00:00:00+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="PCRDI">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="数字影像颜色再现原理笔记：颜色外貌">
 <meta name="twitter:description" content="Notes for Principles of Color Reproduction in Digital Images, Ep. 5">
 
@@ -284,7 +290,7 @@ var _hmt = _hmt || [];
   "articleBody": "高级色度学 之前的内容里，我们已经学习了色度学，色度学可以量化和计算颜色感知，按照色度学，在一定条件下，CIE XYZ 三刺激值相同的两个颜色刺激能够匹配，条件包括了背景、光源、材质等。在实际生活中，这些条件不一定满足，导致两个在色度学上相同的颜色刺激不能匹配。为此，提出了色适应变换等修正的方法。\n尤其是跨媒体颜色再现（Cross Media Colour Reproduction）越来越广泛的应用，需要能够将各种观察条件作为参数输入，对颜色刺激进行更精细的描述的模型。视觉感知到的不同观察条件下的颜色刺激称为颜色外貌（Colour Appearance），对色貌进行研究和建模称为高级色度学，得到的模型称为色貌模型（Colour Appearance Model，CAM）。\n色貌 高级色度学使用色貌属性来更精细的描述感知到的颜色刺激。色貌属性已经是色彩科学术语的一部分，所有有关色彩科学的标准词汇都可以在 https://cie.co.at/e-ilv 找到，接下来需要仔细的使用色貌属性的中英文，索引来自 CIE S 017:2020 ILV，关于色貌属性的准确解释，建议去看国际标准的描述。\n常见的色貌属性有：视明度（Brightness），明度（Lightness），视彩度（Colourfulness），彩度（Chroma），饱和度（Saturation），色相（Hue）。\n另外，还有很多新的色貌属性正在被研究和提出。\n相关色：related colour，17-22-047，colour perceived to belong to an area seen in relation to other colours。描述一个颜色和周围的其他颜色存在关系，最好的例子是“灰色”，灰色一定是一个相关色，因为它只能在与更亮颜色的比较中产生。\n视明度：brightness，17-22-059，attribute of a visual perception according to which an area appears to emit, transmit or reflect, more or less light。描述亮的程度的绝对属性。\n明度：lightness (of a related colour)，17-22-063，brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting。相对色才有的属性，描述区域视明度相对于周围最亮的或白色的视明度的关系。\n一些书里写：明度是相对于周围白点或最亮区域的相对亮度的感知，应为相对视明度。也不代表：明度=视明度/白场视明度，因为他们都是非线性量。\n视彩度：colourfulness，17-22-072，attribute of a visual perception according to which the perceived colour of an area appears to be more or less chromatic。描述颜色的绝对属性。更亮的颜色刺激可能会具有更高的视彩度。\n彩度：chroma，17-22-074，colourfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears grey, white or highly transmitting。彩度是一个颜色刺激的视彩度和相似照明环境下的中性色的视明度之间的关系。\n关于以上四个量，由于颜色恒常性和认知机制，视觉系统自动把图中的红色感知成同一个物体的颜色。在与各自区域的背景或照明环境的比较中，他们具有了相同的明度和彩度（也可以说，明度和彩度是视觉系统排除光源的影响后，对一个样本“反射率”的感知）。而上下颜色的视明度和视彩度这两个绝对属性是不同的。\n饱和度：saturation，17-22-073，colourfulness of an area judged in proportion to its brightness。是一个颜色的视彩度和视明度之间的关系。下面的图片直观的显示了视彩度，视明度和饱和度的区别。\n在 CIECAM 16 中，饱和度由视彩度和视明度的比例计算得来。\n$$ s=100*\\left( \\frac{M}{Q}\\right)^{0.5} $$\n表达有关“彩色”的日常词汇也有很多，比如鲜艳、饱和、彩 度，或者 Vividness、Brilliance 等。他们在色彩科学中都有不同的含义。\n色貌模型 色貌模型可以预测不同观察条件下的颜色刺激的色貌属性，模型通常包括色适应和一些色貌现象的预测。因此，色貌模型的输入是一个颜色刺激和观察条件，输出则是各种色貌属性。\n输入与输出 几乎所有的色貌模型都使用了 XYZ 三刺激值作为输入，保证了和现有色彩科学良好的兼容性，而观察条件则需要仔细的定义，通常会包括背景（background）、周围环境（surround）、适应场（adaptation field）等，此外，还需要输入白点（white point）用于计算色适应和相对色貌属性，白点又分为参考白点（reference white point）和适应白点（adapted white point），参考白点也称选用白点（adopted white point），是人为设置的计算白点，比如与显示器相关的计算中，会选用显示器显示出的白色作为参考白点。适应白点则是视觉系统内的白点，即视觉系统认为的白色。\n适应场白点（adaptation field white point）指适应场中的白点，比如环境中白场的颜色刺激。当完全适应于一个场景时，适应场白点和适应白点相同。\n最基本的输出的色貌属性是：明度，彩度，色相。\n基本结构 色貌模型的基本结构是：\n将颜色刺激（三刺激值）转换为锥体响应（cone responses）。 在锥体响应上进行色适应变换，得到适应后的锥体响应。 根据视觉理论基础（对立色理论、非线性压缩）得到中间信号（高级信号）。 结合观察条件，计算得到色貌属性。 即：色适应变换（但不使用回到三刺激值的逆矩阵）+ 中间处理 + 色貌属性计算。\n按照这个基本结构，CIELAB 也可以算是一个简单的色貌模型。\n$$ \\begin{align*} L^* \u0026= 116 f\\left(\\frac{Y}{Y_n}\\right) - 16 \\\\ a^* \u0026= 500 \\left[f\\left(\\frac{X}{X_n}\\right) - f\\left(\\frac{Y}{Y_n}\\right)\\right] \\\\ b^* \u0026= 200 \\left[f\\left(\\frac{Y}{Y_n}\\right) - f\\left(\\frac{Z}{Z_n}\\right)\\right] \\end{align*} $$其中，$f(t)$ 是一个非线性函数，用于模拟视觉系统的非线性压缩。由 a* 和 b* 可以计算出色相和彩度。另外，$Y/Y_n$ 可以看作是一种色适应变换，虽然从色适应的角度看，它错误的将对角矩阵（von Kries 假设）应用在了三刺激值而非锥体响应上，导致其色适应效果比较差。\n因为色适应的关系，基于 CIELAB 的色差公式可能不能够很好的处理各种不同光源下的颜色差异，比如引入更先进的色适应变换或直接用完整的色貌模型，有关内容可以在 这里 体验。\n常用色貌模型 CIECAM 16：现行的 CIE 推荐色貌模型。 CIECAM 02：CIECAM 97s 的简化和改进。 CIECAM 97s（the simple form of the CIE Colour Appearance Model 1997） Hunt: 最完整和复杂的色貌模型，从 1952 年开始发展，对 CIECAM 系列有很大影响，甚至考虑到了视杆细胞的影响。 待续 一些相关网站：\nhttp://www.huevaluechroma.com/index.php\n",
   "wordCount" : "247",
   "inLanguage": "zh-cn",
-  "datePublished": "2025-02-07T00:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-02-07T00:00:00+08:00",
   "dateModified": "2025-02-07T00:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

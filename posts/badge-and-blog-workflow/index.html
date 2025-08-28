@@ -8,7 +8,11 @@
 <title>加个小玩意儿，再聊聊我更新文章的方法 | 🏡JacksBlog</title>
 <meta name="keywords" content="Hugo, Code, PaperMod, Anything, LLM">
 <meta name="description" content="通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/posts/badge-and-blog-workflow/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -249,7 +253,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="PaperMod">
     <meta property="article:tag" content="Anything">
     <meta property="article:tag" content="LLM">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="加个小玩意儿，再聊聊我更新文章的方法">
 <meta name="twitter:description" content="通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程">
 
@@ -287,7 +293,7 @@ var _hmt = _hmt || [];
   "articleBody": "我如何更新 Hugo 是一个能将 Markdown 文件转换成 HTML 静态页面的工具，理论上只要新建或者修改 Markdown，然后运行一下 hugo 就更新好了。不过实践里，有一些非常细节的东西可以分享。\nGithub Actions 方便起见，我的博客由两个仓库组成，一个存放 Markdown 和 Hugo 的主题等文件，另一个放生成的页面文件，也就是 Github Pages，第一个仓库里有 Github Actions ，运行 hugo 命令，生成静态页面再 push 到第二个仓库。\n这个 Action 的触发条件是当 main 分支有提交被推送时，运行一次 Action 大概要一分钟，Github 每个月三千分钟的 Action 配额肯定是用不完的。\nDraft 有时候文章写了一半，或者暂时没想发布，这时候在 front matter 中将 draft 设置为 true，这样运行 hugo 的时候不会构建这一篇。不过在 main 分支的话仍然会触发 Action，虽然不会有任何变化。所以我设置了一个 draft 分支，用来放这些文章，这样可以把 Git 当云同步用，也不会触发 Action。\nLLM 后处理 大致写完以后，我会让 AI 阅读和检查一下，比如有没有错别字，语言是否通顺，让它提点建议（建议基本都是看看就好，也可以听 GPT-4o 这类模型拍拍马屁）。如果这时候还没有写 summary 和 description 甚至 title，也可以让它给一些备选项，不过多数时候不太可用。\n这一步我用的模型是 GPT 4.1，用更厉害的模型也是没问题的，LLM 不太擅长精确控制生成文本的字数。\n输入将会是完整的 markdown，是由简体中文创作的个人博客的一篇文章。 你需要首先查看是否存在错别字、错误的用词和用语，表述不清晰，不通顺的地方。清晰的指出在何处、有什么问题、如何修改。注意，这是一个个人博客，适当的口语化是可接受的，但不能冒犯。 然后，你需要结合你的知识和理解，仔细的阅读文章内容，给出一些内容上的建议和读后感。 最后，你需要结合内容和你的理解，给出几个 front 部分的 title，summary 和 description 的备选项，符合以下要求： - title：这将是显示在文章列表中和文章顶部的“标题”，最好不超过 25 个汉字。 - summary：这将是显示在文章列表中，标题下方的文章“总结”或“副标题”，既补充说明标题，又代表文章内容，最好不超过 50 个汉字。 - description：这将显示在文章页面的标题下方第一段，是“摘要”，是开头和预告全文。最好不超过 80 个汉字。 以及，给出一个文件名，它将作为该文章的 URL，比如 xxx.md，将会成为 baseURL/posts/xxx 中文版完成之后，为了国际化一点，我还会生成一个英文版本，在 Hugo 里，只需要创建一个同名的文件 xxx.en.md 即可。这个英文版的草稿也是 LLM 写的，如果是涉及色彩科学的文章，可以给一个词典，帮助 AI 翻译术语，除了少数特别类似的词（其实很多时候我们自己也不严格区分），参数量大的模型都能翻译的比较好。比较好用的模型有 Gemini 2.5 Pro 和 DeepSeek R1-0528，后者有时候翻译质量更高，但格式和段落可能会被它改。翻译完之后，有时间的话我会阅读一遍，稍作修改。\n最近 OpenRouter 上的 Horizon 模型也很不错。更新：Horizon 似乎是 gpt-5-mini，而 gpt-5 在这两个任务上表现都比较不错。\n使用的 Prompt 如下，据说推理模型只要 Prompt 给的比较准确就可以，不用那种很复杂的：\n发现 OpenAI 有一个 优化 Prompt 的工具，有点像字节之前的 Prompt Pilot，这是一个针对 GPT-5 优化的 Prompt，也可以用于别的模型。\n输入内容为完整的 Markdown，内容为简体中文创作的个人博客文章。 你的任务是将内容翻译为英文，生成对应的英文版本。 要求： 1. 保持原有格式和段落完全不变。 2. 译文表达需自然、贴近日常习惯，避免生僻或不常用表达。 3. 保持 Markdown 语法，图片链接和代码部分只需翻译图片描述和注释。 4. 保持原文语气和风格，网络用语和俚语需准确对应。 在开始翻译前，生成一份 3-5 步的简要任务清单。 翻译完成后仅输出英文内容，便于直接复制粘贴，无需包含其他信息。 遇到专业术语时，以下是供你参考的词典： - 亮度：Luminance - 明度：Lightness - 视明度：Brightness 有时候，需要后期修改文章，比如对中文版本添加或修改内容。推荐直接手动修改英文版，或者只翻译修改的部分。\n当然，也可以全部交给 LLM 解决，直接翻译一个新的出来，或者希望保留大部分内容不变的话，先用 Git 的 diff 功能生成一个修改记录，然后再使用类似的 Prompt 进行翻译，不过这时候就需要加入新的中文版、老的英文版和标记了差别的文件，比较花费 Token 和考验模型的上下文能力。\ngit diff content/posts/xxx.md \u003e temp.diff 输入： - 一篇最新的中文文章、一个标注出变动的 diff 文件，以及一份较早版本的英文文章。 任务： - 仅依据 diff 文件标注的差异，将中文文章的新改动融入英文文章更新。所有未变动内容需完全保留原英文表述。 规则： 1. 精准保留原有段落格式和结构。 2. 对变动部分进行流畅、地道的英文翻译。 3. 保持 Markdown 语法。仅翻译图片、链接、代码的说明与注释，除非特别要求，否则不应更改代码或 URL。 4. 保持原有语气与风格。根据语境匹配网络和口语化英文表达。 错误处理： - 若缺少任一输入文件（中文文章、diff 文件或英文文章），回复： “错误：缺少必要输入文件。请提供中文文章、diff 文件和英文文章。” - 若 diff 文件变动无法映射到英文文本，回复： “错误：无法将 diff 变更与英文文本对齐。请检查输入内容一致性。” 输出格式 - 英文文章输出：仅最终修订后的英文文章，确保可直接复制粘贴，无其他输出内容。 统计访客数的 Badge 来源 网上冲浪的时候发现的小玩意儿，通过 Badge 来显示访客数目，比如 这个站。研究了一下，发现这是一个图片，加载一次数量计数器就会加 1。\n图片来自 visitor-badge.laobi.icu，是一个免费的服务，只要一个图片链接即可。\n图片链接的格式如下，里面的 page.id 换成唯一的字符串，比如我现在用的是 jacksblog，只要不和别人重复就可以。可以说是非常方便了，重新计数的话换一个字符串就行。\nhttps://visitor-badge.laobi.icu/badge?page_id=page.id\n当然，这只是图一乐的小玩具，因为只要加载这个图片，计数器就会加，像我这样把它添加在页脚（footer），那么每个页面都会加载它。这样一来，从访问主页，到进入文章列表，再到点开具体文章，这个过程计数器可能就会增加三次。此外，刷新页面也会导致计数增加。\n添加到页面 接下来是把这个 Badge 加到页面上，我选择的是在 footer 文字的底下，这一部分是 Claude Code 完成的，以下是它自己写的工作总结。\n第一步：配置分离 将 visitor badge 从 footer 文字中分离出来，在hugo.yaml中单独配置：\n文件位置： hugo.yaml\nfooter: text: \"footer text here.\" visitorsImage: \"https://visitor-badge.laobi.icu/badge?page_id=\" 新增visitorsImage参数专门存储 badge URL 保持 footer 文字的简洁性 第二步：主题扩展 修改 PaperMod 主题的extend_footer.html文件来显示 badge：\n文件位置： themes/PaperMod/layouts/partials/extend_footer.html\n{{- if .Site.Params.visitorsImage -}} \u003cdiv style=\"text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;\"\u003e \u003cimg src=\"{{ .Site.Params.visitorsImage }}\" alt=\"visitors\" style=\"max-width: 120px; height: auto;\" /\u003e \u003c/div\u003e {{- end -}} {{- if .Site.Params.visitorsImage -}}：条件判断，只有配置了 visitorsImage 才显示 {{ .Site.Params.visitorsImage }}：读取 hugo.yaml 中的配置参数 {{- -}}：去除多余的空白字符 text-align: center：文本居中对齐 width: 100%：容器占满父元素宽度 display: flex; justify-content: center：Flexbox 布局确保元素水平居中 margin-top: 10px; margin-bottom: 20px：与 footer 保持适当间距，底部留白 max-width: 120px：限制 badge 最大宽度，避免过大显示 height: auto：保持图片比例 注意事项 主题更新：如果更新 PaperMod 主题，需要重新添加 extend_footer.html 的修改 第三方依赖：依赖外部统计服务，如果服务不可用会显示破图 隐私考虑：访客统计会收集用户访问数据，需要符合隐私政策要求 ",
   "wordCount" : "344",
   "inLanguage": "zh-cn",
-  "datePublished": "2025-08-04T02:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-04T02:00:00+08:00",
   "dateModified": "2025-08-04T02:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

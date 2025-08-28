@@ -8,7 +8,11 @@
 <title>Colour Space Conversion: RAW to XYZ | 🏡JacksBlog</title>
 <meta name="keywords" content="Colour, CCM, ISP">
 <meta name="description" content="Converting RAW to XYZ">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/en/posts/ccm-02-raw-xyz/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -247,7 +251,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="CCM">
     <meta property="article:tag" content="ISP">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="Colour Space Conversion: RAW to XYZ">
 <meta name="twitter:description" content="Converting RAW to XYZ">
 
@@ -285,7 +291,7 @@ var _hmt = _hmt || [];
   "articleBody": "Recap: XYZ Tristimulus Values XYZ is the most important colour space in colour science. Colour appearance models, uniform colour spaces, and various RGB spaces are all derived from XYZ. XYZ values are obtained by multiplying spectral radiance by the colour matching functions, as follows:\n$$\rX = k \\int_{\\lambda} P(\\lambda) \\bar{x}(\\lambda) d\\lambda\r$$Where \\(P(\\lambda)\\) is the spectral radiance, \\(\\bar{x}(\\lambda)\\) is the standard observer’s colour matching function, and \\(k\\) is a normalisation coefficient.\nSpectral Sensitivity Function Most cameras use colour filters to split light into three channels. The transmittance of the filters and the wavelength response of the photodiodes jointly determine the sensitivity of the three channels to different wavelengths of light. This wavelength-dependent function is called the Spectral Sensitivity Function (SSF).\nFollowing the calculation process for XYZ, the pixel value output by an ideal sensor can be calculated by the following formula:\n$$\rR = k \\int_{\\lambda} P(\\lambda) \\bar{r}(\\lambda) d\\lambda\r$$Where \\(\\bar{r}(\\lambda)\\) is the spectral sensitivity function of the red channel, k is a coefficient, and \\(P(\\lambda)\\) can be the spectral irradiance on the sensor.\nThe amount of light received by the sensor is determined not only by the light intensity but also by the camera’s shutter speed and the lens aperture size. For convenience, these are all represented by k.\nLinear Transformation? Although XYZ and RAW RGB are both linear spaces, this does not mean they can be directly transformed linearly by a single matrix. However, an approximate transformation is possible, which is the role of the CCM (Colour Correction Matrix) in an ISP.\nFrom the formulae above, it is easy to see that the condition for being able to transform RAW RGB to XYZ using a 3x3 matrix is:\n$$ \\begin{aligned}\r\\bar{x}(\\lambda) = a_{11} \\bar{r}(\\lambda) + a_{12} \\bar{g}(\\lambda) + a_{13} \\bar{b}(\\lambda) \\\\\r\\bar{y}(\\lambda) = a_{21} \\bar{r}(\\lambda) + a_{22} \\bar{g}(\\lambda) + a_{23} \\bar{b}(\\lambda) \\\\\r\\bar{z}(\\lambda) = a_{31} \\bar{r}(\\lambda) + a_{32} \\bar{g}(\\lambda) + a_{33} \\bar{b}(\\lambda)\r\\end{aligned}\r$$If the above conditions cannot be met, the least squares method can be used to solve for an optimal CCM matrix.\nReference Implementation Below is the SSF of a camera (from an early experiment, and should not be used for practical purposes), because I’m not sure how accurate the measurements are.\nSolving via the least squares method for the 3x3 matrix that linearly combines this SSF to approximate the CIE 1931 XYZ CMF yields:\n$$\r\\begin{bmatrix}\r1.297 \u0026 0.0793 \u0026 0.1033 \\\\\r0.558 \u0026 0.569 \u0026 -0.1577 \\\\\r0.0596 \u0026 -0.1675 \u0026 1.2465\r\\end{bmatrix}\r$$Using this matrix to convert the SSF into an approximate XYZ (represented as Estimated XYZ):\nSome Issues and To Be Continued The above content is based on assumptions such as: RAW is linear, and the camera’s spectral response range is 380-780nm. Methods for improving the CCM. Methods for creating a CCM without using an SSF. Method for Evaluating CCM Quality The purpose of a CCM is to convert RAW RGB to XYZ. A description I prefer is to ‘predict’ XYZ from RAW data. The essence of evaluating CCM quality is to see how accurate the prediction is. For XYZ, a colour difference formula can be used to calculate the difference between the predicted and true values. The colour samples used typically include neutral colours, saturated colours, and colours of common objects, such as skin tones, sky, and foliage. These ‘important’ colours are the colours found on colour charts. The most famous colour chart is the X-Rite ColorChecker Classic, which contains 24 colour patches, but X-Rite has not published its reflectance data, making it unsuitable for theoretical calculations. A better choice is the PMCC (Preferred Memory Colour Chart), which includes saturated colours, neutral colours, and 18 classic memory colours, and provides spectral reflectance data.\nM. R. Luo, “The new preferred memory colour (PMC) chart,” Colour Research \u0026 Application, p. col.22940, May 2024, doi: 10.1002/col.22940.\nCalculating the colour difference between the predicted XYZ and the true XYZ for these 30 colour samples allows for the evaluation of the CCM’s quality. By changing the light source (common choices include D65, A, and CWF or TL84), one can evaluate the CCM’s performance under different light sources.\n",
   "wordCount" : "682",
   "inLanguage": "en",
-  "datePublished": "2025-03-02T00:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-03-02T00:00:00+08:00",
   "dateModified": "2025-03-02T00:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

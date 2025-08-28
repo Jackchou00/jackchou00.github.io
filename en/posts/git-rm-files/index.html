@@ -8,7 +8,11 @@
 <title>How to Completely Remove a File from Git History | 🏡JacksBlog</title>
 <meta name="keywords" content="Code">
 <meta name="description" content="To be honest, I do this so often myself that I had to write something as a reminder (and for my own future reference).">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/en/posts/git-rm-files/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -245,7 +249,9 @@ var _hmt = _hmt || [];
     <meta property="article:published_time" content="2025-06-29T01:03:00+08:00">
     <meta property="article:modified_time" content="2025-06-29T01:03:00+08:00">
     <meta property="article:tag" content="Code">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="How to Completely Remove a File from Git History">
 <meta name="twitter:description" content="To be honest, I do this so often myself that I had to write something as a reminder (and for my own future reference).">
 
@@ -283,7 +289,7 @@ var _hmt = _hmt || [];
   "articleBody": "To be honest, I do this so often myself that I had to write something as a reminder (and for my own future reference).\nWhen you accidentally commit a large file, a binary file, or a file containing sensitive information (like passwords or keys) to a Git repository, simply deleting it in a new commit is not enough. It still exists in the Git history, continuing to take up repository space or posing a security risk. This guide will explain how to completely erase a file from your Git history.\nModifying Git history is a destructive operation. It will change the hash values of many commits in the repository. Before performing this on a shared repository, be sure to communicate with all collaborators and make a backup clone first.\nAnalyse the Repository Before deleting, you need to locate the unwanted files, especially those that take up a lot of space.\nYou can also analyse space usage with pure Git, but it requires a very long command line. Here is a version for PowerShell.\ngit rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | Where-Object { $_ -match '^blob ' } | ForEach-Object { $_ -replace '^blob ' } | Sort-Object { [int]($_.Split(' ')[1]) } | Select-Object -Last 10 macOS or Git Bash\ngit rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | tail -n 10 After a standard Git installation, you usually have LFS. Using the git lfs command, you can intuitively list space usage by file type.\ngit lfs migrate info --everything git-sizer is a tool officially released by GitHub for analysing the “health” of a Git repository. It provides a more comprehensive report but requires separate installation.\nTo install git-sizer, you need to download the executable for your system from its Releases page and then add its directory to your system’s PATH environment variable.\nAfter installation, navigate to your repository directory and run:\ngit-sizer --verbose This tool doesn’t just look at file sizes; it also analyses the number of blobs, tree depth, and more, helping you get a comprehensive understanding of how “bloated” your repository is.\nRemove the File from History We will use git-filter-repo, a modern tool, to rewrite the history. It is the officially recommended next-generation tool, replacing git filter-branch and BFG Repo-Cleaner.\nInstall via pip:\npip install git-filter-repo If you have made the modern switch to uv, you can use:\nuv tool install git-filter-repo Tip: For safety, git-filter-repo requires you to operate on a fresh, clean clone of the repository. It automatically disconnects from the remote repository to prevent you from accidentally pushing incorrect changes.\nWhen using git-filter-repo to delete a specific file, you must not forget the --invert-paths parameter! Otherwise, everything in the repository except for that file will be deleted. (Calling out gemini-2.5-flash for this one.)\nTo delete a single file or folder:\ngit filter-repo --path path/to/your/example.jpg --invert-paths To delete files of a specific type or pattern:\ngit filter-repo --path-glob '*.jpg' --invert-paths To delete all files with the same name:\ngit filter-repo --path '.DS_Store' --invert-paths After execution, git-filter-repo will automatically clean up the relevant commits.\nPushing Again to the Remote Repository Now you need to force-push the changes to the remote repository.\nTo prevent accidentally committing these types of files again in the future, it’s best to add them to your .gitignore file first.\nRe-link the remote repository and force-push git-filter-repo will have removed the origin configuration. You need to add it again and use a forced mirror push to the remote. --mirror is a powerful operation, so make sure you have backed up your repository beforehand.\ngit remote add origin git push --force --mirror Synchronising All Collaborators’ Local Repositories This step is crucial and also the costliest part of the entire process.\nAll collaborators (including yourself on other devices) must not use git pull to update their local repositories anymore. Because the local history and the rewritten remote history are now completely different, they must git clone a fresh repository from the remote.\nTherefore, before performing a history cleanup, be sure to think twice and coordinate fully with all project participants.\n",
   "wordCount" : "693",
   "inLanguage": "en",
-  "datePublished": "2025-06-29T01:03:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-06-29T01:03:00+08:00",
   "dateModified": "2025-06-29T01:03:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",

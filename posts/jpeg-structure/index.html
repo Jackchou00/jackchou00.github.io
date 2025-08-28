@@ -8,7 +8,11 @@
 <title>HDR 图像格式解析（二）：JPEG 和对 JPEG 的魔改 | 🏡JacksBlog</title>
 <meta name="keywords" content="Code, HDR, Gainmap">
 <meta name="description" content="这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。">
-<meta name="author" content="">
+
+
+
+<meta name="author" content="Jack Chou">
+
 <link rel="canonical" href="https://jackchou.top/posts/jpeg-structure/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bb4e9ae2e440bccf3cb7d24276f41ff835376bf2c78193c51417a098608382c4.css" integrity="sha256-u06a4uRAvM88t9JCdvQf&#43;DU3a/LHgZPFFBegmGCDgsQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -247,7 +251,9 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="Code">
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Gainmap">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="HDR 图像格式解析（二）：JPEG 和对 JPEG 的魔改">
 <meta name="twitter:description" content="这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。">
 
@@ -285,7 +291,7 @@ var _hmt = _hmt || [];
   "articleBody": "什么是 JPG 咬文嚼字的说，JPEG 是一种压缩方法，描述了如何将影像变成字节流，我们常说的 JPG 文件实际上指的是 JFIF，其文件的二进制结构是一个层次化的、由多个“标记”（Marker）组成的序列，不过正如日常交流，下文会大量混用这些概念。\n简单来说，一个 JPEG 文件就是一大堆标记段（Marker Segments） 和压缩图像数据的集合。每个标记段都以一个特定的标记开始，用来定义该段数据的用途。\n比如说，文件的开头是一个图像开始标记（SOI），其二进制码为 FF D8，表示接下来的内容将是一个 JPG 文件。与之对应的结束标记（EOI）是 FF D9，但由于各种对 JPG 格式的魔改，结束标记不一定出现在文件的最末尾。\n开始标记之后，紧接着是一些 APP 标记段，用来提供一些额外信息，其标识二进制码为 FF Ex，x 可以从 0-15，标识之后的两个字节记录这一段的长度（包括这两个标识长度的字节），之后是内容。注意不一定是按顺序和唯一的，比如一个文件可以有两个 APP1 段。\nAPP0 是 JFIF 应用段，虽说是强制要求，但也有不少文件没有这一段。APP1 通常存放 EXIF 或 XMP 信息，用来放一些相机参数或图像相关的元数据，APP2 通常放 ICC 文件。在 UltraHDR 规范中，HDR 相关的信息就是通过 XMP 元数据存放在 APP1 段中的。\n类似的，JPEG 压缩过程产生的量化表和哈夫曼表也是放在标记段中，分别是定义量化表的 DQT，二进制码 FF DB 和定义哈夫曼表的 DHT，二进制码 FF C4。\n然后，是基线帧的开始标记 SOF0（必须在 DQT 之后），二进制码为 FF C0，它存储了图像的宽高、位深等信息。以及开始扫描的标记 SOS （必须在以上标识段之后），二进制码为 FF DA，SOS 之后，紧接着是编码后的图像数据，所以 SOS 中记录其自身长度的两个字节很重要，因为它界定了元数据和真正图像数据的边界。\n在字节流中，还可能会出现一些 FF 数据，为了避免他们也被当作标识符，需要在后面加上 00，字节流的最后，使用结束符 EOI FF D9 来标识。但之后还可以有别的东西。\n多帧的 JPG 一些文件里可以在 EOI 之后找到下一个 SOI，然后又是一个完整的 JFIF 结构。这种简单的拼接就可以在一个文件里放下好几张完整的 JPG，有些是作为 Gainmap 使用，来实现 HDR，有些则是另外存一个低分辨率的图，用来在相机内实现快速预览。这种拼接的最大好处是向后兼容。不识别多帧的看图软件只会读取第一张图，而不会报错，优雅地实现了功能降级。\n注意，此处的多帧并非指缩略图（Thumbnail），它虽然也具有完整的 JPG 结构，但是一般放在 APP0 (JFIF) 或者 APP1 (EXIF) 里，作为上层文件的一部分。因此，不能通过直接查找 SOI 和 EOI 的方式来分割多帧 JPG，因为会受到缩略图中标识符的干扰，多帧结构中，EOI 之后也不一定紧接着下一个 SOI，所以也不能直接查找 FF D9 FF D8 来判断是否是多帧结构。\n如果只想简单辨认 JPG 文件中的多帧结构，一种简易的策略是“栈”，从前往后，找到一个 SOI 就将其压入栈中，找到一个 EOI 就从栈顶取一个 SOI 与之配对，以此来处理缩略图造成的嵌套关系。但别的标识段中很可能也存在与 SOI 和 EOI 相同的二进制码，所以这种方法的通用性很差，不建议这样操作。\n多帧格式的 JPG 文件有对应的标准，叫 MPF（Multi-Picture Format），是由 CIPA 制定的，在第一个 JFIF 的 APP2 中，写上之后几帧的大小和偏移量，但遵守的情况较少，多数情况还是无标识的简单拼接。\n其他的数据 在 OPPO 手机拍的 JPG 图片中，能找到两个完整的 JFIF 结构，在第二个 EOI 之后，还能找到一些东西。包括手机的型号，一段 json 等。\n[ { \"length\": 4, \"name\": \"private.emptyspace\", \"offset\": 51, \"version\": 1 }, { \"length\": 47, \"name\": \"watermark.device\", \"offset\": 47, \"version\": 1 } ] 可能是用来处理机内相册中水印的字段，这些私有数据也会干扰单纯用 EOI 判断文件结束的逻辑。\n代码 02 JPEG Structure\njpeg_parser.py：为了从 JPEG 中提取图像处理和色彩科学所需的数据，考虑到目前 Python 的现有库对拼接的多帧 JPEG 文件支持不好，写了一个简易的解析 JPEG 工具，目前可以正确解析多帧 JPEG，从每帧的 APP1 段中提取 XMP。\ncheck_soi_eoi.py：一个用栈思想实现的 SOI 和 EOI 配对脚本，在不解析其他标识符的情况下，正确找到文件中的所有 JFIF 结构，但不能处理别的标识段中可能出现的相同二进制码。\n之后，我们将利用这些信息，进行以 JPEG 格式保存的 HDR 图像的编解码研究。\n",
   "wordCount" : "202",
   "inLanguage": "zh-cn",
-  "datePublished": "2025-08-24T02:00:00+08:00",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-24T02:00:00+08:00",
   "dateModified": "2025-08-24T02:00:00+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
