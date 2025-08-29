@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 Aug 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR 图像格式解析（四）：Gainmap 大一统之 ISO 21496-1 标准</title>
+      <link>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</link>
+      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</guid>
+      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的 Gainmap 技术，并成为未来的行业规范。</description>
+    </item>
     
     <item>
       <title>赶个时髦：X2D II 100C 文件格式浅析</title>

@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Aug 2025 01:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR Image Formats Explained (IV): ISO 21496-1 — the unified Gainmap standard</title>
+      <link>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</link>
+      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</guid>
+      <description>This is the fourth instalment in the HDR still-image format series. A brief look at the ISO 21496-1 standard, jointly pushed by Adobe, Apple and others, exploring how it unifies existing Gainmap tech and becomes the industry standard.</description>
+    </item>
     
     <item>
       <title>HDR Image Formats Explained (III): UltraHDR and MPF</title>

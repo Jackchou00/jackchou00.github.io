@@ -11,30 +11,38 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 Aug 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Camera</title>
-      <link>https://jackchou.top/tags/camera/</link>
-      <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/camera/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Colour</title>
       <link>https://jackchou.top/tags/colour/</link>
-      <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
+      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/tags/colour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gainmap</title>
+      <link>https://jackchou.top/tags/gainmap/</link>
+      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/gainmap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HDR</title>
       <link>https://jackchou.top/tags/hdr/</link>
-      <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
+      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/tags/hdr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Camera</title>
+      <link>https://jackchou.top/tags/camera/</link>
+      <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/camera/</guid>
       <description></description>
     </item>
     
@@ -51,14 +59,6 @@
       <link>https://jackchou.top/tags/code/</link>
       <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
       <guid>https://jackchou.top/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gainmap</title>
-      <link>https://jackchou.top/tags/gainmap/</link>
-      <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/gainmap/</guid>
       <description></description>
     </item>
     
