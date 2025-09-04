@@ -729,5 +729,7 @@
                 hreflang="zh-cn"
                 href="https://jackchou.top/categories/"
                 />
+  </url><url>
+    <loc>https://jackchou.top/search/</loc>
   </url>
 </urlset>
