@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MacAdam&#39;s Optimal Colours: The Boundary of Physical Colours</title>
+      <link>https://jackchou.top/en/posts/macadam-optimal-colour/</link>
+      <pubDate>Sun, 07 Sep 2025 20:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/macadam-optimal-colour/</guid>
+      <description>Is there a theoretical limit to the colours an object can display? This question began with Schrödinger and MacAdam. This article will explore the theory, proof, and calculation methods for &amp;#39;optimal colours&amp;#39;.</description>
+    </item>
     
     <item>
       <title>HDR Image Formats Explained (IV): ISO 21496-1 — the unified Gainmap standard</title>

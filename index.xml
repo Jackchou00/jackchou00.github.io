@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 31 Aug 2025 21:43:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MacAdam 最优色：物理色彩的理论边界</title>
+      <link>https://jackchou.top/posts/macadam-optimal-colour/</link>
+      <pubDate>Sun, 07 Sep 2025 20:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/macadam-optimal-colour/</guid>
+      <description>物体能呈现的颜色存在理论极限吗？这个问题始于薛定谔和 MacAdam。本文将探讨“最优色”的理论、证明与计算方法。</description>
+    </item>
     
     
     <item>
