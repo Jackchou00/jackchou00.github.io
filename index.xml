@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 Sep 2025 22:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我的 Zotero：配置与核心插件</title>
+      <link>https://jackchou.top/posts/zotero-workflow-and-philosophy/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/zotero-workflow-and-philosophy/</guid>
+      <description>本文将介绍我的 Zotero，并随想和反思我对与工具的看法。</description>
+    </item>
     
     <item>
       <title>晚安，小豆泥</title>

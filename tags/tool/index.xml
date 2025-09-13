@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tool on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/tool/</link>
+    <description>Recent content in Tool on 🏡JacksBlog</description>
+    <image>
+      <title>🏡JacksBlog</title>
+      <url>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</url>
+      <link>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</link>
+    </image>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我的 Zotero：配置与核心插件</title>
+      <link>https://jackchou.top/posts/zotero-workflow-and-philosophy/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/zotero-workflow-and-philosophy/</guid>
+      <description>本文将介绍我的 Zotero，并随想和反思我对与工具的看法。</description>
+    </item>
+  </channel>
+</rss>

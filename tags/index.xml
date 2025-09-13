@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 07 Sep 2025 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tool</title>
+      <link>https://jackchou.top/tags/tool/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/tool/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Colour</title>
