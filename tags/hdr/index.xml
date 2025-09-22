@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Sep 2025 00:30:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>解读一种自适应 HDR 色调映射算法</title>
+      <link>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</link>
+      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</guid>
+      <description>拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。</description>
+    </item>
     
     <item>
       <title>HDR 图像格式解析（四）：Gainmap 大一统之 ISO 21496-1 标准</title>

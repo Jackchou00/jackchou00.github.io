@@ -11,8 +11,32 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Sep 2025 00:30:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Colour</title>
+      <link>https://jackchou.top/tags/colour/</link>
+      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/colour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HDR</title>
+      <link>https://jackchou.top/tags/hdr/</link>
+      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/hdr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paper</title>
+      <link>https://jackchou.top/tags/paper/</link>
+      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/paper/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Tool</title>
@@ -23,26 +47,10 @@
     </item>
     
     <item>
-      <title>Colour</title>
-      <link>https://jackchou.top/tags/colour/</link>
-      <pubDate>Sun, 07 Sep 2025 20:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/colour/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Gainmap</title>
       <link>https://jackchou.top/tags/gainmap/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/tags/gainmap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HDR</title>
-      <link>https://jackchou.top/tags/hdr/</link>
-      <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/hdr/</guid>
       <description></description>
     </item>
     
