@@ -212,6 +212,16 @@
   </url><url>
     <loc>https://jackchou.top/posts/x2dii-preview/</loc>
     <lastmod>2025-08-26T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/x2dii-preview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/x2dii-preview/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/code/</loc>
     <lastmod>2025-08-26T01:00:00+08:00</lastmod>
