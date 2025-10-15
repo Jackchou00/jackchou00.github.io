@@ -17,6 +17,16 @@
   </url><url>
     <loc>https://jackchou.top/tags/ai/</loc>
     <lastmod>2025-10-15T23:29:04+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/ai/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/ai/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/anything/</loc>
     <lastmod>2025-10-15T23:29:04+08:00</lastmod>
@@ -70,8 +80,31 @@
                 href="https://jackchou.top/tags/"
                 />
   </url><url>
-    <loc>https://jackchou.top/draft/wsl2-hyperv-install-fix/</loc>
+    <loc>https://jackchou.top/posts/wsl2-hyperv-install-fix/</loc>
     <lastmod>2025-10-15T23:29:04+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/wsl2-hyperv-install-fix/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/wsl2-hyperv-install-fix/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/posts/</loc>
+    <lastmod>2025-10-15T23:29:04+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/colour/</loc>
     <lastmod>2025-09-23T00:30:00+08:00</lastmod>
@@ -123,19 +156,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/posts/</loc>
-    <lastmod>2025-09-23T00:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/posts/"
                 />
   </url><url>
     <loc>https://jackchou.top/tags/tool/</loc>
