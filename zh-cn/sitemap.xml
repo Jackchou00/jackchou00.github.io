@@ -43,6 +43,16 @@
   </url><url>
     <loc>https://jackchou.top/photos/hongkong-2025/</loc>
     <lastmod>2025-10-26T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/photos/hongkong-2025/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/photos/hongkong-2025/"
+                />
   </url><url>
     <loc>https://jackchou.top/photos/</loc>
     <lastmod>2025-10-26T23:00:00+08:00</lastmod>
@@ -849,6 +859,8 @@
                 hreflang="zh-cn"
                 href="https://jackchou.top/categories/"
                 />
+  </url><url>
+    <loc>https://jackchou.top/cic/</loc>
   </url><url>
     <loc>https://jackchou.top/search/</loc>
   </url>
