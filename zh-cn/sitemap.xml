@@ -2,8 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jackchou.top/posts/cic33-paper/</loc>
+    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/cic33-paper/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/cic33-paper/"
+                />
+  </url><url>
     <loc>https://jackchou.top/</loc>
-    <lastmod>2025-10-26T23:00:00+08:00</lastmod>
+    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +26,19 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou.top/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/posts/</loc>
+    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/"
                 />
   </url><url>
     <loc>https://jackchou.top/tags/photos/</loc>
@@ -95,19 +121,6 @@
   </url><url>
     <loc>https://jackchou.top/posts/geekon-darkvision-2700-unbox-preview/</loc>
     <lastmod>2025-10-23T23:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://jackchou.top/posts/</loc>
-    <lastmod>2025-10-23T23:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/posts/"
-                />
   </url><url>
     <loc>https://jackchou.top/tags/ai/</loc>
     <lastmod>2025-10-15T23:29:04+08:00</lastmod>
@@ -859,8 +872,6 @@
                 hreflang="zh-cn"
                 href="https://jackchou.top/categories/"
                 />
-  </url><url>
-    <loc>https://jackchou.top/cic/</loc>
   </url><url>
     <loc>https://jackchou.top/search/</loc>
   </url>
