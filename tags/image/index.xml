@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Image on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/image/</link>
+    <description>Recent content in Image on 🏡JacksBlog</description>
+    <image>
+      <title>🏡JacksBlog</title>
+      <url>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</url>
+      <link>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</link>
+    </image>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python AVIF 编码新选择：ImageCodecs</title>
+      <link>https://jackchou.top/posts/imagecodecs-avif/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/imagecodecs-avif/</guid>
+      <description>关于在 Python 里用数组处理图像、如何更好地编码 AVIF（尤其是高位深/HDR）的快速记录。</description>
+    </item>
+  </channel>
+</rss>

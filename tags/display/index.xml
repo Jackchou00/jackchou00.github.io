@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Oct 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/display/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python AVIF 编码新选择：ImageCodecs</title>
+      <link>https://jackchou.top/posts/imagecodecs-avif/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/imagecodecs-avif/</guid>
+      <description>关于在 Python 里用数组处理图像、如何更好地编码 AVIF（尤其是高位深/HDR）的快速记录。</description>
+    </item>
     
     <item>
       <title>来自 Geekon 的显示器开箱：高端与作坊并存</title>

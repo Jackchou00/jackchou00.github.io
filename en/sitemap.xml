@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jackchou.top/en/posts/cic33-paper/</loc>
-    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/posts/cic33-paper/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/posts/cic33-paper/"
-                />
-  </url><url>
     <loc>https://jackchou.top/en/</loc>
-    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -28,8 +15,73 @@
                 href="https://jackchou.top/en/"
                 />
   </url><url>
+    <loc>https://jackchou.top/en/posts/imagecodecs-avif/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/imagecodecs-avif/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/imagecodecs-avif/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/avif/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/avif/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/avif/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/display/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/display/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/display/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/hdr/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/hdr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/hdr/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/image/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/image/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/image/"
+                />
+  </url><url>
     <loc>https://jackchou.top/en/posts/</loc>
-    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -39,6 +91,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/</loc>
+    <lastmod>2025-11-10T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/posts/cic33-paper/</loc>
+    <lastmod>2025-10-31T00:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/cic33-paper/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/cic33-paper/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/photos/hongkong-2025/</loc>
@@ -78,19 +156,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/photos/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/</loc>
-    <lastmod>2025-10-26T23:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/tags/ai/</loc>
@@ -182,19 +247,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/wang-et-al-adaptive-tone-mapping/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/hdr/</loc>
-    <lastmod>2025-09-23T00:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/hdr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/hdr/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/tags/paper/</loc>
@@ -494,19 +546,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/sony-camera-screen/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/display/</loc>
-    <lastmod>2025-08-01T12:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/tags/display/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/display/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/posts/domain-migration/</loc>

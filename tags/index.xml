@@ -11,8 +11,40 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 26 Oct 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AVIF</title>
+      <link>https://jackchou.top/tags/avif/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/avif/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Display</title>
+      <link>https://jackchou.top/tags/display/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/display/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HDR</title>
+      <link>https://jackchou.top/tags/hdr/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/hdr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image</title>
+      <link>https://jackchou.top/tags/image/</link>
+      <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/tags/image/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Photos</title>
@@ -27,14 +59,6 @@
       <link>https://jackchou.top/tags/colour/</link>
       <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/tags/colour/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Display</title>
-      <link>https://jackchou.top/tags/display/</link>
-      <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/display/</guid>
       <description></description>
     </item>
     
@@ -67,14 +91,6 @@
       <link>https://jackchou.top/tags/llm/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HDR</title>
-      <link>https://jackchou.top/tags/hdr/</link>
-      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
-      <guid>https://jackchou.top/tags/hdr/</guid>
       <description></description>
     </item>
     
