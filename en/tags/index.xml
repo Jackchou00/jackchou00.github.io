@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Nov 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Coffee</title>
+      <link>https://jackchou.top/en/tags/coffee/</link>
+      <pubDate>Sun, 16 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/tags/coffee/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AVIF</title>
@@ -55,6 +63,14 @@
     </item>
     
     <item>
+      <title>Colour</title>
+      <link>https://jackchou.top/en/tags/colour/</link>
+      <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/tags/colour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>AI</title>
       <link>https://jackchou.top/en/tags/ai/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
@@ -83,14 +99,6 @@
       <link>https://jackchou.top/en/tags/llm/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/en/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Colour</title>
-      <link>https://jackchou.top/en/tags/colour/</link>
-      <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
-      <guid>https://jackchou.top/en/tags/colour/</guid>
       <description></description>
     </item>
     

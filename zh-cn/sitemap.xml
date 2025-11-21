@@ -17,6 +17,16 @@
   </url><url>
     <loc>https://jackchou.top/tags/coffee/</loc>
     <lastmod>2025-11-16T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/coffee/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/tags/coffee/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/</loc>
     <lastmod>2025-11-16T23:00:00+08:00</lastmod>
@@ -31,8 +41,18 @@
                 href="https://jackchou.top/tags/"
                 />
   </url><url>
-    <loc>https://jackchou.top/photos/matchbox-h7s-lite-roaster-revie/</loc>
+    <loc>https://jackchou.top/photos/matchbox-h7s-lite-roaster/</loc>
     <lastmod>2025-11-16T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/photos/matchbox-h7s-lite-roaster/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/photos/matchbox-h7s-lite-roaster/"
+                />
   </url><url>
     <loc>https://jackchou.top/photos/</loc>
     <lastmod>2025-11-16T23:00:00+08:00</lastmod>
@@ -179,6 +199,16 @@
   </url><url>
     <loc>https://jackchou.top/posts/geekon-darkvision-2700-unbox-preview/</loc>
     <lastmod>2025-10-23T23:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/posts/geekon-darkvision-2700-unbox-preview/"
+                />
   </url><url>
     <loc>https://jackchou.top/tags/ai/</loc>
     <lastmod>2025-10-15T23:29:04+08:00</lastmod>

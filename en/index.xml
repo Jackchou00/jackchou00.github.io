@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Nov 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Artistic Journey of a Green Bean: DIY Coffee Roasting</title>
+      <link>https://jackchou.top/en/photos/matchbox-h7s-lite-roaster/</link>
+      <pubDate>Sun, 16 Nov 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/photos/matchbox-h7s-lite-roaster/</guid>
+      <description>Pros and cons of home roasting: Matchbox H7S Lite Experience</description>
+    </item>
     
     <item>
       <title>A New Python AVIF Encoding Option: ImageCodecs</title>
@@ -23,6 +31,14 @@
     </item>
     
     
+    
+    <item>
+      <title>Geekon Monitor Unboxing: High-end Aspirations, Workshop Reality</title>
+      <link>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</link>
+      <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</guid>
+      <description>High specs, high price, high-end packaging, high-end looks, high-end everywhere, just... not quite high-end.</description>
+    </item>
     
     <item>
       <title>Solving WSL2 Installation Failure Caused by &#39;Invisible&#39; Hyper-V</title>
