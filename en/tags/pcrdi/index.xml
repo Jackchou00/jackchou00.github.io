@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Jun 2025 23:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 21:31:53 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/pcrdi/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi07/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 7</description>
+      <description>Learn color reproduction goals: spectral, colorimetric, perceptual rendering, gamut mapping, intents, and viewing conditions.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/en/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi06/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 6</description>
+      <description>Explore color measurement: spectral separation for flexibility, integration for direct tristimulus values. Compare spectrophotometers vs. imaging photometers.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/en/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi05/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 5</description>
+      <description>CIECAM16 predicts colour appearance across viewing conditions for cross-media reproduction, considering background, light source, and adaptation.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
       <link>https://jackchou.top/en/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi04/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.4</description>
+      <description>Learn chromatic adaptation models (CAT02, CAT16, von Kries) for color constancy—stable color perception under varying lighting in visual science.</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@
       <link>https://jackchou.top/en/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi03/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.3</description>
+      <description>Explore black-body radiation theory: ideal thermal emitter properties, Planck&amp;#39;s law formula, color temperature, and spectral radiant exitance calculations.</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@
       <link>https://jackchou.top/en/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi02/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
+      <description>Explore quantitative colorimetry: color mixing, CIE systems, CIELAB, CIEDE2000, and Munsell Colour System for color measurement.</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <link>https://jackchou.top/en/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi01/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.1</description>
+      <description>Explore light properties, human eye response, and how the CIE function converts radiometric to photometric units like lumens and lux.</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@
       <link>https://jackchou.top/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi00/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.0</description>
+      <description>Systematic guide to digital color reproduction, colorimetry, and ICC/ACES color management, based on Principles of Colour Reproduction in Digital Images.</description>
     </item>
   </channel>
 </rss>

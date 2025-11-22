@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 23:49:03 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/avif/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/imagecodecs-avif/</link>
       <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/imagecodecs-avif/</guid>
-      <description>A quick note on handling images as arrays in Python and how to better encode AVIF (especially high bit-depth/HDR).</description>
+      <description>Encode high bit-depth NumPy arrays directly to AVIF in Python using ImageCodecs and libavif, with HDR, lossless, and quality/speed options.</description>
     </item>
   </channel>
 </rss>

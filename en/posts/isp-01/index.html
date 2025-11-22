@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array | 🏡JacksBlog</title>
-<meta name="keywords" content="Colour, CCM, ISP">
-<meta name="description" content="Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology">
+<meta name="keywords" content="Image Signal Processor, Colour Space Conversion, RAW image pre-processing, Python rawpy RAW processing, RAW RGB to XYZ conversion, XYZ to sRGB transformation, Colour Correction Matrix">
+<meta name="description" content="Forge your own ISP from RAW to sRGB using color science, CCM, and gamut mapping—craft a custom processor like a true pixel engineer.">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/en/posts/isp-01/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/en/posts/isp-01/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array">
-  <meta property="og:description" content="Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology">
+  <meta property="og:description" content="Forge your own ISP from RAW to sRGB using color science, CCM, and gamut mapping—craft a custom processor like a true pixel engineer.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-03-04T00:00:00+08:00">
-    <meta property="article:modified_time" content="2025-03-04T00:00:00+08:00">
+    <meta property="article:modified_time" content="2025-07-24T21:31:53+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="CCM">
     <meta property="article:tag" content="ISP">
@@ -78,7 +78,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array">
-<meta name="twitter:description" content="Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology">
+<meta name="twitter:description" content="Forge your own ISP from RAW to sRGB using color science, CCM, and gamut mapping—craft a custom processor like a true pixel engineer.">
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array",
   "name": "Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array",
-  "description": "Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology",
+  "description": "Forge your own ISP from RAW to sRGB using color science, CCM, and gamut mapping—craft a custom processor like a true pixel engineer.",
   "keywords": [
-    "Colour", "CCM", "ISP"
+    "Image Signal Processor", "Colour Space Conversion", "RAW image pre-processing", "Python rawpy RAW processing", "RAW RGB to XYZ conversion", "XYZ to sRGB transformation", "Colour Correction Matrix"
   ],
   "articleBody": " Viewing Notice: The abstract and chuunibyou sections were written by DeepSeek R1, which has even more outrageous content.\n“Introduction to ISP Forging: Crafting Your ‘Genshin Vision’ RAW Processor from Scratch” “Doctor, You Won’t Even Call Me an ISP: The Three Primaries and the Foolish Hero’s Set” “Pixel Engineer Training Day 1: How to Make Wild RAW RGB Bow Down to Humanity’s Colour Tyranny” §0. Prologue: The Hero’s Awakening—Finding an “ISP Beginner’s Guide” in the Pixel Wasteland The ISP (Image Signal Processor) is responsible for converting the RAW image output by the sensor into an image that can be displayed on the screen. This typically involves various colour space conversions, processing, and mapping.\nThis series will start from the most basic ISP, gradually adding modules to address encountered issues and improve image quality.\nNext, we will implement the most fundamental two-step ISP to acquire our initial weapon.\n§1. The Ideal RAW Image The ideal starting point is a three-channel image with values ranging from 0 to 1, where 0 represents no input and 1 represents the sensor’s saturation value. However, the RAW image output by the camera contains black level compensation, has not been demosaiced, and is encoded in the camera manufacturer’s proprietary format.\nFortunately, there are many open-source tools available to help us with this pre-processing, such as dcraw and libraw. Rawpy is a Python wrapper around LibRaw, and with the following code, we can read a RAW image as an ideal numpy array:\ndef read_raw_image(path): with rawpy.imread(path) as raw: rgb = raw.postprocess( gamma=(1, 1), output_bps=16, use_auto_wb=False, use_camera_wb=False, user_wb=[1, 1, 1, 1], output_color=rawpy.ColorSpace.raw, no_auto_bright=True, half_size=True, ) rgb = rgb / 65535.0 return rgb Here, rgb is a three-dimensional numpy array with the shape (H, W, 3), where H and W are the height and width of the image respectively. This represents the pre-processed ideal RAW image.\nIf you encode this directly as an image, what you get is the “original image”.\n§2. From RAW RGB to XYZ See the prequel: Colour Space Conversion: RAW and XYZ.\nThe CCM (Colour Correction Matrix) is a 3x3 matrix used to convert RAW RGB to XYZ.\nccm = np.array( [[1.297, 0.558, 0.0596], [0.0793, 0.569, -0.1675], [0.1033, -0.1577, 1.2465]] ) cameraRGB_2D = cameraRGB.reshape(-1, 3) XYZ_2D = np.dot(cameraRGB_2D, ccm) XYZ = XYZ_2D.reshape(cameraRGB.shape) The two reshape steps here are for performing matrix multiplication. If further operations are needed later, you can temporarily retain the vector form.\nAt this point, the resulting XYZ is an estimate of the tristimulus values under the shooting environment. Thus, we have converted from the camera’s unique spectral response to a unified colour space. This operation does not take into account the absolute values of the tristimulus values; if you need to adjust the overall luminance, operating on XYZ is quite reasonable, such as multiplying by a factor to simulate exposure compensation.\n§3. From XYZ to sRGB See the prequel: Colour Space Conversion: XYZ and sRGB.\nM_XYZ2sRGB = np.array( [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.2040, 1.0570]] ) sRGB_linear_2D = np.dot(XYZ_2D, M_XYZ2sRGB.T) sRGB_linear = sRGB_linear_2D.reshape(cameraRGB.shape) sRGB_linear_clipped = np.clip(sRGB_linear, 0, 1) sRGB = np.where( sRGB_linear_clipped \u003c= 0.0031308, 12.92 * sRGB_linear_clipped, 1.055 * np.power(sRGB_linear_clipped, 1 / 2.4) - 0.055, ) These operations include colour space conversion and the OETF (opto-electronic transfer function), converting XYZ to sRGB space. sRGB is a three-channel image in the 0–1 range and can be displayed directly on a screen. Note that before applying the OETF, the linear space sRGB_linear must be constrained to the 0–1 range. This step effectively clips any out-of-gamut colours directly, ensuring absolute colour reproduction within the gamut—a simplest form of gamut mapping.\n§4. Initial Weapon Forging Report At this point, we have completed the most basic ISP. Although simple, the key point is that every step is supported by colour science theory.\nTo demonstrate how fragile this ISP is, let’s light this lamp and encounter the first problem.\nHighlight overflow: When the sensor’s saturation value is exceeded, the sensor records it as (1, 1, 1). After processing with the initial version of the ISP, such a pixel becomes (1, 0.8, 1) and appears pink. A simple and crude solution is to detect saturated pixels in cameraRGB; if any are found, simply display them as white.\nIn the future, we will supplement the omitted modules from this initial version, resolve the various issues encountered, and gradually improve image quality.\n",
   "wordCount" : "723",
   "inLanguage": "en",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-03-04T00:00:00+08:00",
-  "dateModified": "2025-03-04T00:00:00+08:00",
+  "dateModified": "2025-07-24T21:31:53+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -213,6 +213,7 @@
     <h1 class="post-title entry-hint-parent">
       Reincarnated into the ISP Isekai Day 0: Lost in the RAW Forest, I Summon RGB with a 3x3 Magic Array
     </h1>
+    
     <div class="post-meta"><span title='2025-03-04 00:00:00 +0800 +0800'>2025.03.04</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>

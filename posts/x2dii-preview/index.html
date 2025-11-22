@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>赶个时髦：X2D II 100C 文件格式浅析 | 🏡JacksBlog</title>
-<meta name="keywords" content="Colour, HDR, Camera, UltraHDR">
-<meta name="description" content="昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了">
+<meta name="keywords" content="哈苏 X2D II, HNCS HDR, UltraHDR 图像格式, Phocus HDR 输出配置, ISO 21496-1 增益图标准, JPEG Gainmap">
+<meta name="description" content="探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/posts/x2dii-preview/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/posts/x2dii-preview/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="赶个时髦：X2D II 100C 文件格式浅析">
-  <meta property="og:description" content="昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了">
+  <meta property="og:description" content="探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-26T23:00:00+08:00">
-    <meta property="article:modified_time" content="2025-08-26T23:00:00+08:00">
+    <meta property="article:modified_time" content="2025-08-27T00:29:08+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Camera">
@@ -79,7 +79,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="赶个时髦：X2D II 100C 文件格式浅析">
-<meta name="twitter:description" content="昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了">
+<meta name="twitter:description" content="探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。">
 
 
 <script type="application/ld+json">
@@ -108,15 +108,15 @@
   "@type": "BlogPosting",
   "headline": "赶个时髦：X2D II 100C 文件格式浅析",
   "name": "赶个时髦：X2D II 100C 文件格式浅析",
-  "description": "昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了",
+  "description": "探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。",
   "keywords": [
-    "Colour", "HDR", "Camera", "UltraHDR"
+    "哈苏 X2D II", "HNCS HDR", "UltraHDR 图像格式", "Phocus HDR 输出配置", "ISO 21496-1 增益图标准", "JPEG Gainmap"
   ],
   "articleBody": "HNCS HDR 的 JPEG 文件格式 我们先把 HNCS HDR 的具体实施细节放一边，看看哈苏是如何选择文件格式来存放 HDR 输出的。\nX2D II 100C 是首款支持端到端 HDR 功能的中画幅相机，可机内直出 HDR HEIF 或 Ultra HDR JPEG 格式照片。\nDPReview 第一时间就发布了 X2D II 的样张画廊，提供了机内直出的 JPG 和 RAW 下载。按照哈苏的说法，这个 JPG 符合 UltraHDR 标准。\n我们来看一下其文件内部的细节：\n文件里有四个完整的 JPEG 结构，它们的分辨率依次是：\n11656x8742，5828x4370，3888x2918，2592x1944。\n其中，第一、三个是 SDR 的图片，另外两个是对应的 Gainmap。而在每个 JPEG 结构的 APP1 中都能找到 XMP 数据包，其格式符合 UltraHDR 规范，具有 Google Container 字段，用于标识 Gainmap 的存在和大小。\n有没有发现这些分辨率都有些奇怪？Gainmap 一般来说是全分辨率或者半分辨率（长宽各一半）的，哈苏为全分辨率 SDR 提供的 Gainmap 短边少了一个像素，长宽比不是严格相同，而为低分辨率 SDR 提供的 Gainmap，长宽是原本的三分之二，是比较少见的。\n在 DPReview 的测评稿中写到：\nThe company says this gives images with up to three additional stops of dynamic range compared to standard sRGB JPEGs, using a technique adopted by Google in its Pixel phones, and by Sigma in its BF Mirrorless camera.\n这里，指的就是 UltraHDR，而这个三档额外的动态范围指的应该是 X2D II 在 Gainmap 的 Metadata 中规范了 HDRCapacityMax = 3，通过 Gainmap 提供至多 3 档的亮度提升。\n除了 UltraHDR 的 XMP 数据包外，该 JPEG 文件中还有 ISO 21496-1 国际标准增益图 HDR 格式所需的各种数据。使其不仅满足 UltraHDR 标准，还是面向未来的国际标准格式，并满足了 UltraHDR v1.1 的要求。\n关于 Gainmap 本身，它只有一个通道，即单通道 Gainmap，只能处理亮度方面的映射，这点比起适马 BF 的三通道 Gainmap 稍显落后。其它元数据上，没有使用常用的 1/64 Offset，而是直接设置成 0，Gamma 为 1，这些都很正常。\n同时，这个 JPEG 文件的颜色空间变成了 Display P3，这点在官网中也有相关说辞：\n为了淋漓尽致地呈现 HDR 的瑰丽光彩，哈苏在 sRGB 的基础上更进一步，将色彩空间拓展至更为广阔的 P3。\nPhocus 中的文件格式 哈苏第一时间更新了 macOS 和 iOS 上的 Phocus 软件，支持了 HDR 的编辑和输出。\n它在官网上提供的样张，从文件命名来看，是经过 Phocus 编辑输出的，而非直出的 JPEG。实际上，当探索了文件具体内容之后，也确实如此，和直出的 JPEG 有很大区别。\n首先，它不再包含可能是用于机内预览的低分辨率图片，只有一个 SDR 图和一个全分辨率的 Gainmap，且这个 Gainmap 是三通道的，Capacity 也不再局限于三档之内，能达到四档以上。\n比较重要的区别是，这个 JPEG 不再有 UltraHDR 结构，它甚至连 XMP 数据包都没有，是一个只有 ISO 21496-1 元数据的文件，使用 MPF 标识 Gainmap 的位置，从这个角度来看，Phocus 中输出面板上写的 UltraHDR ，这种说法是有问题的。\n暂记 相机行业如此重磅的更新，心情非常激动，先把已写的部分与大家分享，稍后会补充图片，有机会能获取更多样张的话，做进一步分析。\n",
   "wordCount" : "1105",
   "inLanguage": "zh-cn",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-26T23:00:00+08:00",
-  "dateModified": "2025-08-26T23:00:00+08:00",
+  "dateModified": "2025-08-27T00:29:08+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -219,6 +219,7 @@
     <h1 class="post-title entry-hint-parent">
       赶个时髦：X2D II 100C 文件格式浅析
     </h1>
+    
     <div class="post-meta"><span title='2025-08-26 23:00:00 +0800 +0800'>2025.08.26</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>

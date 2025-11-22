@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 16 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 12:24:58 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/photos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -44,7 +44,7 @@
       <link>https://jackchou.top/photos/cat-250628/</link>
       <pubDate>Sat, 28 Jun 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/photos/cat-250628/</guid>
-      <description>(9 Images) 一些猫猫能量</description>
+      <description>宁波路小店带来惊喜的马黛茶体验，相比过去一言难尽的库迪版本更有风味。黑猫主题元素丰富，还有可爱店猫陪伴。</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@
       <link>https://jackchou.top/photos/test-photos/</link>
       <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/photos/test-photos/</guid>
-      <description>点击五次版本号进入开发者模式</description>
+      <description>本文分享了在有限带宽和对象存储下优化图片博客的技术实践，包括 AVIF 压缩参数的调试、基于 R2 和 OSS 的存储选择以及 HDR 图片和色彩管理的实现方案。</description>
     </item>
   </channel>
 </rss>

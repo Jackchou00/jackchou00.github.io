@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Oct 2025 23:29:04 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Oct 2025 21:39:51 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/anything/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,15 +19,15 @@
       <link>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</guid>
-      <description>WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.</description>
+      <description>Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.</description>
     </item>
     
     <item>
-      <title>Add a Little Gadget, and Talk About How I Update My Articles</title>
+      <title>Add a Little Gadget, and Talk About How I Update Articles</title>
       <link>https://jackchou.top/en/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/badge-and-blog-workflow/</guid>
-      <description>Using a badge to roughly show visitor count, and my general process for updating blog posts</description>
+      <description>Hugo blog automation: GitHub Actions deployment, draft management, LLM post-processing for multilingual content.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/en/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/en/posts/domain-migration/</guid>
-      <description>Like mayflies in the universe, insignificant as a grain in vast sea</description>
+      <description>Migrate from jackchou00.icu to jackchou.top for long-term renewal, updating DNS and adding a bilingual guide banner for seamless domain transition.</description>
     </item>
   </channel>
 </rss>

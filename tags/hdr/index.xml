@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 23:49:03 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</link>
       <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</guid>
-      <description>拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。</description>
+      <description>本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的 Gainmap 技术，并成为未来的行业规范。</description>
+      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的Gainmap 技术，并成为未来的行业规范。</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
       <link>https://jackchou.top/posts/x2dii-preview/</link>
       <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/x2dii-preview/</guid>
-      <description>昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了</description>
+      <description>探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@
       <link>https://jackchou.top/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/jpeg-structure/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。</description>
+      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后JPEG 格式的 HDR 图像编解码提供帮助。</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@
       <link>https://jackchou.top/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/bt2408/</guid>
-      <description>一些无聊的定义，爱来自 BT.2408</description>
+      <description>探讨 HDR 传递函数中 OETF、EOTF 和 OOTF 的正确使用。通过 BT.2408 表1，使用 Python colour 库验证 PQ 和 HLG 系统中18%灰卡与漫射白的亮度转换，确保场景光和显示光编码的准确性。</description>
     </item>
     
     <item>
@@ -83,7 +83,7 @@
       <link>https://jackchou.top/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/icam06-survey/</guid>
-      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+      <description>介绍 iCAM06 色貌模型的图像处理流程，包括色彩适应、色调压缩和均匀色彩空间转换，用于实现高动态范围 (HDR) 图像在低动态范围显示器上的颜色再现。</description>
     </item>
     
   </channel>

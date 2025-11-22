@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Oct 2025 23:29:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Oct 2025 00:32:40 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</guid>
-      <description>WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.</description>
+      <description>Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.</description>
     </item>
   </channel>
 </rss>

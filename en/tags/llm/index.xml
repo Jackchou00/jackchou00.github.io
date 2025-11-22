@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Oct 2025 23:29:04 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 01:17:33 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</guid>
-      <description>WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.</description>
+      <description>Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.</description>
     </item>
     
     <item>
@@ -27,15 +27,15 @@
       <link>https://jackchou.top/en/posts/llm-for-colour/</link>
       <pubDate>Thu, 21 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/llm-for-colour/</guid>
-      <description>Large Language Models excel at code generation and knowledge Q&amp;amp;A, but their application in colour science is fraught with pitfalls. This article explores how to correctly approach and use LLMs, and provides test questions。</description>
+      <description>Use LLMs for technical tasks: avoid direct math, leverage Chain-of-Thought, handle long contexts.</description>
     </item>
     
     <item>
-      <title>Add a Little Gadget, and Talk About How I Update My Articles</title>
+      <title>Add a Little Gadget, and Talk About How I Update Articles</title>
       <link>https://jackchou.top/en/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/badge-and-blog-workflow/</guid>
-      <description>Using a badge to roughly show visitor count, and my general process for updating blog posts</description>
+      <description>Hugo blog automation: GitHub Actions deployment, draft management, LLM post-processing for multilingual content.</description>
     </item>
   </channel>
 </rss>

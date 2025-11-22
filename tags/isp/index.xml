@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 13 May 2025 20:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Sep 2025 16:28:54 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/isp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/icam06-survey/</guid>
-      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+      <description>介绍 iCAM06 色貌模型的图像处理流程，包括色彩适应、色调压缩和均匀色彩空间转换，用于实现高动态范围 (HDR) 图像在低动态范围显示器上的颜色再现。</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/colour-checker-for-jpg/</guid>
-      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
+      <description>本文探讨基于 Imatest 的色差分析方法，详解从 sRGB 到 CIELAB 的转换流程、白平衡矫正、风格化影响与不均匀光照处理，并解析如何利用色卡和 CIELAB、DeltaE2000 等技术指标评测相机色彩还原能力。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/how-to-read-raw/</guid>
-      <description>跑得快不一定赢，不跌跟头才是成功</description>
+      <description>本文对比了处理 RAW 数据的各类工具，包括 dcraw 和 Rawpy/Libraw 的使用方法及其对索尼、佳能、哈苏、富士等相机无损压缩与无压缩 RAW 文件的解码差异，并给出读取 RAW 图像数据的最佳实践建议。</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
       <link>https://jackchou.top/posts/isp-01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/isp-01/</guid>
-      <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
+      <description>本系列从零开始实现 ISP，讲解如何将 RAW 图像通过 CCM 转换到 XYZ 空间，再应用 OETF 转换为可显示的 sRGB 图像，迈出像素工程师的第一步。</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/ccm-02-raw-xyz/</guid>
-      <description>RAW 到 XYZ 的转换</description>
+      <description>本文探讨 XYZ 与相机 RAW 数据的转换方法，介绍了利用光谱敏感函数 SSF 计算 CCM 矩阵的实现步骤，并分析了 CCM 质量评估与色差计算的关键要点。</description>
     </item>
   </channel>
 </rss>

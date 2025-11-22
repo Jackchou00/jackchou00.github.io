@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 04:06:43 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</guid>
-      <description>This is the fourth instalment in the HDR still-image format series. A brief look at the ISO 21496-1 standard, jointly pushed by Adobe, Apple and others, exploring how it unifies existing Gainmap tech and becomes the industry standard.</description>
+      <description>ISO 21496-1 standardizes Gainmap metadata, defining HDR imaging with a universal JPEG APP2 format, unifying previously proprietary formats like UltraHDR.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</link>
       <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</guid>
-      <description>This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&amp;#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.</description>
+      <description>Identify UltraHDR images by detecting hdrgm:Version=1.0 in the JPEG&amp;#39;s XMP metadata, per Google&amp;#39;s spec, which includes a primary image and gainmap for HDR rendering.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/en/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/jpeg-structure/</guid>
-      <description>This is the second article in the HDR static image format analysis series. It will introduce the structure of JPEG and the current modifications made to it to support new features like HDR, which will be helpful for the future encoding and decoding of HDR images in the JPEG format.</description>
+      <description>Learn JPEG file structure: SOI/EOI markers, metadata, JFIF format. Use a free parser to analyze binary segments (FF D8, FF D9) and compressed data.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
-      <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
+      <description>Gainmaps and UltraHDR enhance JPEGs with dual-layer HDR, using a base image and a gainmap with XMP metadata like Min, Max, and Gamma.</description>
     </item>
   </channel>
 </rss>

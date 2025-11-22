@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 01:17:33 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -36,7 +36,7 @@
       <link>https://jackchou.top/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/posts/wsl2-hyperv-install-fix/</guid>
-      <description>即使 BIOS 和 Windows 功能都已正确设置，WSL2 仍提示虚拟化错误？问题可能出在这两个隐藏组件上</description>
+      <description>本文探讨 AI 编程工具在 PowerShell 中的限制，通过启用 WSL 和 Hyper-V 组件解决 WSL2 安装错误，提升自动化文件编辑和沙箱环境的安全性。</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <link>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</link>
       <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/</guid>
-      <description>拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。</description>
+      <description>本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@
       <link>https://jackchou.top/posts/zotero-workflow-and-philosophy/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/zotero-workflow-and-philosophy/</guid>
-      <description>本文将介绍我的 Zotero，并随想和反思我对与工具的看法。</description>
+      <description>本文分享了作者对 Zotero 文献管理工具的纯粹使用哲学及实用配置，包括通过插件市场、PDF补全、划词翻译和格式规范等优化流程，旨在回归高效阅读与管理文献的本质，避免陷入过度工具化的焦虑。</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@
       <link>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的 Gainmap 技术，并成为未来的行业规范。</description>
+      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的Gainmap 技术，并成为未来的行业规范。</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@
       <link>https://jackchou.top/posts/x2dii-preview/</link>
       <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/x2dii-preview/</guid>
-      <description>昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了</description>
+      <description>探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。</description>
     </item>
     
     <item>
@@ -92,7 +92,7 @@
       <link>https://jackchou.top/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/jpeg-structure/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。</description>
+      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后JPEG 格式的 HDR 图像编解码提供帮助。</description>
     </item>
     
     <item>
@@ -116,7 +116,7 @@
       <link>https://jackchou.top/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
-      <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
+      <description>深入解析 CAT16 色适应变换模型，比较一步法和两步法 CAT16 在可逆性、传递性上的差异。两步法 CAT16 通过引入中间白场实现数学上的对称与传递，适合需要严格色适应管理的颜色系统。</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
-      <description>通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程</description>
+      <description>本文分享了 Hugo 博客的构建与优化流程，包括利用 Github Actions 自动发布、使用 LLM 进行文章润色与翻译、通过访客计数器 Badge 扩展功能，提升博客维护效率与用户体验。</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@
       <link>https://jackchou.top/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/posts/domain-migration/</guid>
-      <description>寄蜉蝣于天地，渺沧海之一粟</description>
+      <description>博客域名从 jackchou00.icu 迁移至 jackchou.top，详细讲解如何在 Hugo PaperMod 主题中实现顶部横幅通知，包括固定定位、双语支持、自动过期和手动移除等实现细节。</description>
     </item>
     
     <item>
@@ -148,7 +148,7 @@
       <link>https://jackchou.top/posts/git-rm-files/</link>
       <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/git-rm-files/</guid>
-      <description>其实是因为我自己经常做这种事，导致必须要写个东西来警告一下自己（以及方便以后自己使用）</description>
+      <description>本指南介绍如何使用 git-filter-repo 工具，借助 git lfs migrate 和 git-sizer 分析并彻底从 Git 历史记录中删除大文件或敏感数据，包括后续的强制推送与协作者同步仓库的正确流程。</description>
     </item>
     
     <item>
@@ -156,7 +156,7 @@
       <link>https://jackchou.top/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi07/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 7</description>
+      <description>探索 WYSIWYG 颜色再现的目标与 ICC 色彩系统的实现方式，涵盖光谱再现、色度映射与不同显色意图的色域映射技术及均匀颜色空间应用。</description>
     </item>
     
     <item>
@@ -164,7 +164,7 @@
       <link>https://jackchou.top/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/bt2408/</guid>
-      <description>一些无聊的定义，爱来自 BT.2408</description>
+      <description>探讨 HDR 传递函数中 OETF、EOTF 和 OOTF 的正确使用。通过 BT.2408 表1，使用 Python colour 库验证 PQ 和 HLG 系统中18%灰卡与漫射白的亮度转换，确保场景光和显示光编码的准确性。</description>
     </item>
     
     <item>
@@ -172,7 +172,7 @@
       <link>https://jackchou.top/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/icam06-survey/</guid>
-      <description>颜色外貌在图像处理和再现中的简单尝试</description>
+      <description>介绍 iCAM06 色貌模型的图像处理流程，包括色彩适应、色调压缩和均匀色彩空间转换，用于实现高动态范围 (HDR) 图像在低动态范围显示器上的颜色再现。</description>
     </item>
     
     <item>
@@ -180,7 +180,7 @@
       <link>https://jackchou.top/posts/hdr-format-conversion/</link>
       <pubDate>Fri, 25 Apr 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/hdr-format-conversion/</guid>
-      <description>Conversion of HDR still image formats</description>
+      <description>图像是矩阵或数组的数据结构，通过 JPEG、TIFF、AV1 等编码压缩后形成标准格式。HDR 和 Gainmap 技术利用 PQ 或 HLG 传递函数实现高动态范围显示，确保颜色空间和量化精度匹配。</description>
     </item>
     
     <item>
@@ -188,7 +188,7 @@
       <link>https://jackchou.top/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/colour-checker-for-jpg/</guid>
-      <description>观摩学习用 Imatest 和色卡分析图像颜色的读后感</description>
+      <description>本文探讨基于 Imatest 的色差分析方法，详解从 sRGB 到 CIELAB 的转换流程、白平衡矫正、风格化影响与不均匀光照处理，并解析如何利用色卡和 CIELAB、DeltaE2000 等技术指标评测相机色彩还原能力。</description>
     </item>
     
     <item>
@@ -196,7 +196,7 @@
       <link>https://jackchou.top/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/how-to-read-raw/</guid>
-      <description>跑得快不一定赢，不跌跟头才是成功</description>
+      <description>本文对比了处理 RAW 数据的各类工具，包括 dcraw 和 Rawpy/Libraw 的使用方法及其对索尼、佳能、哈苏、富士等相机无损压缩与无压缩 RAW 文件的解码差异，并给出读取 RAW 图像数据的最佳实践建议。</description>
     </item>
     
     <item>
@@ -204,7 +204,7 @@
       <link>https://jackchou.top/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/display-reflectance/</guid>
-      <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
+      <description>本文深度探讨手机屏幕亮度军备竞赛的局限性，并分析抗反射涂层技术如何通过降低屏幕反射率，在户外强光下提供优于 4000 nits 亮度的实际可视性提升。</description>
     </item>
     
     <item>
@@ -212,7 +212,7 @@
       <link>https://jackchou.top/posts/isp-01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/isp-01/</guid>
-      <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
+      <description>本系列从零开始实现 ISP，讲解如何将 RAW 图像通过 CCM 转换到 XYZ 空间，再应用 OETF 转换为可显示的 sRGB 图像，迈出像素工程师的第一步。</description>
     </item>
     
     <item>
@@ -220,7 +220,7 @@
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/ccm-02-raw-xyz/</guid>
-      <description>RAW 到 XYZ 的转换</description>
+      <description>本文探讨 XYZ 与相机 RAW 数据的转换方法，介绍了利用光谱敏感函数 SSF 计算 CCM 矩阵的实现步骤，并分析了 CCM 质量评估与色差计算的关键要点。</description>
     </item>
     
     <item>
@@ -228,7 +228,7 @@
       <link>https://jackchou.top/posts/ccm-01-rgb-xyz/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/ccm-01-rgb-xyz/</guid>
-      <description>最常见的颜色空间莫过于以 sRGB 为代表的 RGB 空间，本文将介绍如何在这样的 RGB 空间与 XYZ 空间间转换。</description>
+      <description>本文详细讲解了 RGB 颜色空间，以 sRGB 为例，介绍了其加色系统原理、色度学定义、三基色与白点坐标、非线性传递函数以及构建 sRGB 到 CIEXYZ 转换矩阵的方法。</description>
     </item>
     
     <item>
@@ -236,7 +236,7 @@
       <link>https://jackchou.top/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi06/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 6</description>
+      <description>本文介绍颜色测量中的两种核心方法：分光测量与积分测量。分光法基于光谱功率分布，使用棱镜或光栅分光；积分法通过滤色片直接获得三刺激值，分析其原理、设备与应用场景。</description>
     </item>
     
     <item>
@@ -244,7 +244,7 @@
       <link>https://jackchou.top/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi05/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep. 5</description>
+      <description>本文探讨色貌模型 (CAM) 在高级色度学中的应用，解析视明度、明度、视彩度等关键色貌属性，并对比 CIECAM 16 与 CIELAB 等模型，帮助理解跨媒体颜色再现中的色适应与精确色彩预测。</description>
     </item>
     
     <item>
@@ -252,7 +252,7 @@
       <link>https://jackchou.top/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi04/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.4</description>
+      <description>探索色适应与颜色恒常性机制，详解 von Kries 独立增益假设和色适应变换 CAT 模型。介绍 Fairchild 时间适应实验、认知机制与 iPhone True Tone 技术，重点解析 CAT16 模型的结构、适应度参数与变换流程。</description>
     </item>
     
     <item>
@@ -260,7 +260,7 @@
       <link>https://jackchou.top/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi03/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.3</description>
+      <description>本文介绍黑体辐射的基本概念与普朗克定律，解析色温和相关色温的定义，并探讨 CIE 标准照明体及光源显色性的评价方法，包括 CRI、TLCI 等关键指标。</description>
     </item>
     
     <item>
@@ -268,7 +268,7 @@
       <link>https://jackchou.top/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi02/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
+      <description>本文讲解色度学，涵盖CIE 1931 RGB和XYZ颜色匹配函数、均匀颜色空间以及色差计算。探讨颜色混合原理、亮度感知非线性以及CIELAB 空间和CIEDE2000 色差公式。</description>
     </item>
     
     <item>
@@ -276,7 +276,7 @@
       <link>https://jackchou.top/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi01/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.1</description>
+      <description>本文介绍了光与颜色的基本原理，包括可见光波长范围、光谱功率分布 SPD 和同色异谱现象。还探讨了人眼视锥和视杆细胞的光谱响应函数与光度学基本概念，如光通量、照度及辐射与光度量的转换。</description>
     </item>
     
     <item>
@@ -284,7 +284,7 @@
       <link>https://jackchou.top/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/pcrdi00/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.0</description>
+      <description>这是一本色彩科学入门书籍，系统阐述了数字影像颜色再现原理，涵盖光度学、色度学基础、色适应与色貌模型等关键技术，并讲解从摄影机到显示设备的色彩处理流程与颜色管理系统的应用。</description>
     </item>
   </channel>
 </rss>

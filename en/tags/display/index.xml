@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 12:24:58 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/display/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/imagecodecs-avif/</link>
       <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/imagecodecs-avif/</guid>
-      <description>A quick note on handling images as arrays in Python and how to better encode AVIF (especially high bit-depth/HDR).</description>
+      <description>Encode high bit-depth NumPy arrays directly to AVIF in Python using ImageCodecs and libavif, with HDR, lossless, and quality/speed options.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</link>
       <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</guid>
-      <description>High specs, high price, high-end packaging, high-end looks, high-end everywhere, just... not quite high-end.</description>
+      <description>High specs, high price, and high-end looks, but not quite high-end. This Geekon monitor boasts a 6K panel, 92% BT.2020 color gamut, and 20 luminance.</description>
     </item>
     
     <item>
@@ -35,15 +35,15 @@
       <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
       <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
-      <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
+      <description>Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.</description>
     </item>
     
     <item>
-      <title>A Small Experiment to Help Understand HDR Transfer Functions</title>
+      <title>A Experiment to Understand HDR Transfer Functions</title>
       <link>https://jackchou.top/en/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/bt2408/</guid>
-      <description>Some tedious definitions, with love from BT.2408</description>
+      <description>Learn BT.2408 HDR transfer functions, PQ, and HLG with Python—fix 18% grey card luminance issues and master accurate HDR workflows.</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@
       <link>https://jackchou.top/en/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/display-reflectance/</guid>
-      <description>Potentially a more effective improvement than class-leading screen brightness and aggressive tuning algorithms.</description>
+      <description>Analyzes the mobile display brightness race, explaining why high-nit specs offer limited practical value and comparing solutions for outdoor readability.</description>
     </item>
   </channel>
 </rss>

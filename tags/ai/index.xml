@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Oct 2025 23:29:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Oct 2025 00:32:40 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/posts/wsl2-hyperv-install-fix/</guid>
-      <description>即使 BIOS 和 Windows 功能都已正确设置，WSL2 仍提示虚拟化错误？问题可能出在这两个隐藏组件上</description>
+      <description>本文探讨 AI 编程工具在 PowerShell 中的限制，通过启用 WSL 和 Hyper-V 组件解决 WSL2 安装错误，提升自动化文件编辑和沙箱环境的安全性。</description>
     </item>
   </channel>
 </rss>

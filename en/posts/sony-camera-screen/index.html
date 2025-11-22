@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays | 🏡JacksBlog</title>
-<meta name="keywords" content="Colour, Camera, Display">
-<meta name="description" content="A camera&#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &#39;embedded device&#39; is no easy feat. In this post, I&#39;ll share my approach and a simple, practical test.">
+<meta name="keywords" content="Camera Display Measurement, Sony Camera Screens, Sony JPEG Metadata Extraction, Exiftool Metadata Transfer, sRGB Colour Space Evaluation, Camera Screen Gamut Coverage, In-Camera Adobe RGB Tags, Camera Screen Colour Accuracy">
+<meta name="description" content="Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/en/posts/sony-camera-screen/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/en/posts/sony-camera-screen/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays">
-  <meta property="og:description" content="A camera&#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &#39;embedded device&#39; is no easy feat. In this post, I&#39;ll share my approach and a simple, practical test.">
+  <meta property="og:description" content="Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-01T12:00:00+08:00">
-    <meta property="article:modified_time" content="2025-08-01T12:00:00+08:00">
+    <meta property="article:modified_time" content="2025-08-19T02:26:41+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="Camera">
     <meta property="article:tag" content="Display">
@@ -78,7 +78,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays">
-<meta name="twitter:description" content="A camera&#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &#39;embedded device&#39; is no easy feat. In this post, I&#39;ll share my approach and a simple, practical test.">
+<meta name="twitter:description" content="Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.">
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays",
   "name": "Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays",
-  "description": "A camera's screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an 'embedded device' is no easy feat. In this post, I'll share my approach and a simple, practical test.",
+  "description": "Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.",
   "keywords": [
-    "Colour", "Camera", "Display"
+    "Camera Display Measurement", "Sony Camera Screens", "Sony JPEG Metadata Extraction", "Exiftool Metadata Transfer", "sRGB Colour Space Evaluation", "Camera Screen Gamut Coverage", "In-Camera Adobe RGB Tags", "Camera Screen Colour Accuracy"
   ],
   "articleBody": "The method described in this article may only be effective for Sony cameras.\nSending Signals to the Screen Display measurement, or characterization, aims to establish a relationship between two spaces, for example, the pixel values in an image and the tristimulus values of the displayed light. For a camera, the difficulty lies in how to input a specific pixel value to be displayed on the camera’s screen, because the camera’s screen cannot directly accept a display signal, and we can’t easily determine if the internal system has colour management.\nMy first thought was to write an image to the memory card to see if the camera could be used as a kind of “image viewer”. In my test, if a Sony camera’s card contains an image not taken by the camera, it will report a “Cannot read memory card” error.\nFollowing this, could we find a way to modify the contents of a camera-generated JPG file to make the camera think the picture was taken by itself, and thus display it? In practice, the method isn’t to modify the image data of the camera’s JPG file, but rather to extract the metadata from it, generate a solid colour image, and embed the metadata into it.\nThere are many ways to extract metadata. A well-known one is Pillow, which can extract ICC (which camera JPEGs don’t have) and EXIF, but that’s not enough. Sony’s JPEGs also have an XMP section that records two UUIDs. If you don’t copy this over, you’ll also get an error. The tool that can handle this part of the APP segment is Exiftool.\nUse the following command to transfer the metadata, where pure_colour_image is the temporary image providing the content, which can be created by Pillow or similar tools. The thumbnail can be cleared or kept.\nexiftool -tagsFromFile input_path -all:all -o output_path pure_colour_image After writing a simple tool to transfer metadata to new solid colour images, I could display them on the camera’s screen.\nA Simple Measurement Practice Next, I used the same method to process 30 images for a simple hands-on test. The camera was set to the default manual brightness (a7c2’s normal/sunny mode and zve10mk2’s sunny mode show similar performance in colour).\nThe selected test patches included:\nPrimary colours: Two on each R/G/B axis (120, 255), for a total of 6. Mixed primary colours: Yellow, cyan, magenta, 3 in total. Grayscale: 0–255 in steps of 15, for a total of 18. Reference colours: Light skin tone (241,149,108); a bluish-green (140,253,153); a purplish-blue (7,47,122), for a total of 3. This was to evaluate gamut coverage, grayscale stability and transfer function, and colour accuracy.\nBrightness and Contrast The default manual luminance was 267.86 nits, with the black level at 0.15 nits, giving a contrast ratio of 1823:1.\nAfter switching to ‘Sunny Weather’ mode, the luminance was 951.19 nits, with a black level of 0.54 nits, and a contrast ratio of 1771:1.\nGamut Coverage and Volume Using the chromaticity coordinates of the three primary colours, we can calculate the gamut coverage and volume compared to sRGB:\nConverting to CIE 1976 UCS (i.e., u’v’) and calculating the ratio of the triangular areas, the gamut coverage compared to sRGB is 95.90%, and the gamut volume is 101.14%.\nGrayscale and Transfer Function This shows the luminance values of the grayscale steps. After normalizing to the maximum luminance and comparing with the standard sRGB transfer function, this screen’s transfer function does not fit a Gamma curve well. If forced to fit, the gamma exponent would be close to 2.6.\nColour Accuracy Since the images we input were modified from the original sRGB JPGs, their theoretical values should correspond to the tristimulus values of the sRGB space. After normalizing by the absolute luminance of the displayed white, we calculated the colour difference for all 30 colours compared to the standard sRGB.\nCalculating the colour difference using CIEDE 2000, the average deltaE is 3.12, and the maximum deltaE is 7.34 (for magenta).\nAbout Adobe RGB Most cameras allow setting the ‘Colour Space’ in-camera, usually offering sRGB and Adobe RGB options. This option only affects JPG files. Generally, an ICC profile is used to identify the colour space, but Sony cameras use a different method, relying on EXIF tags.\nInteroperability Index: R03 - DCF option file (Adobe RGB) Interoperability Version: 0100 Adobe’s Gain Map Demo can recognize this tag and identify the image as being in the Adobe RGB space.\nHowever, Exiftool’s default behavior does not transfer these two tags; you need to add the -unsafe parameter.\nConclusion This Sony in-camera screen, while not excellent, isn’t terrible either. Its only drawback is perhaps the overly high gamma value of the transfer function (if you can call it ‘gamma’). The peak luminance of nearly 1000 nits isn’t low either. The poor viewing experience is more attributable to the small size, low resolution, and poor viewing angles.\nAs a preview screen, making the gamut larger and showing a more vibrant, higher-contrast image, combined with a larger display area, high resolution, and good viewing angles, can significantly improve the actual shooting experience. In fact, the screen on the Hasselblad X2D is optimized to some extent in this way, and it’s one of the best-looking camera screens I’ve ever seen (where ‘best’ here means it looks good rather than accurate).\nI don’t think anyone would seriously judge a photo’s quality on in-camera screen. I’d prefer a camera that looks better, giving the user a more pleasing image during shooting. As for the large difference between the internal screen and computer displays, this can be addressed in the companion software by providing a preset that adjusts the image to match the look of the in-camera screen. This is not difficult to achieve in colour management systems similar to ICC.\n",
   "wordCount" : "960",
   "inLanguage": "en",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-08-01T12:00:00+08:00",
-  "dateModified": "2025-08-01T12:00:00+08:00",
+  "dateModified": "2025-08-19T02:26:41+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -213,9 +213,7 @@
     <h1 class="post-title entry-hint-parent">
       Beyond Visual Appraisal: Objective Test Procedures for Sony Camera Displays
     </h1>
-    <div class="post-description">
-      A camera&#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &#39;embedded device&#39; is no easy feat. In this post, I&#39;ll share my approach and a simple, practical test.
-    </div>
+    
     <div class="post-meta"><span title='2025-08-01 12:00:00 +0800 +0800'>2025.08.01</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>

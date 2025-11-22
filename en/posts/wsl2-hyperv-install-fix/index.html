@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Solving WSL2 Installation Failure Caused by &#39;Invisible&#39; Hyper-V | 🏡JacksBlog</title>
-<meta name="keywords" content="Code, AI, Anything, LLM">
-<meta name="description" content="WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.">
+<meta name="keywords" content="Windows Subsystem for Linux, Hyper-V virtualization, WSL2 installation errors">
+<meta name="description" content="Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/en/posts/wsl2-hyperv-install-fix/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/en/posts/wsl2-hyperv-install-fix/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="Solving WSL2 Installation Failure Caused by &#39;Invisible&#39; Hyper-V">
-  <meta property="og:description" content="WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.">
+  <meta property="og:description" content="Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-10-15T23:29:04+08:00">
-    <meta property="article:modified_time" content="2025-10-15T23:29:04+08:00">
+    <meta property="article:modified_time" content="2025-10-16T00:32:40+08:00">
     <meta property="article:tag" content="Code">
     <meta property="article:tag" content="AI">
     <meta property="article:tag" content="Anything">
@@ -79,7 +79,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="Solving WSL2 Installation Failure Caused by &#39;Invisible&#39; Hyper-V">
-<meta name="twitter:description" content="WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.">
+<meta name="twitter:description" content="Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.">
 
 
 <script type="application/ld+json">
@@ -108,15 +108,15 @@
   "@type": "BlogPosting",
   "headline": "Solving WSL2 Installation Failure Caused by 'Invisible' Hyper-V",
   "name": "Solving WSL2 Installation Failure Caused by \u0027Invisible\u0027 Hyper-V",
-  "description": "WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.",
+  "description": "Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.",
   "keywords": [
-    "Code", "AI", "Anything", "LLM"
+    "Windows Subsystem for Linux", "Hyper-V virtualization", "WSL2 installation errors"
   ],
   "articleBody": "Why WSL Various CLI-based AI programming tools, like Codex, are not very good at running commands in PowerShell to edit files precisely. This is partly because they were likely trained more on Unix-like syntax, and partly because PowerShell lacks tools for precise file content manipulation. Therefore, installing WSL and then installing Codex within WSL is a better choice, and it’s also the approach recommended by OpenAI.\nTo understand why, we need to compare how the two environments handle files and commands.\nWhen modifying code, an AI agent can generate commands like sed, awk, diff, and patch. These tools act like surgical scalpels, allowing for stream editing of files with precision down to the line, column, or pattern. In contrast, the standard operation in PowerShell is a “read-modify-writeback” cycle: Get-Content reads a file into memory, you modify the elements, and then Set-Content writes it back. This process is not only more cumbersome but also performs poorly with large files. The AI agent would need to expend more effort to reliably generate complex PowerShell code blocks to accomplish the same modifications.\nWSL2 allows the use of the Linux kernel’s native namespace technology to create a secure sandbox. This means the AI agent can run in an isolated environment where its file access is strictly confined to the project directory, and network access can be disabled. This greatly enhances the security of automated code modification.\nError: WSL2 Not Supported Even after enabling virtualisation in the BIOS and ticking the Hyper-V box in Windows Features as per online tutorials (which is actually unnecessary), the installation still fails. It reports that the system does not support WSL2, citing a virtualisation error and that Hyper-V is not installed.\nWsl/InstallDistro/Service/RegisterDistro/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED\nMost solutions online for this issue suggest manually checking and enabling Hyper-V via the command line, or using systeminfo to check for Hyper-V support, but none of these solved my problem.\nThe Invisible Hyper-V In reality, running the wsl --install command should automatically enable Hyper-V and related components, as stated on Microsoft’s website:\nThe wsl --install command does the following:\nEnables the optional WSL and Virtual Machine Platform components Downloads and installs the latest Linux kernel Sets WSL 2 as the default Downloads and installs the Ubuntu Linux distribution The failure might be due to some “hidden” Hyper-V features not being enabled. Even if all Hyper-V related items appear ticked in the ‘Turn Windows features on or off’ GUI, this could be misleading.\nLet’s use the command line to view all features. Note that dism is case-insensitive:\ndism /online /get-features These are usually shown as enabled and correspond to the Hyper-V options you see in the GUI.\nMicrosoft-Hyper-V-All Microsoft-Hyper-V Microsoft-Hyper-V-Tools-All Microsoft-Hyper-V-Management-PowerShell Microsoft-Hyper-V-Hypervisor Microsoft-Hyper-V-Services Microsoft-Hyper-V-Management-Clients However, there are two other features with ‘Hyper-V’ in their names that don’t appear in the GUI (perhaps due to a translation issue from Microsoft) nor are they enabled by the wsl --install command. These are likely the main cause of the failure.\nHyperV-KernelInt-VirtualDevice HyperV-Guest-KernelInt Use the command line to enable these two features, and then restart your system.\ndism /online /enable-feature /featurename:HyperV-KernelInt-VirtualDevice /all /norestart dism /online /enable-feature /featurename:HyperV-Guest-KernelInt /all /norestart After restarting, try the installation again. To avoid re-downloading the distribution (which can be very time-consuming, especially with internet conditions in mainland China), you can first run the wsl command without any arguments or wsl --status to check if the core components are working correctly. If there are no more errors, you can then proceed to install your desired distribution with wsl --install -d .\nIn Conclusion This was a very rare issue. I had never failed to install WSL with wsl --install before, but it happened. Perhaps a future WSL update will enable these two features—which may have been introduced in a recent update—by default.\nDocumenting this kind of tricky problem helps me get a blog post out of it, and it might also help some other unlucky person who runs into the same installation failure. It reminds me of how, back in the day, I’d often find solutions to obscure technical problems on old internet forums.\n",
   "wordCount" : "676",
   "inLanguage": "en",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-10-15T23:29:04+08:00",
-  "dateModified": "2025-10-15T23:29:04+08:00",
+  "dateModified": "2025-10-16T00:32:40+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -214,9 +214,7 @@
     <h1 class="post-title entry-hint-parent">
       Solving WSL2 Installation Failure Caused by &#39;Invisible&#39; Hyper-V
     </h1>
-    <div class="post-description">
-      WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.
-    </div>
+    
     <div class="post-meta"><span title='2025-10-15 23:29:04 +0800 +0800'>2025.10.15</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>

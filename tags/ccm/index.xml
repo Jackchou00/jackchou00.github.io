@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 21:31:53 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/ccm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/isp-01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/isp-01/</guid>
-      <description>解密 RAW 色彩密码本：CCM 参数炼成与 sRGB 传送门构建方法论</description>
+      <description>本系列从零开始实现 ISP，讲解如何将 RAW 图像通过 CCM 转换到 XYZ 空间，再应用 OETF 转换为可显示的 sRGB 图像，迈出像素工程师的第一步。</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/ccm-02-raw-xyz/</guid>
-      <description>RAW 到 XYZ 的转换</description>
+      <description>本文探讨 XYZ 与相机 RAW 数据的转换方法，介绍了利用光谱敏感函数 SSF 计算 CCM 矩阵的实现步骤，并分析了 CCM 质量评估与色差计算的关键要点。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/posts/ccm-01-rgb-xyz/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/ccm-01-rgb-xyz/</guid>
-      <description>最常见的颜色空间莫过于以 sRGB 为代表的 RGB 空间，本文将介绍如何在这样的 RGB 空间与 XYZ 空间间转换。</description>
+      <description>本文详细讲解了 RGB 颜色空间，以 sRGB 为例，介绍了其加色系统原理、色度学定义、三基色与白点坐标、非线性传递函数以及构建 sRGB 到 CIEXYZ 转换矩阵的方法。</description>
     </item>
   </channel>
 </rss>

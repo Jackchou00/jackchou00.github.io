@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Aug 2025 18:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Aug 2025 02:56:35 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/cat/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/cat16-reversibility/</guid>
-      <description>类似 CAT16 结构的色适应模型中的细节：一正一逆，成就可逆与传递</description>
+      <description>深入解析 CAT16 色适应变换模型，比较一步法和两步法 CAT16 在可逆性、传递性上的差异。两步法 CAT16 通过引入中间白场实现数学上的对称与传递，适合需要严格色适应管理的颜色系统。</description>
     </item>
   </channel>
 </rss>

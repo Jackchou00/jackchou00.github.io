@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>解读一种自适应 HDR 色调映射算法 | 🏡JacksBlog</title>
-<meta name="keywords" content="Colour, HDR, Paper">
-<meta name="description" content="拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。">
+<meta name="keywords" content="HDR 色调映射, HDR 转 SDR 算法, 自适应色调压缩曲线, 双边滤波细节增强, PQ 与 HLG 编码标准, Rec. 2020 线性空间, Scipy 图像聚类实现">
+<meta name="description" content="本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/posts/wang-et-al-adaptive-tone-mapping/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="解读一种自适应 HDR 色调映射算法">
-  <meta property="og:description" content="拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。">
+  <meta property="og:description" content="本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。">
   <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-23T00:30:00+08:00">
-    <meta property="article:modified_time" content="2025-09-23T00:30:00+08:00">
+    <meta property="article:modified_time" content="2025-09-28T00:57:34+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Paper">
@@ -78,7 +78,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="解读一种自适应 HDR 色调映射算法">
-<meta name="twitter:description" content="拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。">
+<meta name="twitter:description" content="本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。">
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "解读一种自适应 HDR 色调映射算法",
   "name": "解读一种自适应 HDR 色调映射算法",
-  "description": "拆解一种创新的色调映射算法，探讨它如何平衡亮度压缩与细节保留。",
+  "description": "本文介绍了一种自适应色调映射算法，可对 HDR 内容进行色调压缩、细节增强和暗区增强处理，实现从 0-1000 nits 到 0-100 nits 的动态范围映射。",
   "keywords": [
-    "Colour", "HDR", "Paper"
+    "HDR 色调映射", "HDR 转 SDR 算法", "自适应色调压缩曲线", "双边滤波细节增强", "PQ 与 HLG 编码标准", "Rec. 2020 线性空间", "Scipy 图像聚类实现"
   ],
   "articleBody": "这是一次把我阅读的有意思的文献转化为笔记输出的尝试，接下来将介绍一篇新发表的文章，以及我在复现过程中的发现。\nReference: Y. Wang, M. Wei, Z. Ye, T. Hu, and H. Zheng, “An adaptive tone mapping method for PQ ‐ and HLG ‐encoded HDR contents,” Color Res. Appl., p. col.70002, July 2025, doi: 10.1002/col.70002.\n这是一种自适应的色调映射算法，将 0-1000 nits 的 HDR 内容映射到 0-100 nits 的 SDR。包含色调压缩，细节增强和暗区增强三个部分。\n特别的亮度 该算法中的亮度（Luminance）概念比较特殊，并不是 XYZ 中的 Y，而是 RGB 的最大值，类似于 HSV 中的 Value。\n这种亮度是为了在压缩过程中始终保持在 RGB 空间范围内，不会超出色域而导致色相的剧烈变化。但需要注意的是，即使色坐标保持了不变，但亮度变化仍然会导致色相和彩度发生变化，例如 Bezold–Brücke 色貌现象描述的当光的强度改变时，人眼感知到的色调也会发生改变。\n文中所有的亮度都是这个概念，RGB 空间则始终指线性的 Rec. 2020 空间，本文不涉及色域压缩，输出是一个 SDR 亮度的 Rec.2020 空间图像。\n色调压缩曲线 色调压缩曲线作用在刚才提到的特殊亮度上，将亮度从 0-1000 压缩到 0-100。这条曲线由一段线段和一个有理函数共同组成，整体呈现一个类似滚降（Roll-off）的趋势和形状，曲线全程都低于 y=x，意味着在这一步不会对画面进行任何提亮。\n这条曲线的设计是基于几个特定的亮度点，然后再设计函数的系数将它们平滑的连接起来。\n在 ITU-R BT. 2408 报告的附录 4.2 中指出，肤色在峰值亮度为 1000 nits 的 HLG 显示器上应对应于 45%至 56%的 HLG 信号（平均值为 50%），而在峰值亮度为 100 nits 的 SDR 显示器上则应对应于 61%至 82%的 SDR 信号（平均值为 70%）。因此，肤色的亮度在 HDR 内容中约为 50.7 nits，在 SDR 内容中约为 42.5 nits。50.7 nits 也被当作线段和曲线的拐点。\n另一对亮度点是漫射白，1000 nits 的 HDR 系统中漫射白的亮度建议为 203 nits，而在 SDR 系统中则通常设置为 92%信号值，大约 81.7 nits。\n细节分解和增强 由于压缩亮度之后，会导致细节的损失，尤其是高光部分，原本的纹理由于对比度下降导致难以区分。在压缩亮度之前，使用一个双边滤波器把基础和细节分开，仅对基础层进行色调压缩。而对细节进行额外的增强处理来抑制图像中高对比度边缘可能产生的光晕（Halo）。\n双边滤波器的三个主要参数：窗口尺寸，空间域方差和值域方差，文中给出了一套推荐的经验值。\n细节的额外增强则是根据一个像素周围区域的局部方差和整张图片的全局方差。但文中的相关公式几乎全部是错误的，文字描述也不多，暂时还没能完全的复现这一部分。\n$$ \\sigma_G = \\sqrt{\\frac{\\sum_{p \\in I} \\left( L_{\\mathrm{HDR}}(p) - \\overline{L}_{\\mathrm{HDR},I} \\right)}{N}} $$$$ \\sigma_L(p) = \\sqrt{\\frac{\\sum_{q_i \\in \\Omega_i} \\left( L_{\\mathrm{HDR}}(q_i) - \\overline{L}_{\\mathrm{HDR},\\Omega_i} \\right)}{N_i}} $$以上两个是文中的相关公式，其结果恒等于 0，如果当作方差或者标准差补上平方的话，后续的计算也不能正常进行。\n大致上来说，其思路是先计算整张图片所有像素的方差（也可能是标准差），然后对每个像素，计算其周围一圈像素区域的方差或标准差。然后根据全局方差设定一个阈值，只有超过该阈值的位置对应的细节层才会被增强。\n暗区增强 经过上面两步之后，已经得到了一个适用于 SDR 显示的图片，大部分图片不需要经过这一步处理，经测试输入图片的平均亮度大约低于 1 nits 的情况下才会触发暗区增强，而且我用 scipy 实现的聚类非常慢，不过这一步的提亮效果还不错。\n由于色调压缩曲线全程都是低于 y=x 的，它会降低图片的亮度，如果原始内容的亮度本来就比较低，可能会导致输出的图片亮度太低，尤其是 SDR 传递函数的暗处性能差会加剧这一问题。因此作者额外设计了一个增强暗区的模块，首先根据映射后的图片平均亮度是否小于某个阈值，来判断是否进入该额外模块，否则直接输出。\n首先，将图像所有像素按照亮度分为 64 个簇，每个簇取平均亮度组成一个 64 长度的向量备用。设定了两个 gamma 值，例如分别为 1（将用于最亮的簇） 和 2.2（用于最暗的簇），另外 62 个 gamma 值由线性插值得到，线性插值的间隔取决于簇的平均亮度。\n然后，将这些 gamma 值的倒数应用到每个簇中的像素的亮度值上，实现提亮，相当于是一个动态适应的系统 gamma 值。\n效果 我使用了一张经过后期处理的照片进行测试，这张照片在编辑的过程中控制了画面中元素的亮度，尽量符合 HDR 制作标准。如果您的显示屏不足以显示该图的 HDR 亮度范围，Chrome 应当会进行 Tone Mapping，除了第一幅图片以外，之后的都是 SDR 图像。\n如果只使用裁切策略，切除高于 SDR 名义亮度的元素，画面中会出现纯白色区域。\n关闭没有完全复现的细节增强部分，相当于只应用了色调压缩的曲线，画面中的高光得到了较好的恢复。\n将细节增强部分的公式修改为求标准差，控制阈值方面则使用一个手动指定的值，得到一个相对完整的结果，可以看到在高对比度的边缘有一些处理。\n虽然细节增强没能得到复现，但仅依靠在特殊亮度上的色调压缩曲线，已经能够实现不错的效果，而且很快，细节增强需要用到的双边滤波器和局部方差反而需要消耗大量的计算资源。\n不过必须指出的是，该算法的核心是色调压缩曲线，而该曲线的设计是基于 HDR 和 SDR 的制作标准与经验的。如果 HDR 内容没有按照标准制作，其亮度分布比较“自由”，不一定能获得很好的效果。\n如果能够确认算法的全部细节和潜在错误，我会对本文进行修缮，能够开源代码是最好不过了。\n",
   "wordCount" : "2062",
   "inLanguage": "zh-cn",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-09-23T00:30:00+08:00",
-  "dateModified": "2025-09-23T00:30:00+08:00",
+  "dateModified": "2025-09-28T00:57:34+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -218,6 +218,7 @@
     <h1 class="post-title entry-hint-parent">
       解读一种自适应 HDR 色调映射算法
     </h1>
+    
     <div class="post-meta"><span title='2025-09-23 00:30:00 +0800 +0800'>2025.09.23</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>

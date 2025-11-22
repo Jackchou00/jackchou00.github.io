@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 12:24:58 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/imagecodecs-avif/</link>
       <pubDate>Mon, 10 Nov 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/imagecodecs-avif/</guid>
-      <description>A quick note on handling images as arrays in Python and how to better encode AVIF (especially high bit-depth/HDR).</description>
+      <description>Encode high bit-depth NumPy arrays directly to AVIF in Python using ImageCodecs and libavif, with HDR, lossless, and quality/speed options.</description>
     </item>
     
     
@@ -28,7 +28,7 @@
       <link>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</link>
       <pubDate>Thu, 23 Oct 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</guid>
-      <description>High specs, high price, high-end packaging, high-end looks, high-end everywhere, just... not quite high-end.</description>
+      <description>High specs, high price, and high-end looks, but not quite high-end. This Geekon monitor boasts a 6K panel, 92% BT.2020 color gamut, and 20 luminance.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       <link>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/wsl2-hyperv-install-fix/</guid>
-      <description>WSL2 still showing a virtualisation error even though BIOS and Windows Features are set up correctly? The problem might be these two hidden components.</description>
+      <description>Enable hidden Hyper-V with DISM to fix WSL2 install errors. Run AI tools like Codex in Unix CLI for precise edits using sed, awk, diff, and patch.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <link>https://jackchou.top/en/posts/wang-et-al-adaptive-tone-mapping/</link>
       <pubDate>Tue, 23 Sep 2025 00:30:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/wang-et-al-adaptive-tone-mapping/</guid>
-      <description>Breaking down an innovative tone mapping algorithm and exploring how it balances luminance compression with detail preservation.</description>
+      <description>Adaptive HDR-to-SDR tone mapping for 0-1000 nits HDR to 0-100 nits SDR. Uses max RGB luminance, tone compression, detail and dark enhancement per Wang et al. (2025).</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@
       <link>https://jackchou.top/en/posts/zotero-workflow-and-philosophy/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/zotero-workflow-and-philosophy/</guid>
-      <description>This article introduces my Zotero setup and shares some thoughts and reflections on my relationship with tools.</description>
+      <description>Streamline your Zotero setup with plugins for metadata retrieval, PDF automation, and translation tools—improve accuracy and efficiency in research workflows.</description>
     </item>
     
     <item>
@@ -60,7 +60,7 @@
       <link>https://jackchou.top/en/posts/macadam-optimal-colour/</link>
       <pubDate>Sun, 07 Sep 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/macadam-optimal-colour/</guid>
-      <description>Is there a theoretical limit to the colours an object can display? This question began with Schrödinger and MacAdam. This article will explore the theory, proof, and calculation methods for &amp;#39;optimal colours&amp;#39;.</description>
+      <description>Explore Schrödinger&amp;#39;s theory on the limit of object colors and optimal pigment calculations.</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@
       <link>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</guid>
-      <description>This is the fourth instalment in the HDR still-image format series. A brief look at the ISO 21496-1 standard, jointly pushed by Adobe, Apple and others, exploring how it unifies existing Gainmap tech and becomes the industry standard.</description>
+      <description>ISO 21496-1 standardizes Gainmap metadata, defining HDR imaging with a universal JPEG APP2 format, unifying previously proprietary formats like UltraHDR.</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@
       <link>https://jackchou.top/en/posts/x2dii-preview/</link>
       <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/x2dii-preview/</guid>
-      <description>Finished the UltraHDR article yesterday, only to have the X2D II release today and use it.</description>
+      <description>Hasselblad HNCS HDR outputs Ultra HDR JPEG with Gainmap and P3 color via Phocus, the first medium format camera with end-to-end HDR.</description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@
       <link>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</link>
       <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/hdr-format-ultrahdr-mpf/</guid>
-      <description>This is the third article in the HDR still image formats series. It introduces the multi-picture format MPF and Google&amp;#39;s UltraHDR, an HDR still image format based on dual-layer JPEG and XMP metadata that has already seen very broad adoption.</description>
+      <description>Identify UltraHDR images by detecting hdrgm:Version=1.0 in the JPEG&amp;#39;s XMP metadata, per Google&amp;#39;s spec, which includes a primary image and gainmap for HDR rendering.</description>
     </item>
     
     <item>
@@ -92,7 +92,7 @@
       <link>https://jackchou.top/en/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/jpeg-structure/</guid>
-      <description>This is the second article in the HDR static image format analysis series. It will introduce the structure of JPEG and the current modifications made to it to support new features like HDR, which will be helpful for the future encoding and decoding of HDR images in the JPEG format.</description>
+      <description>Learn JPEG file structure: SOI/EOI markers, metadata, JFIF format. Use a free parser to analyze binary segments (FF D8, FF D9) and compressed data.</description>
     </item>
     
     <item>
@@ -100,7 +100,7 @@
       <link>https://jackchou.top/en/posts/llm-for-colour/</link>
       <pubDate>Thu, 21 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/llm-for-colour/</guid>
-      <description>Large Language Models excel at code generation and knowledge Q&amp;amp;A, but their application in colour science is fraught with pitfalls. This article explores how to correctly approach and use LLMs, and provides test questions。</description>
+      <description>Use LLMs for technical tasks: avoid direct math, leverage Chain-of-Thought, handle long contexts.</description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@
       <link>https://jackchou.top/en/posts/gainmap-image-intro/</link>
       <pubDate>Tue, 19 Aug 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/gainmap-image-intro/</guid>
-      <description>This is the first part of a series on decoding HDR still image formats. It aims to introduce the basic concept of a new image format: the Gainmap. By adding a gainmap layer and metadata, it enables the storage of HDR still images. Its key feature is that it&amp;#39;s an HDR format based on relative luminance, with excellent SDR compatibility.</description>
+      <description>Gainmaps and UltraHDR enhance JPEGs with dual-layer HDR, using a base image and a gainmap with XMP metadata like Min, Max, and Gamma.</description>
     </item>
     
     <item>
@@ -116,15 +116,15 @@
       <link>https://jackchou.top/en/posts/cat16-reversibility/</link>
       <pubDate>Thu, 07 Aug 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/cat16-reversibility/</guid>
-      <description>Details in colour adaptation models similar to CAT16: one forward and one reverse, achieving reversibility and transference</description>
+      <description>CAT16 model: two-step chromatic adaptation ensures reversibility, unlike one-step methods.</description>
     </item>
     
     <item>
-      <title>Add a Little Gadget, and Talk About How I Update My Articles</title>
+      <title>Add a Little Gadget, and Talk About How I Update Articles</title>
       <link>https://jackchou.top/en/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/badge-and-blog-workflow/</guid>
-      <description>Using a badge to roughly show visitor count, and my general process for updating blog posts</description>
+      <description>Hugo blog automation: GitHub Actions deployment, draft management, LLM post-processing for multilingual content.</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@
       <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
       <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
-      <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
+      <description>Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@
       <link>https://jackchou.top/en/posts/domain-migration/</link>
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jackchou.top/en/posts/domain-migration/</guid>
-      <description>Like mayflies in the universe, insignificant as a grain in vast sea</description>
+      <description>Migrate from jackchou00.icu to jackchou.top for long-term renewal, updating DNS and adding a bilingual guide banner for seamless domain transition.</description>
     </item>
     
     <item>
@@ -148,7 +148,7 @@
       <link>https://jackchou.top/en/posts/git-rm-files/</link>
       <pubDate>Sun, 29 Jun 2025 01:03:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/git-rm-files/</guid>
-      <description>To be honest, I do this so often myself that I had to write something as a reminder (and for my own future reference).</description>
+      <description>Use git-filter-repo to remove large or sensitive files from Git history. Rewriting changes commit hashes—backup and alert collaborators first.</description>
     </item>
     
     <item>
@@ -156,15 +156,15 @@
       <link>https://jackchou.top/en/posts/pcrdi07/</link>
       <pubDate>Wed, 04 Jun 2025 23:30:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi07/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 7</description>
+      <description>Learn color reproduction goals: spectral, colorimetric, perceptual rendering, gamut mapping, intents, and viewing conditions.</description>
     </item>
     
     <item>
-      <title>A Small Experiment to Help Understand HDR Transfer Functions</title>
+      <title>A Experiment to Understand HDR Transfer Functions</title>
       <link>https://jackchou.top/en/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/bt2408/</guid>
-      <description>Some tedious definitions, with love from BT.2408</description>
+      <description>Learn BT.2408 HDR transfer functions, PQ, and HLG with Python—fix 18% grey card luminance issues and master accurate HDR workflows.</description>
     </item>
     
     <item>
@@ -172,7 +172,7 @@
       <link>https://jackchou.top/en/posts/icam06-survey/</link>
       <pubDate>Tue, 13 May 2025 20:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/icam06-survey/</guid>
-      <description>Python Implementation of Image Colour Appearance Model (iCAM06)</description>
+      <description>iCAM06: HDR rendering with color models &amp;amp; tone compression for accurate display reproduction.</description>
     </item>
     
     <item>
@@ -180,7 +180,7 @@
       <link>https://jackchou.top/en/posts/hdr-format-conversion/</link>
       <pubDate>Fri, 25 Apr 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/hdr-format-conversion/</guid>
-      <description>Conversion of HDR still image formats</description>
+      <description>Digital images are pixel arrays compressed by JPG with DCT and Huffman coding, accurately displayed via color spaces and formats like TIFF.</description>
     </item>
     
     <item>
@@ -188,7 +188,7 @@
       <link>https://jackchou.top/en/posts/colour-checker-for-jpg/</link>
       <pubDate>Wed, 02 Apr 2025 13:30:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/colour-checker-for-jpg/</guid>
-      <description>Reflections on learning to analyse image colour using Imatest and colour charts</description>
+      <description>Dive into color analysis: sRGB to CIELAB, DeltaE2000, ISP effects, AE influence, and accuracy in final JPG output. Understand the full imaging pipeline.</description>
     </item>
     
     <item>
@@ -196,7 +196,7 @@
       <link>https://jackchou.top/en/posts/how-to-read-raw/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/how-to-read-raw/</guid>
-      <description>Running fast doesn&amp;rsquo;t guarantee a win; avoiding pitfalls is true success.</description>
+      <description>Compare dcraw, Rawpy, and LibRaw for extracting RAW image data. Analyze their support for Sony, Canon, Hasselblad, Fujifilm cameras and 16-bit TIFF demosaicing.</description>
     </item>
     
     <item>
@@ -204,7 +204,7 @@
       <link>https://jackchou.top/en/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/display-reflectance/</guid>
-      <description>Potentially a more effective improvement than class-leading screen brightness and aggressive tuning algorithms.</description>
+      <description>Analyzes the mobile display brightness race, explaining why high-nit specs offer limited practical value and comparing solutions for outdoor readability.</description>
     </item>
     
     <item>
@@ -212,7 +212,7 @@
       <link>https://jackchou.top/en/posts/isp-01/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/isp-01/</guid>
-      <description>Decrypting the RAW Colour Cipherbook: CCM Parameter Alchemy and Constructing the sRGB Portal Methodology</description>
+      <description>Forge your own ISP from RAW to sRGB using color science, CCM, and gamut mapping—craft a custom processor like a true pixel engineer.</description>
     </item>
     
     <item>
@@ -220,7 +220,7 @@
       <link>https://jackchou.top/en/posts/ccm-02-raw-xyz/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/ccm-02-raw-xyz/</guid>
-      <description>Converting RAW to XYZ</description>
+      <description>Learn how camera RAW RGB converts to XYZ using CCM, spectral sensitivity, color matching functions, and tristimulus calculations in color science.</description>
     </item>
     
     <item>
@@ -228,7 +228,7 @@
       <link>https://jackchou.top/en/posts/ccm-01-rgb-xyz/</link>
       <pubDate>Sun, 23 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/ccm-01-rgb-xyz/</guid>
-      <description>The most common colour space is undoubtedly the RGB space, represented by sRGB. This article will explain how to convert between such an RGB space and the XYZ space.</description>
+      <description>Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.</description>
     </item>
     
     <item>
@@ -236,7 +236,7 @@
       <link>https://jackchou.top/en/posts/pcrdi06/</link>
       <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi06/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 6</description>
+      <description>Explore color measurement: spectral separation for flexibility, integration for direct tristimulus values. Compare spectrophotometers vs. imaging photometers.</description>
     </item>
     
     <item>
@@ -244,7 +244,7 @@
       <link>https://jackchou.top/en/posts/pcrdi05/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi05/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep. 5</description>
+      <description>CIECAM16 predicts colour appearance across viewing conditions for cross-media reproduction, considering background, light source, and adaptation.</description>
     </item>
     
     <item>
@@ -252,7 +252,7 @@
       <link>https://jackchou.top/en/posts/pcrdi04/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi04/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.4</description>
+      <description>Learn chromatic adaptation models (CAT02, CAT16, von Kries) for color constancy—stable color perception under varying lighting in visual science.</description>
     </item>
     
     <item>
@@ -260,7 +260,7 @@
       <link>https://jackchou.top/en/posts/pcrdi03/</link>
       <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi03/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.3</description>
+      <description>Explore black-body radiation theory: ideal thermal emitter properties, Planck&amp;#39;s law formula, color temperature, and spectral radiant exitance calculations.</description>
     </item>
     
     <item>
@@ -268,7 +268,7 @@
       <link>https://jackchou.top/en/posts/pcrdi02/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi02/</guid>
-      <description>Notes for Principles of Color Reproduction in Digital Images, Ep.2</description>
+      <description>Explore quantitative colorimetry: color mixing, CIE systems, CIELAB, CIEDE2000, and Munsell Colour System for color measurement.</description>
     </item>
     
     <item>
@@ -276,7 +276,7 @@
       <link>https://jackchou.top/en/posts/pcrdi01/</link>
       <pubDate>Tue, 21 Jan 2025 00:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi01/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.1</description>
+      <description>Explore light properties, human eye response, and how the CIE function converts radiometric to photometric units like lumens and lux.</description>
     </item>
     
     <item>
@@ -284,7 +284,7 @@
       <link>https://jackchou.top/en/posts/pcrdi00/</link>
       <pubDate>Mon, 20 Jan 2025 18:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/pcrdi00/</guid>
-      <description>Notes for Principles of Colour Reproduction in Digital Images, Ep.0</description>
+      <description>Systematic guide to digital color reproduction, colorimetry, and ICC/ACES color management, based on Principles of Colour Reproduction in Digital Images.</description>
     </item>
   </channel>
 </rss>

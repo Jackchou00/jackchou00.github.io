@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Aug 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Sep 2025 00:57:34 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/camera/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/en/posts/x2dii-preview/</link>
       <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/x2dii-preview/</guid>
-      <description>Finished the UltraHDR article yesterday, only to have the X2D II release today and use it.</description>
+      <description>Hasselblad HNCS HDR outputs Ultra HDR JPEG with Gainmap and P3 color via Phocus, the first medium format camera with end-to-end HDR.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <link>https://jackchou.top/en/posts/sony-camera-screen/</link>
       <pubDate>Fri, 01 Aug 2025 12:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/posts/sony-camera-screen/</guid>
-      <description>A camera&amp;#39;s screen is a major factor in the shooting experience. You can find comments about its quality everywhere, but measuring such an &amp;#39;embedded device&amp;#39; is no easy feat. In this post, I&amp;#39;ll share my approach and a simple, practical test.</description>
+      <description>Learn how to transfer metadata using Exiftool and Pillow to display test images on Sony camera screens for display colorimetry analysis and gamut measurement.</description>
     </item>
   </channel>
 </rss>

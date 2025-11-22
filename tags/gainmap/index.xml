@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Aug 2025 03:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 04:06:43 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/iso-21496-1-gainmap-hdr/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的 Gainmap 技术，并成为未来的行业规范。</description>
+      <description>这是 HDR 静态图像格式解析系列的第四篇。将浅析 Adobe 和 Apple 等公司共同推动的 ISO 21496-1 标准，探索它如何统一现有的Gainmap 技术，并成为未来的行业规范。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/posts/jpeg-structure/</link>
       <pubDate>Sun, 24 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/jpeg-structure/</guid>
-      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后 JPEG 格式的 HDR 图像编解码提供帮助。</description>
+      <description>这是 HDR 静态图像格式解析系列的第二篇，将介绍 JPEG 的结构，以及目前对 JPEG 进行的修改，使其支持 HDR 等新特性，将为之后JPEG 格式的 HDR 图像编解码提供帮助。</description>
     </item>
     
     <item>

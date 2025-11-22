@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 Aug 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 00:29:08 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/camera/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/x2dii-preview/</link>
       <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/x2dii-preview/</guid>
-      <description>昨天写完的 UltraHDR 文章，没想到今天 X2D II 发布就用上了</description>
+      <description>探索哈苏 X2D II 100C 的端到端 HDR 功能，深入分析其机内直出的 Ultra HDR JPEG 格式，包括 Gainmap 结构、ISO 21496-1 标准和 Display P3 色彩空间的技术细节与实施差异。</description>
     </item>
     
     <item>

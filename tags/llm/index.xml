@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Oct 2025 23:29:04 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 01:17:33 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -19,7 +19,7 @@
       <link>https://jackchou.top/posts/wsl2-hyperv-install-fix/</link>
       <pubDate>Wed, 15 Oct 2025 23:29:04 +0800</pubDate>
       <guid>https://jackchou.top/posts/wsl2-hyperv-install-fix/</guid>
-      <description>即使 BIOS 和 Windows 功能都已正确设置，WSL2 仍提示虚拟化错误？问题可能出在这两个隐藏组件上</description>
+      <description>本文探讨 AI 编程工具在 PowerShell 中的限制，通过启用 WSL 和 Hyper-V 组件解决 WSL2 安装错误，提升自动化文件编辑和沙箱环境的安全性。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <link>https://jackchou.top/posts/badge-and-blog-workflow/</link>
       <pubDate>Mon, 04 Aug 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/badge-and-blog-workflow/</guid>
-      <description>通过一个 Badge 粗略地显示访客数，以及我更新博客文章的大致流程</description>
+      <description>本文分享了 Hugo 博客的构建与优化流程，包括利用 Github Actions 自动发布、使用 LLM 进行文章润色与翻译、通过访客计数器 Badge 扩展功能，提升博客维护效率与用户体验。</description>
     </item>
   </channel>
 </rss>

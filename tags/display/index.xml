@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Nov 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Nov 2025 23:49:03 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/tags/display/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -43,7 +43,7 @@
       <link>https://jackchou.top/posts/bt2408/</link>
       <pubDate>Mon, 26 May 2025 02:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/bt2408/</guid>
-      <description>一些无聊的定义，爱来自 BT.2408</description>
+      <description>探讨 HDR 传递函数中 OETF、EOTF 和 OOTF 的正确使用。通过 BT.2408 表1，使用 Python colour 库验证 PQ 和 HLG 系统中18%灰卡与漫射白的亮度转换，确保场景光和显示光编码的准确性。</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@
       <link>https://jackchou.top/posts/display-reflectance/</link>
       <pubDate>Fri, 14 Mar 2025 16:00:00 +0800</pubDate>
       <guid>https://jackchou.top/posts/display-reflectance/</guid>
-      <description>可能是比遥遥领先的屏幕亮度和狂暴调教算法更有效的提升</description>
+      <description>本文深度探讨手机屏幕亮度军备竞赛的局限性，并分析抗反射涂层技术如何通过降低屏幕反射率，在户外强光下提供优于 4000 nits 亮度的实际可视性提升。</description>
     </item>
   </channel>
 </rss>

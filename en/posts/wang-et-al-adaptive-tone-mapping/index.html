@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Decoding an Adaptive HDR Tone Mapping Algorithm | 🏡JacksBlog</title>
-<meta name="keywords" content="Colour, HDR, Paper">
-<meta name="description" content="Breaking down an innovative tone mapping algorithm and exploring how it balances luminance compression with detail preservation.">
+<meta name="keywords" content="Adaptive tone mapping, HDR to SDR conversion, Tone compression curve, Bilateral filter detail enhancement, PQ and HLG HDR encoding, Rec. 2020 RGB luminance, SciPy clustering algorithm, Dark region enhancement module">
+<meta name="description" content="Adaptive HDR-to-SDR tone mapping for 0-1000 nits HDR to 0-100 nits SDR. Uses max RGB luminance, tone compression, detail and dark enhancement per Wang et al. (2025).">
 <meta name="author" content="Jack">
 <link rel="canonical" href="https://jackchou.top/en/posts/wang-et-al-adaptive-tone-mapping/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
@@ -65,12 +65,12 @@
 </script><meta property="og:url" content="https://jackchou.top/en/posts/wang-et-al-adaptive-tone-mapping/">
   <meta property="og:site_name" content="🏡JacksBlog">
   <meta property="og:title" content="Decoding an Adaptive HDR Tone Mapping Algorithm">
-  <meta property="og:description" content="Breaking down an innovative tone mapping algorithm and exploring how it balances luminance compression with detail preservation.">
+  <meta property="og:description" content="Adaptive HDR-to-SDR tone mapping for 0-1000 nits HDR to 0-100 nits SDR. Uses max RGB luminance, tone compression, detail and dark enhancement per Wang et al. (2025).">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-23T00:30:00+08:00">
-    <meta property="article:modified_time" content="2025-09-23T00:30:00+08:00">
+    <meta property="article:modified_time" content="2025-09-28T00:57:34+08:00">
     <meta property="article:tag" content="Colour">
     <meta property="article:tag" content="HDR">
     <meta property="article:tag" content="Paper">
@@ -78,7 +78,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
 <meta name="twitter:title" content="Decoding an Adaptive HDR Tone Mapping Algorithm">
-<meta name="twitter:description" content="Breaking down an innovative tone mapping algorithm and exploring how it balances luminance compression with detail preservation.">
+<meta name="twitter:description" content="Adaptive HDR-to-SDR tone mapping for 0-1000 nits HDR to 0-100 nits SDR. Uses max RGB luminance, tone compression, detail and dark enhancement per Wang et al. (2025).">
 
 
 <script type="application/ld+json">
@@ -107,15 +107,15 @@
   "@type": "BlogPosting",
   "headline": "Decoding an Adaptive HDR Tone Mapping Algorithm",
   "name": "Decoding an Adaptive HDR Tone Mapping Algorithm",
-  "description": "Breaking down an innovative tone mapping algorithm and exploring how it balances luminance compression with detail preservation.",
+  "description": "Adaptive HDR-to-SDR tone mapping for 0-1000 nits HDR to 0-100 nits SDR. Uses max RGB luminance, tone compression, detail and dark enhancement per Wang et al. (2025).",
   "keywords": [
-    "Colour", "HDR", "Paper"
+    "Adaptive tone mapping", "HDR to SDR conversion", "Tone compression curve", "Bilateral filter detail enhancement", "PQ and HLG HDR encoding", "Rec. 2020 RGB luminance", "SciPy clustering algorithm", "Dark region enhancement module"
   ],
   "articleBody": "This is my attempt to turn an interesting paper I’ve read into some notes. I will introduce a recently published article and share my findings from trying to replicate it.\nReference: Y. Wang, M. Wei, Z. Ye, T. Hu, and H. Zheng, “An adaptive tone mapping method for PQ ‐ and HLG ‐encoded HDR contents,” Color Res. Appl., p. col.70002, July 2025, doi: 10.1002/col.70002.\nThis is an adaptive tone mapping algorithm that maps 0-1000 nits HDR content to 0-100 nits SDR. It consists of three parts: tone compression, detail enhancement, and dark area enhancement.\nA Special Kind of Luminance The concept of Luminance in this algorithm is quite special. It is not the Y from the XYZ colour space, but rather the maximum of the RGB values, similar to the Value in HSV.\nThis definition of luminance is used to ensure that values always stay within the RGB space during compression, preventing drastic hue shifts that could be caused by going out of gamut. However, it is worth noting that even if the chromaticity coordinates remain the same, a change in luminance can still alter perceived hue and chroma. An example of this is the Bezold–Brücke phenomenon, which describes how our perception of hue can change with light intensity.\nThroughout the paper, ’luminance’ refers to this specific concept. The RGB space is always linear Rec. 2020. This article does not cover gamut compression; the output is an image in the Rec. 2020 space but with an SDR luminance range.\nThe Tone Compression Curve The tone compression curve is applied to the special luminance mentioned earlier, compressing the range from 0-1000 down to 0-100. This curve is formed by a linear segment and a rational function, creating an overall shape that resembles a roll off. The entire curve lies below the y=x line, which means no part of the image is brightened in this step.\nThe curve is designed around a few specific luminance points, with the function’s coefficients calculated to connect them smoothly.\nIn Appendix 4.2 of the ITU-R BT.2408 report, it is noted that skin tones on an HLG display with a peak luminance of 1000 nits should correspond to 45% to 56% of the HLG signal (with an average of 50%). On an SDR display with a peak luminance of 100 nits, they should correspond to 61% to 82% of the SDR signal (with an average of 70%). Therefore, the luminance of skin tones is approximately 50.7 nits in HDR content and 42.5 nits in SDR content. This 50.7 nits value is also used as the knee point between the linear segment and the curve.\nAnother pair of luminance points is for diffuse white. In a 1000-nit HDR system, the recommended luminance for diffuse white is 203 nits. In an SDR system, it is typically set to a 92% signal value, which is about 81.7 nits.\nDetail Decomposition and Enhancement Compressing luminance leads to a loss of detail, especially in the highlights where textures become hard to distinguish due to reduced contrast. Before compressing the luminance, a bilateral filter is used to separate the base layer from the detail layer. Tone compression is applied only to the base layer. The detail layer, on the other hand, undergoes an additional enhancement process to suppress potential halos around high contrast edges in the image.\nThe paper provides a set of recommended empirical values for the three main parameters of the bilateral filter: window size, spatial variance, and range variance.\nThe additional detail enhancement is based on the local variance of the area surrounding a pixel and the global variance of the entire image. However, the relevant formulae in the paper are almost all incorrect and the textual descriptions are brief, so I have not yet been able to fully replicate this part.\n$$ \\sigma_G = \\sqrt{\\frac{\\sum_{p \\in I} \\left( L_{\\mathrm{HDR}}(p) - \\overline{L}_{\\mathrm{HDR},I} \\right)}{N}} $$$$ \\sigma_L(p) = \\sqrt{\\frac{\\sum_{q_i \\in \\Omega_i} \\left( L_{\\mathrm{HDR}}(q_i) - \\overline{L}_{\\mathrm{HDR},\\Omega_i} \\right)}{N_i}} $$The two formulae above are from the paper, but their results are always 0. If you add squares to make them variance or standard deviation calculations, the subsequent steps still do not work correctly.\nBroadly speaking, the idea is to first calculate the variance (or possibly standard deviation) of all pixels in the entire image. Then, for each pixel, you calculate the variance or standard deviation of the surrounding neighbourhood. A threshold is set based on the global variance, and only the details corresponding to areas exceeding this threshold are enhanced.\nDark Region Enhancement After the first two steps, we have an image suitable for an SDR display. Most images do not need this final step. In my tests, the dark area enhancement is only triggered when the average luminance of the input image is below about 1 nit. The clustering I implemented with SciPy is very slow, but the brightening effect from this step is quite good.\nSince the tone compression curve is always below the y=x line, it reduces the image’s overall luminance. If the original content is already quite dark, the output image might become too dim, a problem exacerbated by the poor performance of SDR transfer functions in dark regions. The authors therefore designed an optional module to enhance dark areas. This module is activated only if the average luminance of the mapped image is below a certain threshold; otherwise, the image is output directly.\nFirst, all pixels in the image are grouped into 64 clusters based on their luminance. The average luminance of each cluster is calculated and stored in a 64 element vector. Two gamma values are set, for instance, 1 (for the brightest cluster) and 2.2 (for the darkest cluster). The other 62 gamma values are derived through linear interpolation, with the intervals determined by the average luminance of the clusters.\nThen, the reciprocal of these gamma values is applied to the luminance of the pixels in each respective cluster, brightening the image. This acts as a dynamically adaptive system gamma.\nResults I tested the algorithm using a post processed photo. During editing, I controlled the luminance of different elements in the image to adhere as closely as possible to HDR production standards. If your display is not capable of showing the full HDR luminance range of the image, Chrome should perform Tone Mapping. Apart from the first image, all subsequent images are SDR.\nIf we simply clip any values above the nominal SDR luminance, parts of the image become pure white.\nWith the partially replicated detail enhancement turned off, which means only applying the tone compression curve, the highlights in the image are recovered quite well.\nBy modifying the detail enhancement formula to calculate standard deviation and using a manually specified threshold, I got a more complete result. You can see some processing along the high contrast edges.\nAlthough I couldn’t fully replicate the detail enhancement, the tone compression curve applied to the special luminance already produces good results and is very fast. In contrast, the bilateral filter and local variance calculations needed for detail enhancement are computationally expensive.\nIt must be pointed out, however, that the core of this algorithm is the tone compression curve, which is designed based on HDR and SDR production standards and experience. If the HDR content was not created according to these standards and has a more “freestyle” luminance distribution, the results may not be as effective.\nOnce all the details and potential errors in the algorithm are confirmed, I will refine the article. It would be ideal if the code could be made open source.\n",
   "wordCount" : "1254",
   "inLanguage": "en",
   "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-09-23T00:30:00+08:00",
-  "dateModified": "2025-09-23T00:30:00+08:00",
+  "dateModified": "2025-09-28T00:57:34+08:00",
   "author":{
     "@type": "Person",
     "name": "Jack"
@@ -213,6 +213,7 @@
     <h1 class="post-title entry-hint-parent">
       Decoding an Adaptive HDR Tone Mapping Algorithm
     </h1>
+    
     <div class="post-meta"><span title='2025-09-23 00:30:00 +0800 +0800'>2025.09.23</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
