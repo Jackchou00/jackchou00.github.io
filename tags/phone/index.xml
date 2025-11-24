@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Phone on 🏡JacksBlog</title>
+    <link>https://jackchou.top/tags/phone/</link>
+    <description>Recent content in Phone on 🏡JacksBlog</description>
+    <image>
+      <title>🏡JacksBlog</title>
+      <url>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</url>
+      <link>https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp</link>
+    </image>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Nov 2025 01:35:41 +0800</lastBuildDate>
+    <atom:link href="https://jackchou.top/tags/phone/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>浅尝手机上的 Log：以 OPPO Log 为例</title>
+      <link>https://jackchou.top/posts/oppo-log-review/</link>
+      <pubDate>Tue, 25 Nov 2025 01:00:00 +0800</pubDate>
+      <guid>https://jackchou.top/posts/oppo-log-review/</guid>
+      <description>安卓手机的 Log 视频，是强大的专业工具还是一个营销噱头？本文将带你了解 OPPO Log 的技术细节，并以两个例子观察它在真实工作流中的表现。</description>
+    </item>
+  </channel>
+</rss>
