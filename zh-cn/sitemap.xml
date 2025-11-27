@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jackchou.top/</loc>
-    <lastmod>2025-11-26T00:04:28+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://jackchou.top/"
-                />
-  </url><url>
     <loc>https://jackchou.top/tags/camera/</loc>
     <lastmod>2025-11-25T10:46:26+08:00</lastmod>
     <xhtml:link
@@ -39,6 +26,19 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://jackchou.top/tags/colour/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/</loc>
+    <lastmod>2025-11-26T00:04:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://jackchou.top/"
                 />
   </url><url>
     <loc>https://jackchou.top/tags/log/</loc>
