@@ -8,7 +8,7 @@
 <title>换个域名，随便聊聊我对博客的看法 | JacksBlog</title>
 <meta name="keywords" content="GitHub Pages 静态博客, 独立域名更换, Hugo PaperMod 主题定制, PaperMod 顶部通知栏, JavaScript 自动过期横幅, extend_head.html 代码修改, Cloudflare DNS 解析">
 <meta name="description" content="博客域名从 jackchou00.icu 迁移至 jackchou.top，详细讲解如何在 Hugo PaperMod 主题中实现顶部横幅通知，包括固定定位、双语支持、自动过期和手动移除等实现细节。">
-<meta name="author" content="Jack">
+<meta name="author" content="周淼森">
 <link rel="canonical" href="https://jackchou.top/posts/domain-migration/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jackchou.top/favicon.ico">
@@ -142,7 +142,7 @@
   "dateModified": "2025-08-19T02:26:41+08:00",
   "author":{
     "@type": "Person",
-    "name": "Jack"
+    "name": "周淼森"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -243,7 +243,7 @@
       换个域名，随便聊聊我对博客的看法
     </h1>
     
-    <div class="post-meta"><span title='2025-07-24 00:00:00 +0000 UTC'>2025.07.24</span>&nbsp;·&nbsp;Jack&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2025-07-24 00:00:00 +0000 UTC'>2025.07.24</span>&nbsp;|&nbsp;更多语言:
 <ul class="i18n_list">
     <li>
         <a href="https://jackchou.top/en/posts/domain-migration/">English</a>
@@ -254,7 +254,7 @@
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">目录</span>
         </summary>
 
         <div class="inner"><ul>
@@ -406,6 +406,19 @@
       <li><a href="https://jackchou.top/tags/code/">Code</a></li>
       <li><a href="https://jackchou.top/tags/anything/">Anything</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="https://jackchou.top/posts/sony-camera-screen/">
+    <span class="title">« 上一篇</span>
+    <br>
+    <span>不仅目测：索尼相机屏幕的客观测试和方法</span>
+  </a>
+  <a class="next" href="https://jackchou.top/posts/git-rm-files/">
+    <span class="title">下一篇 »</span>
+    <br>
+    <span>如何从 Git 历史记录中彻底删除文件</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -529,12 +542,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
+        copybutton.innerHTML = '拷贝';
 
         function copyingDone() {
-            copybutton.innerHTML = 'copied!';
+            copybutton.innerHTML = '已拷贝';
             setTimeout(() => {
-                copybutton.innerHTML = 'copy';
+                copybutton.innerHTML = '拷贝';
             }, 2000);
         }
 
