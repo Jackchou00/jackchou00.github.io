@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+    dir=" auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom | JacksBlog</title>
+<meta name="keywords" content="Adobe Camera RAW, Lightroom, DNG, LibRAW, a7M5 open RAW">
+<meta name="description" content="索尼 a7M5 上市初期，Lightroom 尚未支持其 RAW。本文通过 LibRAW/rawpy 提取 RAW 数据与色彩矩阵，再用 PiDNG 重新封装为 DNG，让你在官方更新前也能正常导入和编辑。">
+<meta name="author" content="周淼森">
+<link rel="canonical" href="https://jackchou.top/posts/a7m5-manual-raw-to-dng/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e30af01949f15b214a659db89950589c44040efcfcdeec2087ad8629d77c216e.css" integrity="sha256-4wrwGUnxWyFKZZ24mVBYnEQEDvz83uwgh62GKdd8IW4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://jackchou.top/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou.top/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://jackchou.top/apple-touch-icon.png">
+<link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/posts/a7m5-manual-raw-to-dng/">
+<link rel="alternate" hreflang="en" href="https://jackchou.top/en/posts/a7m5-manual-raw-to-dng/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Noto+Sans+SC:wght@100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet"><script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "u9z1afks70");
+</script><meta property="og:url" content="https://jackchou.top/posts/a7m5-manual-raw-to-dng/">
+  <meta property="og:site_name" content="JacksBlog">
+  <meta property="og:title" content="使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom">
+  <meta property="og:description" content="索尼 a7M5 上市初期，Lightroom 尚未支持其 RAW。本文通过 LibRAW/rawpy 提取 RAW 数据与色彩矩阵，再用 PiDNG 重新封装为 DNG，让你在官方更新前也能正常导入和编辑。">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-07T18:30:00+08:00">
+    <meta property="article:modified_time" content="2025-12-07T18:58:15+08:00">
+    <meta property="article:tag" content="Camera">
+    <meta property="article:tag" content="RAW">
+    <meta property="article:tag" content="DNG">
+      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
+<meta name="twitter:title" content="使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom">
+<meta name="twitter:description" content="索尼 a7M5 上市初期，Lightroom 尚未支持其 RAW。本文通过 LibRAW/rawpy 提取 RAW 数据与色彩矩阵，再用 PiDNG 重新封装为 DNG，让你在官方更新前也能正常导入和编辑。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "文章 🌳",
+      "item": "https://jackchou.top/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom",
+      "item": "https://jackchou.top/posts/a7m5-manual-raw-to-dng/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom",
+  "name": "使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom",
+  "description": "索尼 a7M5 上市初期，Lightroom 尚未支持其 RAW。本文通过 LibRAW/rawpy 提取 RAW 数据与色彩矩阵，再用 PiDNG 重新封装为 DNG，让你在官方更新前也能正常导入和编辑。",
+  "keywords": [
+    "Adobe Camera RAW", "Lightroom", "DNG", "LibRAW", "a7M5 open RAW"
+  ],
+  "articleBody": "新相机的 RAW 索尼最新发布的 a7M5，如果你第一时间拍摄 RAW 图像，并尝试用 Lightroom 打开编辑，会发现 Lightroom 尚未支持，为了在 Adobe 正式更新之前在软件中打开 RAW，可以通过 LibRAW 和 DNG 曲线救国。只要新相机的 RAW 文件没有发生特别大的变化（比如新的 HQ 压缩），该方法是相对通用的。\nRAW 的必要组成部分 相机的 RAW 数据主要分两部分，RAW 数据和附加数据。\nRAW 数据 第一是 RAW 数据本身，即每个像素输出的一个数字，对于绝大多数全画幅相机来说，它应当是一个二维数组，每个位置上是一个 14 位的码值。在 Python 里，可以放进一个形状为 (h, w) 的 numpy array，类型为 uint16。\n这样的数组可能很大，比如一个 33MP 的图片，需要占用 63 MB 空间。因此，需对其进行压缩。最常见的压缩是位打包，每个码值的范围是 0–16383，只需 14 个比特，却占用了一个 16 位无符号整数（2 个字节）。可以将 4 个 14 位打包进 7 个字节。另外的压缩方式还有 DNG 采用的 JPEG 或 JXL 的无损模式，以及佳能、索尼、尼康各自开发的压缩算法。对 RAW 进行有损压缩是相对少见的，比如索尼被诟病已久的 Compressed 选项，和在 a7M5 上最新推出的 Compressed HQ 选项。这些都是不同的压缩算法，如何从压缩后的数据解码出原始数组是“解 RAW”的最主要工作。\n好在以 LibRAW 为代表的开源库可以高效的完成这一步，即便 a7M5 上把 ARW 版本号刷到了 6.0.0，增加了 HQ 压缩选项，但 Lossless 模式还是和以往一样的，LibRAW 依旧可以正确解码。\n于是，我们便轻松得到了所需的最关键数据：RAW Data 数组。此处我们使用 rawpy，一个 LibRAW 的 Python 包装。\nwith rawpy.imread(image_path) as raw: raw_image = raw.raw_image.copy() 附加数据 光有 RAW Data 是看不到正确颜色的图片的，只代表了传感器某种程度上的原始输出，并无色彩信息。要转换到常见的各种色彩空间，还需要至少一个矩阵，描述了如何从传感器的 RAW RGB 空间转换到 XYZ 或 sRGB 这些标准空间。\n对于由相机产生的 RAW 文件，可以在 EXIF 里找到相关的矩阵，比如索尼就是放在 0x7800 ID 的 EXIF MakerNote 中。这个矩阵的源空间，目标空间，转换方向各有不同，不过好在这种数据在同一品牌内是具有连贯性的，a7M5 的矩阵和近几代的机身大概是以一样的格式放在一样的位置，LibRAW 可以识别并将其转换到标准的样式。\n相似的，白平衡信息、黑电平和白电平也都能在 EXIF 中找到并由 LibRAW 取出。\nwith rawpy.imread(image_path) as raw: raw_matrix = raw.rgb_xyz_matrix[:3, :3] raw_wb = raw.camera_whitebalance black_levels = raw.black_level_per_channel white_level = raw.white_level 重新组装成 RAW 文件 ACR 等第三方软件读取原始 RAW 文件后，发现这是由它未知的相机拍摄的，数据库中没有该相机的附加数据（比如 D65 和 A 光下的两个色彩转换矩阵），因此拒绝解码。\n虽然我们也没有这两个矩阵，但对于当前拍摄光源，我们有一组相机自己产出的转换矩阵，由于 ACR 是采用插值策略，只需在 D65 和 A 光的色彩转换矩阵里都填这一个，无论怎么插值之后，必定也是这个矩阵，就实现了当前光源下的颜色还原。\n现在，我们需要将刚才提取的 RAW Data 数组和这些附加信息重新组装成一个 RAW 文件供第三方软件识别和读取，这里选择 DNG 格式，这是一种通用 RAW 格式。\nDNG 格式至少需要以下内容：\nRAW Data 数组：刚才已经提取出来 黑、白电平：直接使用提取的值 Color Matrix：等同于 Rawpy 中的 rgb_xyz_matrix As Shot Neutral：这个是用来白平衡的，物理含义是中性色在 RAW 中的码值，等于白平衡增益的倒数，即 1/camera_whitebalance 。 此处的 Color Matrix 和 As Shot Neutral 都是以两个整数按照分子，分母的顺序保存浮点数的，需要进行一些转换，比如变成 x/10000 的样式。\nt = DNGTags() t.set(Tag.BlackLevel, black_level) t.set(Tag.WhiteLevel, white_level) t.set(Tag.ColorMatrix1, cm1) t.set(Tag.ColorMatrix2, cm2) t.set(Tag.AsShotNeutral, as_shot_neutral) 有了这些必要内容之后，就可以组装成 DNG 格式，此处选用的库是 PiDNG，虽然已经长期没有维护，但还是勉强可用的。DNG 可选 JPEG 压缩，PiDNG 使用了一个 C 语言的库来完成，如果用无压缩选项的话，PiDNG 就是纯 Python 的。\nr = RAW2DNG() r.options(t, path=\"\", compress=False) r.convert(image, filename=output_dng_path) 至此，我们成功将一个由 a7M5 拍摄的 RAW 图像，转换成了通用的 DNG 格式，可以导入 Lightroom 正确的编辑（除了调整白平衡外），虽然非常简陋，但在 Adobe 正式更新之前，应应急还是没问题的。\n",
+  "wordCount" : "1503",
+  "inLanguage": "zh-cn",
+  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-12-07T18:30:00+08:00",
+  "dateModified": "2025-12-07T18:58:15+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "周淼森"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jackchou.top/posts/a7m5-manual-raw-to-dng/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JacksBlog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jackchou.top/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id=" top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://jackchou.top/" accesskey="h" title="JacksBlog (Alt + H)">JacksBlog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://jackchou.top/en/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://jackchou.top/posts/" title="文章 🌳">
+                    <span>文章 🌳</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/photos/" title="照片 📷">
+                    <span>照片 📷</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/tags/" title="标签 🏷️">
+                    <span>标签 🏷️</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/about/" title="关于 😼">
+                    <span>关于 😼</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://jackchou.top/search/" title="🔍">
+                    <span>🔍</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      使用组装 DNG 实现新相机 RAW Day0 支持 Lightroom
+    </h1>
+    
+    <div class="post-meta"><span title='2025-12-07 18:30:00 +0800 +0800'>2025.12.07</span>&nbsp;|&nbsp;更多语言:
+<ul class="i18n_list">
+    <li>
+        <a href="https://jackchou.top/en/posts/a7m5-manual-raw-to-dng/">English</a>
+    </li>
+</ul>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%96%b0%e7%9b%b8%e6%9c%ba%e7%9a%84-raw" aria-label="新相机的 RAW">新相机的 RAW</a></li>
+                <li>
+                    <a href="#raw-%e7%9a%84%e5%bf%85%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86" aria-label="RAW 的必要组成部分">RAW 的必要组成部分</a><ul>
+                        
+                <li>
+                    <a href="#raw-%e6%95%b0%e6%8d%ae" aria-label="RAW 数据">RAW 数据</a></li>
+                <li>
+                    <a href="#%e9%99%84%e5%8a%a0%e6%95%b0%e6%8d%ae" aria-label="附加数据">附加数据</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%87%8d%e6%96%b0%e7%bb%84%e8%a3%85%e6%88%90-raw-%e6%96%87%e4%bb%b6" aria-label="重新组装成 RAW 文件">重新组装成 RAW 文件</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="新相机的-raw">新相机的 RAW<a hidden class="anchor" aria-hidden="true" href="#新相机的-raw">#</a></h2>
+<p>索尼最新发布的 a7M5，如果你第一时间拍摄 RAW 图像，并尝试用 Lightroom 打开编辑，会发现 Lightroom 尚未支持，为了在 Adobe 正式更新之前在软件中打开 RAW，可以通过 LibRAW 和 DNG 曲线救国。只要新相机的 RAW 文件没有发生特别大的变化（比如新的 HQ 压缩），该方法是相对通用的。</p>
+<p><img alt="Lightroom 无法打开 a7M5 的 RAW" loading="lazy" src="https://img.jackchou.top/jack-img/2025/12/9f054a5b03d1515f11c9bb0810611d03.avif"></p>
+<h2 id="raw-的必要组成部分">RAW 的必要组成部分<a hidden class="anchor" aria-hidden="true" href="#raw-的必要组成部分">#</a></h2>
+<p>相机的 RAW 数据主要分两部分，RAW 数据和附加数据。</p>
+<h3 id="raw-数据">RAW 数据<a hidden class="anchor" aria-hidden="true" href="#raw-数据">#</a></h3>
+<p>第一是 RAW 数据本身，即每个像素输出的一个数字，对于绝大多数全画幅相机来说，它应当是一个二维数组，每个位置上是一个 14 位的码值。在 Python 里，可以放进一个形状为 (h, w) 的 numpy array，类型为 uint16。</p>
+<p>这样的数组可能很大，比如一个 33MP 的图片，需要占用 63 MB 空间。因此，需对其进行压缩。最常见的压缩是位打包，每个码值的范围是 0–16383，只需 14 个比特，却占用了一个 16 位无符号整数（2 个字节）。可以将 4 个 14 位打包进 7 个字节。另外的压缩方式还有 DNG 采用的 JPEG 或 JXL 的无损模式，以及佳能、索尼、尼康各自开发的压缩算法。对 RAW 进行有损压缩是相对少见的，比如索尼被诟病已久的 Compressed 选项，和在 a7M5 上最新推出的 Compressed HQ 选项。这些都是不同的压缩算法，如何从压缩后的数据解码出原始数组是“解 RAW”的最主要工作。</p>
+<p>好在以 LibRAW 为代表的开源库可以高效的完成这一步，即便 a7M5 上把 ARW 版本号刷到了 6.0.0，增加了 HQ 压缩选项，但 Lossless 模式还是和以往一样的，LibRAW 依旧可以正确解码。</p>
+<p>于是，我们便轻松得到了所需的最关键数据：RAW Data 数组。此处我们使用 <code>rawpy</code>，一个 LibRAW 的 Python 包装。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> rawpy<span style="color:#f92672">.</span>imread(image_path) <span style="color:#66d9ef">as</span> raw:
+</span></span><span style="display:flex;"><span>    raw_image <span style="color:#f92672">=</span> raw<span style="color:#f92672">.</span>raw_image<span style="color:#f92672">.</span>copy()
+</span></span></code></pre></div><h3 id="附加数据">附加数据<a hidden class="anchor" aria-hidden="true" href="#附加数据">#</a></h3>
+<p>光有 RAW Data 是看不到正确颜色的图片的，只代表了传感器某种程度上的原始输出，并无色彩信息。要转换到常见的各种色彩空间，还需要至少一个矩阵，描述了如何从传感器的 RAW RGB 空间转换到 XYZ 或 sRGB 这些标准空间。</p>
+<p>对于由相机产生的 RAW 文件，可以在 EXIF 里找到相关的矩阵，比如索尼就是放在 <code>0x7800</code> ID 的 EXIF MakerNote 中。这个矩阵的源空间，目标空间，转换方向各有不同，不过好在这种数据在同一品牌内是具有连贯性的，a7M5 的矩阵和近几代的机身大概是以一样的格式放在一样的位置，LibRAW 可以识别并将其转换到标准的样式。</p>
+<p>相似的，白平衡信息、黑电平和白电平也都能在 EXIF 中找到并由 LibRAW 取出。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> rawpy<span style="color:#f92672">.</span>imread(image_path) <span style="color:#66d9ef">as</span> raw:
+</span></span><span style="display:flex;"><span>    raw_matrix <span style="color:#f92672">=</span> raw<span style="color:#f92672">.</span>rgb_xyz_matrix[:<span style="color:#ae81ff">3</span>, :<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>    raw_wb <span style="color:#f92672">=</span> raw<span style="color:#f92672">.</span>camera_whitebalance
+</span></span><span style="display:flex;"><span>    black_levels <span style="color:#f92672">=</span> raw<span style="color:#f92672">.</span>black_level_per_channel
+</span></span><span style="display:flex;"><span>    white_level <span style="color:#f92672">=</span> raw<span style="color:#f92672">.</span>white_level
+</span></span></code></pre></div><h2 id="重新组装成-raw-文件">重新组装成 RAW 文件<a hidden class="anchor" aria-hidden="true" href="#重新组装成-raw-文件">#</a></h2>
+<p>ACR 等第三方软件读取原始 RAW 文件后，发现这是由它未知的相机拍摄的，数据库中没有该相机的附加数据（比如 D65 和 A 光下的两个色彩转换矩阵），因此拒绝解码。</p>
+<p>虽然我们也没有这两个矩阵，但对于当前拍摄光源，我们有一组相机自己产出的转换矩阵，由于 ACR 是采用插值策略，只需在 D65 和 A 光的色彩转换矩阵里都填这一个，无论怎么插值之后，必定也是这个矩阵，就实现了当前光源下的颜色还原。</p>
+<p>现在，我们需要将刚才提取的 RAW Data 数组和这些附加信息重新组装成一个 RAW 文件供第三方软件识别和读取，这里选择 DNG 格式，这是一种通用 RAW 格式。</p>
+<p>DNG 格式至少需要以下内容：</p>
+<ul>
+<li>RAW Data 数组：刚才已经提取出来</li>
+<li>黑、白电平：直接使用提取的值</li>
+<li>Color Matrix：等同于 Rawpy 中的 <code>rgb_xyz_matrix</code></li>
+<li>As Shot Neutral：这个是用来白平衡的，物理含义是中性色在 RAW 中的码值，等于白平衡增益的倒数，即 <code>1/camera_whitebalance</code> 。</li>
+</ul>
+<p>此处的 Color Matrix 和 As Shot Neutral 都是以两个整数按照分子，分母的顺序保存浮点数的，需要进行一些转换，比如变成 <code>x/10000</code> 的样式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>t <span style="color:#f92672">=</span> DNGTags()
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>set(Tag<span style="color:#f92672">.</span>BlackLevel, black_level)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>set(Tag<span style="color:#f92672">.</span>WhiteLevel, white_level)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>set(Tag<span style="color:#f92672">.</span>ColorMatrix1, cm1)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>set(Tag<span style="color:#f92672">.</span>ColorMatrix2, cm2)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>set(Tag<span style="color:#f92672">.</span>AsShotNeutral, as_shot_neutral)
+</span></span></code></pre></div><p>有了这些必要内容之后，就可以组装成 DNG 格式，此处选用的库是 <code>PiDNG</code>，虽然已经长期没有维护，但还是勉强可用的。DNG 可选 JPEG 压缩，<code>PiDNG</code> 使用了一个 C 语言的库来完成，如果用无压缩选项的话，<code>PiDNG</code> 就是纯 Python 的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>r <span style="color:#f92672">=</span> RAW2DNG()
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>options(t, path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>, compress<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>convert(image, filename<span style="color:#f92672">=</span>output_dng_path)
+</span></span></code></pre></div><p>至此，我们成功将一个由 a7M5 拍摄的 RAW 图像，转换成了通用的 DNG 格式，可以导入 Lightroom 正确的编辑（除了调整白平衡外），虽然非常简陋，但在 Adobe 正式更新之前，应应急还是没问题的。</p>
+<p><img alt="转换后，能够正确打开 DNG" loading="lazy" src="https://img.jackchou.top/jack-img/2025/12/6fb1309af4f585a087eea814725bf442.avif"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://jackchou.top/tags/camera/">Camera</a></li>
+      <li><a href="https://jackchou.top/tags/raw/">RAW</a></li>
+      <li><a href="https://jackchou.top/tags/dng/">DNG</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://jackchou.top/posts/oppo-log-review/">
+    <span class="title">下一篇 »</span>
+    <br>
+    <span>浅尝手机上的 Log：以 OPPO Log 为例</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://jackchou.top/">JacksBlog</a></span> · 
+        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu.com</a>, <a href="https://ylqian.com/">ylqian.com</a> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div style="text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt="visitors" style="max-width: 120px; height: auto;" />
+</div><script>
+(() => {
+    const images = document.querySelectorAll('.post-content img');
+    if (!images.length) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'image-lightbox';
+    overlay.innerHTML = '<img class="image-lightbox__img" alt="" />';
+
+    const overlayImg = overlay.querySelector('img');
+    const closeOverlay = () => {
+        overlay.classList.remove('is-visible');
+        overlayImg.removeAttribute('src');
+        document.body.style.removeProperty('overflow');
+    };
+
+    overlay.addEventListener('click', closeOverlay);
+    document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape' && overlay.classList.contains('is-visible')) {
+            closeOverlay();
+        }
+    });
+
+    document.body.appendChild(overlay);
+
+    images.forEach((img) => {
+        img.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const source = img.dataset.zoomSrc || img.currentSrc || img.src;
+            const cleanSrc = source.split('#')[0];
+
+            overlayImg.src = cleanSrc;
+            overlayImg.alt = img.alt || '';
+
+            overlay.classList.add('is-visible');
+            document.body.style.setProperty('overflow', 'hidden');
+        });
+    });
+})();
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '拷贝';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已拷贝';
+            setTimeout(() => {
+                copybutton.innerHTML = '拷贝';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

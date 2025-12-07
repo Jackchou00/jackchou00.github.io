@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Sep 2025 00:57:34 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Dec 2025 18:58:15 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/camera/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Assembling DNG To Get Day0 Support For New Cameras</title>
+      <link>https://jackchou.top/en/posts/a7m5-manual-raw-to-dng/</link>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/a7m5-manual-raw-to-dng/</guid>
+      <description>This article shows how to extract RAW data via LibRAW, then rewrap as DNG to import normally before the official a7M5 updates arrive.</description>
+    </item>
     
     <item>
       <title>Jumping on the Trend: A Quick Analysis of the X2D II 100C File Format</title>

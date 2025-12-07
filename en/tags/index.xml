@@ -11,8 +11,32 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Dec 2025 13:43:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Dec 2025 18:58:15 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Camera</title>
+      <link>https://jackchou.top/en/tags/camera/</link>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/tags/camera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DNG</title>
+      <link>https://jackchou.top/en/tags/dng/</link>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/tags/dng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RAW</title>
+      <link>https://jackchou.top/en/tags/raw/</link>
+      <pubDate>Sun, 07 Dec 2025 18:30:00 +0800</pubDate>
+      <guid>https://jackchou.top/en/tags/raw/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Coffee</title>
@@ -123,14 +147,6 @@
       <link>https://jackchou.top/en/tags/gainmap/</link>
       <pubDate>Sat, 30 Aug 2025 03:00:00 +0800</pubDate>
       <guid>https://jackchou.top/en/tags/gainmap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Camera</title>
-      <link>https://jackchou.top/en/tags/camera/</link>
-      <pubDate>Tue, 26 Aug 2025 23:00:00 +0800</pubDate>
-      <guid>https://jackchou.top/en/tags/camera/</guid>
       <description></description>
     </item>
     
