@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jackchou.top/photos/hkg-photos/</loc>
+    <lastmod>2025-12-12T00:27:36+08:00</lastmod>
+  </url><url>
+    <loc>https://jackchou.top/</loc>
+    <lastmod>2025-12-12T00:27:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/tags/photos/</loc>
+    <lastmod>2025-12-12T00:27:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/photos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/photos/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/tags/</loc>
+    <lastmod>2025-12-12T00:27:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/"
+                />
+  </url><url>
     <loc>https://jackchou.top/tags/camera/</loc>
     <lastmod>2025-12-07T18:58:15+08:00</lastmod>
     <xhtml:link
@@ -28,19 +70,6 @@
                 href="https://jackchou.top/tags/dng/"
                 />
   </url><url>
-    <loc>https://jackchou.top/</loc>
-    <lastmod>2025-12-07T18:58:15+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/"
-                />
-  </url><url>
     <loc>https://jackchou.top/tags/raw/</loc>
     <lastmod>2025-12-07T18:58:15+08:00</lastmod>
     <xhtml:link
@@ -52,19 +81,6 @@
                 rel="alternate"
                 hreflang="zh-CN"
                 href="https://jackchou.top/tags/raw/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/tags/</loc>
-    <lastmod>2025-12-07T18:58:15+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/"
                 />
   </url><url>
     <loc>https://jackchou.top/posts/a7m5-manual-raw-to-dng/</loc>
@@ -204,19 +220,6 @@
                 rel="alternate"
                 hreflang="zh-CN"
                 href="https://jackchou.top/posts/cic33-paper/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/tags/photos/</loc>
-    <lastmod>2025-11-06T11:05:33+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/photos/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/photos/"
                 />
   </url><url>
     <loc>https://jackchou.top/photos/hongkong-2025/</loc>
