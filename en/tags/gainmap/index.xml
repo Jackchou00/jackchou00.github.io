@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Dec 2025 13:43:14 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Dec 2025 00:31:28 +0800</lastBuildDate>
     <atom:link href="https://jackchou.top/en/tags/gainmap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HDR Image Formats Explained (V): Understanding Headroom in Gainmap</title>
+      <link>https://jackchou.top/en/posts/iso-gainmap-alternate-headroom/</link>
+      <pubDate>Wed, 17 Dec 2025 23:08:09 +0800</pubDate>
+      <guid>https://jackchou.top/en/posts/iso-gainmap-alternate-headroom/</guid>
+      <description>Through a case study, understand a seemingly redundant parameter when encoding HDR images: the role of Alternate HDR Headroom in the ISO 21496-1 standard</description>
+    </item>
     
     <item>
       <title>HDR Image Formats Explained (IV): ISO 21496-1 — the unified Gainmap standard</title>

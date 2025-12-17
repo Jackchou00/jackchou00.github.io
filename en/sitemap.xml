@@ -2,6 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jackchou.top/en/tags/colour/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/colour/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/colour/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/gainmap/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/gainmap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/gainmap/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/hdr/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/hdr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/hdr/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/posts/iso-gainmap-alternate-headroom/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/posts/iso-gainmap-alternate-headroom/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/posts/iso-gainmap-alternate-headroom/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/"
+                />
+  </url><url>
+    <loc>https://jackchou.top/en/tags/</loc>
+    <lastmod>2025-12-18T00:31:28+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://jackchou.top/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jackchou.top/en/tags/"
+                />
+  </url><url>
     <loc>https://jackchou.top/en/posts/a7m5-manual-raw-to-dng/</loc>
     <lastmod>2025-12-07T18:58:15+08:00</lastmod>
     <xhtml:link
@@ -41,19 +119,6 @@
                 href="https://jackchou.top/en/tags/dng/"
                 />
   </url><url>
-    <loc>https://jackchou.top/en/</loc>
-    <lastmod>2025-12-14T21:46:53+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/"
-                />
-  </url><url>
     <loc>https://jackchou.top/en/tags/raw/</loc>
     <lastmod>2025-12-07T18:58:15+08:00</lastmod>
     <xhtml:link
@@ -65,19 +130,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/tags/raw/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/</loc>
-    <lastmod>2025-12-14T21:46:53+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/tags/coffee/</loc>
@@ -145,19 +197,6 @@
                 href="https://jackchou.top/en/tags/display/"
                 />
   </url><url>
-    <loc>https://jackchou.top/en/tags/hdr/</loc>
-    <lastmod>2025-12-05T13:43:14+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/hdr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/hdr/"
-                />
-  </url><url>
     <loc>https://jackchou.top/en/tags/image/</loc>
     <lastmod>2025-11-26T00:04:28+08:00</lastmod>
     <xhtml:link
@@ -208,19 +247,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/tags/photos/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/colour/</loc>
-    <lastmod>2025-12-14T21:46:53+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/colour/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/colour/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/posts/geekon-darkvision-2700-unbox-preview/</loc>
@@ -377,19 +403,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jackchou.top/en/posts/macadam-optimal-colour/"
-                />
-  </url><url>
-    <loc>https://jackchou.top/en/tags/gainmap/</loc>
-    <lastmod>2025-12-05T13:43:14+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://jackchou.top/tags/gainmap/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jackchou.top/en/tags/gainmap/"
                 />
   </url><url>
     <loc>https://jackchou.top/en/posts/iso-21496-1-gainmap-hdr/</loc>
