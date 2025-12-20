@@ -1,586 +1,69 @@
-<!DOCTYPE html>
-<html lang="en"
-    dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Colour Space Conversion: RGB to XYZ | JacksBlog</title>
-<meta name="keywords" content="RGB colour space, sRGB colour space, RGB to XYZ conversion matrix, sRGB non-linear transfer function, CIEXYZ tristimulus values, RGB primaries white point, RGB colour gamut verification, Python RGB colour conversion">
-<meta name="description" content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.">
-<meta name="author" content="Miaosen Zhou">
-<link rel="canonical" href="https://jackchou.top/en/posts/ccm-01-rgb-xyz/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.86974c6b2de41d4687d60a6ae9cd208741bff58a4d161369ffea23f2f3244458.css" integrity="sha256-hpdMay3kHUaH1gpq6c0gh0G/9YpNFhNp/&#43;oj8vMkRFg=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://jackchou.top/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://jackchou.top/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://jackchou.top/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://jackchou.top/apple-touch-icon.png">
-<link rel="mask-icon" href="https://jackchou.top/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh-cn" href="https://jackchou.top/posts/ccm-01-rgb-xyz/">
-<link rel="alternate" hreflang="en" href="https://jackchou.top/en/posts/ccm-01-rgb-xyz/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          
-          
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          
-          throwOnError : false
-        });
-    });
-</script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Google&#43;Sans&#43;Code:wght@400..700&amp;family=Noto&#43;Sans&#43;SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google&#43;Sans&#43;Code:wght@400..700&amp;family=Noto&#43;Sans&#43;SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google&#43;Sans&#43;Code:wght@400..700&amp;family=Noto&#43;Sans&#43;SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap"></noscript>
-
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6YGE0Y6TC7"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-6YGE0Y6TC7');
-        }
-      </script><meta property="og:url" content="https://jackchou.top/en/posts/ccm-01-rgb-xyz/">
-  <meta property="og:site_name" content="JacksBlog">
-  <meta property="og:title" content="Colour Space Conversion: RGB to XYZ">
-  <meta property="og:description" content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-02-23T00:00:00+08:00">
-    <meta property="article:modified_time" content="2025-07-20T01:27:54+08:00">
-    <meta property="article:tag" content="Colour">
-    <meta property="article:tag" content="CCM">
-      <meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp">
-<meta name="twitter:title" content="Colour Space Conversion: RGB to XYZ">
-<meta name="twitter:description" content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts 🌳",
-      "item": "https://jackchou.top/en/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Colour Space Conversion: RGB to XYZ",
-      "item": "https://jackchou.top/en/posts/ccm-01-rgb-xyz/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Colour Space Conversion: RGB to XYZ",
-  "name": "Colour Space Conversion: RGB to XYZ",
-  "description": "Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.",
-  "keywords": [
-    "RGB colour space", "sRGB colour space", "RGB to XYZ conversion matrix", "sRGB non-linear transfer function", "CIEXYZ tristimulus values", "RGB primaries white point", "RGB colour gamut verification", "Python RGB colour conversion"
-  ],
-  "articleBody": "The RGB Colour Space The RGB colour space is arguably the most common colour space. It is an additive system that describes colours through the mixing of three primaries. The most common RGB colour space is sRGB (standard Red Green Blue), jointly introduced by HP and Microsoft in 1996, which has gradually gained widespread support across various industries and software.\nAn RGB colour space, as exemplified by sRGB, is primarily defined by three components: the colorimetric definition of its RGB primaries and white point, a non-linear transfer function, and the viewing environment. For instance, sRGB defines the xy colour coordinates for its red, green, and blue primaries as (0.64, 0.33), (0.30, 0.60), and (0.15, 0.06) respectively, with the white point coordinates at (0.3127, 0.3290); it employs a transfer function that approximates a gamma of 2.2; and it specifies the viewing environment’s illuminance, ambient reflectance, and even glare.\nFor details, please see the definition of sRGB.\nBased on the first two parts of the definition—the three primaries and the white point, and the transfer function—the conversion sequence can be established as RGB -\u003e Linear RGB -\u003e XYZ. The conversion from linear RGB to XYZ is achieved using a matrix. This matrix effectively describes the positions of the three primaries within CIEXYZ and the proportions in which they are mixed to produce the white point.\nBuilding the Conversion Matrix Key: Determining the “Proportions” of the Primaries The definition only provides the “colour coordinates” for the primaries, and colour coordinates contain no luminance information. Imagine we have red, green, and blue LED light sources. By adjusting their brightness, we can mix them to create different colours. Our goal now is to find the proportions that, when mixed, produce the white point colour coordinates defined in the specification.\nA straightforward method is as follows (provided by Claude 3.7 Sonnet):\nFirst, preset the luminance of the three primaries and the white point to 1 (Y=1), and calculate their corresponding CIEXYZ values (by converting from xyY to XYZ).\nSince CIEXYZ is linear, solve for the proportions in which the three primaries (each with a luminance of 1) must be combined to produce the white point. This gives the actual XYZ values for the primaries.\nFollowing the definition of matrix multiplication, describe the linear combination of the primaries as a matrix to construct the conversion matrix.\nMixing Colour Coordinates The following is a more convoluted process I worked through while thinking about this problem. The method above is sufficiently concise and intuitive, so you can skip the following section and proceed to the part about the transfer function. I’m leaving this here purely because I couldn’t bring myself to delete it.\nHow do we determine the new colour coordinates after mixing three sets of colour coordinates?\nFirst, convert the xy colour coordinates to CIEXYZ tristimulus values. The Z value is not important for the subsequent mixing, so its transformation is omitted here. Y is the proportion we are looking for.\n$$ \\begin{align*} \u0026X+Y+Z=\\frac{Y}{y} \\\\ \u0026X=x(X+Y+Z)=\\frac{xY}{y} \\\\ \\end{align*} $$We use subscripts to denote the three components, while variables without subscripts represent the mixed colour. CIEXYZ is linear, so values can be summed. Here, we calculate the X and Y values of the mixed colour, as well as the sum of X, Y, and Z (used for later calculation of the colour coordinates).\n$$ \\begin{align*} \u0026 Y=Y_{1}+Y_{2}+Y_{3} \\\\ \u0026 X=\\frac{x_{1}Y_{1}}{y_{1}}+\\frac{x_{2}Y_{2}}{y_{2}}+\\frac{x_{3}Y_{3}}{y_{3}} \\\\ \u0026 X+Y+Z=\\frac{Y_{1}}{y_{1}}+\\frac{Y_{2}}{y_{2}}+\\frac{Y_{3}}{y_{3}} \\\\ \\end{align*} $$Let $X+Y+Z=S$. After summing the tristimulus values, we convert back to xyY colour coordinates. The mixed colour coordinates are:\n$$ \\begin{align*} \\\\ \u0026 y=\\frac{Y}{S} \\\\ \u0026 x=\\frac{X}{S} \\end{align*} $$That is:\n$$ \\begin{align*} \u0026S=\\frac{Y}{y} \\\\ \u0026X=xS=\\frac{xY}{y} \\end{align*} $$When the colour coordinates of the three primaries and the white point are known, the following system of equations can be constructed.\n$$ \\left\\{ \\begin{align*} \u0026 Y_{1}+Y_{2}+Y_{3}=Y \\\\ \u0026 \\frac{1}{y_{1}}Y_{1}+\\frac{1}{y_{2}}Y_{2}+\\frac{1}{y_{3}}Y_{3}=\\frac{Y}{y} \\\\ \u0026 \\frac{x_{1}}{y_{1}}Y_{1}+\\frac{x_{2}}{y_{2}}Y_{2}+\\frac{x_{3}}{y_{3}}Y_{3}=\\frac{xY}{y} \\end{align*} \\right. $$Expressed in matrix form:\n$$ \\begin{bmatrix} 1 \u0026 1 \u0026 1 \\\\ \\frac{1}{y_1} \u0026 \\frac{1}{y_2} \u0026 \\frac{1}{y_3} \\\\ \\frac{x_1}{y_1} \u0026 \\frac{x_2}{y_2} \u0026 \\frac{x_3}{y_3} \\end{bmatrix} \\begin{bmatrix} Y_1 \\\\ Y_2 \\\\ Y_3 \\end{bmatrix} = \\begin{bmatrix} Y \\\\ \\frac{Y}{y} \\\\ \\frac{xY}{y} \\end{bmatrix} $$Typically, Y is set to 1 (i.e., the white point luminance is normalised). This allows us to solve for the proportions (the luminance Y of each primary) in which the three primaries must be mixed to obtain the specified white point.\nThe Conversion Matrix After finding the xyY values for the three primaries, we convert them to XYZ. It is easy to see that we have now calculated the corresponding XYZ tristimulus values for the basis vectors in the RGB space.\nTherefore, the conversion matrix from RGB to XYZ is as follows. To convert from XYZ to RGB, one simply needs to find the inverse of this matrix.\n$$ \\begin{bmatrix} X_{r} \u0026 X_{g} \u0026 X_{b} \\\\ Y_{r} \u0026 Y_{g} \u0026 Y_{b} \\\\ Z_{r} \u0026 Z_{g} \u0026 Z_{b} \\\\ \\end{bmatrix} \\begin{bmatrix} R \\\\ G \\\\ B \\end{bmatrix} = \\begin{bmatrix} X \\\\ Y \\\\ Z \\end{bmatrix} $$The Non-linear Transfer Function To better match the perceptual characteristics of the human eye, values in an RGB space are typically passed through a non-linear transfer function, converting linear RGB to non-linear RGB. For example, sRGB uses a non-linear transfer function that approximates a gamma of 2.2 and corrects for potential issues near zero during the inverse transformation.\nThe conversion function from linear sRGB to non-linear sRGB is as follows. Although the exponent is 2.4, it is actually closer to $x^{2.2}$.\n$$ \\begin{align*} \u0026 R' = \\begin{cases} 12.92R \u0026 R \\leq 0.0031308 \\\\ 1.055R^{1/2.4}-0.055 \u0026 R \u003e 0.0031308 \\end{cases} \\end{align*} $$Thoughts How can one determine if a given set of tristimulus values lies within a specific RGB colour space?\nHow to determine if given XYZ tristimulus values fall within a colour gamut.\nThe gamut is defined by four CIE xy coordinates representing red, green, blue, and white (assume white point luminance has been normalised to 1.0).\nPlease provide the Python code.\nThe first model to answer this question correctly without an internet connection was Deepseek R1 (referring to the first generation). It required an output of about ten thousand tokens, and most platforms deploying R1 do not support such long outputs.\nModels that subsequently answered correctly: Gemini 2.5 Pro, OpenAI o3 Pro, Deepseek V3-0324, Claude 3.7 Sonnet, Grok 4, Kimi K2.\nModels that failed: GPT 4.1, Qwen, Claude Sonnet 4 (while 3.7 could reason its way to the correct answer, 4 could not, even with reasoning).\nThe key issue was whether luminance was correctly considered. The correct approach is to construct the conversion matrix, transform the XYZ values to RGB, and then check if any of the resulting RGB components are less than 0 or greater than 1. A typical mistake is to convert the XYZ values to xy colour coordinates and check if the point lies within the triangle formed by the three primaries.\n",
-  "wordCount" : "1135",
-  "inLanguage": "en",
-  "image": "https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished": "2025-02-23T00:00:00+08:00",
-  "dateModified": "2025-07-20T01:27:54+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "Miaosen Zhou"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://jackchou.top/en/posts/ccm-01-rgb-xyz/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JacksBlog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://jackchou.top/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://jackchou.top/en/" accesskey="h" title="JacksBlog (Alt + H)">JacksBlog</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="https://jackchou.top/" title="中文"
-                            aria-label="中文">中文</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://jackchou.top/en/posts/" title="Posts 🌳">
-                    <span>Posts 🌳</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://jackchou.top/en/photos/" title="Photos 📷">
-                    <span>Photos 📷</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://jackchou.top/en/tags/" title="Tags 🏷️">
-                    <span>Tags 🏷️</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://jackchou.top/en/about/" title="About 😼">
-                    <span>About 😼</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title entry-hint-parent">
-      Colour Space Conversion: RGB to XYZ
-    </h1>
-    
-    <div class="post-meta"><span title='2025-02-23 00:00:00 +0800 +0800'>2025.02.23</span>&nbsp;|&nbsp;Translations:
-<ul class="i18n_list">
-    <li>
-        <a href="https://jackchou.top/posts/ccm-01-rgb-xyz/">中文</a>
-    </li>
-</ul>
-
-</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#the-rgb-colour-space" aria-label="The RGB Colour Space">The RGB Colour Space</a></li>
-                <li>
-                    <a href="#building-the-conversion-matrix" aria-label="Building the Conversion Matrix">Building the Conversion Matrix</a><ul>
-                        
-                <li>
-                    <a href="#key-determining-the-proportions-of-the-primaries" aria-label="Key: Determining the &ldquo;Proportions&rdquo; of the Primaries">Key: Determining the &ldquo;Proportions&rdquo; of the Primaries</a></li>
-                <li>
-                    <a href="#mixing-colour-coordinates" aria-label="Mixing Colour Coordinates">Mixing Colour Coordinates</a></li>
-                <li>
-                    <a href="#the-conversion-matrix" aria-label="The Conversion Matrix">The Conversion Matrix</a></li></ul>
-                </li>
-                <li>
-                    <a href="#the-non-linear-transfer-function" aria-label="The Non-linear Transfer Function">The Non-linear Transfer Function</a></li>
-                <li>
-                    <a href="#thoughts" aria-label="Thoughts">Thoughts</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-  <div class="post-content"><h2 id="the-rgb-colour-space">The RGB Colour Space<a hidden class="anchor" aria-hidden="true" href="#the-rgb-colour-space">#</a></h2>
-<p>The RGB colour space is arguably the most common colour space. It is an additive system that describes colours through the mixing of three primaries. The most common RGB colour space is sRGB (standard Red Green Blue), jointly introduced by HP and Microsoft in 1996, which has gradually gained widespread support across various industries and software.</p>
-<p>An RGB colour space, as exemplified by sRGB, is primarily defined by three components: the colorimetric definition of its RGB primaries and white point, a non-linear transfer function, and the viewing environment. For instance, sRGB defines the xy colour coordinates for its red, green, and blue primaries as (0.64, 0.33), (0.30, 0.60), and (0.15, 0.06) respectively, with the white point coordinates at (0.3127, 0.3290); it employs a transfer function that approximates a gamma of 2.2; and it specifies the viewing environment&rsquo;s illuminance, ambient reflectance, and even glare.</p>
-<p>For details, please see the <a href="https://www.w3.org/Graphics/Color/sRGB">definition of sRGB</a>.</p>
-<p>Based on the first two parts of the definition—the three primaries and the white point, and the transfer function—the conversion sequence can be established as RGB -&gt; Linear RGB -&gt; XYZ. The conversion from linear RGB to XYZ is achieved using a matrix. This matrix effectively describes the positions of the three primaries within CIEXYZ and the proportions in which they are mixed to produce the white point.</p>
-<h2 id="building-the-conversion-matrix">Building the Conversion Matrix<a hidden class="anchor" aria-hidden="true" href="#building-the-conversion-matrix">#</a></h2>
-<h3 id="key-determining-the-proportions-of-the-primaries">Key: Determining the &ldquo;Proportions&rdquo; of the Primaries<a hidden class="anchor" aria-hidden="true" href="#key-determining-the-proportions-of-the-primaries">#</a></h3>
-<p>The definition only provides the &ldquo;colour coordinates&rdquo; for the primaries, and colour coordinates contain no luminance information. Imagine we have red, green, and blue LED light sources. By adjusting their brightness, we can mix them to create different colours. Our goal now is to find the proportions that, when mixed, produce the white point colour coordinates defined in the specification.</p>
-<p>A straightforward method is as follows (provided by Claude 3.7 Sonnet):</p>
-<ol>
-<li>
-<p>First, preset the luminance of the three primaries and the white point to 1 (Y=1), and calculate their corresponding CIEXYZ values (by converting from xyY to XYZ).</p>
-</li>
-<li>
-<p>Since CIEXYZ is linear, solve for the proportions in which the three primaries (each with a luminance of 1) must be combined to produce the white point. This gives the actual XYZ values for the primaries.</p>
-</li>
-<li>
-<p>Following the definition of matrix multiplication, describe the linear combination of the primaries as a matrix to construct the conversion matrix.</p>
-</li>
-</ol>
-<h3 id="mixing-colour-coordinates">Mixing Colour Coordinates<a hidden class="anchor" aria-hidden="true" href="#mixing-colour-coordinates">#</a></h3>
-<blockquote>
-<p>The following is a more convoluted process I worked through while thinking about this problem. The method above is sufficiently concise and intuitive, so you can skip the following section and proceed to the part about the transfer function. I&rsquo;m leaving this here purely because I couldn&rsquo;t bring myself to delete it.</p>
-</blockquote>
-<p>How do we determine the new colour coordinates after mixing three sets of colour coordinates?</p>
-<p>First, convert the xy colour coordinates to CIEXYZ tristimulus values. The Z value is not important for the subsequent mixing, so its transformation is omitted here. Y is the proportion we are looking for.</p>
-$$
-    \begin{align*}
-    &X+Y+Z=\frac{Y}{y} \\
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Colour Space Conversion: RGB to XYZ | JacksBlog</title>
+<meta name=keywords content="RGB colour space,sRGB colour space,RGB to XYZ conversion matrix,sRGB non-linear transfer function,CIEXYZ tristimulus values,RGB primaries white point,RGB colour gamut verification,Python RGB colour conversion"><meta name=description content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion."><meta name=author content="Miaosen Zhou"><link rel=canonical href=https://jackchou.top/en/posts/ccm-01-rgb-xyz/><link crossorigin=anonymous href=/assets/css/stylesheet.86974c6b2de41d4687d60a6ae9cd208741bff58a4d161369ffea23f2f3244458.css integrity="sha256-hpdMay3kHUaH1gpq6c0gh0G/9YpNFhNp/+oj8vMkRFg=" rel="preload stylesheet" as=style><link rel=icon href=https://jackchou.top/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://jackchou.top/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://jackchou.top/favicon-32x32.png><link rel=apple-touch-icon href=https://jackchou.top/apple-touch-icon.png><link rel=mask-icon href=https://jackchou.top/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://jackchou.top/posts/ccm-01-rgb-xyz/><link rel=alternate hreflang=en href=https://jackchou.top/en/posts/ccm-01-rgb-xyz/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css integrity=sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js integrity=sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js integrity=sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh crossorigin=anonymous></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],throwOnError:!1})})</script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preconnect href=https://cdn.jsdelivr.net><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400..700&amp;family=Noto+Sans+SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400..700&amp;family=Noto+Sans+SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap" media=print onload='this.media="all"'><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400..700&amp;family=Noto+Sans+SC:wght@400..700&amp;family=Sen:wght@400..700&amp;display=swap"></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-6YGE0Y6TC7"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-6YGE0Y6TC7")}</script><meta property="og:url" content="https://jackchou.top/en/posts/ccm-01-rgb-xyz/"><meta property="og:site_name" content="JacksBlog"><meta property="og:title" content="Colour Space Conversion: RGB to XYZ"><meta property="og:description" content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-23T00:00:00+08:00"><meta property="article:modified_time" content="2025-07-20T01:27:54+08:00"><meta property="article:tag" content="Colour"><meta property="article:tag" content="CCM"><meta property="og:image" content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp"><meta name=twitter:title content="Colour Space Conversion: RGB to XYZ"><meta name=twitter:description content="Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts 🌳","item":"https://jackchou.top/en/posts/"},{"@type":"ListItem","position":2,"name":"Colour Space Conversion: RGB to XYZ","item":"https://jackchou.top/en/posts/ccm-01-rgb-xyz/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Colour Space Conversion: RGB to XYZ","name":"Colour Space Conversion: RGB to XYZ","description":"Build a precise RGB to XYZ matrix using sRGB primaries, white point (0.3127, 0.3290), and the non-linear transfer function for accurate color conversion.","keywords":["RGB colour space","sRGB colour space","RGB to XYZ conversion matrix","sRGB non-linear transfer function","CIEXYZ tristimulus values","RGB primaries white point","RGB colour gamut verification","Python RGB colour conversion"],"articleBody":"The RGB Colour Space The RGB colour space is arguably the most common colour space. It is an additive system that describes colours through the mixing of three primaries. The most common RGB colour space is sRGB (standard Red Green Blue), jointly introduced by HP and Microsoft in 1996, which has gradually gained widespread support across various industries and software.\nAn RGB colour space, as exemplified by sRGB, is primarily defined by three components: the colorimetric definition of its RGB primaries and white point, a non-linear transfer function, and the viewing environment. For instance, sRGB defines the xy colour coordinates for its red, green, and blue primaries as (0.64, 0.33), (0.30, 0.60), and (0.15, 0.06) respectively, with the white point coordinates at (0.3127, 0.3290); it employs a transfer function that approximates a gamma of 2.2; and it specifies the viewing environment’s illuminance, ambient reflectance, and even glare.\nFor details, please see the definition of sRGB.\nBased on the first two parts of the definition—the three primaries and the white point, and the transfer function—the conversion sequence can be established as RGB -\u003e Linear RGB -\u003e XYZ. The conversion from linear RGB to XYZ is achieved using a matrix. This matrix effectively describes the positions of the three primaries within CIEXYZ and the proportions in which they are mixed to produce the white point.\nBuilding the Conversion Matrix Key: Determining the “Proportions” of the Primaries The definition only provides the “colour coordinates” for the primaries, and colour coordinates contain no luminance information. Imagine we have red, green, and blue LED light sources. By adjusting their brightness, we can mix them to create different colours. Our goal now is to find the proportions that, when mixed, produce the white point colour coordinates defined in the specification.\nA straightforward method is as follows (provided by Claude 3.7 Sonnet):\nFirst, preset the luminance of the three primaries and the white point to 1 (Y=1), and calculate their corresponding CIEXYZ values (by converting from xyY to XYZ).\nSince CIEXYZ is linear, solve for the proportions in which the three primaries (each with a luminance of 1) must be combined to produce the white point. This gives the actual XYZ values for the primaries.\nFollowing the definition of matrix multiplication, describe the linear combination of the primaries as a matrix to construct the conversion matrix.\nMixing Colour Coordinates The following is a more convoluted process I worked through while thinking about this problem. The method above is sufficiently concise and intuitive, so you can skip the following section and proceed to the part about the transfer function. I’m leaving this here purely because I couldn’t bring myself to delete it.\nHow do we determine the new colour coordinates after mixing three sets of colour coordinates?\nFirst, convert the xy colour coordinates to CIEXYZ tristimulus values. The Z value is not important for the subsequent mixing, so its transformation is omitted here. Y is the proportion we are looking for.\n$$ \\begin{align*} \u0026X+Y+Z=\\frac{Y}{y} \\\\ \u0026X=x(X+Y+Z)=\\frac{xY}{y} \\\\ \\end{align*} $$We use subscripts to denote the three components, while variables without subscripts represent the mixed colour. CIEXYZ is linear, so values can be summed. Here, we calculate the X and Y values of the mixed colour, as well as the sum of X, Y, and Z (used for later calculation of the colour coordinates).\n$$ \\begin{align*} \u0026 Y=Y_{1}+Y_{2}+Y_{3} \\\\ \u0026 X=\\frac{x_{1}Y_{1}}{y_{1}}+\\frac{x_{2}Y_{2}}{y_{2}}+\\frac{x_{3}Y_{3}}{y_{3}} \\\\ \u0026 X+Y+Z=\\frac{Y_{1}}{y_{1}}+\\frac{Y_{2}}{y_{2}}+\\frac{Y_{3}}{y_{3}} \\\\ \\end{align*} $$Let $X+Y+Z=S$. After summing the tristimulus values, we convert back to xyY colour coordinates. The mixed colour coordinates are:\n$$ \\begin{align*} \\\\ \u0026 y=\\frac{Y}{S} \\\\ \u0026 x=\\frac{X}{S} \\end{align*} $$That is:\n$$ \\begin{align*} \u0026S=\\frac{Y}{y} \\\\ \u0026X=xS=\\frac{xY}{y} \\end{align*} $$When the colour coordinates of the three primaries and the white point are known, the following system of equations can be constructed.\n$$ \\left\\{ \\begin{align*} \u0026 Y_{1}+Y_{2}+Y_{3}=Y \\\\ \u0026 \\frac{1}{y_{1}}Y_{1}+\\frac{1}{y_{2}}Y_{2}+\\frac{1}{y_{3}}Y_{3}=\\frac{Y}{y} \\\\ \u0026 \\frac{x_{1}}{y_{1}}Y_{1}+\\frac{x_{2}}{y_{2}}Y_{2}+\\frac{x_{3}}{y_{3}}Y_{3}=\\frac{xY}{y} \\end{align*} \\right. $$Expressed in matrix form:\n$$ \\begin{bmatrix} 1 \u0026 1 \u0026 1 \\\\ \\frac{1}{y_1} \u0026 \\frac{1}{y_2} \u0026 \\frac{1}{y_3} \\\\ \\frac{x_1}{y_1} \u0026 \\frac{x_2}{y_2} \u0026 \\frac{x_3}{y_3} \\end{bmatrix} \\begin{bmatrix} Y_1 \\\\ Y_2 \\\\ Y_3 \\end{bmatrix} = \\begin{bmatrix} Y \\\\ \\frac{Y}{y} \\\\ \\frac{xY}{y} \\end{bmatrix} $$Typically, Y is set to 1 (i.e., the white point luminance is normalised). This allows us to solve for the proportions (the luminance Y of each primary) in which the three primaries must be mixed to obtain the specified white point.\nThe Conversion Matrix After finding the xyY values for the three primaries, we convert them to XYZ. It is easy to see that we have now calculated the corresponding XYZ tristimulus values for the basis vectors in the RGB space.\nTherefore, the conversion matrix from RGB to XYZ is as follows. To convert from XYZ to RGB, one simply needs to find the inverse of this matrix.\n$$ \\begin{bmatrix} X_{r} \u0026 X_{g} \u0026 X_{b} \\\\ Y_{r} \u0026 Y_{g} \u0026 Y_{b} \\\\ Z_{r} \u0026 Z_{g} \u0026 Z_{b} \\\\ \\end{bmatrix} \\begin{bmatrix} R \\\\ G \\\\ B \\end{bmatrix} = \\begin{bmatrix} X \\\\ Y \\\\ Z \\end{bmatrix} $$The Non-linear Transfer Function To better match the perceptual characteristics of the human eye, values in an RGB space are typically passed through a non-linear transfer function, converting linear RGB to non-linear RGB. For example, sRGB uses a non-linear transfer function that approximates a gamma of 2.2 and corrects for potential issues near zero during the inverse transformation.\nThe conversion function from linear sRGB to non-linear sRGB is as follows. Although the exponent is 2.4, it is actually closer to $x^{2.2}$.\n$$ \\begin{align*} \u0026 R' = \\begin{cases} 12.92R \u0026 R \\leq 0.0031308 \\\\ 1.055R^{1/2.4}-0.055 \u0026 R \u003e 0.0031308 \\end{cases} \\end{align*} $$Thoughts How can one determine if a given set of tristimulus values lies within a specific RGB colour space?\nHow to determine if given XYZ tristimulus values fall within a colour gamut.\nThe gamut is defined by four CIE xy coordinates representing red, green, blue, and white (assume white point luminance has been normalised to 1.0).\nPlease provide the Python code.\nThe first model to answer this question correctly without an internet connection was Deepseek R1 (referring to the first generation). It required an output of about ten thousand tokens, and most platforms deploying R1 do not support such long outputs.\nModels that subsequently answered correctly: Gemini 2.5 Pro, OpenAI o3 Pro, Deepseek V3-0324, Claude 3.7 Sonnet, Grok 4, Kimi K2.\nModels that failed: GPT 4.1, Qwen, Claude Sonnet 4 (while 3.7 could reason its way to the correct answer, 4 could not, even with reasoning).\nThe key issue was whether luminance was correctly considered. The correct approach is to construct the conversion matrix, transform the XYZ values to RGB, and then check if any of the resulting RGB components are less than 0 or greater than 1. A typical mistake is to convert the XYZ values to xy colour coordinates and check if the point lies within the triangle formed by the three primaries.\n","wordCount":"1135","inLanguage":"en","image":"https://img.jackchou.top/jack-img/2025/08/81bb602c03f9704ee42e292468396187.webp","datePublished":"2025-02-23T00:00:00+08:00","dateModified":"2025-07-20T01:27:54+08:00","author":{"@type":"Person","name":"Miaosen Zhou"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jackchou.top/en/posts/ccm-01-rgb-xyz/"},"publisher":{"@type":"Organization","name":"JacksBlog","logo":{"@type":"ImageObject","url":"https://jackchou.top/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://jackchou.top/en/ accesskey=h title="JacksBlog (Alt + H)">JacksBlog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li><li><a href=https://jackchou.top/ title=中文 aria-label=中文>中文</a></li></ul></div></div><ul id=menu><li><a href=https://jackchou.top/en/posts/ title="Posts 🌳"><span>Posts 🌳</span></a></li><li><a href=https://jackchou.top/en/photos/ title="Photos 📷"><span>Photos 📷</span></a></li><li><a href=https://jackchou.top/en/tags/ title="Tags 🏷️"><span>Tags 🏷️</span></a></li><li><a href=https://jackchou.top/en/about/ title="About 😼"><span>About 😼</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Colour Space Conversion: RGB to XYZ</h1><div class=post-meta><span title='2025-02-23 00:00:00 +0800 +0800'>2025.02.23</span>&nbsp;|&nbsp;Translations:<ul class=i18n_list><li><a href=https://jackchou.top/posts/ccm-01-rgb-xyz/>中文</a></li></ul></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#the-rgb-colour-space aria-label="The RGB Colour Space">The RGB Colour Space</a></li><li><a href=#building-the-conversion-matrix aria-label="Building the Conversion Matrix">Building the Conversion Matrix</a><ul><li><a href=#key-determining-the-proportions-of-the-primaries aria-label="Key: Determining the &ldquo;Proportions&rdquo; of the Primaries">Key: Determining the &ldquo;Proportions&rdquo; of the Primaries</a></li><li><a href=#mixing-colour-coordinates aria-label="Mixing Colour Coordinates">Mixing Colour Coordinates</a></li><li><a href=#the-conversion-matrix aria-label="The Conversion Matrix">The Conversion Matrix</a></li></ul></li><li><a href=#the-non-linear-transfer-function aria-label="The Non-linear Transfer Function">The Non-linear Transfer Function</a></li><li><a href=#thoughts aria-label=Thoughts>Thoughts</a></li></ul></div></details></div><div class=post-content><h2 id=the-rgb-colour-space>The RGB Colour Space<a hidden class=anchor aria-hidden=true href=#the-rgb-colour-space>#</a></h2><p>The RGB colour space is arguably the most common colour space. It is an additive system that describes colours through the mixing of three primaries. The most common RGB colour space is sRGB (standard Red Green Blue), jointly introduced by HP and Microsoft in 1996, which has gradually gained widespread support across various industries and software.</p><p>An RGB colour space, as exemplified by sRGB, is primarily defined by three components: the colorimetric definition of its RGB primaries and white point, a non-linear transfer function, and the viewing environment. For instance, sRGB defines the xy colour coordinates for its red, green, and blue primaries as (0.64, 0.33), (0.30, 0.60), and (0.15, 0.06) respectively, with the white point coordinates at (0.3127, 0.3290); it employs a transfer function that approximates a gamma of 2.2; and it specifies the viewing environment&rsquo;s illuminance, ambient reflectance, and even glare.</p><p>For details, please see the <a href=https://www.w3.org/Graphics/Color/sRGB>definition of sRGB</a>.</p><p>Based on the first two parts of the definition—the three primaries and the white point, and the transfer function—the conversion sequence can be established as RGB -> Linear RGB -> XYZ. The conversion from linear RGB to XYZ is achieved using a matrix. This matrix effectively describes the positions of the three primaries within CIEXYZ and the proportions in which they are mixed to produce the white point.</p><h2 id=building-the-conversion-matrix>Building the Conversion Matrix<a hidden class=anchor aria-hidden=true href=#building-the-conversion-matrix>#</a></h2><h3 id=key-determining-the-proportions-of-the-primaries>Key: Determining the &ldquo;Proportions&rdquo; of the Primaries<a hidden class=anchor aria-hidden=true href=#key-determining-the-proportions-of-the-primaries>#</a></h3><p>The definition only provides the &ldquo;colour coordinates&rdquo; for the primaries, and colour coordinates contain no luminance information. Imagine we have red, green, and blue LED light sources. By adjusting their brightness, we can mix them to create different colours. Our goal now is to find the proportions that, when mixed, produce the white point colour coordinates defined in the specification.</p><p>A straightforward method is as follows (provided by Claude 3.7 Sonnet):</p><ol><li><p>First, preset the luminance of the three primaries and the white point to 1 (Y=1), and calculate their corresponding CIEXYZ values (by converting from xyY to XYZ).</p></li><li><p>Since CIEXYZ is linear, solve for the proportions in which the three primaries (each with a luminance of 1) must be combined to produce the white point. This gives the actual XYZ values for the primaries.</p></li><li><p>Following the definition of matrix multiplication, describe the linear combination of the primaries as a matrix to construct the conversion matrix.</p></li></ol><h3 id=mixing-colour-coordinates>Mixing Colour Coordinates<a hidden class=anchor aria-hidden=true href=#mixing-colour-coordinates>#</a></h3><blockquote><p>The following is a more convoluted process I worked through while thinking about this problem. The method above is sufficiently concise and intuitive, so you can skip the following section and proceed to the part about the transfer function. I&rsquo;m leaving this here purely because I couldn&rsquo;t bring myself to delete it.</p></blockquote><p>How do we determine the new colour coordinates after mixing three sets of colour coordinates?</p><p>First, convert the xy colour coordinates to CIEXYZ tristimulus values. The Z value is not important for the subsequent mixing, so its transformation is omitted here. Y is the proportion we are looking for.</p>$$
+\begin{align*}
+&X+Y+Z=\frac{Y}{y} \\
     &X=x(X+Y+Z)=\frac{xY}{y} \\
-    \end{align*}
-$$<p>We use subscripts to denote the three components, while variables without subscripts represent the mixed colour. CIEXYZ is linear, so values can be summed. Here, we calculate the X and Y values of the mixed colour, as well as the sum of X, Y, and Z (used for later calculation of the colour coordinates).</p>
-$$
+\end{align*}
+$$<p>We use subscripts to denote the three components, while variables without subscripts represent the mixed colour. CIEXYZ is linear, so values can be summed. Here, we calculate the X and Y values of the mixed colour, as well as the sum of X, Y, and Z (used for later calculation of the colour coordinates).</p>$$
 \begin{align*}
-    & Y=Y_{1}+Y_{2}+Y_{3} \\
+& Y=Y_{1}+Y_{2}+Y_{3} \\
     & X=\frac{x_{1}Y_{1}}{y_{1}}+\frac{x_{2}Y_{2}}{y_{2}}+\frac{x_{3}Y_{3}}{y_{3}} \\
-    & X+Y+Z=\frac{Y_{1}}{y_{1}}+\frac{Y_{2}}{y_{2}}+\frac{Y_{3}}{y_{3}} \\
-    \end{align*}
-$$<p>Let $X+Y+Z=S$. After summing the tristimulus values, we convert back to xyY colour coordinates. The mixed colour coordinates are:</p>
-$$
+& X+Y+Z=\frac{Y_{1}}{y_{1}}+\frac{Y_{2}}{y_{2}}+\frac{Y_{3}}{y_{3}} \\
+\end{align*}
+$$<p>Let $X+Y+Z=S$. After summing the tristimulus values, we convert back to xyY colour coordinates. The mixed colour coordinates are:</p>$$
 \begin{align*} \\
-    & y=\frac{Y}{S} \\
+& y=\frac{Y}{S} \\
     & x=\frac{X}{S}
-    \end{align*}
-$$<p>That is:</p>
-$$
+\end{align*}
+$$<p>That is:</p>$$
 \begin{align*}
-    &S=\frac{Y}{y} \\
+&S=\frac{Y}{y} \\
     &X=xS=\frac{xY}{y}
 \end{align*}
-$$<p>When the colour coordinates of the three primaries and the white point are known, the following system of equations can be constructed.</p>
-$$
-    \left\{
-        \begin{align*}
-    & Y_{1}+Y_{2}+Y_{3}=Y \\
+$$<p>When the colour coordinates of the three primaries and the white point are known, the following system of equations can be constructed.</p>$$
+\left\{
+\begin{align*}
+& Y_{1}+Y_{2}+Y_{3}=Y \\
     & \frac{1}{y_{1}}Y_{1}+\frac{1}{y_{2}}Y_{2}+\frac{1}{y_{3}}Y_{3}=\frac{Y}{y} \\
-    & \frac{x_{1}}{y_{1}}Y_{1}+\frac{x_{2}}{y_{2}}Y_{2}+\frac{x_{3}}{y_{3}}Y_{3}=\frac{xY}{y}
-        \end{align*}
-    \right.
-$$<p>Expressed in matrix form:</p>
-$$
-    \begin{bmatrix}
-    1 & 1 & 1 \\
+& \frac{x_{1}}{y_{1}}Y_{1}+\frac{x_{2}}{y_{2}}Y_{2}+\frac{x_{3}}{y_{3}}Y_{3}=\frac{xY}{y}
+\end{align*}
+\right.
+$$<p>Expressed in matrix form:</p>$$
+\begin{bmatrix}
+1 & 1 & 1 \\
     \frac{1}{y_1} & \frac{1}{y_2} & \frac{1}{y_3} \\
     \frac{x_1}{y_1} & \frac{x_2}{y_2} & \frac{x_3}{y_3}
-    \end{bmatrix}
-    \begin{bmatrix}
-    Y_1 \\ Y_2 \\ Y_3
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-    Y \\ \frac{Y}{y} \\ \frac{xY}{y}
-    \end{bmatrix}
-$$<p>Typically, Y is set to 1 (i.e., the white point luminance is normalised). This allows us to solve for the proportions (the luminance Y of each primary) in which the three primaries must be mixed to obtain the specified white point.</p>
-<h3 id="the-conversion-matrix">The Conversion Matrix<a hidden class="anchor" aria-hidden="true" href="#the-conversion-matrix">#</a></h3>
-<p>After finding the xyY values for the three primaries, we convert them to XYZ. It is easy to see that we have now calculated the corresponding XYZ tristimulus values for the basis vectors in the RGB space.</p>
-<p>Therefore, the conversion matrix from RGB to XYZ is as follows. To convert from XYZ to RGB, one simply needs to find the inverse of this matrix.</p>
-$$
-    \begin{bmatrix}
-    X_{r} & X_{g} & X_{b} \\
+\end{bmatrix}
+\begin{bmatrix}
+Y_1 \\ Y_2 \\ Y_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+Y \\ \frac{Y}{y} \\ \frac{xY}{y}
+\end{bmatrix}
+$$<p>Typically, Y is set to 1 (i.e., the white point luminance is normalised). This allows us to solve for the proportions (the luminance Y of each primary) in which the three primaries must be mixed to obtain the specified white point.</p><h3 id=the-conversion-matrix>The Conversion Matrix<a hidden class=anchor aria-hidden=true href=#the-conversion-matrix>#</a></h3><p>After finding the xyY values for the three primaries, we convert them to XYZ. It is easy to see that we have now calculated the corresponding XYZ tristimulus values for the basis vectors in the RGB space.</p><p>Therefore, the conversion matrix from RGB to XYZ is as follows. To convert from XYZ to RGB, one simply needs to find the inverse of this matrix.</p>$$
+\begin{bmatrix}
+X_{r} & X_{g} & X_{b} \\
     Y_{r} & Y_{g} & Y_{b} \\
     Z_{r} & Z_{g} & Z_{b} \\
-    \end{bmatrix}
-    \begin{bmatrix}
-    R \\ G \\ B
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-    X \\ Y \\ Z
-    \end{bmatrix}
-$$<h2 id="the-non-linear-transfer-function">The Non-linear Transfer Function<a hidden class="anchor" aria-hidden="true" href="#the-non-linear-transfer-function">#</a></h2>
-<p>To better match the perceptual characteristics of the human eye, values in an RGB space are typically passed through a non-linear transfer function, converting linear RGB to non-linear RGB. For example, sRGB uses a non-linear transfer function that approximates a gamma of 2.2 and corrects for potential issues near zero during the inverse transformation.</p>
-<p>The conversion function from linear sRGB to non-linear sRGB is as follows. Although the exponent is 2.4, it is actually closer to $x^{2.2}$.</p>
-$$
-    \begin{align*}
-    & R' = \begin{cases}
+\end{bmatrix}
+\begin{bmatrix}
+R \\ G \\ B
+\end{bmatrix}
+=
+\begin{bmatrix}
+X \\ Y \\ Z
+\end{bmatrix}
+$$<h2 id=the-non-linear-transfer-function>The Non-linear Transfer Function<a hidden class=anchor aria-hidden=true href=#the-non-linear-transfer-function>#</a></h2><p>To better match the perceptual characteristics of the human eye, values in an RGB space are typically passed through a non-linear transfer function, converting linear RGB to non-linear RGB. For example, sRGB uses a non-linear transfer function that approximates a gamma of 2.2 and corrects for potential issues near zero during the inverse transformation.</p><p>The conversion function from linear sRGB to non-linear sRGB is as follows. Although the exponent is 2.4, it is actually closer to $x^{2.2}$.</p>$$
+\begin{align*}
+& R' = \begin{cases}
     12.92R & R \leq 0.0031308 \\
-    1.055R^{1/2.4}-0.055 & R > 0.0031308
+1.055R^{1/2.4}-0.055 & R > 0.0031308
     \end{cases}
-    \end{align*}
-$$<h2 id="thoughts">Thoughts<a hidden class="anchor" aria-hidden="true" href="#thoughts">#</a></h2>
-<p>How can one determine if a given set of tristimulus values lies within a specific RGB colour space?</p>
-<blockquote>
-<p>How to determine if given XYZ tristimulus values fall within a colour gamut.<br>
-The gamut is defined by four CIE xy coordinates representing red, green, blue, and white (assume white point luminance has been normalised to 1.0).<br>
-Please provide the Python code.</p>
-</blockquote>
-<p>The first model to answer this question correctly without an internet connection was Deepseek R1 (referring to the first generation). It required an output of about ten thousand tokens, and most platforms deploying R1 do not support such long outputs.</p>
-<p>Models that subsequently answered correctly: Gemini 2.5 Pro, OpenAI o3 Pro, Deepseek V3-0324, Claude 3.7 Sonnet, Grok 4, Kimi K2.</p>
-<p>Models that failed: GPT 4.1, Qwen, Claude Sonnet 4 (while 3.7 could reason its way to the correct answer, 4 could not, even with reasoning).</p>
-<p>The key issue was whether luminance was correctly considered. The correct approach is to construct the conversion matrix, transform the XYZ values to RGB, and then check if any of the resulting RGB components are less than 0 or greater than 1. A typical mistake is to convert the XYZ values to xy colour coordinates and check if the point lies within the triangle formed by the three primaries.</p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://jackchou.top/en/tags/colour/">Colour</a></li>
-      <li><a href="https://jackchou.top/en/tags/ccm/">CCM</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="https://jackchou.top/en/posts/ccm-02-raw-xyz/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Colour Space Conversion: RAW to XYZ</span>
-  </a>
-  <a class="next" href="https://jackchou.top/en/posts/pcrdi06/">
-    <span class="title">Next »</span>
-    <br>
-    <span>Principles of Colour Reproduction in Digital Images Notes: Colour Measurement</span>
-  </a>
-</nav>
-
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="https://jackchou.top/en/">JacksBlog</a></span> · 
-        my friends&rsquo; websites: <a href="https://zhxwu.com/">zhxwu.com</a>, <a href="https://ylqian.com/">ylqian.com</a> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a><div style="text-align: center; margin-top: 10px; margin-bottom: 20px; width: 100%; display: flex; justify-content: center;">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt="visitors" width="88" height="20" style="height: auto;" loading="lazy" />
-</div><script>
-(() => {
-    const images = document.querySelectorAll('.post-content img');
-    if (!images.length) return;
-
-    const overlay = document.createElement('div');
-    overlay.className = 'image-lightbox';
-    overlay.innerHTML = '<img class="image-lightbox__img" alt="" />';
-
-    const overlayImg = overlay.querySelector('img');
-    const closeOverlay = () => {
-        overlay.classList.remove('is-visible');
-        overlayImg.removeAttribute('src');
-        document.body.style.removeProperty('overflow');
-    };
-
-    overlay.addEventListener('click', closeOverlay);
-    document.addEventListener('keyup', (event) => {
-        if (event.key === 'Escape' && overlay.classList.contains('is-visible')) {
-            closeOverlay();
-        }
-    });
-
-    document.body.appendChild(overlay);
-
-    images.forEach((img) => {
-        img.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            const source = img.dataset.zoomSrc || img.currentSrc || img.src;
-            const cleanSrc = source.split('#')[0];
-
-            overlayImg.src = cleanSrc;
-            overlayImg.alt = img.alt || '';
-
-            overlay.classList.add('is-visible');
-            document.body.style.setProperty('overflow', 'hidden');
-        });
-    });
-})();
-</script>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
-
-</html>
+   \end{align*}
+$$<h2 id=thoughts>Thoughts<a hidden class=anchor aria-hidden=true href=#thoughts>#</a></h2><p>How can one determine if a given set of tristimulus values lies within a specific RGB colour space?</p><blockquote><p>How to determine if given XYZ tristimulus values fall within a colour gamut.<br>The gamut is defined by four CIE xy coordinates representing red, green, blue, and white (assume white point luminance has been normalised to 1.0).<br>Please provide the Python code.</p></blockquote><p>The first model to answer this question correctly without an internet connection was Deepseek R1 (referring to the first generation). It required an output of about ten thousand tokens, and most platforms deploying R1 do not support such long outputs.</p><p>Models that subsequently answered correctly: Gemini 2.5 Pro, OpenAI o3 Pro, Deepseek V3-0324, Claude 3.7 Sonnet, Grok 4, Kimi K2.</p><p>Models that failed: GPT 4.1, Qwen, Claude Sonnet 4 (while 3.7 could reason its way to the correct answer, 4 could not, even with reasoning).</p><p>The key issue was whether luminance was correctly considered. The correct approach is to construct the conversion matrix, transform the XYZ values to RGB, and then check if any of the resulting RGB components are less than 0 or greater than 1. A typical mistake is to convert the XYZ values to xy colour coordinates and check if the point lies within the triangle formed by the three primaries.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://jackchou.top/en/tags/colour/>Colour</a></li><li><a href=https://jackchou.top/en/tags/ccm/>CCM</a></li></ul><nav class=paginav><a class=prev href=https://jackchou.top/en/posts/ccm-02-raw-xyz/><span class=title>« Prev</span><br><span>Colour Space Conversion: RAW to XYZ</span>
+</a><a class=next href=https://jackchou.top/en/posts/pcrdi06/><span class=title>Next »</span><br><span>Principles of Colour Reproduction in Digital Images Notes: Colour Measurement</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://jackchou.top/en/>JacksBlog</a></span> ·
+my friends&rsquo; websites: <a href=https://zhxwu.com/>zhxwu.com</a>, <a href=https://ylqian.com/>ylqian.com</a> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><div style=text-align:center;margin-top:10px;margin-bottom:20px;width:100%;display:flex;justify-content:center><img src="https://visitor-badge.laobi.icu/badge?page_id=jacksblog" alt=visitors width=88 height=20 style=height:auto loading=lazy decoding=async fetchpriority=low></div><script defer crossorigin=anonymous src=/js/site.min.a576538c52b362e170acc02d53f5ce6045117863354954a8f91f10c7217d94ab.js integrity="sha256-pXZTjFKzYuFwrMAtU/XOYEUReGM1SVSo+R8QxyF9lKs="></script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
