@@ -1,4 +1,3 @@
 User-agent: *
 Disallow: /flowers/
-Disallow: /tags/
 Sitemap: https://jackchou.top/sitemap.xml
